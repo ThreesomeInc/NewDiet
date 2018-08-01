@@ -33,12 +33,12 @@
     vertical-align: middle;
 }
 picker-view {
-  height: 200rpx;
-      text-align: center;
-    vertical-align: middle;
+  height: 240rpx;
+  text-align: center;
+  vertical-align: middle;
 }
 picker-view-column {
-  line-height: 60rpx;
+  line-height: 70rpx;
 }
 
 /* Part 3 button*/
