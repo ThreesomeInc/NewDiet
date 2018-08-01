@@ -1,0 +1,14 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/question-sex/question-sex",
+    "pages/question-birth/question-birth"
+  ],
+  "window":{
+    "backgroundTextStyle":"bold",
+    "navigationBarBackgroundColor": "#3d4966",
+    "navigationBarTitleText": "肾脏营养师  ",
+    "navigationBarTextStyle":"white"
+  }
+}
