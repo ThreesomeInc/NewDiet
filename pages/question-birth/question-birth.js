@@ -1,4 +1,20 @@
 // pages/question-sex/question-sex.js
+const date = new Date()
+const years = []
+const months = []
+const days = []
+
+for (let i = 1990; i <= date.getFullYear(); i++) {
+  years.push(i)
+}
+for (let i = 1; i <= 12; i++) {
+  months.push(i)
+}
+
+for (let i = 1; i <= 31; i++) {
+  days.push(i)
+}
+
 var app = getApp()
 Page({
 
@@ -8,8 +24,24 @@ Page({
   data: {
     question: '您的生日是：',
     parameter: [{ id: 1, name: '男' }, { id: 2, name: '女' }],
-    nextQuestionText: '下一步 （3/9）',
+    nextQuestionText: '下一步 （2/9）',
     logoUrl: '',
+    years: years,
+    year: date.getFullYear(),
+    months: months,
+    month: 2,
+    days: days,
+    day: 2,
+    value: [9999, 1, 1],
+  },
+
+  bindChange: function (e) {
+    const val = e.detail.value
+    this.setData({
+      year: this.data.years[val[0]],
+      month: this.data.months[val[1]],
+      day: this.data.days[val[2]]
+    })
   },
 
   /**
@@ -21,6 +53,9 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
+
+    console.log(app.globalData.userBodyInfo);
+
     this.data.parameter[0].checked = true;
     this.setData({
       parameter: this.data.parameter,
@@ -34,9 +69,7 @@ Page({
     for (var i = 0; i < parameterList.length; i++) {
       if (parameterList[i].id == this_checked) {
         parameterList[i].checked = true;
-        // app.globalData.userBodyInfo.setData({
-        //   'sex': parameterList[i]
-        //   });
+        app.globalData.userBodyInfo.birth = parameterList[i];
       }
       else {
         parameterList[i].checked = false;
@@ -48,11 +81,6 @@ Page({
   },
 
   goToNextQuestion: function (e) {
-    try {
-      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo)
-    } catch (e) {
-      console.log("Exception happen when store sex info.")
-    }
     wx.navigateTo({
       url: '../question-birth/question-birth'
     })

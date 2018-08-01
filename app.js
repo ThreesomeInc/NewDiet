@@ -36,6 +36,9 @@ App({
   globalData: {
     userInfo: null,
     logoUrl: 'http://wiki.saraqian.com/wp-content/uploads/2018/08/diet_big_logo.png',
-    userBodyInfo: {},
+    userBodyInfo: {
+      sex:'',
+      birth:'',
+    },
   }
 })

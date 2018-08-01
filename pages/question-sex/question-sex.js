@@ -22,6 +22,7 @@ Page({
       })
     } 
     this.data.parameter[0].checked = true;
+    app.globalData.userBodyInfo.sex = this.data.parameter[0].name;
     this.setData({
       parameter: this.data.parameter,
     })
@@ -34,9 +35,7 @@ Page({
     for (var i = 0; i < parameterList.length; i++) {
       if (parameterList[i].id == this_checked) {
         parameterList[i].checked = true;
-        // app.globalData.userBodyInfo.setData({
-        //   'sex': parameterList[i]
-        //   });
+        app.globalData.userBodyInfo.sex = parameterList[i].name
       }
       else {
         parameterList[i].checked = false;
@@ -48,11 +47,6 @@ Page({
   },
 
   goToNextQuestion: function (e) {
-    try {
-      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo)
-    } catch (e) {
-      console.log("Exception happen when store sex info.")
-    }
     wx.navigateTo({
       url: '../question-birth/question-birth'
     })
