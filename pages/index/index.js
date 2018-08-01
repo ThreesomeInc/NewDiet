@@ -17,7 +17,7 @@ Page({
   },
   goToQuestionSex: function () {
     wx.navigateTo({
-      url: '../question-sex/question-sex'
+      url: '../question/gender/gender'
     })
   },
   onLoad: function () {

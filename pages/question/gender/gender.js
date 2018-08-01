@@ -5,11 +5,11 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {        
-  question: '您的性别是：',
-  parameter: [{ id: 1, name: '男' }, { id: 2, name: '女' }],
-  nextQuestionText: '下一步 （2/9）',
-  logoUrl: '',
+  data: {
+    question: '您的性别是：',
+    parameter: [{ id: 1, name: '男' }, { id: 2, name: '女' }],
+    nextQuestionText: '下一步 （2/9）',
+    logoUrl: '',
   },
 
   /**
@@ -20,7 +20,7 @@ Page({
       this.setData({
         logoUrl: app.globalData.logoUrl
       })
-    } 
+    }
     this.data.parameter[0].checked = true;
     app.globalData.userBodyInfo.sex = this.data.parameter[0].name;
     this.setData({
@@ -48,7 +48,7 @@ Page({
 
   goToNextQuestion: function (e) {
     wx.navigateTo({
-      url: '../question-birth/question-birth'
+      url: '../../question/birth/birth'
     })
   },
 
@@ -56,48 +56,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

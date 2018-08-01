@@ -22,7 +22,7 @@ Page({
    */
   data: {
     question: '您的生日是：',
-    nextQuestionText: '下一步 （2/9）',
+    nextQuestionText: '下一步 （3/9）',
     logoUrl: '',
     years: years,
     months: months,
@@ -51,7 +51,7 @@ Page({
 
   goToNextQuestion: function (e) {
     wx.navigateTo({
-      url: '../question-birth/question-birth'
+      url: '../../question/birth/birth'
     })
   },
 

@@ -23,3 +23,6 @@
   background-color: white;
   border: 1px solid #3d4966;
 }
+.container {
+  background-color: rgba(0, 0, 0, 0.05);
+}
