@@ -1,4 +1,4 @@
-/* pages/question-birth/question-birth.wxss */
+/* pages/question-sex/question-sex.wxss */
 .container {
   color: #3d4966;
   background-color: rgba(0, 0, 0, 0.05);

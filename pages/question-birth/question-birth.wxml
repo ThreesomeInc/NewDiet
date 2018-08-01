@@ -1,4 +1,4 @@
-<!--question-birth.wxml-->
+<!--question-sex.wxml-->
 <view class="container">
   <view class="big-logo-view">
       <image class="big-logo" mode="widthFix" src="{{logoUrl}}" ></image>
