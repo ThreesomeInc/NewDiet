@@ -1,0 +1,21 @@
+<!--pages/question/otherDisease/otherDisease.wxml-->
+<view class="container">
+	<view class="big-logo-view">
+		<image class="big-logo" mode="widthFix" src="{{logoUrl}}" ></image>
+	</view>
+	<view class="question-header-view">
+		<text class="question-header">{{question}}</text>
+	</view>
+
+	<view class="data-picker-view">
+		<picker-view indicator-style="height: 40rpx;" value="{{value}}" bindchange="bindChange">
+			<picker-view-column>
+				<view wx:for="{{parameter}}" wx:key="parameter">{{item.name}}</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+
+	<view class="nextButtonView">
+		<button bindtap='goToNextQuestion' class='nextQuestionButton'>{{nextQuestionText}}</button>
+	</view>
+</view>

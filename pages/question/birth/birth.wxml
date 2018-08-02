@@ -10,13 +10,13 @@
 <view class="data-picker-view">
   <picker-view indicator-style="height: 40rpx;" value="{{value}}" bindchange="bindChange">
     <picker-view-column>
-      <view wx:for="{{years}}">{{item}}年</view>
+      <view wx:for="{{years}}" wx:key="years">{{item}}年</view>
     </picker-view-column>
     <picker-view-column>
-      <view wx:for="{{months}}">{{item}}月</view>
+      <view wx:for="{{months}}" wx:key="months">{{item}}月</view>
     </picker-view-column>
     <picker-view-column>
-      <view wx:for="{{days}}">{{item}}日</view>
+      <view wx:for="{{days}}" wx:key="days">{{item}}日</view>
     </picker-view-column>
   </picker-view>
 </view>

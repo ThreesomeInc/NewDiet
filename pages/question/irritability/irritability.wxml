@@ -1,0 +1,22 @@
+<!--pages/question/irritability/irritability.wxml-->
+<view class="container">
+	<view class="big-logo-view">
+		<image class="big-logo" mode="widthFix" src="{{logoUrl}}" ></image>
+	</view>
+	<view class="question-header-view">
+		<text class="question-header">{{question}}</text>
+	</view>
+
+	<view class="data-picker-view">
+		<checkbox-group bindchange="checkboxChange">
+			<label class="checkbox" wx:for="{{parameter}}" wx:key="parameter" wx:for-index="idx">
+				<checkbox value="{{item.key}}" checked="{{item.checked}}"/>{{item.name}}
+				<text wx:if="{{idx % 3 === 0}}">\n</text>
+			</label>
+		</checkbox-group>
+	</view>
+
+	<view class="nextButtonView">
+		<button bindtap='sendDataAndSeeReport' class='nextQuestionButton'>{{fetchReport}}</button>
+	</view>
+</view>

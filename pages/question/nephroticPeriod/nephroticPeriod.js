@@ -1,23 +1,18 @@
-// pages/question-sex/question-sex.js
+// pages/question/nephroticPeriod/nephroticPeriod.js
 let util = require('../../../utils/util.js');
-const date = new Date();
-const years = util.range(1990, date.getFullYear());
-const months = util.range(1, 12);
-const days = util.range(1, 31);
-
+const periods = util.range(1, 5);
 const app = getApp();
+
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    question: '您的生日是：',
-    nextQuestionText: '下一步 （3/9）',
-    logoUrl: '',
-    years: years,
-    months: months,
-    days: days,
-    value: [9999, 0, 0],
+    question: '您目前属于肾脏病第几期？',
+    nextQuestionText: '下一步 （7/9）',
+    periods: periods,
+    value: [0]
   },
 
   /**
@@ -29,25 +24,17 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-
-    console.log(app.globalData.userBodyInfo);
-    app.globalData.userBodyInfo.birth = "2018-01-01";
+    app.globalData.userBodyInfo.nephroticPeriod = this.data.periods[0];
   },
 
   bindChange: function (e) {
     const val = e.detail.value;
-    let year = this.data.years[val[0]];
-    let month = this.data.months[val[1]];
-    this.setData({
-      days: util.range(1, new Date(year, month, 0).getDate())
-    });
-    let day = this.data.days[val[2]];
-    app.globalData.userBodyInfo.birth = [year, util.pad(month, 2), util.pad(day, 2)].join('-');
+    app.globalData.userBodyInfo.nephroticPeriod = this.data.periods[val[0]];
   },
 
   goToNextQuestion: function (e) {
     wx.navigateTo({
-      url: '../../question/height/height'
+      url: '../../question/treatmentMethod/treatmentMethod'
     })
   },
 
@@ -99,4 +86,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-});
+})

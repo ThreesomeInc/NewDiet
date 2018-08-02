@@ -3,7 +3,14 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/question/gender/gender",
-    "pages/question/birth/birth"
+    "pages/question/birth/birth",
+    "pages/question/height/height",
+    "pages/question/weight/weight",
+    "pages/question/sportRate/sportRate",
+    "pages/question/treatmentMethod/treatmentMethod",
+    "pages/question/otherDisease/otherDisease",
+    "pages/question/nephroticPeriod/nephroticPeriod",
+    "pages/question/irritability/irritability"
   ],
   "window": {
     "backgroundTextStyle": "bold",

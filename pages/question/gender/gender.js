@@ -1,5 +1,5 @@
 // pages/question-sex/question-sex.js
-var app = getApp()
+const app = getApp();
 Page({
 
   /**
@@ -7,7 +7,7 @@ Page({
    */
   data: {
     question: '您的性别是：',
-    parameter: [{ id: 1, name: '男' }, { id: 2, name: '女' }],
+    parameter: [{ id: 1, key:"male", name: '男' }, { id: 2, key:"female", name: '女' }],
     nextQuestionText: '下一步 （2/9）',
     logoUrl: '',
   },
@@ -22,20 +22,20 @@ Page({
       })
     }
     this.data.parameter[0].checked = true;
-    app.globalData.userBodyInfo.sex = this.data.parameter[0].name;
+    app.globalData.userBodyInfo.gender = this.data.parameter[0].key;
     this.setData({
       parameter: this.data.parameter,
     })
   },
 
   parameterTap: function (e) {
-    var that = this
-    var this_checked = e.currentTarget.dataset.id
-    var parameterList = this.data.parameter
-    for (var i = 0; i < parameterList.length; i++) {
-      if (parameterList[i].id == this_checked) {
+    let that = this;
+    let this_checked = e.currentTarget.dataset.id;
+    let parameterList = this.data.parameter;
+    for (let i = 0; i < parameterList.length; i++) {
+      if (parameterList[i].id === this_checked) {
         parameterList[i].checked = true;
-        app.globalData.userBodyInfo.sex = parameterList[i].name
+        app.globalData.userBodyInfo.gender = parameterList[i].key;
       }
       else {
         parameterList[i].checked = false;

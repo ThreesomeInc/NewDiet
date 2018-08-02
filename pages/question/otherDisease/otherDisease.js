@@ -1,23 +1,21 @@
-// pages/question-sex/question-sex.js
+// pages/question/otherDisease/otherDisease.js
 let util = require('../../../utils/util.js');
-const date = new Date();
-const years = util.range(1990, date.getFullYear());
-const months = util.range(1, 12);
-const days = util.range(1, 31);
-
 const app = getApp();
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    question: '您的生日是：',
-    nextQuestionText: '下一步 （3/9）',
-    logoUrl: '',
-    years: years,
-    months: months,
-    days: days,
-    value: [9999, 0, 0],
+    question: '请问您是否有以下其他併发疾病：',
+    nextQuestionText: '下一步 （9/9）',
+    parameter: [//高血压/高血脂（甘油三酯/胆固醇/both）/高血糖/高尿酸/无
+      {id: 1, key: "hypertension", name: '高血压'},
+      {id: 2, key: "hyperlipidemia", name: '高血脂（甘油三酯/胆固醇/两者）'},
+      {id: 3, key: "hyperglycemia", name: '高血糖'},
+      {id: 4, key: "hyperuricacidemia", name: '高尿酸'},
+      {id: 5, key: "none", name: '无'}
+    ],
   },
 
   /**
@@ -29,25 +27,17 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-
-    console.log(app.globalData.userBodyInfo);
-    app.globalData.userBodyInfo.birth = "2018-01-01";
+    app.globalData.userBodyInfo.otherDisease = this.data.parameter[0].key;
   },
 
   bindChange: function (e) {
     const val = e.detail.value;
-    let year = this.data.years[val[0]];
-    let month = this.data.months[val[1]];
-    this.setData({
-      days: util.range(1, new Date(year, month, 0).getDate())
-    });
-    let day = this.data.days[val[2]];
-    app.globalData.userBodyInfo.birth = [year, util.pad(month, 2), util.pad(day, 2)].join('-');
+    app.globalData.userBodyInfo.otherDisease = this.data.parameter[val[0]].key;
   },
 
   goToNextQuestion: function (e) {
     wx.navigateTo({
-      url: '../../question/height/height'
+      url: '../../question/irritability/irritability'
     })
   },
 
@@ -55,48 +45,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+  
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+  
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+  
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+  
   }
-});
+})
