@@ -29,8 +29,6 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-
-    console.log(app.globalData.userBodyInfo);
     app.globalData.userBodyInfo.birth = "2018-01-01";
   },
 
@@ -46,6 +44,7 @@ Page({
   },
 
   goToNextQuestion: function (e) {
+    console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
       url: '../../question/height/height'
     })

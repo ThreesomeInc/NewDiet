@@ -47,6 +47,7 @@ Page({
   },
 
   goToNextQuestion: function (e) {
+    console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
       url: '../../question/birth/birth'
     })

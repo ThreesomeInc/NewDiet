@@ -7,14 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    question: '请问您从事体力活动是：',
+    question: '日常体力活动程度：',
     nextQuestionText: '下一步 （6/9）',
     parameter: [
-      {id: 1, key: "light", name: '轻度'},
-      {id: 2, key: "medium", name: '中度'},
-      {id: 3, key: "severe", name: '重度'}
+      {id: 1, key: "light", name: '轻度（如：长期坐办公室）'},
+      {id: 2, key: "medium", name: '中度（如：不时外出跑业务）'},
+      { id: 3, key: "severe", name: '重度（如：搬运）'}
     ],
-    value: [0]
+    value: [1]
   },
 
   /**
@@ -32,9 +32,11 @@ Page({
   bindChange: function (e) {
     const val = e.detail.value;
     app.globalData.userBodyInfo.sportRate = this.data.parameter[val[0]].key;
+    console.log(app.globalData.userBodyInfo.sportRate);
   },
 
   goToNextQuestion: function (e) {
+    console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
       url: '../../question/nephroticPeriod/nephroticPeriod'
     })

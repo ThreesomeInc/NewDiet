@@ -33,9 +33,11 @@ Page({
     const val = e.detail.value;
     app.globalData.userBodyInfo.weight = this.data.weightsInteger[val[0]] +
       "." + this.data.weightsFraction[val[1]] + "kg";
+    console.log(app.globalData.userBodyInfo.weight);
   },
 
   goToNextQuestion: function (e) {
+    console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
       url: '../../question/sportRate/sportRate'
     })

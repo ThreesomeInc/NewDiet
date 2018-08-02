@@ -37,6 +37,7 @@ Page({
   checkboxChange: function (e) {
     console.log(e.detail.value);
     app.globalData.userBodyInfo.irritability = e.detail.value;
+    
   },
 
   sendDataAndSeeReport: function (e) {

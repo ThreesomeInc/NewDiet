@@ -1,5 +1,5 @@
 <!--pages/question/nephroticPeriod/nephroticPeriod.wxml-->
-<view class="container">
+<view class="question-container">
 	<view class="big-logo-view">
 		<image class="big-logo" mode="widthFix" src="{{logoUrl}}" ></image>
 	</view>

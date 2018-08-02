@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    question: '您的治疗方式是：',
+    question: '目前治疗方式是：',
     nextQuestionText: '下一步 （8/9）',
     parameter: [
       {id: 1, key: "medication", name: '药物治疗'},
@@ -15,7 +15,7 @@ Page({
       {id: 3, key: "peritoneal-dialysis", name: '腹膜透析治疗'},
       {id: 4, key: "transplantation", name: '肾脏移植'}
     ],
-    value: [0]
+    value: [1]
   },
 
   /**

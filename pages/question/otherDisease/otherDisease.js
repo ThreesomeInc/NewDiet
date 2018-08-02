@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    question: '请问您是否有以下其他併发疾病：',
+    question: '是否有其他併发疾病：',
     nextQuestionText: '下一步 （9/9）',
     parameter: [//高血压/高血脂（甘油三酯/胆固醇/both）/高血糖/高尿酸/无
       {id: 1, key: "hypertension", name: '高血压'},
@@ -36,6 +36,7 @@ Page({
   },
 
   goToNextQuestion: function (e) {
+    console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
       url: '../../question/irritability/irritability'
     })

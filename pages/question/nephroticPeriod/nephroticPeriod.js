@@ -9,10 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    question: '您目前属于肾脏病第几期？',
+    question: '目前属于肾脏病第几期？',
     nextQuestionText: '下一步 （7/9）',
     periods: periods,
-    value: [0]
+    value: [1]
   },
 
   /**
@@ -33,6 +33,7 @@ Page({
   },
 
   goToNextQuestion: function (e) {
+    console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
       url: '../../question/treatmentMethod/treatmentMethod'
     })
