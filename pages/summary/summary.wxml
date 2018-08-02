@@ -2,4 +2,8 @@
 <view class="question-container">
   <text>Summary Report</text>
 
+  <view class="summaryReportButtonView">
+    <button bindtap='goBackMain' id='goBackMain'>{{goBackMain}}</button>
+    <button bindtap='goShare' id='goShare'>{{goShare}}</button>
+  </view>
 </view>

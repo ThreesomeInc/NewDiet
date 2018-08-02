@@ -36,9 +36,21 @@ Page({
   },
 
   goToNextQuestion: function (e) {
-    wx.navigateTo({
-      url: '../../question/otherDisease/otherDisease'
-    })
+    //TODO: temporary go summary report
+    // wx.navigateTo({
+    //   url: '../../question/otherDisease/otherDisease'
+    // })
+    try {
+      console.log(app.globalData.userBodyInfo);
+      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo)
+      console.log('userBodyInfo is stored.')
+      wx.navigateTo({
+        url: '../../summary/summary'
+      });
+    } catch (e) {
+      console.log('Exception happen when store userBodyInfo!')
+      console.log(e)
+    }
   },
 
   /**

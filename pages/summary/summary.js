@@ -1,7 +1,9 @@
 // pages/summary/summary.js
+const app = getApp();
+
 const reportResult = {
-  bmi: '',
-  
+  bmi: '2.01',
+
 }
 
 Page({
@@ -10,7 +12,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    userBodyInfo: {},
+    goBackMain: '返回主程序',
+    goShare: '好东西齐分享'
   },
 
   /**
@@ -18,13 +22,25 @@ Page({
    */
   onLoad: function (options) {
     try {
-      var value = wx.getStorageSync('userBodyInfo')
-      if (value) {
-        console.log(value);
+      this.data.userBodyInfo = wx.getStorageSync('userBodyInfo')
+      if (this.data.userBodyInfo) {
+        console.log(this.data.userBodyInfo);
       }
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!')
     }
+  },
+
+  goBackMain: function (e) {
+    wx.navigateTo({
+      url: '../index/index'
+    })
+  },
+
+  goShare: function (e) {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
   },
 
   /**

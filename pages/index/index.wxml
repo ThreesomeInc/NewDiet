@@ -8,13 +8,20 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="slogon">
-    <text id='slogon1'>{{slogon1}}</text>
-  </view>
-  <view class="slogon">
-    <text id='slogon2'>{{slogon2}}</text>
-  </view>
-  <view class="questionButtonView">
-    <button bindtap='goToQuestionSex' class='questionButton'>{{motto}}</button>
-  </view>
+  <block wx:if="{{!hasUserBodyInfo}}">
+    <view class="slogon">
+      <text id='slogon1'>{{slogon1}}</text>
+    </view>
+    <view class="slogon">
+      <text id='slogon2'>{{slogon2}}</text>
+    </view>
+    <view class="questionButtonView">
+      <button bindtap='goToQuestionSex' class='questionButton'>{{motto}}</button>
+    </view>
+  </block>
+  <block wx:elif="{{hasUserBodyInfo}}">
+    <view class="slogon">
+      <text id='slogon1'>{{slogon1}}</text>
+    </view>
+  </block>
 </view>

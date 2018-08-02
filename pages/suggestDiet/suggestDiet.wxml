@@ -1,4 +1,7 @@
 <!--pages/suggestDiet/suggestDiet.wxml-->
 <view class="main-container">
-  <text>Suggest Diet</text>
+  <view class="tab-header">
+    <text>{{headerText}}</text>
+  </view>
+  
 </view>

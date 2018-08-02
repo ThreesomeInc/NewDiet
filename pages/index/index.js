@@ -10,6 +10,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     slogon1:'知道怎样吃得好又吃的饱?',
     slogon2: '肾脏营养师\n为您规划一日三餐!',
+    hasUserBodyInfo: false,
+    userBodyInfo:{}
   },
   //事件处理函数
   bindViewTap: function() {
@@ -48,6 +50,19 @@ Page({
           })
         }
       })
+    }
+
+    try {
+      this.data.userBodyInfo = wx.getStorageSync('userBodyInfo')
+      if (this.data.userBodyInfo) {
+        this.setData({
+          hasUserBodyInfo : true
+        })
+        console.log("Session contained userBodyInfo.");
+        console.log(this.data.userBodyInfo);
+      }
+    } catch (e) {
+      console.log('Exception happen when try to get userBodyInfo from storage!')
     }
   },
   getUserInfo: function(e) {

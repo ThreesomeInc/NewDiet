@@ -1,1 +1,13 @@
-/* pages/logFood/logFood.wxss */
+/* pages/suggestDiet/suggestDiet.wxss */
+.tab-header {
+  background-color: #3d4966;
+  color:white;
+  height: 200rpx;
+  padding:0;
+  margin:0;
+  width: 100%;
+  text-align: center;
+  font-style: bold;
+  padding-top: 100rpx;
+  font-size: 60rpx;
+}

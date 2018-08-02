@@ -1,4 +1,6 @@
 <!--pages/logFood/logFood.wxml-->
 <view class="main-container">
-  <text>Log Your Food</text>
+    <view class="tab-header">
+      <text>{{headerText}}</text>
+    </view>
 </view>

@@ -1,1 +1,19 @@
 /* pages/summary/summary.wxss */
+.summaryReportButtonView {
+    margin-bottom: 40rpx;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 50rpx;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+#goBackMain, #goShare {
+    color: white;
+    border: 1rpx solid white;
+    font-size: 40rpx;
+    border-radius: 40rpx;
+    background-color: #3d4966;
+}

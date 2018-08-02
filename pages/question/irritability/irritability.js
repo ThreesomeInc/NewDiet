@@ -43,8 +43,8 @@ Page({
   sendDataAndSeeReport: function (e) {  
     try {
       console.log(app.globalData.userBodyInfo);
-      //wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo)
-      //console.log('userBodyInfo is stored.')
+      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo)
+      console.log('userBodyInfo is stored.')
       wx.navigateTo({
         url: '../../summary/summary'
       });
