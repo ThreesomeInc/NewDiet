@@ -7,7 +7,7 @@
 		<text class="question-header">{{question}}</text>
 	</view>
 
-	<view class="data-picker-view">
+	<view class="data-checkbox-view">
 		<checkbox-group bindchange="checkboxChange">
 			<label class="checkbox" wx:for="{{parameter}}" wx:key="parameter" wx:for-index="idx">
 				<checkbox value="{{item.key}}" checked="{{item.checked}}"/>{{item.name}}

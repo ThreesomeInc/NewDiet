@@ -1,0 +1,4 @@
+<!--pages/suggestDiet/suggestDiet.wxml-->
+<view class="main-container">
+  <text>Suggest Diet</text>
+</view>

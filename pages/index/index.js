@@ -4,10 +4,12 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '开始录入身体信息',
+    motto: '只需九步，了解自己更多',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    slogon1:'知道怎样吃得好又吃的饱?',
+    slogon2: '肾脏营养师\n为您规划一日三餐!',
   },
   //事件处理函数
   bindViewTap: function() {

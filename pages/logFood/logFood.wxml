@@ -1,0 +1,4 @@
+<!--pages/logFood/logFood.wxml-->
+<view class="main-container">
+  <text>Log Your Food</text>
+</view>

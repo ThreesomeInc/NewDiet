@@ -1,11 +1,18 @@
 <!--index.wxml-->
-<view class="container">
+<view class="main-container">
+  <view class="header-backgroup"></view>
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权进入主程序 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
+  </view>
+  <view class="slogon">
+    <text id='slogon1'>{{slogon1}}</text>
+  </view>
+  <view class="slogon">
+    <text id='slogon2'>{{slogon2}}</text>
   </view>
   <view class="questionButtonView">
     <button bindtap='goToQuestionSex' class='questionButton'>{{motto}}</button>

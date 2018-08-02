@@ -1,0 +1,5 @@
+<!--pages/summary/summary.wxml-->
+<view class="question-container">
+  <text>Summary Report</text>
+
+</view>

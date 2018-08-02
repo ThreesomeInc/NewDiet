@@ -10,14 +10,14 @@ Page({
     question: '您是否有以下过敏症？',
     fetchReport: '查看report',
     parameter: [//奶/蛋/贝壳/虾蟹鱼/面粉/坚果/黄豆/玉米
-      {id: 1, key: "milk", checked: false, name: '奶'},
-      {id: 2, key: "egg", checked: false, name: '蛋'},
-      {id: 3, key: "crostacei", checked: false, name: '贝壳'},
-      {id: 4, key: "fish-prawn-crab", checked: false, name: '鱼虾蟹'},
-      {id: 5, key: "flour", checked: false, name: '面粉'},
-      {id: 6, key: "nuts", checked: false, name: '坚果'},
-      {id: 7, key: "soya", checked: false, name: '黄豆'},
-      {id: 8, key: "corn", checked: false, name: '玉米'}
+      { id: 1, key: "milk", checked: false, name: '奶' },
+      { id: 2, key: "egg", checked: false, name: '蛋' },
+      { id: 3, key: "crostacei", checked: false, name: '贝壳' },
+      { id: 4, key: "fish-prawn-crab", checked: false, name: '鱼虾蟹' },
+      { id: 5, key: "flour", checked: false, name: '面粉' },
+      { id: 6, key: "nuts", checked: false, name: '坚果' },
+      { id: 7, key: "soya", checked: false, name: '黄豆' },
+      { id: 8, key: "corn", checked: false, name: '玉米' }
     ],
 
   },
@@ -37,15 +37,22 @@ Page({
   checkboxChange: function (e) {
     console.log(e.detail.value);
     app.globalData.userBodyInfo.irritability = e.detail.value;
-    
+
   },
 
-  sendDataAndSeeReport: function (e) {
-    console.log(app.globalData.userBodyInfo);
-    //TODO: report data and jump to estimation report
-    // wx.navigateTo({
-    //   url: '../../question/otherDisease/otherDisease'
-    // })
+  sendDataAndSeeReport: function (e) {  
+    try {
+      console.log(app.globalData.userBodyInfo);
+      //wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo)
+      //console.log('userBodyInfo is stored.')
+      wx.navigateTo({
+        url: '../../summary/summary'
+      });
+      console.log('Why summary not shown?!');
+    } catch (e) {
+      console.log('Exception happen when store userBodyInfo!')
+      console.log(e)
+    }
   },
 
   /**

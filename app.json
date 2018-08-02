@@ -10,12 +10,39 @@
     "pages/question/treatmentMethod/treatmentMethod",
     "pages/question/otherDisease/otherDisease",
     "pages/question/nephroticPeriod/nephroticPeriod",
-    "pages/question/irritability/irritability"
+    "pages/question/irritability/irritability",
+    "pages/summary/summary",
+    "pages/logFood/logFood",
+    "pages/suggestDiet/suggestDiet"
   ],
   "window": {
     "backgroundTextStyle": "bold",
     "navigationBarBackgroundColor": "#3d4966",
     "navigationBarTitleText": "肾脏营养师  ",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "selectedIconPath": "images/mine.png",
+        "iconPath": "images/mine1.png"
+      },
+      {
+        "pagePath": "pages/logFood/logFood",
+        "text": "饮食记录",
+        "selectedIconPath": "images/calendar-logo.png",
+        "iconPath": "images/calendar-logo-uncheck.png"
+      },
+      {
+        "pagePath": "pages/suggestDiet/suggestDiet",
+        "text": "膳食建议",
+        "selectedIconPath": "images/front.png",
+        "iconPath": "images/front1.png"
+      }
+    ],
+    "color": "grey",
+    "selectedColor": "#3d4966"
   }
 }
