@@ -23,5 +23,8 @@
     <view class="slogon">
       <text id='slogon1'>{{slogon1}}</text>
     </view>
+    <view class="questionButtonView">
+      <button bindtap='goToQuestionSex' class='questionButton'>查看健康报告</button>
+    </view>
   </block>
 </view>
