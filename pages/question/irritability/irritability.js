@@ -40,15 +40,14 @@ Page({
 
   },
 
-  sendDataAndSeeReport: function (e) {  
+  sendDataAndSeeReport: function (e) {
     try {
       console.log(app.globalData.userBodyInfo);
       wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo)
       console.log('userBodyInfo is stored.')
-      wx.navigateTo({
+      wx.redirectTo({
         url: '../../summary/summary'
       });
-      console.log('Why summary not shown?!');
     } catch (e) {
       console.log('Exception happen when store userBodyInfo!')
       console.log(e)

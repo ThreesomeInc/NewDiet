@@ -1,4 +1,4 @@
-<!--pages/question/irritability/irritability.wxml-->
+<!--pages/question/otherDisease/otherDisease.wxml-->
 <view class="question-container">
 	<view class="big-logo-view">
 		<image class="big-logo" mode="widthFix" src="{{logoUrl}}" ></image>
@@ -8,11 +8,12 @@
 	</view>
 
 	<view class="data-checkbox-view">
-		<checkbox-group bindchange="checkboxChange">
-			<label class="checkbox" wx:for="{{parameter}}" wx:key="parameter" wx:for-index="idx">
+		<checkbox-group bindchange="checkboxChange" class="checkbox-group">
+    <view wx:for="{{parameter}}" wx:key="parameter" wx:for-index="idx">
+			<label class="checkbox {{item.checked?'is_checked':''}}">
 				<checkbox value="{{item.key}}" checked="{{item.checked}}"/>{{item.name}}
-				<text wx:if="{{idx % 3 === 0}}">\n</text>
 			</label>
+      </view>
 		</checkbox-group>
 	</view>
 

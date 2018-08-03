@@ -10,11 +10,11 @@ Page({
     question: '是否有其他併发疾病：',
     nextQuestionText: '下一步 （9/9）',
     parameter: [//高血压/高血脂（甘油三酯/胆固醇/both）/高血糖/高尿酸/无
-      {id: 1, key: "hypertension", name: '高血压'},
-      {id: 2, key: "hyperlipidemia", name: '高血脂（甘油三酯/胆固醇/两者）'},
-      {id: 3, key: "hyperglycemia", name: '高血糖'},
-      {id: 4, key: "hyperuricacidemia", name: '高尿酸'},
-      {id: 5, key: "none", name: '无'}
+      { id: 1, key: "hypertension", checked: false, name: '高血压'},
+      { id: 2, key: "triglyceride", checked: false, name: '高甘油三酯'},
+      { id: 3, key: "cholesterol", checked: false, name: '高胆固醇' },
+      { id: 4, key: "hyperglycemia", checked: false, name: '高血糖'},
+      { id: 5, key: "hyperuricacidemia", checked: false, name: '高尿酸'}
     ],
   },
 
@@ -27,7 +27,7 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.otherDisease = this.data.parameter[0].key;
+    app.globalData.userBodyInfo.otherDisease = [this.data.parameter[0].key];
   },
 
   bindChange: function (e) {

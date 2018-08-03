@@ -10,10 +10,10 @@ Page({
     question: '目前治疗方式是：',
     nextQuestionText: '下一步 （8/9）',
     parameter: [
-      {id: 1, key: "medication", name: '药物治疗'},
-      {id: 2, key: "hemodialysis", name: '血液透析治疗'},
-      {id: 3, key: "peritoneal-dialysis", name: '腹膜透析治疗'},
-      {id: 4, key: "transplantation", name: '肾脏移植'}
+      { id: 1, key: "medication", checked: false, name: '药物治疗'},
+      { id: 2, key: "hemodialysis", checked: false, name: '血液透析治疗'},
+      { id: 3, key: "peritoneal-dialysis", checked: false, name: '腹膜透析治疗'},
+      { id: 4, key: "transplantation", checked: false, name: '肾脏移植'}
     ],
     value: [1]
   },
@@ -27,30 +27,19 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.treatmentMethod = this.data.parameter[this.data.value[0]].key;
+    app.globalData.userBodyInfo.treatmentMethod = [];
   },
 
-  bindChange: function (e) {
-    const val = e.detail.value;
-    app.globalData.userBodyInfo.treatmentMethod = this.data.parameter[val[0]].key;
+  checkboxChange: function (e) {
+    console.log(e.detail.value);
+    app.globalData.userBodyInfo.treatmentMethod = e.detail.value;
   },
 
   goToNextQuestion: function (e) {
-    //TODO: temporary go summary report
-    // wx.navigateTo({
-    //   url: '../../question/otherDisease/otherDisease'
-    // })
-    try {
-      console.log(app.globalData.userBodyInfo);
-      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo)
-      console.log('userBodyInfo is stored.')
-      wx.navigateTo({
-        url: '../../summary/summary'
-      });
-    } catch (e) {
-      console.log('Exception happen when store userBodyInfo!')
-      console.log(e)
-    }
+    console.log(app.globalData.userBodyInfo);
+    wx.navigateTo({
+      url: '../../question/otherDisease/otherDisease'
+    })
   },
 
   /**

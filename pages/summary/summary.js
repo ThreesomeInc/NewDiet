@@ -44,7 +44,7 @@ Page({
 
   goBackMain: function (e) {
     wx.navigateBack({
-      delta: 8
+      delta: 10
     })
   },
 

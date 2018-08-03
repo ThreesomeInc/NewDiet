@@ -23,7 +23,7 @@
   flex-flow: row;
   justify-content: center;
   align-items: stretch;
-  margin: 20rpx;
+  margin: 15rpx;
   height: 220rpx;
   text-align: center;
 }
@@ -48,7 +48,7 @@
   font-style: bold;
   font-size: 50rpx;
   margin: 0;
-  height: 120rpx;
+  height: 100rpx;
   background-color: #3d4966;
   color: white;
   text-align: center;
