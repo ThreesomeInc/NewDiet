@@ -13,7 +13,11 @@
     "pages/question/irritability/irritability",
     "pages/summary/summary",
     "pages/logFood/logFood",
-    "pages/suggestDiet/suggestDiet"
+    "pages/suggestDiet/suggestDiet",
+    "pages/index/about/about",
+    "pages/index/authentication/authentication",
+    "pages/index/bodyInfoUpdate/index",
+    "pages/index/dietStructure/index"
   ],
   "window": {
     "backgroundTextStyle": "bold",
