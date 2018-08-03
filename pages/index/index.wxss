@@ -19,11 +19,12 @@
 
 .questionButtonView {
   margin-top: 70rpx;
-  color: #3d4966;
+  
 }
 .questionButton {
   border: 3px solid #3d4966;
   border-radius: 40rpx;
+  color: #3d4966;
 }
 .header-backgroup {
   width: 100%;
@@ -50,4 +51,32 @@
 
 #slogon2 {
   line-height: 2rem;
+}
+
+.gridTab {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: stretch;
+  margin: 10rpx 20rpx;
+  margin-top: 30rpx;
+  height: 220rpx;
+  text-align: center;
+  padding-top: 30rpx;
+}
+.tab-box {
+  border: 3rpx solid #3d4966;
+  color: #3d4966;
+  margin: 0 10rpx;
+  width: 25%;
+  
+}
+.tab-header {
+  background-color: #3d4966;
+  color: white;
+  padding:8rpx;
+  height: 120rpx;
+}
+.tab-info {
+  padding-top: 20rpx;
 }

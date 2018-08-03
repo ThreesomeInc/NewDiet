@@ -1,6 +1,20 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
+
+const headerBodyInfo = [{
+  header: 'BMI',
+  info: '正常',
+}, {
+  header: '理想的体重',
+  info: '50Kg',
+}, {
+  header: '总热量摄入',
+  info: '1615.25',
+}, {
+  header: '总蛋白摄入',
+  info: '49.7',
+}];
 
 Page({
   data: {
@@ -11,7 +25,8 @@ Page({
     slogon1:'知道怎样吃得好又吃的饱?',
     slogon2: '肾脏营养师\n为您规划一日三餐!',
     hasUserBodyInfo: false,
-    userBodyInfo:{}
+    userBodyInfo:{},
+    headerBodyInfo: headerBodyInfo,
   },
   //事件处理函数
   bindViewTap: function() {
@@ -19,12 +34,12 @@ Page({
       url: '../logs/logs'
     })
   },
-  goToQuestionSex: function () {
+  goToQuestions: function () {
     wx.navigateTo({
       url: '../question/gender/gender'
     })
   },
-  onLoad: function () {
+  onLoad: function () {   
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -50,7 +65,7 @@ Page({
           })
         }
       })
-    }
+    };
   },
   /**
  * 生命周期函数--监听页面显示
