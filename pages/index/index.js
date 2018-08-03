@@ -51,12 +51,16 @@ Page({
         }
       })
     }
-
+  },
+  /**
+ * 生命周期函数--监听页面显示
+ */
+  onShow: function () {
     try {
       this.data.userBodyInfo = wx.getStorageSync('userBodyInfo')
       if (this.data.userBodyInfo) {
         this.setData({
-          hasUserBodyInfo : true
+          hasUserBodyInfo: true
         })
         console.log("Session contained userBodyInfo.");
         console.log(this.data.userBodyInfo);
@@ -65,6 +69,7 @@ Page({
       console.log('Exception happen when try to get userBodyInfo from storage!')
     }
   },
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

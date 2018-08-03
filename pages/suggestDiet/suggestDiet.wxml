@@ -1,7 +1,12 @@
 <!--pages/suggestDiet/suggestDiet.wxml-->
 <view class="main-container">
   <view class="tab-header">
-    <text>{{headerText}}</text>
+    <view class="headerText">
+      <text>{{headerText}}</text>
+    </view>
+    <view class="subHeader">
+      <text>{{subHeader}}</text>
+    </view>
   </view>
   
 </view>

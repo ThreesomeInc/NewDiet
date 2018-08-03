@@ -32,8 +32,8 @@ Page({
   },
 
   goBackMain: function (e) {
-    wx.navigateTo({
-      url: '../index/index'
+    wx.navigateBack({
+      delta: 8
     })
   },
 

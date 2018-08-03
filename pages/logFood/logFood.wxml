@@ -1,6 +1,12 @@
 <!--pages/logFood/logFood.wxml-->
 <view class="main-container">
-    <view class="tab-header">
+  <view class="tab-header">
+    <view class="headerText">
       <text>{{headerText}}</text>
     </view>
+    <view class="subHeader">
+      <text>{{subHeader}}</text>
+    </view>
+  </view>
+  
 </view>
