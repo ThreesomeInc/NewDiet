@@ -27,12 +27,12 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.otherDisease = [this.data.parameter[0].key];
+    app.globalData.userBodyInfo.otherDisease = [];
   },
 
-  bindChange: function (e) {
+  checkboxChange: function (e) {
     const val = e.detail.value;
-    app.globalData.userBodyInfo.otherDisease = this.data.parameter[val[0]].key;
+    app.globalData.userBodyInfo.otherDisease = e.detail.value;
   },
 
   goToNextQuestion: function (e) {
