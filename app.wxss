@@ -17,7 +17,7 @@ page{
   background-color: white;
   padding-top:30rpx;
   padding-bottom: 5rpx;
-  margin: 20rpx 30rpx;
+  margin: 20rpx 40rpx;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -25,12 +25,13 @@ page{
   justify-content: center;
   box-sizing: border-box;
   text-align: center;
-  box-shadow: 0rpx 1rpx 3rpx #3d4966;
+  border: 10rpx solid #3d4966;
+  border-radius: 30rpx;
 } 
 
 /* Big logo for Question pages */
 .big-logo {
-  width: 400rpx;
+  width: 350rpx;
 }
 .big-logo-view {
   margin-bottom: 50rpx;
@@ -40,7 +41,7 @@ page{
 /* Question header for Question pages */
 .question-header-view {
   margin: 10rpx;
-  width:75%;
+  width:80%;
   text-align: center;
   border-top:1px solid #3d4966;
   border-bottom:1px solid #3d4966;
@@ -62,7 +63,7 @@ page{
 
 }
 picker-view {
-  height: 320rpx;
+  height: 400rpx;
   text-align: center;
   vertical-align: middle;
 }
@@ -72,18 +73,16 @@ picker-view-column {
 
 /* Next button for Question pages */
 .nextButtonView {
-    margin-bottom: 40rpx;
     color: white;
     text-align: center;
     position: fixed;
-    bottom: 50rpx;
-    width: 70%;
+    bottom: 0rpx;
+    width: 100%;
 }
 .nextQuestionButton {
     color: white;
     border: 1rpx solid white;
     font-size: 40rpx;
-    border-radius: 40rpx;
     background-color: #3d4966;
 }
 .nextQuestionButton:hover{

@@ -1,10 +1,19 @@
 // pages/summary/summary.js
 const app = getApp();
 
-const reportResult = {
-  bmi: '2.01',
-
-}
+const headerBodyInfo = [{
+  header: 'BMI',
+  info: '正常',
+}, {
+  header: '理想的体重',
+  info: '50Kg',
+}, {
+  header: '总热量摄入',
+  info: '1615.25',
+}, {
+  header: '总蛋白摄入',
+  info: '49.7',
+}];
 
 Page({
 
@@ -14,7 +23,9 @@ Page({
   data: {
     userBodyInfo: {},
     goBackMain: '返回主程序',
-    goShare: '好东西齐分享'
+    goShare: '好东西齐分享',
+    headerBodyInfo: headerBodyInfo,
+    reportHeader: '您的身体报告',
   },
 
   /**
@@ -33,7 +44,7 @@ Page({
 
   goBackMain: function (e) {
     wx.navigateBack({
-      delta:9999
+      delta: 10
     })
   },
 

@@ -6,6 +6,7 @@ Page({
    */
   data: {
     headerText: '膳食建议',
+    subHeader: '没有垃圾食品，只有垃圾食法'
   },
 
   /**

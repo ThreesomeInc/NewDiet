@@ -7,12 +7,14 @@
 		<text class="question-header">{{question}}</text>
 	</view>
 
-	<view class="data-picker-view">
-		<picker-view indicator-style="height: 40rpx;" value="{{value}}" bindchange="bindChange">
-			<picker-view-column>
-				<view wx:for="{{parameter}}" wx:key="parameter">{{item.name}}</view>
-			</picker-view-column>
-		</picker-view>
+	<view class="data-checkbox-view">
+		<checkbox-group bindchange="checkboxChange">
+    <view wx:for="{{parameter}}" wx:key="parameter" wx:for-index="idx" class="checkbox-group">
+			<label class="checkbox {{item.checked?'is_checked':''}}">
+				<checkbox value="{{item.key}}" checked="{{item.checked}}"/>{{item.name}}
+			</label>
+      </view>
+		</checkbox-group>
 	</view>
 
 	<view class="nextButtonView">

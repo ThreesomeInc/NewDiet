@@ -1,6 +1,20 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
+
+const headerBodyInfo = [{
+  header: 'BMI',
+  info: '正常',
+}, {
+  header: '理想的体重',
+  info: '50Kg',
+}, {
+  header: '总热量摄入',
+  info: '1615.25',
+}, {
+  header: '总蛋白摄入',
+  info: '49.7',
+}];
 
 Page({
   data: {
@@ -8,37 +22,30 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    slogon1: '知道怎样吃得好又吃的饱?',
+    slogon1:'知道怎样吃得好又吃的饱?',
     slogon2: '肾脏营养师\n为您规划一日三餐!',
     hasUserBodyInfo: false,
-    userBodyInfo: {}
+    userBodyInfo:{},
+    headerBodyInfo: headerBodyInfo,
   },
   //事件处理函数
-  bindViewTap: function () {
+  bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  goToQuestionSex: function () {
+  goToQuestions: function () {
     wx.navigateTo({
       url: '../question/gender/gender'
     })
   },
-  onShow: function () {
-    let bodyInfo = wx.getStorageSync('userBodyInfo');
-    if (bodyInfo) {
-      this.setData({
-        hasUserBodyInfo: true
-      });
-    }
-  },
-  onLoad: function () {
+  onLoad: function () {   
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse) {
+    } else if (this.data.canIUse){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -58,8 +65,12 @@ Page({
           })
         }
       })
-    }
-
+    };
+  },
+  /**
+ * 生命周期函数--监听页面显示
+ */
+  onShow: function () {
     try {
       this.data.userBodyInfo = wx.getStorageSync('userBodyInfo')
       if (this.data.userBodyInfo) {
@@ -73,7 +84,8 @@ Page({
       console.log('Exception happen when try to get userBodyInfo from storage!')
     }
   },
-  getUserInfo: function (e) {
+
+  getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({

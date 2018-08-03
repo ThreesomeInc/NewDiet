@@ -16,12 +16,20 @@
       <text id='slogon2'>{{slogon2}}</text>
     </view>
     <view class="questionButtonView">
-      <button bindtap='goToQuestionSex' class='questionButton'>{{motto}}</button>
+      <button bindtap='goToQuestions' class='questionButton'>{{motto}}</button>
     </view>
   </block>
   <block wx:elif="{{hasUserBodyInfo}}">
-    <view class="slogon">
+    <!-- <view class="slogon">
       <text id='slogon1'>{{slogon1}}</text>
+    </view> -->
+    <view class="gridTab">
+     <block wx:for="{{headerBodyInfo}}" wx:key="header">
+      <view class="tab-box">
+        <view class="tab-header">{{item.header}}</view>
+        <view class="tab-info">{{item.info}}</view>
+      </view>
+      </block>
     </view>
     <view class="questionButtonView">
       <button bindtap='goToQuestionSex' class='questionButton'>查看健康报告</button>
