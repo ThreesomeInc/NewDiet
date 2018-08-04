@@ -1,7 +1,7 @@
 // pages/question-sex/question-sex.js
 let util = require('../../../utils/util.js');
 const date = new Date();
-const years = util.range(1990, date.getFullYear());
+const years = util.range(1900, date.getFullYear());
 const months = util.range(1, 12);
 const days = util.range(1, 31);
 

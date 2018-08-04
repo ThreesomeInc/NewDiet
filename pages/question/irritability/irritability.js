@@ -1,5 +1,6 @@
 // pages/question/irritability/irritability.js
 let util = require('../../../utils/util.js');
+let sdk = require('../../../vendor/wafer2-client-sdk/index');
 const app = getApp();
 Page({
 
@@ -10,14 +11,14 @@ Page({
     question: '您是否有以下过敏症？',
     fetchReport: '查看report',
     parameter: [//奶/蛋/贝壳/虾蟹鱼/面粉/坚果/黄豆/玉米
-      { id: 1, key: "milk", checked: false, name: '奶' },
-      { id: 2, key: "egg", checked: false, name: '蛋' },
-      { id: 3, key: "crostacei", checked: false, name: '贝壳' },
-      { id: 4, key: "fish-prawn-crab", checked: false, name: '鱼虾蟹' },
-      { id: 5, key: "flour", checked: false, name: '面粉' },
-      { id: 6, key: "nuts", checked: false, name: '坚果' },
-      { id: 7, key: "soya", checked: false, name: '黄豆' },
-      { id: 8, key: "corn", checked: false, name: '玉米' }
+      {id: 1, key: "milk", checked: false, name: '奶'},
+      {id: 2, key: "egg", checked: false, name: '蛋'},
+      {id: 3, key: "crostacei", checked: false, name: '贝壳'},
+      {id: 4, key: "fish-prawn-crab", checked: false, name: '鱼虾蟹'},
+      {id: 5, key: "flour", checked: false, name: '面粉'},
+      {id: 6, key: "nuts", checked: false, name: '坚果'},
+      {id: 7, key: "soya", checked: false, name: '黄豆'},
+      {id: 8, key: "corn", checked: false, name: '玉米'}
     ],
 
   },
@@ -43,8 +44,32 @@ Page({
   sendDataAndSeeReport: function (e) {
     try {
       console.log(app.globalData.userBodyInfo);
-      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo)
-      console.log('userBodyInfo is stored.')
+      console.log(app.globalData.userInfo);
+      // wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
+      console.log('userBodyInfo is stored.');
+      sdk.request({
+        url: `http://127.0.0.1:8081/home/report`,
+        method: 'POST',
+        header: {"Content-Type": "application/json"},
+        data: {
+          userInfo: {
+            openId: app.globalData.userInfo.openId
+          },
+          userDataInfo: app.globalData.userBodyInfo
+        },
+        login: false,
+        success(result) {
+          util.showSuccess('请求成功完成');
+          console.log("请求成功");
+          console.log(result);
+          let returnData = result.data;
+          console.log(returnData);
+        },
+        fail(error) {
+          util.showModel('请求失败', error);
+          console.log('request fail', error);
+        }
+      });
       wx.redirectTo({
         url: '../../summary/summary'
       });

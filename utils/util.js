@@ -22,9 +22,31 @@ const pad = (n, width, z) => {
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 };
 
+const showSuccess = text => wx.showToast({
+  title: text,
+  icon: 'success'
+});
+
+const showModel = (title, content) => {
+  wx.hideToast();
+
+  wx.showModal({
+    title,
+    content: JSON.stringify(content),
+    showCancel: false
+  })
+};
+
+const showLoading = text => wx.showToast({
+  title: text,
+  icon: 'loading',
+  duration: 1000
+});
+
 module.exports = {
   formatTime: formatTime,
   formatNumber: formatNumber,
   range: range,
-  pad: pad
+  showSuccess: showSuccess,
+  showModel: showModel
 };
