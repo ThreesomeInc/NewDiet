@@ -26,13 +26,44 @@
     <view class="gridTab">
      <block wx:for="{{headerBodyInfo}}" wx:key="header">
       <view class="tab-box">
-        <view class="tab-header">{{item.header}}</view>
-        <view class="tab-info">{{item.info}}</view>
+        <view class="mini-tab-header">{{item.header}}</view>
+        <view class="mini-tab-info">{{item.info}}</view>
       </view>
       </block>
     </view>
-    <view class="questionButtonView">
-      <button bindtap='goToQuestionSex' class='questionButton'>查看健康报告</button>
+    <view class="menu-list">
+        <navigator url="dietStructure/index">
+            <view class="menu-item">
+                <view class="menu-item-title">
+                    膳食结构建议
+                </view>
+                <image class="next-icon" src="../../images/rightArrow.png" />
+            </view>
+        </navigator>
+        <navigator url="bodyInfoUpdate/index">
+            <view class="menu-item">
+                <view class="menu-item-title">
+                    我的身体资料
+                </view>
+                <image class="next-icon" src="../../images/rightArrow.png" />
+            </view>
+        </navigator>
+        <navigator url="authentication/authentication">
+            <view class="menu-item">
+                <view class="menu-item-title">
+                    授权设置
+                </view>
+                <image class="next-icon" src="../../images/rightArrow.png" />
+            </view>
+        </navigator>
+        <navigator url="about/about">
+            <view class="menu-item">
+                <view class="menu-item-title">
+                    关于肾脏营养师
+                </view>
+                <image class="next-icon" src="../../images/rightArrow.png" />
+            </view>
+        </navigator>
     </view>
   </block>
 </view>

@@ -53,6 +53,7 @@
   line-height: 2rem;
 }
 
+/* 4 grid tab */
 .gridTab {
   display: flex;
   flex-flow: row;
@@ -71,12 +72,45 @@
   width: 25%;
   
 }
-.tab-header {
+.mini-tab-header {
   background-color: #3d4966;
   color: white;
   padding:8rpx;
   height: 120rpx;
 }
-.tab-info {
+.mini-tab-info {
   padding-top: 20rpx;
+}
+
+/* menu */
+.menu-list {
+  width: 100%;
+  margin-top: 40rpx;
+}
+.menu-item {
+    position: relative;
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #fff;
+    color: #3d4966;
+    font-size: 35rpx;
+    margin-bottom: 20rpx;
+    box-sizing:border-box;
+    padding-left: 50rpx;
+}
+
+.menu-item .menu-item-title {
+    overflow:hidden;
+    text-align: left;
+    padding-right: 100rpx;
+    box-sizing: border-box;
+}
+
+.next-icon {
+    position:absolute;
+    top: 50%;
+    right: 50rpx;
+    transform: translateY(-50%);
+    width: 45rpx;
+    height: 45rpx;
 }

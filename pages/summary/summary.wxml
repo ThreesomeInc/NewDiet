@@ -7,8 +7,8 @@
   <view class="gridTab">
     <block wx:for="{{headerBodyInfo}}" wx:key="header">
       <view class="tab-box">
-        <view class="tab-header">{{item.header}}</view>
-        <view class="tab-info">{{item.info}}</view>
+        <view class="mini-tab-header">{{item.header}}</view>
+        <view class="mini-tab-info">{{item.info}}</view>
       </view>
     </block>
   </view>
