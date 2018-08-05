@@ -48,5 +48,6 @@ module.exports = {
   formatNumber: formatNumber,
   range: range,
   showSuccess: showSuccess,
-  showModel: showModel
+  showModel: showModel,
+  showLoading: showLoading
 };

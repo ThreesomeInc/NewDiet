@@ -1,1 +1,17 @@
 /* pages/question/weight/weight.wxss */
+
+.data-picker-view {
+    margin: 5rpx auto;
+    width:30%;
+    text-align: center;
+    vertical-align: middle;
+}
+picker-view {
+    height: 300rpx;
+    text-align: center;
+    vertical-align: middle;
+}
+picker-view-column {
+    line-height: 70rpx;
+    width:20%;
+}

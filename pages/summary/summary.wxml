@@ -1,20 +1,29 @@
 <!--pages/summary/summary.wxml-->
-  <view class="report-header">
-    <text>{{reportHeader}}</text>
-  </view>
+<view class="report-header">
+	<text>{{reportHeader}}</text>
+</view>
 
 <view class="question-container">
-  <view class="gridTab">
-    <block wx:for="{{headerBodyInfo}}" wx:key="header">
-      <view class="tab-box">
-        <view class="mini-tab-header">{{item.header}}</view>
-        <view class="mini-tab-info">{{item.info}}</view>
-      </view>
-    </block>
-  </view>
+<view class="gridTab">
+	<block wx:for="{{basicInfoSummary}}" wx:key="name">
+		<view class="tab-box">
+			<view class="mini-tab-header">{{item.name}}</view>
+			<view class="mini-tab-info">{{item.value}}</view>
+		</view>
+	</block>
+</view>
+</view>
 
-  <view class="summaryReportButtonView">
-    <button bindtap='goBackMain' id='goBackMain'>{{goBackMain}}</button>
-    <button bindtap='goShare' id='goShare'>{{goShare}}</button>
-  </view>
+<view class="gridTab">
+<block wx:for="{{suggestedNutrition}}" wx:key="name">
+	<view class="tab-box">
+		<view class="mini-tab-header">{{item.name}}</view>
+		<view class="mini-tab-info">{{item.value}}</view>
+	</view>
+</block>
+</view>
+
+<view class="summaryReportButtonView">
+<button bindtap='goBackMain' id='goBackMain'>{{goBackMain}}</button>
+<button bindtap='goShare' id='goShare'>{{goShare}}</button>
 </view>

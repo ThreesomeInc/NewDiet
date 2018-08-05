@@ -32,16 +32,18 @@
   color: #3d4966;
   margin: 0 10rpx;
   width: 25%;
-  
+
 }
-.tab-header {
+.mini-tab-header {
   background-color: #3d4966;
   color: white;
   padding:8rpx;
   height: 120rpx;
 }
-.tab-info {
+.mini-tab-info {
   padding-top: 20rpx;
+  overflow-wrap:break-word;
+  word-break: break-all;
 }
 
 .report-header {

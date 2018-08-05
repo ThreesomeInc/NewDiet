@@ -45,7 +45,7 @@ Page({
     try {
       console.log(app.globalData.userBodyInfo);
       console.log(app.globalData.userInfo);
-      // wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
+      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
       console.log('userBodyInfo is stored.');
       sdk.request({
         url: `http://127.0.0.1:8081/home/report`,
@@ -61,17 +61,22 @@ Page({
         success(result) {
           util.showSuccess('请求成功完成');
           console.log("请求成功");
-          console.log(result);
-          let returnData = result.data;
-          console.log(returnData);
+          console.log(result.data);
+          app.globalData.basicInfoSummary = [
+            {name: "体型", value: result.data.healthEstimation},
+            {name: "标准体重", value: result.data.standardWeight},
+            {name: "总热量摄入", value: result.data.calorie},
+            {name: "总蛋白摄入", value: result.data.protein}
+          ];
+          app.globalData.suggestedNutrition = result.data.suggestNutrition;
+          wx.redirectTo({
+            url: '../../summary/summary'
+          });
         },
         fail(error) {
-          util.showModel('请求失败', error);
+          util.showModel('请求失败,请检查网络', error);
           console.log('request fail', error);
         }
-      });
-      wx.redirectTo({
-        url: '../../summary/summary'
       });
     } catch (e) {
       console.log('Exception happen when store userBodyInfo!')
