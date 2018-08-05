@@ -17,7 +17,12 @@
     "pages/index/about/about",
     "pages/index/authentication/authentication",
     "pages/index/bodyInfoUpdate/index",
-    "pages/index/dietStructure/index"
+    "pages/index/dietStructure/index",
+    "pages/summary/share/share",
+    "pages/suggestDiet/food/food",
+    "pages/suggestDiet/meal/meal",
+    "pages/suggestDiet/doctorAdvice/doctorAdvice",
+    "pages/suggestDiet/dailyTips/dailyTips"
   ],
   "window": {
     "backgroundTextStyle": "bold",
@@ -47,7 +52,7 @@
         "iconPath": "images/front1.png"
       }
     ],
-    "color": "grey",
+    "color": "#929292",
     "selectedColor": "#3d4966"
   }
 }

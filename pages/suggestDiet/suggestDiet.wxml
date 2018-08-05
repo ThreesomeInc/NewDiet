@@ -8,5 +8,19 @@
       <text>{{subHeader}}</text>
     </view>
   </view>
+  <view class="grid-icon">
+  <view >
+  <image class="icon" bindtap="foodViewTap" mode="widthFix" src="../../images/food_logo.jpeg" ></image>
+  </view>
+  <view>
+    <image class="icon" bindtap="mealViewTap" mode="widthFix" src="../../images/meal.jpeg" ></image>
+  </view>
+  <view>
+    <image class="icon" bindtap="dailyTipsViewTap" mode="widthFix" src="../../images/daily_tips.jpeg" ></image>
+  </view>
+  <view>
+    <image class="icon" bindtap="doctorAdviceViewTap" mode="widthFix" src="../../images/diet_tips.jpg" ></image>
+  </view>
+  </view>
   
 </view>

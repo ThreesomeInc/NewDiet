@@ -1,0 +1,14 @@
+.icon {
+  border-radius: 20%;
+  width: 280rpx;
+  margin: 20rpx;
+  border: 1rpx solid black;
+}
+
+.grid-icon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+  margin: 40rpx 20rpx;
+}

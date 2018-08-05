@@ -1,27 +1,19 @@
-// pages/index/about/about.js
-const app = getApp();
-
+// pages/summary/share/share.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    headerText: '关于肾脏营养师',
-    subHeader: 'v0.1.2',
-    content: '以顺雷不及掩耳盗铃儿响叮当之势，肾脏营养师面世啦。这里有最智能的膳食建议，务求令你吃得饱又吃得好！',
-    logoUrl: '',
+    headerText: '好东西齐分享',
+    subHeader: '让您的朋友也一起健康饮食',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.logoUrl) {
-      this.setData({
-        logoUrl: app.globalData.logoUrl
-      })
-    }
+  
   },
 
   /**
