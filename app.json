@@ -18,7 +18,11 @@
     "pages/index/authentication/authentication",
     "pages/index/bodyInfoUpdate/index",
     "pages/index/dietStructure/index",
-    "pages/summary/share/share"
+    "pages/summary/share/share",
+    "pages/suggestDiet/food/food",
+    "pages/suggestDiet/meal/meal",
+    "pages/suggestDiet/doctorAdvice/doctorAdvice",
+    "pages/suggestDiet/dailyTips/dailyTips"
   ],
   "window": {
     "backgroundTextStyle": "bold",
