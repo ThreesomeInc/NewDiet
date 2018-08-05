@@ -48,7 +48,7 @@ Page({
       wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
       console.log('userBodyInfo is stored.');
       sdk.request({
-        url: `http://127.0.0.1:8081/home/report`,
+        url: `http://119.29.229.56:8081/home/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {
@@ -63,7 +63,7 @@ Page({
           console.log("请求成功");
           console.log(result.data);
           app.globalData.basicInfoSummary = [
-            {name: "体型", value: result.data.healthEstimation},
+            {name: "体型", value: result.data.bmi},
             {name: "标准体重", value: result.data.standardWeight},
             {name: "总热量摄入", value: result.data.calorie},
             {name: "总蛋白摄入", value: result.data.protein}
