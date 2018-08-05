@@ -94,21 +94,20 @@ picker-view-column {
 .tab-header {
   background-color: #3d4966;
   color:white;
-  height: 200rpx;
+  height: 180rpx;
   padding:0;
   margin:0;
   width: 100%;
   text-align: center;
   font-style: bold;
   padding-top: 30rpx;
-  font-size: 60rpx;
 }
 .headerText{
   border: 2rpx solid white;
   padding: 10rpx;
   margin:0 auto;
   border-radius: 50rpx;
-  font-size: 50rpx;
+  font-size: 40rpx;
   width: 60%;
 }
 .subHeader {

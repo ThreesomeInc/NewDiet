@@ -34,13 +34,13 @@
   width: 25%;
   
 }
-.tab-header {
+.mini-tab-header {
   background-color: #3d4966;
   color: white;
   padding:8rpx;
   height: 120rpx;
 }
-.tab-info {
+.mini-tab-info {
   padding-top: 20rpx;
 }
 

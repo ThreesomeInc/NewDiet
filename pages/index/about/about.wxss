@@ -1,0 +1,9 @@
+.content {
+  text-align: center;
+  margin: 20rpx 100rpx;
+  color: #3d4966;
+}
+
+.big-logo-view{
+  padding-top: 100rpx;
+}

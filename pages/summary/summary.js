@@ -5,13 +5,13 @@ const headerBodyInfo = [{
   header: 'BMI',
   info: '正常',
 }, {
-  header: '理想的体重',
+  header: '理想体重',
   info: '50Kg',
 }, {
-  header: '总热量摄入',
+  header: '目标热量摄入',
   info: '1615.25',
 }, {
-  header: '总蛋白摄入',
+  header: '目标蛋白摄入',
   info: '49.7',
 }];
 
@@ -49,8 +49,8 @@ Page({
   },
 
   goShare: function (e) {
-    wx.navigateTo({
-      url: '../logs/logs'
+    wx.redirectTo({
+      url: 'share/share'
     })
   },
 

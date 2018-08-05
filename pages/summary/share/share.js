@@ -1,14 +1,12 @@
-// pages/suggestDiet/suggestDiet.js
+// pages/summary/share/share.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    headerText: '膳食建议',
-    subHeader: '没有垃圾食品，只有垃圾食法',
-    foodIconUrl:'../../images/food_logo.jpeg',
-    logoUrl: 'http://wiki.saraqian.com/wp-content/uploads/2018/08/diet_big_logo.png',
+    headerText: '好东西齐分享',
+    subHeader: '让您的朋友也一起健康饮食',
   },
 
   /**
@@ -16,27 +14,6 @@ Page({
    */
   onLoad: function (options) {
   
-  },
-
-  foodViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  mealViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  dailyTipsViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  doctorAdviceViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
   },
 
   /**
