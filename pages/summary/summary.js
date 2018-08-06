@@ -1,20 +1,6 @@
 // pages/summary/summary.js
 const app = getApp();
 
-const headerBodyInfo = [{
-  header: 'BMI',
-  info: '正常',
-}, {
-  header: '理想体重',
-  info: '50Kg',
-}, {
-  header: '目标热量摄入',
-  info: '1615.25',
-}, {
-  header: '目标蛋白摄入',
-  info: '49.7',
-}];
-
 Page({
 
   /**
@@ -24,7 +10,6 @@ Page({
     userBodyInfo: {},
     goBackMain: '返回主程序',
     goShare: '好东西齐分享',
-    headerBodyInfo: headerBodyInfo,
     basicInfoSummary: [],
     suggestedNutrition: [],
     reportHeader: '您的身体报告',

@@ -11,7 +11,18 @@
     <text class='parameter-info text-over {{item.checked?"checked_parameter":""}}' data-id='{{item.id}}' bindtap='parameterTap'>{{item.name}}</text>
     </block>
   </view>
-    <view class="nextButtonView">
-    <button bindtap='goToNextQuestion' class='nextQuestionButton'>{{nextQuestionText}}</button>
+
+  <view class="nextButtonView">
+    <block wx:if="{{postUpdate==false}}">
+      <button  
+        bindtap='goToNextQuestion' 
+        class='nextQuestionButton'>{{nextQuestionBtnText}}</button>
+    </block>
+    <block wx:else>
+      <button
+        bindtap='updateValue' 
+        class='nextQuestionButton'>{{updateValueBtnText}}</button>
+    </block>    
   </view>
+
 </view>

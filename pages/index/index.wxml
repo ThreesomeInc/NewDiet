@@ -34,6 +34,7 @@
     <view class="menu-list">
         <navigator url="dietStructure/index">
             <view class="menu-item">
+            <image class="title-icon" src="../../images/tips_icon.png" />
                 <view class="menu-item-title">
                     膳食结构建议
                 </view>
@@ -42,14 +43,16 @@
         </navigator>
         <navigator url="bodyInfoUpdate/index">
             <view class="menu-item">
+                <image class="title-icon" src="../../images/setting_icon.png" />
                 <view class="menu-item-title">
-                    我的身体资料
+                    更新我的身体资料
                 </view>
                 <image class="next-icon" src="../../images/rightArrow.png" />
             </view>
         </navigator>
         <navigator url="authentication/authentication">
             <view class="menu-item">
+              <image class="title-icon" src="../../images/authentication_icon.png" />
                 <view class="menu-item-title">
                     授权设置
                 </view>
@@ -58,6 +61,7 @@
         </navigator>
         <navigator url="about/about">
             <view class="menu-item">
+            <image class="title-icon" src="../../images/about_icon.png" />
                 <view class="menu-item-title">
                     关于肾脏营养师
                 </view>

@@ -17,7 +17,12 @@
 		</checkbox-group>
 	</view>
 
-	<view class="nextButtonView">
-		<button bindtap='sendDataAndSeeReport' class='nextQuestionButton'>{{fetchReport}}</button>
-	</view>
+  <view class="nextButtonView">
+    <button wx:if="{{!postUpdate}}" 
+      bindtap='sendDataAndSeeReport' 
+      class='nextQuestionButton'>{{fetchReport}}</button>
+    <button wx:else 
+      bindtap='updateValue' 
+      class='nextQuestionButton'>{{updateValueBtnText}}</button>
+  </view>
 </view>

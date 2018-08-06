@@ -36,15 +36,18 @@
 .mini-tab-header {
   background-color: #3d4966;
   color: white;
-  padding:8rpx;
-  height: 120rpx;
+  font-size: 35rpx;
+  padding:10rpx;
+  height: 100rpx;
 }
 .mini-tab-info {
-  border: 3rpx solid #3d4966;
-  font-size: 40rpx;
-  padding-top: 20rpx;
+  vertical-align: center;
+  border: 3rpx solid #e35d42;
+  font-size: 33rpx;
+  padding: 8rpx;
   overflow-wrap:break-word;
   word-break: break-all;
+  height: 100rpx;
 }
 
 .report-header {

@@ -1,4 +1,29 @@
 /**app.wxss**/
+.orange {
+  color: #fb8b05;
+}
+.orange-bg {
+  background-color: #fb8b05;
+}
+.brown {
+  color:#9c3d1f;
+}
+.brown-bg {
+  background-color:#9c3d1f;
+}
+.ping {
+  color: #fe6345;
+}
+.ping-bg {
+  background-color: #fe6345;
+}
+.red {
+  color: #e35d42;
+}
+.red-bg {
+  background-color: #e35d42;
+}
+
 .main-container {
   height: 100%;
   display: flex;

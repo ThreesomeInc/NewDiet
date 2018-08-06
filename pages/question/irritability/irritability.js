@@ -10,6 +10,7 @@ Page({
   data: {
     question: '您是否有以下过敏症？',
     fetchReport: '查看report',
+    updateValueBtnText: '确认更新并返回',
     parameter: [//奶/蛋/贝壳/虾蟹鱼/面粉/坚果/黄豆/玉米
       {id: 1, key: "milk", checked: false, name: '奶'},
       {id: 2, key: "egg", checked: false, name: '蛋'},
@@ -20,6 +21,7 @@ Page({
       {id: 7, key: "soya", checked: false, name: '黄豆'},
       {id: 8, key: "corn", checked: false, name: '玉米'}
     ],
+    postUpdate: false,
 
   },
 
@@ -27,6 +29,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.postUpdate != 'false') {
+      this.setData({
+        postUpdate: true,
+      });
+    }
+    console.log(this.data.postUpdate);
+
     if (app.globalData.logoUrl) {
       this.setData({
         logoUrl: app.globalData.logoUrl
@@ -84,6 +93,19 @@ Page({
       console.log('Exception happen when store userBodyInfo!')
       console.log(e)
     }
+  },
+
+  updateValue: function (e) {
+    console.log(app.globalData.userBodyInfo);
+    try {
+      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
+      console.log('userBodyInfo is updated.');
+    } catch (e) {
+      console.log('Exception happen when try to get userBodyInfo from storage!')
+    };
+    wx.navigateBack({
+      delta: -1
+    })
   },
 
   /**

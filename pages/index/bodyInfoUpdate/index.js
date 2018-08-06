@@ -1,19 +1,22 @@
 // pages/index/bodyInfoUpdate/index.js
-Page({
+const app = getApp();
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
     headerText: '身体资料更新',
     subHeader: '及时更新，获得最精确的膳食推荐',
+    userBodyInfo:{},
+   
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+ 
   },
 
   /**
@@ -27,7 +30,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    const that = this;
+    try {
+      var value = wx.getStorageSync('userBodyInfo');
+      if (value) {
+        this.setData({
+          userBodyInfo: value
+        })
+      }
+      console.log("Successfully get userBodyInfo.");
+      console.log(this.data.userBodyInfo);
+    } catch (e) {
+      console.log('Exception happen when try to get userBodyInfo from storage!')
+    };
   },
 
   /**

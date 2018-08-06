@@ -10,16 +10,25 @@ Page({
    */
   data: {
     question: '您的体重是：',
-    nextQuestionText: '下一步 （5/9）',
+    nextQuestionBtnText: '下一步 （5/9）',
+    updateValueBtnText: '确认更新并返回',
     weightsInteger: weightsInteger,
     weightsFraction: weightsFraction,
-    value: [parseInt(weightsInteger.length / 2) - 10, 0]
+    value: [parseInt(weightsInteger.length / 2) - 10, 0],
+    postUpdate: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.postUpdate != 'false') {
+      this.setData({
+        postUpdate: true,
+      });
+    }
+    console.log(this.data.postUpdate);
+
     if (app.globalData.logoUrl) {
       this.setData({
         logoUrl: app.globalData.logoUrl
@@ -39,7 +48,20 @@ Page({
   goToNextQuestion: function (e) {
     console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
-      url: '../../question/sportRate/sportRate'
+      url: '../../question/sportRate/sportRate?postUpdate=false'
+    })
+  },
+
+  updateValue: function (e) {
+    console.log(app.globalData.userBodyInfo);
+    try {
+      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
+      console.log('userBodyInfo is updated.');
+    } catch (e) {
+      console.log('Exception happen when try to get userBodyInfo from storage!')
+    };
+    wx.navigateBack({
+      delta: -1
     })
   },
 

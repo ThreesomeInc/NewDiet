@@ -18,6 +18,11 @@
 	</view>
 
 	<view class="nextButtonView">
-		<button bindtap='goToNextQuestion' class='nextQuestionButton'>{{nextQuestionText}}</button>
-	</view>
+    <button wx:if="{{!postUpdate}}" 
+      bindtap='goToNextQuestion' 
+      class='nextQuestionButton'>{{nextQuestionBtnText}}</button>
+    <button wx:else 
+      bindtap='updateValue' 
+      class='nextQuestionButton'>{{updateValueBtnText}}</button>
+  </view>
 </view>

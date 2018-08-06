@@ -7,5 +7,15 @@
       <text>{{subHeader}}</text>
     </view>
   </view>
+
+  <view class="bar-char">
+    <text class="bar-chart-title">{{barChartTitle}}</text>
+    <text class="bar-chart-sub-title">{{barChartSubTitle}}</text>
+    <canvas 
+      canvas-id="columnCanvas" 
+      class="canvas" bindtouchstart="touchHandler">
+    </canvas>
+    <text class="bar-chart-sub-title">{{dietContent}}</text>
+  </view>
   
 </view>

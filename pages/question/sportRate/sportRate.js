@@ -8,19 +8,28 @@ Page({
    */
   data: {
     question: '日常体力活动程度：',
-    nextQuestionText: '下一步 （6/9）',
+    nextQuestionBtnText: '下一步 （6/9）',
+    updateValueBtnText: '确认更新并返回',
     parameter: [
       {id: 1, key: "light", name: '轻度（如：长期坐办公室）'},
       {id: 2, key: "medium", name: '中度（如：不时外出跑业务）'},
       { id: 3, key: "severe", name: '重度（如：搬运）'}
     ],
-    value: [1]
+    value: [1],
+    postUpdate: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.postUpdate != 'false') {
+      this.setData({
+        postUpdate: true,
+      });
+    }
+    console.log(this.data.postUpdate);
+
     if (app.globalData.logoUrl) {
       this.setData({
         logoUrl: app.globalData.logoUrl
@@ -38,7 +47,20 @@ Page({
   goToNextQuestion: function (e) {
     console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
-      url: '../../question/nephroticPeriod/nephroticPeriod'
+      url: '../../question/nephroticPeriod/nephroticPeriod?postUpdate=false'
+    })
+  },
+
+  updateValue: function (e) {
+    console.log(app.globalData.userBodyInfo);
+    try {
+      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
+      console.log('userBodyInfo is updated.');
+    } catch (e) {
+      console.log('Exception happen when try to get userBodyInfo from storage!')
+    };
+    wx.navigateBack({
+      delta: -1
     })
   },
 

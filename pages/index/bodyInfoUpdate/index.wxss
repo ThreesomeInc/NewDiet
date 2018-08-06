@@ -1,0 +1,40 @@
+
+/* menu */
+.menu-list {
+  width: 100%;
+  margin-top: 50rpx;
+}
+.menu-item {
+    position: relative;
+    height: 70rpx;
+    line-height: 70rpx;
+    background-color: #fff;
+    color: #3d4966;
+    font-size: 35rpx;
+    margin-bottom: 15rpx;
+    box-sizing:border-box;
+    padding-left: 50rpx;
+}
+
+.menu-item .menu-item-title {
+    overflow:hidden;
+    text-align: left;
+    padding: 0 80rpx;
+    box-sizing: border-box;
+}
+
+.right-content {
+    position:absolute;
+    top: 50%;
+    right: 50rpx;
+    transform: translateY(-50%);
+    color:#9f9f9f;
+}
+.title-icon {
+  width: 50rpx;
+  height: 50rpx;
+  position:absolute;
+  top: 50%;
+  left: 50rpx;
+  transform: translateY(-50%);
+}

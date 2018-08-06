@@ -38,7 +38,7 @@ Page({
   },
   goToQuestions: function () {
     wx.navigateTo({
-      url: '../question/gender/gender'
+      url: '../question/gender/gender?postUpdate=false'
     })
   },
   onLoad: function () {

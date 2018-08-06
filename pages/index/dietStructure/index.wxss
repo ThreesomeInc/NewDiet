@@ -1,0 +1,32 @@
+.canvas{
+  width: 96%;
+  margin-top: 50rpx;
+  padding: 0;
+}
+.bar-char {
+  width: 100%;
+  text-align: center;
+  margin: 20rpx auto;
+  padding: 20rpx 0;
+}
+
+.bar-chart-title {
+  display:block;
+  font-style: bold;
+  font-size: 38rpx;
+  color: #3d4966;
+  width: 60%;
+  margin: 10rpx auto;
+  padding-bottom: 10rpx;
+  border-bottom: 2rpx solid #3d4966;
+}
+
+.bar-chart-sub-title {
+  font-size: 32rpx;
+  display:block;
+  color: #3d4966;
+  margin: 30rpx auto;
+  width: 80%;
+  text-align: left; 
+  line-height: 1.2rem;
+}
