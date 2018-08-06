@@ -66,9 +66,10 @@
   padding-top: 30rpx;
 }
 .tab-box {
-  border: 3rpx solid #3d4966;
+
+  border-bottom: 0;
   color: #3d4966;
-  margin: 0 10rpx;
+  margin: 0rpx 10rpx 10rpx 10rpx;
   width: 25%;
   
 }
@@ -76,10 +77,16 @@
   background-color: #3d4966;
   color: white;
   padding:8rpx;
-  height: 120rpx;
+  height: 100rpx;
 }
 .mini-tab-info {
+  vertical-align: center;
+  border: 3rpx solid #3d4966;
+  font-size: 40rpx;
   padding-top: 20rpx;
+  overflow-wrap:break-word;
+  word-break: break-all;
+  height: 100rpx;
 }
 
 /* menu */

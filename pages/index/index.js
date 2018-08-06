@@ -42,7 +42,6 @@ Page({
     })
   },
   onLoad: function () {
-    this.login();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -70,47 +69,6 @@ Page({
       })
     }
   },
-
-  login: function () {
-    sdk.setLoginUrl('http://localhost:8081/common/wxLogin');
-
-    if (this.data.logged) return;
-
-    util.showLoading('正在登录');
-
-    const session = sdk.Session.get();
-
-    if (session) {
-      // 第二次登录
-      // 或者本地已经有登录态
-      // 可使用本函数更新登录态
-      console.log("second time");
-      sdk.loginWithCode({
-        success: res => {
-          wx.setStorageSync('userInfo', res);
-          this.setData({userInfo: res, logged: true});
-          util.showSuccess('登录成功')
-        },
-        fail: err => {
-          console.error(err);
-          util.showModel('登录错误', err.message)
-        }
-      })
-    } else {
-      // 首次登录
-      sdk.login({
-        success: res => {
-          app.globalData.userInfo = res.userInfo;
-          this.setData({userInfo: res, logged: true});
-          util.showSuccess('登录成功')
-        },
-        fail: err => {
-          console.error(err);
-          util.showModel('登录错误', err.message)
-        }
-      })
-    }
-  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -120,10 +78,14 @@ Page({
       if (this.data.userBodyInfo) {
         this.setData({
           hasUserBodyInfo: true,
-          headerBodyInfo: app.globalData.basicInfoSummary
-        })
+        });
         console.log("Session contained userBodyInfo.");
         console.log(this.data.userBodyInfo);
+      }
+      if (wx.getStorageSync("basicInfoSummary")) {
+        this.setData({
+          headerBodyInfo: wx.getStorageSync("basicInfoSummary")
+        })
       }
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!')

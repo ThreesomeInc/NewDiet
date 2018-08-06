@@ -28,7 +28,6 @@
   text-align: center;
 }
 .tab-box {
-  border: 3rpx solid #3d4966;
   color: #3d4966;
   margin: 0 10rpx;
   width: 25%;
@@ -41,6 +40,8 @@
   height: 120rpx;
 }
 .mini-tab-info {
+  border: 3rpx solid #3d4966;
+  font-size: 40rpx;
   padding-top: 20rpx;
   overflow-wrap:break-word;
   word-break: break-all;

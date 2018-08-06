@@ -24,10 +24,10 @@
       <text id='slogon1'>{{slogon1}}</text>
     </view> -->
     <view class="gridTab">
-     <block wx:for="{{headerBodyInfo}}" wx:key="header">
+     <block wx:for="{{headerBodyInfo}}" wx:key="name">
       <view class="tab-box">
-        <view class="mini-tab-header">{{item.header}}</view>
-        <view class="mini-tab-info">{{item.info}}</view>
+        <view class="mini-tab-header">{{item.name}}</view>
+        <view class="mini-tab-info">{{item.value}}</view>
       </view>
       </block>
     </view>

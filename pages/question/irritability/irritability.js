@@ -48,12 +48,12 @@ Page({
       wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
       console.log('userBodyInfo is stored.');
       sdk.request({
-        url: `http://119.29.229.56:8081/home/report`,
+        url: `http://173.254.228.220:8081/home/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {
           userInfo: {
-            openId: app.globalData.userInfo.openId
+            openId: app.globalData.authInfo.openId
           },
           userDataInfo: app.globalData.userBodyInfo
         },
@@ -69,6 +69,8 @@ Page({
             {name: "总蛋白摄入", value: result.data.protein}
           ];
           app.globalData.suggestedNutrition = result.data.suggestNutrition;
+          wx.setStorageSync('basicInfoSummary', app.globalData.basicInfoSummary);
+          wx.setStorageSync('suggestedNutrition', app.globalData.suggestedNutrition);
           wx.redirectTo({
             url: '../../summary/summary'
           });
