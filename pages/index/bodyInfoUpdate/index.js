@@ -39,7 +39,7 @@ Page({
   onShow: function () {
     const that = this;
     try {
-      let cachedBodyInfo = app.globalData.userBodyInfo.gender ? app.globalData.userBodyInfo : wx.getStorageSync('userBodyInfo');
+      let cachedBodyInfo = wx.getStorageSync('userBodyInfo');
       console.log(cachedBodyInfo);
       this.setData({
         userBodyInfo: {

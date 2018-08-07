@@ -79,16 +79,11 @@ const parameterMap = {
   ],
 };
 
-const getAliasSingleOption = (options, value) => {
-  return parameterMap[options].filter(item => item.key === value)[0].name;
-};
+const getAliasSingleOption = (options, value) => parameterMap[options].filter(item => item.key === value)[0].name;
 
-const getAliasMultiOption = (options, value) => {
-  console.log(parameterMap[options]);
-  return parameterMap[options].filter(item => value.includes(item)).map(item => item.name).join(",");
-};
+const getAliasMultiOption = (options, value) => parameterMap[options].filter(item => value.includes(item)).map(item => item.name).join(",");
 
-const cutMessage = (source, length) => source.length > length ? source.substr(0, length) +"..." : source;
+const cutMessage = (source, length) => source.length > length ? source.substr(0, length) + "..." : source;
 
 module.exports = {
   formatTime: formatTime,
