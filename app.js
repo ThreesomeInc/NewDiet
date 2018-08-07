@@ -19,7 +19,7 @@ App({
           "X-WX-Code": res.code
         };
         wx.request({
-          url: "http://localhost:8081/common/wxLogin",
+          url: "https://diet.martinho0330.com/common/wxLogin",
           method: "GET",
           header: header,
           dataType: "json",
@@ -70,7 +70,7 @@ App({
     userBodyInfo: {
     },
     basicInfoSummary:[],
-    suggestedNutrition: {},
+    suggestedNutrition: [],
     advice:'',
     slogan:''
   }

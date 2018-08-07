@@ -1,6 +1,7 @@
 // pages/index/bodyInfoUpdate/index.js
 
 let util = require('../../../utils/util.js');
+let sdk = require('../../../vendor/wafer2-client-sdk/index');
 const app = getApp();
 
 Page({
@@ -59,6 +60,54 @@ Page({
 
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!' + e)
+    }
+  },
+
+  updateBodyInfo: function () {
+    try {
+      sdk.request({
+        url: `https://diet.martinho0330.com/home/report`,
+        method: 'POST',
+        header: {"Content-Type": "application/json"},
+        data: {
+          userInfo: {
+            openId: wx.getStorageSync('openid')
+          },
+          userDataInfo: wx.getStorageSync('userBodyInfo')
+        },
+        login: false,
+        success(result) {
+          //util.showSuccess('请求成功完成');
+          console.log("请求成功");
+          console.log(result.data);
+
+          app.globalData.basicInfoSummary = [
+            {name: "体型", value: result.data.bmi},
+            {name: "目标体重", value: result.data.standardWeight},
+            {name: "总热量摄入", value: result.data.calorie},
+            {name: "总蛋白摄入", value: result.data.protein}
+          ];
+          app.globalData.advice = result.data.advice;
+          app.globalData.slogan = result.data.slogan;
+          app.globalData.suggestedNutrition = result.data.suggestNutrition;
+
+          wx.setStorageSync('basicInfoSummary', app.globalData.basicInfoSummary);
+          wx.setStorageSync('suggestedNutrition', app.globalData.suggestedNutrition);
+          wx.setStorageSync('advice', app.globalData.advice);
+          wx.setStorageSync('slogan', app.globalData.slogan);
+
+          wx.redirectTo({
+            url: '../../summary/summary'
+          });
+        },
+        fail(error) {
+          util.showModel('请求失败,请检查网络', error);
+          console.log('request fail', error);
+        }
+      });
+    } catch (e) {
+      console.log('Exception happen when store userBodyInfo!')
+      console.log(e)
     }
   },
 

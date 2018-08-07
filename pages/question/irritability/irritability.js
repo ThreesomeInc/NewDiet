@@ -54,20 +54,20 @@ Page({
   },
 
   sendDataAndSeeReport: function (e) {
+    wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
+    console.log(app.globalData.userBodyInfo);
+    console.log(app.globalData.userInfo);
+    console.log('userBodyInfo is stored.');
     try {
-      console.log(app.globalData.userBodyInfo);
-      console.log(app.globalData.userInfo);
-      wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
-      console.log('userBodyInfo is stored.');
       sdk.request({
-        url: `http://localhost:8081/home/report`,
+        url: `https://diet.martinho0330.com/home/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {
           userInfo: {
-            openId: app.globalData.authInfo.openId
+            openId: wx.getStorageSync('openid')
           },
-          userDataInfo: app.globalData.userBodyInfo
+          userDataInfo: wx.getStorageSync('userBodyInfo')
         },
         login: false,
         success(result) {
