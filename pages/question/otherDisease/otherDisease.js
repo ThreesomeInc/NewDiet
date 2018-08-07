@@ -22,6 +22,14 @@ Page({
       this.setData({
         postUpdate: true,
       });
+      let preValue = app.globalData.userBodyInfo.otherDisease;
+      let parameterList = this.data.parameter;
+      parameterList.filter(item => preValue.includes(item.key)).forEach(item => {
+        item.checked = true
+      });
+      this.setData({
+        parameter: parameterList
+      });
     }
     console.log(this.data.postUpdate);
 

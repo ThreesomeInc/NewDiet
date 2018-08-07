@@ -31,20 +31,17 @@ Page({
         postUpdate: true,
       });
 
-      var preValue = app.globalData.userBodyInfo.irritability;
+      let preValue = app.globalData.userBodyInfo.irritability;
       let parameterList = this.data.parameter;
-      for (let i = 0; i < parameterList.length; i++) {
-        for(let j=0; j<preValue.length;j++){
-            if(parameterList[i].key==preValue[j]){
-              parameterList[i].checked = true;
-            }else{
-              parameterList[i].checked = true;
-            }
-        }
-      }
-    }else{
+      parameterList.filter(item => preValue.includes(item.key)).forEach(item => {
+        item.checked = true
+      });
+      this.setData({
+        parameter: parameterList
+      })
+    } else {
       app.globalData.userBodyInfo.irritability = [];
-    }    
+    }
   },
 
   checkboxChange: function (e) {
@@ -112,7 +109,7 @@ Page({
       console.log('userBodyInfo is updated.');
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!')
-    };
+    }
     wx.navigateBack({
       delta: -1
     })
