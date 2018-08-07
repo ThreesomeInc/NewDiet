@@ -45,3 +45,12 @@
   overflow:hidden;
   text-overflow:ellipse;
 }
+
+.next-icon {
+    position:absolute;
+    top: 50%;
+    right: 35rpx;
+    transform: translateY(-50%);
+    width: 45rpx;
+    height: 45rpx;
+}

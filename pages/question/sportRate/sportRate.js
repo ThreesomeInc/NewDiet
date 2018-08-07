@@ -23,19 +23,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.postUpdate != 'false') {
-      this.setData({
-        postUpdate: true,
-      });
-    }
-    console.log(this.data.postUpdate);
-
     if (app.globalData.logoUrl) {
       this.setData({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.sportRate = this.data.parameter[0].key;
+
+    if (options.postUpdate == 'true') {
+      this.setData({
+        postUpdate: true,
+      });
+      var preValue = app.globalData.userBodyInfo.sportRate;     
+      let parameterList = this.data.parameter;
+      for (let i = 0; i < parameterList.length; i++) {
+        if (parameterList[i].key === preValue) {
+          this.setData({
+            value:[i],
+          })
+        }
+      }
+    }else{
+      app.globalData.userBodyInfo.sportRate = this.data.parameter[1].key;
+    }
+
+    
   },
 
   bindChange: function (e) {

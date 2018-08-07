@@ -29,19 +29,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.postUpdate != 'false') {
-      this.setData({
-        postUpdate: true,
-      });
-    }
-    console.log(this.data.postUpdate);
 
     if (app.globalData.logoUrl) {
       this.setData({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.irritability = [];
+    if (options.postUpdate != 'false') {
+      this.setData({
+        postUpdate: true,
+      });
+
+      var preValue = app.globalData.userBodyInfo.irritability;
+      let parameterList = this.data.parameter;
+      for (let i = 0; i < parameterList.length; i++) {
+        for(let j=0; j<preValue.length;j++){
+            if(parameterList[i].key==preValue[j]){
+              parameterList[i].checked = true;
+            }else{
+              parameterList[i].checked = true;
+            }
+        }
+      }
+    }else{
+      app.globalData.userBodyInfo.irritability = [];
+    }    
   },
 
   checkboxChange: function (e) {
@@ -68,13 +80,13 @@ Page({
         },
         login: false,
         success(result) {
-          util.showSuccess('请求成功完成');
+          //util.showSuccess('请求成功完成');
           console.log("请求成功");
           console.log(result.data);
 
           app.globalData.basicInfoSummary = [
             {name: "体型", value: result.data.bmi},
-            {name: "标准体重", value: result.data.standardWeight},
+            {name: "目标体重", value: result.data.standardWeight},
             {name: "总热量摄入", value: result.data.calorie},
             {name: "总蛋白摄入", value: result.data.protein}
           ];
@@ -86,7 +98,7 @@ Page({
           wx.setStorageSync('suggestedNutrition', app.globalData.suggestedNutrition);
           wx.setStorageSync('advice', app.globalData.advice);
           wx.setStorageSync('slogan', app.globalData.slogan);
-          
+
           wx.redirectTo({
             url: '../../summary/summary'
           });

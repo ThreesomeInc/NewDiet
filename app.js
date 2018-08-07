@@ -63,17 +63,8 @@ App({
       openid: null
     },
     userInfo: null,
-    logoUrl: 'http://wiki.saraqian.com/wp-content/uploads/2018/08/diet_big_logo.png',
+    logoUrl: '../../../images/diet_big_logo.png',
     userBodyInfo: {
-      gender: '',
-      birth: '',
-      height: '',
-      weight: '',
-      sportRate: '',
-      nephroticPeriod: '',
-      treatmentMethod: '',
-      otherDisease: [],
-      irritability: []
     },
     basicInfoSummary:[],
     suggestedNutrition: {},

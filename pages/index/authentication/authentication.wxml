@@ -7,5 +7,15 @@
       <text>{{subHeader}}</text>
     </view>
   </view>
-  
+
+<view class="menu-list">
+  <view class="menu-item">
+    <image class="title-icon" src="../../../images/setting_icon.png" />
+    <view class="menu-item-title">
+      微信昵称及头像资料
+    </view>
+    <!-- <image class="next-icon" src="../../../images/rightArrow.png" /> -->
+    <switch class="switch-icon" checked="{{switch1Checked}}" bindchange="switch1Change"/>
+  </view>
+</view>  
 </view>

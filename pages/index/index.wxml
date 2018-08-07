@@ -2,9 +2,12 @@
 <view class="main-container">
   <view class="header-backgroup"></view>
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权进入主程序 </button>
+    <block wx:if="{{!hasUserInfo && canIUse}}" >
+      <image class="diet-logo" src="../../images/Diet_logo.png" background-size="cover"></image>
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权进入主程序 </button>
+    </block>  
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>

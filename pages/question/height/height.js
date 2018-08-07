@@ -13,7 +13,6 @@ Page({
     updateValueBtnText: '确认更新并返回',
     heights: heights,
     value: [parseInt(heights.length / 2)],
-    logoUrl: '',
     postUpdate: false,
   },
 
@@ -21,25 +20,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.postUpdate != 'false') {
-      this.setData({
-        postUpdate: true,
-      });
-    }
-    console.log(this.data.postUpdate);
-
     if (app.globalData.logoUrl) {
       this.setData({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.height = "165cm";
+    if (options.postUpdate != 'false') {
+      this.setData({
+        postUpdate: true,
+      });
+      var preValue = app.globalData.userBodyInfo.height.substr(0,3);
+      let parameterList = heights;
+      for (let i = 0; i < parameterList.length; i++) {
+        if (parameterList[i] === preValue) {
+          this.setData({
+            value: [i],
+          })
+        }
+      }
+    }else{
+      app.globalData.userBodyInfo.height = "165cm";
+    }
+    
   },
 
   bindChange: function (e) {
     const val = e.detail.value;
     app.globalData.userBodyInfo.height = this.data.heights[val[0]] + "cm";
-    console.log(app.globalData.userBodyInfo.height);
   },
 
   goToNextQuestion: function (e) {

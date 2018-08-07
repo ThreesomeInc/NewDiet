@@ -16,7 +16,7 @@ Page({
       { id: 3, key: "peritoneal-dialysis", checked: false, name: '腹膜透析治疗'},
       { id: 4, key: "transplantation", checked: false, name: '肾脏移植'}
     ],
-    value: [1],
+    value: [0],
     postUpdate: false,
   },
 
@@ -29,7 +29,6 @@ Page({
         postUpdate: true,
       });
     }
-    console.log(this.data.postUpdate);
 
     if (app.globalData.logoUrl) {
       this.setData({

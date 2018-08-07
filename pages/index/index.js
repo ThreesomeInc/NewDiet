@@ -16,11 +16,6 @@ Page({
     basicInfoSummary:[],
   },
   //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   goToQuestions: function () {
     wx.navigateTo({
       url: '../question/gender/gender?postUpdate=false'
@@ -51,6 +46,9 @@ Page({
             hasUserInfo: true
           })
         }
+      })
+      wx.navigateTo({
+        url: '../question/gender/gender?postUpdate=false'
       })
     }
   

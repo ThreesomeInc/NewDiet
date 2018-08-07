@@ -8,15 +8,20 @@ Page({
   data: {
     headerText: '身体资料更新',
     subHeader: '及时更新，获得最精确的膳食推荐',
-    userBodyInfo:{},
-   
+    updateBodyInfoBtnText: '更新身体资料',
+    userBodyInfo:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+    try {
+      app.globalData.userBodyInfowx.getStorageSync('userBodyInfo');
+    } catch (e) {
+      console.log('Exception happen when try to get userBodyInfo from storage!')
+    }
+    console.log(app.globalData.userBodyInfo);
   },
 
   /**
@@ -32,14 +37,12 @@ Page({
   onShow: function () {
     const that = this;
     try {
-      var value = wx.getStorageSync('userBodyInfo');
-      if (value) {
         this.setData({
-          userBodyInfo: value
+          userBodyInfo: app.globalData.userBodyInfo,
         })
-      }
       console.log("Successfully get userBodyInfo.");
       console.log(this.data.userBodyInfo);
+
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!')
     };

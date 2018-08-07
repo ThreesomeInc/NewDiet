@@ -64,34 +64,33 @@
 			</view>
 		</view>
 	</navigator>
+  <navigator url="../../question/treatmentMethod/treatmentMethod?postUpdate=true">
+		<view class="menu-item">
+			<image class="title-icon" src="../../../images/item_icon.png"/>
+			<view class="menu-item-title">目前治疗方式</view>
+			<image class="next-icon" src="../../../images/greyArrow.png" />
+		</view>
+	</navigator>
 	<navigator url="../../question/otherDisease/otherDisease?postUpdate=true">
 		<view class="menu-item">
 			<image class="title-icon" src="../../../images/item_icon.png"/>
 			<view class="menu-item-title">其他併发疾病</view>
-			<view class="right-content">
-				<text class="description">{{userBodyInfo.otherDisease}}</text>
-			</view>
-		</view>
-	</navigator>
-	<navigator url="../../question/treatmentMethod/treatmentMethod?postUpdate=true">
-		<view class="menu-item">
-			<image class="title-icon" src="../../../images/item_icon.png"/>
-			<view class="menu-item-title">目前治疗方式</view>
-			<view class="right-content">
-				<text class="description">{{userBodyInfo.treatmentMethod}}
-				</text>
-			</view>
+			<image class="next-icon" src="../../../images/greyArrow.png" />
 		</view>
 	</navigator>
 	<navigator url="../../question/irritability/irritability?postUpdate=true">
 		<view class="menu-item">
 			<image class="title-icon" src="../../../images/item_icon.png"/>
 			<view class="menu-item-title">过敏症</view>
-			<view class="right-content">
-				<text class="description">{{userBodyInfo.irritability}}</text>
-			</view>
+			<image class="next-icon" src="../../../images/greyArrow.png" />
 		</view>
 	</navigator>
 </view>
+
+	<view class="nextButtonView">
+    <button 
+      bindtap='updateBodyInfo' 
+      class='nextQuestionButton'>{{updateBodyInfoBtnText}}</button>
+  </view>
 
 </view>

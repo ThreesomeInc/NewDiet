@@ -14,7 +14,6 @@ Page({
     question: '您的生日是：',
     nextQuestionBtnText: '下一步 （3/9）',
     updateValueBtnText: '确认更新并返回',
-    logoUrl: '',
     years: years,
     months: months,
     days: days,
@@ -26,19 +25,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.postUpdate != 'false') {
-      this.setData({
-        postUpdate: true,
-      });
-    }
-    console.log(this.data.postUpdate);
 
     if (app.globalData.logoUrl) {
       this.setData({
         logoUrl: app.globalData.logoUrl
       })
     };
-    app.globalData.userBodyInfo.birth = "2018-01-01";
+    if (options.postUpdate != 'false') {
+      this.setData({
+        postUpdate: true,
+      });  
+    }else{
+      app.globalData.userBodyInfo.birth = "2018-01-01";
+    }
+    
   },
 
   bindChange: function (e) {

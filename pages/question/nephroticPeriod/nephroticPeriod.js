@@ -25,15 +25,25 @@ Page({
       this.setData({
         postUpdate: true,
       });
+      var preValue = app.globalData.userBodyInfo.nephroticPeriod;
+      let parameterList = periods;
+      for (let i = 0; i < parameterList.length; i++) {
+        if (parameterList[i]=== preValue) {
+          this.setData({
+            value: [i],
+          })
+        }
+      }
+    }else{
+      app.globalData.userBodyInfo.nephroticPeriod = this.data.periods[1];
     }
-    console.log(this.data.postUpdate);
 
     if (app.globalData.logoUrl) {
       this.setData({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.nephroticPeriod = this.data.periods[0];
+    
   },
 
   bindChange: function (e) {

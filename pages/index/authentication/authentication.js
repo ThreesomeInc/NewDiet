@@ -1,21 +1,29 @@
 // pages/index/authentication/authentication.js
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     headerText: '授权设置',
     subHeader: '更多信息将有助于了解你的身体状况',
+    switch1Checked: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (app.globalData.userInfo) {
+      this.setData({
+        switch1Checked: true
+      })
+    }
   },
 
+  switch1Change: function(e) {
+    console.log('switch1 发生 change 事件，携带值为', e.detail.value);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

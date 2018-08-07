@@ -12,6 +12,13 @@
   margin: 20rpx;
   border-radius: 50%;
 }
+.diet-logo {
+  width: 180rpx;
+  height: 180rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
 
 .userinfo-nickname {
   color: #3d4966;
