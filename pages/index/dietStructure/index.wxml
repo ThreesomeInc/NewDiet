@@ -15,7 +15,7 @@
       canvas-id="columnCanvas" 
       class="canvas" bindtouchstart="touchHandler">
     </canvas>
-    <text class="bar-chart-sub-title">{{dietContent}}</text>
+    <text class="bar-chart-sub-title">{{advice}}</text>
   </view>
   
 </view>

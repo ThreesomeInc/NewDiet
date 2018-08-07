@@ -20,11 +20,8 @@
     </view>
   </block>
   <block wx:elif="{{hasUserBodyInfo}}">
-    <!-- <view class="slogon">
-      <text id='slogon1'>{{slogon1}}</text>
-    </view> -->
     <view class="gridTab">
-     <block wx:for="{{headerBodyInfo}}" wx:key="name">
+     <block wx:for="{{basicInfoSummary}}" wx:key="name">
       <view class="tab-box">
         <view class="mini-tab-header">{{item.name}}</view>
         <view class="mini-tab-info">{{item.value}}</view>

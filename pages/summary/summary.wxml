@@ -4,26 +4,49 @@
 </view>
 
 <view class="question-container">
-<view class="gridTab">
+<text class="session-title">{{basicInfoTitle}}</text>
+<text class="session-sub-title">{{basicInfoSubTitle}}</text>
+  <view class="gridTab">
 	<block wx:for="{{basicInfoSummary}}" wx:key="name">
 		<view class="tab-box">
 			<view class="mini-tab-header">{{item.name}}</view>
 			<view class="mini-tab-info">{{item.value}}</view>
 		</view>
 	</block>
-</view>
+  </view>
+
+  <!-- <view class="gridTab">
+    <block wx:for="{{suggestedNutrition}}" wx:key="name">
+	    <view class="tab-box">
+		    <view class="mini-tab-header">{{item.name}}</view>
+		    <view class="mini-tab-info">{{item.value}}</view>
+	    </view>
+    </block>
+  </view> -->
+
+    <view class="bar-char">
+      <text class="session-title">{{barChartTitle}}</text>
+      <text class="session-sub-title">{{barChartSubTitle}}</text>
+      <canvas 
+        canvas-id="columnCanvas" 
+        class="canvas" bindtouchstart="touchHandler">
+      </canvas>
+      <text class="session-sub-title">{{advice}}</text>
+    </view>
+
+    <view class="slogan">
+      <text>{{slogan}}</text>
+    </view>
+    <view class="fixSlogan">
+      <text>{{footerSlogan}}</text>
+    </view>
+
+    <view class="summaryReportButtonView">
+      <button bindtap='goBackMain' id='goBackMain'>{{goBackMain}}</button>
+      <!-- <button bindtap='goShare' id='goShare'>{{goShare}}</button> -->
+    </view>
 </view>
 
-<view class="gridTab">
-<block wx:for="{{suggestedNutrition}}" wx:key="name">
-	<view class="tab-box">
-		<view class="mini-tab-header">{{item.name}}</view>
-		<view class="mini-tab-info">{{item.value}}</view>
-	</view>
-</block>
-</view>
 
-<view class="summaryReportButtonView">
-<button bindtap='goBackMain' id='goBackMain'>{{goBackMain}}</button>
-<button bindtap='goShare' id='goShare'>{{goShare}}</button>
-</view>
+
+

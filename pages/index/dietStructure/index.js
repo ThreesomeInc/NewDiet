@@ -21,7 +21,7 @@ Page({
     suggestedNutrition: [],
     barChartTitle:'CKD饮食结构推荐',
     barChartSubTitle:'根据您的理想体重，目标能量和目标蛋白质，CKD推荐了以下的每日饮食结构',
-    dietContent:'您的肾脏功能属于第一期，需要控制蛋白质摄入以延缓肾脏功能的进一步恶化。同时，您的甘油三酯偏高，建议低脂饮食。\n\n 具体一日三餐食谱，可参考主页面的“膳食建议“功能获得我们的智能推荐',
+    advice:'',
   },
 
   /**
@@ -32,11 +32,13 @@ Page({
       this.setData({
         userBodyInfo: wx.getStorageSync('userBodyInfo'),
         basicInfoSummary: wx.getStorageSync('basicInfoSummary'),
-        suggestedNutrition: wx.getStorageSync('suggestedNutrition')
+        suggestedNutrition: wx.getStorageSync('suggestedNutrition'),
+        advice: wx.getStorageSync('advice'),
       });
       console.log(this.data.basicInfoSummary);
       console.log(this.data.suggestedNutrition);
       console.log(this.data.userBodyInfo);
+      console.log(this.data.advice);
     } catch (e) {
       console.log('Exception happen when try to get summary info from storage!')
     }

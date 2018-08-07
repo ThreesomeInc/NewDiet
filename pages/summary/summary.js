@@ -1,5 +1,14 @@
 // pages/summary/summary.js
+const wxCharts = require('../../utils/wxcharts-min.js');
 const app = getApp();
+var columnChart = null;
+const chartData = {
+  main: {
+    title: 'CKD饮食结构推荐',
+    data: [175, 50, 250, 400, 368, 50],
+    categories: ['谷薯类', '淀粉', '绿叶蔬菜', '瓜果蔬菜', '肉蛋类', '油脂类']
+  }
+};
 
 Page({
 
@@ -10,9 +19,18 @@ Page({
     userBodyInfo: {},
     goBackMain: '返回主程序',
     goShare: '好东西齐分享',
-    basicInfoSummary: [],
-    suggestedNutrition: [],
     reportHeader: '您的身体报告',
+
+    basicInfoTitle: '基础身体信息',
+    basicInfoSubTitle:'根据您的身体基本信息，我们为您规划了近期的理想目标体重，并按照目标体重设定了每日的总热量和总蛋白摄入量',
+    basicInfoSummary: [],
+    
+    barChartTitle: 'CKD饮食结构推荐',
+    barChartSubTitle: '根据您的理想体重，总能量和总蛋白质摄入需求，CKD推荐了以下的每日饮食结构',
+    suggestedNutrition: [],
+    advice: '您的肾脏功能属于第一期，需要控制蛋白质摄入以延缓肾脏功能的进一步恶化。同时，您的甘油三酯偏高，建议低脂饮食。',
+    slogan: '具体一日三餐食谱，可参考主页面的“膳食建议“功能获得我们的智能推荐',
+    footerSlogan:'返回主程序\n以获得更多贴身智能膳食推荐',
   },
 
   /**
@@ -22,8 +40,10 @@ Page({
     try {
       this.setData({
         userBodyInfo:wx.getStorageSync('userBodyInfo'),
-        basicInfoSummary:app.globalData.basicInfoSummary,
-        suggestedNutrition:app.globalData.suggestedNutrition
+        basicInfoSummary: wx.getStorageSync('basicInfoSummary'),
+        suggestedNutrition: wx.getStorageSync('suggestedNutrition'),
+        advice: wx.getStorageSync('advice'),
+        slogan: wx.getStorageSync('slogan'),
       });
       console.log(this.data.basicInfoSummary);
       console.log(this.data.suggestedNutrition);
@@ -51,7 +71,35 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let windowWidth = 320;
+    try {
+      let res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.log('fail to get system width.');
+    }
+    columnChart = new wxCharts({
+      canvasId: 'columnCanvas',
+      type: 'column',
+      animation: true,
+      categories: chartData.main.categories,
+      series: [{
+        name: '一日分量',
+        color: '#fe6345',
+        data: chartData.main.data,
+        format: function (val, name) {
+          return val.toFixed(2) + 'g';
+        }
+      }],
+      yAxis: {
+        format: function (val) {
+          return val + 'g';
+        },
+        min: 0
+      },
+      width: windowWidth*0.9,
+      height: 180,
+    });
   },
 
   /**

@@ -75,5 +75,9 @@ App({
       otherDisease: [],
       irritability: []
     },
+    basicInfoSummary:[],
+    suggestedNutrition: {},
+    advice:'',
+    slogan:''
   }
 });

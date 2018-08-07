@@ -71,15 +71,22 @@ Page({
           util.showSuccess('请求成功完成');
           console.log("请求成功");
           console.log(result.data);
+
           app.globalData.basicInfoSummary = [
             {name: "体型", value: result.data.bmi},
             {name: "标准体重", value: result.data.standardWeight},
             {name: "总热量摄入", value: result.data.calorie},
             {name: "总蛋白摄入", value: result.data.protein}
           ];
+          app.globalData.advice = result.data.advice;
+          app.globalData.slogan = result.data.slogan;
           app.globalData.suggestedNutrition = result.data.suggestNutrition;
+
           wx.setStorageSync('basicInfoSummary', app.globalData.basicInfoSummary);
           wx.setStorageSync('suggestedNutrition', app.globalData.suggestedNutrition);
+          wx.setStorageSync('advice', app.globalData.advice);
+          wx.setStorageSync('slogan', app.globalData.slogan);
+          
           wx.redirectTo({
             url: '../../summary/summary'
           });

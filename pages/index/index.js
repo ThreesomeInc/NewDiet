@@ -4,20 +4,6 @@ let sdk = require('../../vendor/wafer2-client-sdk/index');
 let util = require('../../utils/util.js');
 const app = getApp();
 
-const headerBodyInfo = [{
-  header: 'BMI',
-  info: '正常',
-}, {
-  header: '理想体重',
-  info: '50Kg',
-}, {
-  header: '目标热量摄入',
-  info: '1615.25',
-}, {
-  header: '目标蛋白摄入',
-  info: '49.7',
-}];
-
 Page({
   data: {
     motto: '只需九步，了解自己更多',
@@ -27,8 +13,7 @@ Page({
     slogon1: '知道怎样吃得好又吃的饱?',
     slogon2: '肾脏营养师\n为您规划一日三餐!',
     hasUserBodyInfo: false,
-    userBodyInfo: {},
-    headerBodyInfo: headerBodyInfo,
+    basicInfoSummary:[],
   },
   //事件处理函数
   bindViewTap: function () {
@@ -68,6 +53,7 @@ Page({
         }
       })
     }
+  
   },
   /**
    * 生命周期函数--监听页面显示
@@ -84,8 +70,10 @@ Page({
       }
       if (wx.getStorageSync("basicInfoSummary")) {
         this.setData({
-          headerBodyInfo: wx.getStorageSync("basicInfoSummary")
+          basicInfoSummary: wx.getStorageSync("basicInfoSummary")
         })
+        console.log("Session contained basicInfoSummary.");
+        console.log(this.data.basicInfoSummary);
       }
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!')
