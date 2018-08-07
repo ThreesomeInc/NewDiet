@@ -30,6 +30,8 @@ Page({
       this.setData({
         parameter: parameterList
       });
+    } else {
+      app.globalData.userBodyInfo.otherDisease = [];
     }
     console.log(this.data.postUpdate);
 
@@ -38,7 +40,6 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.otherDisease = [];
   },
 
   checkboxChange: function (e) {

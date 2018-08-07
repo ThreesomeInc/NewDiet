@@ -31,6 +31,8 @@ Page({
       this.setData({
         parameter: parameterList
       });
+    } else {
+      app.globalData.userBodyInfo.treatmentMethod = [];
     }
 
     if (app.globalData.logoUrl) {
@@ -38,7 +40,6 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.treatmentMethod = [];
   },
 
   checkboxChange: function (e) {
