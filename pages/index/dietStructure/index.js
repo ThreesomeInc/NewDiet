@@ -55,15 +55,18 @@ Page({
     } catch (e) {
       console.log('fail to get system width.');
     }
+    let suggestedNutrition = wx.getStorageSync('suggestedNutrition');
+    let categories = suggestedNutrition.map(item => item.name);
+    let data = suggestedNutrition.map(item => item.value).map(item => parseFloat(/\d+/.exec(item)[0]));
     columnChart = new wxCharts({
       canvasId: 'columnCanvas',
       type: 'column',
       animation: true,
-      categories: chartData.main.categories,
+      categories: categories,
       series: [{
         name: '一日分量',
         color: '#fe6345',
-        data: chartData.main.data,
+        data: data,
         format: function (val, name) {
           return val.toFixed(2) + 'g';
         }

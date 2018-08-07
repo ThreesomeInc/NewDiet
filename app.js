@@ -3,10 +3,13 @@ let util = require('utils/util.js');
 App({
   onLaunch: function () {
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
+    let logs = wx.getStorageSync('logs') || [];
+    logs.unshift(Date.now());
+    wx.setStorageSync('logs', logs);
+    let bodyInfo = wx.getStorageSync('userBodyInfo');
+    if (bodyInfo) {
+      this.globalData.userBodyInfo = bodyInfo;
+    }
     // 登录
     wx.login({
       success: res => {
@@ -16,7 +19,7 @@ App({
           "X-WX-Code": res.code
         };
         wx.request({
-          url: "http://173.254.228.220:8081/common/wxLogin",
+          url: "http://localhost:8081/common/wxLogin",
           method: "GET",
           header: header,
           dataType: "json",

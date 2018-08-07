@@ -60,7 +60,7 @@ Page({
       wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
       console.log('userBodyInfo is stored.');
       sdk.request({
-        url: `http://173.254.228.220:8081/home/report`,
+        url: `http://localhost:8081/home/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {
