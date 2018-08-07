@@ -60,7 +60,7 @@
 			<image class="title-icon" src="../../../images/item_icon.png"/>
 			<view class="menu-item-title">肾脏病阶段</view>
 			<view class="right-content">
-				<text>{{userBodyInfo.nephroticPeriod}}</text>
+				<text>第{{userBodyInfo.nephroticPeriod}}期</text>
 			</view>
 		</view>
 	</navigator>

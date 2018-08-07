@@ -11,16 +11,7 @@ Page({
     question: '您是否有以下过敏症？',
     fetchReport: '查看report',
     updateValueBtnText: '确认更新并返回',
-    parameter: [//奶/蛋/贝壳/虾蟹鱼/面粉/坚果/黄豆/玉米
-      {id: 1, key: "milk", checked: false, name: '奶'},
-      {id: 2, key: "egg", checked: false, name: '蛋'},
-      {id: 3, key: "crostacei", checked: false, name: '贝壳'},
-      {id: 4, key: "fish-prawn-crab", checked: false, name: '鱼虾蟹'},
-      {id: 5, key: "flour", checked: false, name: '面粉'},
-      {id: 6, key: "nuts", checked: false, name: '坚果'},
-      {id: 7, key: "soya", checked: false, name: '黄豆'},
-      {id: 8, key: "corn", checked: false, name: '玉米'}
-    ],
+    parameter: util.parameterMap.irritability,//奶/蛋/贝壳/虾蟹鱼/面粉/坚果/黄豆/玉米
     postUpdate: false,
 
   },

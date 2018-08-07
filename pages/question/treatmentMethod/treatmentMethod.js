@@ -10,12 +10,7 @@ Page({
     question: '目前治疗方式是：',
     nextQuestionBtnText: '下一步 （8/9）',
     updateValueBtnText: '确认更新并返回',
-    parameter: [
-      { id: 1, key: "medication", checked: false, name: '药物治疗'},
-      { id: 2, key: "hemodialysis", checked: false, name: '血液透析治疗'},
-      { id: 3, key: "peritoneal-dialysis", checked: false, name: '腹膜透析治疗'},
-      { id: 4, key: "transplantation", checked: false, name: '肾脏移植'}
-    ],
+    parameter: util.parameterMap.treatmentMethod,
     value: [0],
     postUpdate: false,
   },

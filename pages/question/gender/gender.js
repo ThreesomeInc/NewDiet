@@ -1,4 +1,5 @@
 // pages/question-sex/question-sex.js
+let util = require('../../../utils/util.js');
 const app = getApp();
 Page({
 
@@ -7,7 +8,7 @@ Page({
    */
   data: {
     question: '您的性别是：',
-    parameter: [{ id: 1, key:"male", name: '男' }, { id: 2, key:"female", name: '女' }],
+    parameter: util.parameterMap.gender,//男/女
     nextQuestionBtnText: '下一步 （2/9）',
     updateValueBtnText: '确认更新并返回',
     postUpdate: false,

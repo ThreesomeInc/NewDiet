@@ -10,13 +10,7 @@ Page({
     question: '是否有其他併发疾病：',
     nextQuestionBtnText: '下一步 （9/9）',
     updateValueBtnText: '确认更新并返回',
-    parameter: [//高血压/高血脂（甘油三酯/胆固醇/both）/高血糖/高尿酸/无
-      { id: 1, key: "hypertension", checked: false, name: '高血压'},
-      { id: 2, key: "triglyceride", checked: false, name: '高甘油三酯'},
-      { id: 3, key: "cholesterol", checked: false, name: '高胆固醇' },
-      { id: 4, key: "hyperglycemia", checked: false, name: '高血糖'},
-      { id: 5, key: "hyperuricacidemia", checked: false, name: '高尿酸'}
-    ],
+    parameter: util.parameterMap.otherDisease,//高血压/高血脂（甘油三酯/胆固醇/both）/高血糖/高尿酸/无
     postUpdate: false,
   },
 
