@@ -37,6 +37,10 @@ const showModel = (title, content) => {
   })
 };
 
+const shorten = (content, length) => {
+  return content.length > length ? content.substr(0, length) + "..." : content;
+};
+
 const showLoading = text => wx.showToast({
   title: text,
   icon: 'loading',
@@ -47,6 +51,8 @@ module.exports = {
   formatTime: formatTime,
   formatNumber: formatNumber,
   range: range,
+  pad: pad,
+  shorten: shorten,
   showSuccess: showSuccess,
   showModel: showModel,
   showLoading: showLoading

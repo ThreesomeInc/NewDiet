@@ -38,3 +38,10 @@
   left: 50rpx;
   transform: translateY(-50%);
 }
+
+.description {
+  width: 80rpx;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipse;
+}
