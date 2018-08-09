@@ -1,6 +1,6 @@
 /* pages/summary/summary.wxss */
 .question-container {
-  color: #3d4966;
+  color: #4cb16f;
   background-color: white;
   padding-top:30rpx;
   padding-bottom: 5rpx;
@@ -12,7 +12,7 @@
   justify-content: center;
   box-sizing: border-box;
   text-align: center;
-  border: 10rpx solid #3d4966;
+  border: 10rpx solid #4cb16f;
   border-radius: 30rpx;
 } 
 
@@ -30,7 +30,7 @@
     border: 1rpx solid white;
     font-size: 40rpx;
     border-radius: 40rpx;
-    background-color: #3d4966;
+    background-color: #4cb16f;
     width: 70%;
 }
 
@@ -44,13 +44,13 @@
   text-align: center;
 }
 .tab-box {
-  color: #3d4966;
+  color: #20492e;
   margin: 0 10rpx;
   width: 25%;
 
 }
 .mini-tab-header {
-  background-color: #3d4966;
+  background-color: #4cb16f;
   color: white;
   font-size: 35rpx;
   padding:10rpx;
@@ -58,7 +58,7 @@
 }
 .mini-tab-info {
   vertical-align: center;
-  border: 3rpx solid #3d4966;
+  border: 3rpx solid #4cb16f;
   font-size: 33rpx;
   padding: 8rpx;
   overflow-wrap:break-word;
@@ -71,7 +71,7 @@
   font-size: 50rpx;
   margin: 0;
   height: 100rpx;
-  background-color: #3d4966;
+  background-color: #4cb16f;
   color: white;
   text-align: center;
   padding-top:20rpx;
@@ -94,18 +94,18 @@
   display:block;
   font-style: bold;
   font-size: 40rpx;
-  color: #3d4966;
+  color: #20492e;
   width: 60%;
   margin: 10rpx auto;
   padding-bottom: 10rpx;
   padding-top:20rpx;
-  border-bottom: 2rpx solid #3d4966;
+  border-bottom: 2rpx solid #20492e;
 }
 
 .session-sub-title {
   font-size: 32rpx;
   display:block;
-  color: #3d4966;
+  color: #20492e;
   margin: 30rpx auto;
   width: 85%;
   text-align: left; 
@@ -132,4 +132,5 @@
   margin: 30rpx; 
   font-size: 32rpx;
   padding-bottom: 50rpx;
+  color: #20492e;
 }

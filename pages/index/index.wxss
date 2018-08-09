@@ -21,7 +21,7 @@
 }
 
 .userinfo-nickname {
-  color: #3d4966;
+  color: #20492e;
 }
 
 .questionButtonView {
@@ -29,21 +29,21 @@
   
 }
 .questionButton {
-  border: 3px solid #3d4966;
-  border-radius: 40rpx;
-  color: #3d4966;
+   border-radius: 40rpx;
+  color: #ffffff;
+  background-color: #4cb16f;
 }
 .header-backgroup {
   width: 100%;
   height: 150rpx;
-  background-color: #3d4966;
+  background-color: #4cb16f;
   margin: 0;
 }
 
 .slogon {
   padding-top: 60rpx;
   text-align: center;
-  color: #3d4966;
+  color: #20492e;
   line-height: 2rem;
   font-family: 'Wawati SC','STZhongsong';
   font-size: 50rpx;
@@ -52,8 +52,8 @@
   font-size: 52rpx;
   font-style: bold;
   padding-bottom: 5rpx;
-  border-top:1px solid #3d4966;
-  border-bottom:1px solid #3d4966;
+  border-top:1px solid #20492e;
+  border-bottom:1px solid #20492e;
 }
 
 #slogon2 {
@@ -74,13 +74,13 @@
 }
 .tab-box {
   border-bottom: 0;
-  color: #3d4966;
+  color: #20492e;
   margin: 0rpx 10rpx 10rpx 10rpx;
   width: 25%;
   
 }
 .mini-tab-header {
-  background-color: #3d4966;
+  background-color: #4cb16f;
   color: white;
   font-size: 35rpx;
   padding:10rpx;
@@ -88,7 +88,7 @@
 }
 .mini-tab-info {
   vertical-align: center;
-  border: 3rpx solid #3d4966;
+  border: 3rpx solid #4cb16f;
   font-size: 33rpx;
   padding: 8rpx;
   overflow-wrap:break-word;
@@ -106,7 +106,7 @@
     height: 80rpx;
     line-height: 80rpx;
     background-color: #fff;
-    color: #3d4966;
+    color: #20492e;
     font-size: 35rpx;
     margin-bottom: 20rpx;
     box-sizing:border-box;

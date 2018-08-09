@@ -9,7 +9,7 @@
     height: 70rpx;
     line-height: 70rpx;
     background-color: #fff;
-    color: #3d4966;
+    color: #20492e;
     font-size: 35rpx;
     margin-bottom: 15rpx;
     box-sizing:border-box;
