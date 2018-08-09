@@ -4,21 +4,8 @@
   <view class="userinfo-before" wx:if="{{!hasUserInfo && canIUse}}">
 
       <image class="diet-logo" src="../../images/Diet_logo.png" background-size="cover"></image>
-      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权进入主程序 </button>
-      <block wx:if="{{!hasUserBodyInfo}}">
-      <view class="userinfo-before" >
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      </view>
-    <view class="slogon">
-      <text id='slogon1'>{{slogon1}}</text>
-    </view>
-    <view class="slogon">
-      <text id='slogon2'>{{slogon2}}</text>
-    </view>
-    <view class="questionButtonView">
-      <button bindtap='goToQuestions' class='questionButton'>{{motto}}</button>
-    </view>
-  </block>
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 轻点授权，\n看到大不同 </button>
+
       </view>
       <block wx:else>
 

@@ -7,17 +7,27 @@
 }
 .userinfo-after {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  margin-top:-120rpx;
   background:#ffffff;
-  border-radius: 30rpx;
-  width: 90%;
-  padding: 30rpx 10rpx;
+  margin-top:-6rpx;
+  border-radius: 0 0 40rpx 40rpx;
+  width: 80%;
+  padding: 20rpx;
   border: 10rpx solid #4cb16f;
+  height: 300rpx;
+}
+
+.userinfo-after image{
+  margin-top: -130rpx;
+  margin-bottom: 20rpx;
 }
 .basicInfoResult {
   text-align: right;
+}
+
+button {
+  color: #20492e;
 }
 
 .userinfo-avatar {
@@ -82,7 +92,8 @@
   align-items: stretch;
   text-align: center;
   padding-left: 10rpx;
-  width: 65%;
+  width: 80%;
+  margin-top: 20rpx;
 }
 .tab-box {
   display: flex;
@@ -97,8 +108,10 @@
   border-radius: 10rpx;
   color:#ffffff;
   font-size: 35rpx;
+  margin: 3rpx;
   padding: 3rpx;
   width: 45%;
+  font-style: bold;
 }
 .mini-tab-info {
   vertical-align: center;
