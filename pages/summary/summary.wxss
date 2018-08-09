@@ -101,7 +101,7 @@
   width: 60%;
   margin: 10rpx auto;
   padding-bottom: 10rpx;
-  padding-top:20rpx;
+  padding-top:40rpx;
   border-bottom: 2rpx solid #20492e;
 }
 

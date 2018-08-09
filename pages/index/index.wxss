@@ -9,17 +9,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background:#ffffff;
   margin-top:-6rpx;
   border-radius: 0 0 40rpx 40rpx;
   width: 80%;
   padding: 20rpx;
-  border: 10rpx solid #4cb16f;
-  height: 300rpx;
+  height: 350rpx;
 }
 
 .userinfo-after image{
-  margin-top: -130rpx;
+  margin-top: -100rpx;
   margin-bottom: 20rpx;
 }
 .basicInfoResult {
