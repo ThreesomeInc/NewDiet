@@ -5,8 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headerText: '授权设置',
-    subHeader: '更多信息将有助于了解你的身体状况',
+    title:{
+      headerText: '授权设置',
+      subHeader: '更多信息将有助于了解你的身体状况',
+    },
     switch1Checked: false,
   },
 

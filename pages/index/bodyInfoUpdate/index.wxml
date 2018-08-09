@@ -1,13 +1,7 @@
+<import src="../../../template/pageHeader.wxml"/>
 <wxs module="common" src="../../../utils/common.wxs"></wxs>
 <view class="main-container">
-<view class="tab-header">
-	<view class="headerText">
-		<text>{{headerText}}</text>
-	</view>
-	<view class="subHeader">
-		<text>{{subHeader}}</text>
-	</view>
-</view>
+  <template is="pageHeader" data="{{...title}}"/>
 
 <view class="menu-list">
 	<navigator url="../../question/gender/gender?postUpdate=true">
