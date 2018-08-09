@@ -34,36 +34,39 @@
     width: 70%;
 }
 
+
+/* 4 grid tab */
 .gridTab {
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   justify-content: center;
   align-items: stretch;
-  margin: 15rpx;
-  height: 220rpx;
   text-align: center;
+  margin-left: 80rpx;
+  width: 90%;
 }
 .tab-box {
+  display: flex;
+  flex-flow: row;
+  border-bottom: 0;
   color: #20492e;
-  margin: 0 10rpx;
-  width: 25%;
-
+  margin: 5rpx;
+  
 }
 .mini-tab-header {
   background-color: #4cb16f;
-  color: white;
+  border-radius: 10rpx;
+  color: #ffffff;
   font-size: 35rpx;
-  padding:10rpx;
-  height: 100rpx;
+  padding: 3rpx;
+  width: 30%;
 }
 .mini-tab-info {
   vertical-align: center;
-  border: 3rpx solid #4cb16f;
   font-size: 33rpx;
-  padding: 8rpx;
   overflow-wrap:break-word;
   word-break: break-all;
-  height: 100rpx;
+  padding-left: 40rpx;
 }
 
 .report-header {

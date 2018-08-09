@@ -1,17 +1,14 @@
 <!--index.wxml-->
 <view class="main-container">
   <view class="header-backgroup"></view>
-  <view class="userinfo">
-    <block wx:if="{{!hasUserInfo && canIUse}}" >
+  <view class="userinfo-before" wx:if="{{!hasUserInfo && canIUse}}">
+
       <image class="diet-logo" src="../../images/Diet_logo.png" background-size="cover"></image>
       <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权进入主程序 </button>
-    </block>  
-    <block wx:else>
+      <block wx:if="{{!hasUserBodyInfo}}">
+      <view class="userinfo-before" >
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <block wx:if="{{!hasUserBodyInfo}}">
+      </view>
     <view class="slogon">
       <text id='slogon1'>{{slogon1}}</text>
     </view>
@@ -22,14 +19,35 @@
       <button bindtap='goToQuestions' class='questionButton'>{{motto}}</button>
     </view>
   </block>
-  <block wx:elif="{{hasUserBodyInfo}}">
-    <view class="gridTab">
-     <block wx:for="{{basicInfoSummary}}" wx:key="name">
-      <view class="tab-box">
-        <view class="mini-tab-header">{{item.name}}</view>
-        <view class="mini-tab-info">{{item.value}}</view>
       </view>
-      </block>
+      <block wx:else>
+
+  <block wx:if="{{!hasUserBodyInfo}}">
+      <view class="userinfo-before" >
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      </view>
+    <view class="slogon">
+      <text id='slogon1'>{{slogon1}}</text>
+    </view>
+    <view class="slogon">
+      <text id='slogon2'>{{slogon2}}</text>
+    </view>
+    <view class="questionButtonView">
+      <button bindtap='goToQuestions' class='questionButton'>{{motto}}</button>
+    </view>
+  </block>
+
+  <block wx:elif="{{hasUserBodyInfo}}">
+    <view class="userinfo-after" >
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <view class="gridTab">
+        <block wx:for="{{basicInfoSummary}}" wx:key="name">
+          <view class="tab-box">
+          <view class="mini-tab-header">{{item.name}}</view>
+          <view class="mini-tab-info">{{item.value}}</view>
+          </view>
+        </block>
+      </view>
     </view>
     <view class="menu-list">
         <navigator url="dietStructure/index">
@@ -69,5 +87,6 @@
             </view>
         </navigator>
     </view>
+  </block>
   </block>
 </view>
