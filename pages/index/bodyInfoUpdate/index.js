@@ -66,7 +66,7 @@ Page({
   updateBodyInfo: function () {
     try {
       sdk.request({
-        url: `https://diet.martinho0330.com/home/report`,
+        url: `https://173.254.228.220/home/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {
