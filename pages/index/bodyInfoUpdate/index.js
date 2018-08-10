@@ -9,9 +9,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headerText: '身体资料更新',
-    subHeader: '及时更新，获得最精确的膳食推荐',
-    updateBodyInfoBtnText: '更新身体资料',
+    title: {
+      headerText: '身体资料更新',
+      subHeader: '及时更新，获得最精确的膳食推荐',
+    },
+    updateBodyInfoBtnText: '更新资料，获取身体报告',
     userBodyInfo: null,
   },
 

@@ -14,17 +14,17 @@
   display:block;
   font-style: bold;
   font-size: 38rpx;
-  color: #3d4966;
+  color: #20492e;
   width: 60%;
   margin: 10rpx auto;
   padding-bottom: 10rpx;
-  border-bottom: 2rpx solid #3d4966;
+  border-bottom: 2rpx solid #20492e;
 }
 
 .bar-chart-sub-title {
   font-size: 32rpx;
   display:block;
-  color: #3d4966;
+  color: #20492e;
   margin: 30rpx auto;
   width: 80%;
   text-align: left; 

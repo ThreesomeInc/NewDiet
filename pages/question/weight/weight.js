@@ -22,19 +22,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.postUpdate != 'false') {
-      this.setData({
-        postUpdate: true,
-      });
-    }
-
     if (app.globalData.logoUrl) {
       this.setData({
         logoUrl: app.globalData.logoUrl
       })
     }
-    app.globalData.userBodyInfo.weight = this.data.weightsInteger[this.data.value[0]] +
-      "." + this.data.weightsFraction[this.data.value[1]] + "kg";
+    
+    if (options.postUpdate == 'true') {
+      this.setData({
+        postUpdate: true,
+      });
+    }else{
+      app.globalData.userBodyInfo.weight = this.data.weightsInteger[this.data.value[0]] +
+        "." + this.data.weightsFraction[this.data.value[1]] + "kg";
+    }
   },
 
   bindChange: function (e) {

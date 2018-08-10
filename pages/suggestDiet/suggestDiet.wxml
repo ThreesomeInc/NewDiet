@@ -1,13 +1,8 @@
 <!--pages/suggestDiet/suggestDiet.wxml-->
+<import src="../../template/pageHeader.wxml"/>
+
 <view class="main-container">
-  <view class="tab-header">
-    <view class="headerText">
-      <text>{{headerText}}</text>
-    </view>
-    <view class="subHeader">
-      <text>{{subHeader}}</text>
-    </view>
-  </view>
+  <template is="pageHeader" data="{{...title}}"/>
   <view class="grid-icon">
   <view >
   <image class="icon" bindtap="foodViewTap" mode="widthFix" src="../../images/food_logo.jpeg" ></image>

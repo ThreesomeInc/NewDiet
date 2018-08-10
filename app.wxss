@@ -1,27 +1,24 @@
 /**app.wxss**/
+@import "template/pageHeader.wxss";
+
 .orange {
   color: #fb8b05;
-}
-.orange-bg {
-  background-color: #fb8b05;
 }
 .brown {
   color:#9c3d1f;
 }
-.brown-bg {
-  background-color:#9c3d1f;
-}
 .ping {
   color: #fe6345;
-}
-.ping-bg {
-  background-color: #fe6345;
 }
 .red {
   color: #e35d42;
 }
-.red-bg {
-  background-color: #e35d42;
+
+.green {
+  color: #4cb16f;
+}
+.dark-green {
+  color: #20492e;
 }
 
 .main-container {
@@ -38,7 +35,7 @@ page{
 }
 
 .question-container {
-  color: #3d4966;
+  color: #20492e;
   background-color: white;
   padding-top:30rpx;
   padding-bottom: 5rpx;
@@ -50,7 +47,7 @@ page{
   justify-content: center;
   box-sizing: border-box;
   text-align: center;
-  border: 10rpx solid #3d4966;
+  border: 10rpx solid #4cb16f;
   border-radius: 30rpx;
 } 
 
@@ -68,8 +65,8 @@ page{
   margin: 10rpx;
   width:80%;
   text-align: center;
-  border-top:1px solid #3d4966;
-  border-bottom:1px solid #3d4966;
+  border-top:1px solid #20492e;
+  border-bottom:1px solid #20492e;
   padding:20rpx;
 }
 .question-header {
@@ -108,34 +105,12 @@ picker-view-column {
     color: white;
     border: 1rpx solid white;
     font-size: 40rpx;
-    background-color: #3d4966;
+    background-color: #4cb16f;
 }
 .nextQuestionButton:hover{
     border: 5rpx solid white;
 }
 
 
-/* general page header */
-.tab-header {
-  background-color: #3d4966;
-  color:white;
-  height: 180rpx;
-  padding:0;
-  margin:0;
-  width: 100%;
-  text-align: center;
-  font-style: bold;
-  padding-top: 30rpx;
-}
-.headerText{
-  border: 2rpx solid white;
-  padding: 10rpx;
-  margin:0 auto;
-  border-radius: 50rpx;
-  font-size: 40rpx;
-  width: 60%;
-}
-.subHeader {
-  font-size: 35rpx;
-  margin-top: 15rpx;
-}
+
+

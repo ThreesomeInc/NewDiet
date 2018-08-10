@@ -25,7 +25,7 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-    if (options.postUpdate != 'false') {
+    if (options.postUpdate == 'true') {
       this.setData({
         postUpdate: true,
       });

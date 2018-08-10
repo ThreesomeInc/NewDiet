@@ -5,8 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headerText: '饮食记录',
-    subHeader:'完整的记录，是改善的第一步',
+    title:{
+      headerText: '饮食记录',
+      subHeader: '完整的记录，是改善的第一步',
+    },
   },
 
   /**

@@ -16,8 +16,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headerText: '膳食结构建议',
-    subHeader: '没有垃圾食物，只有垃圾食法',
+    title:{
+      headerText: '膳食结构建议',
+      subHeader: '没有垃圾食物，只有垃圾食法',
+    }, 
     suggestedNutrition: [],
     barChartTitle:'CKD饮食结构推荐',
     barChartSubTitle:'根据您的理想体重，目标能量和目标蛋白质，CKD推荐了以下的每日饮食结构',

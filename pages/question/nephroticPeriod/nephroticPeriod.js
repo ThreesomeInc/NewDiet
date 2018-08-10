@@ -13,7 +13,7 @@ Page({
     nextQuestionBtnText: '下一步 （7/9）',
     updateValueBtnText: '确认更新并返回',
     periods: periods,
-    value: [1],
+    value: [0],
     postUpdate: false,
   },
 
@@ -21,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.postUpdate != 'false') {
+    if (options.postUpdate == 'true') {
       this.setData({
         postUpdate: true,
       });
@@ -35,7 +35,7 @@ Page({
         }
       }
     }else{
-      app.globalData.userBodyInfo.nephroticPeriod = this.data.periods[1];
+      app.globalData.userBodyInfo.nephroticPeriod = this.data.periods[0];
     }
 
     if (app.globalData.logoUrl) {

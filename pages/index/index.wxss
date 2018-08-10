@@ -1,9 +1,31 @@
 /**index.wxss**/
-.userinfo {
+.userinfo-before {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top:-120rpx;
+}
+.userinfo-after {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:-6rpx;
+  border-radius: 0 0 40rpx 40rpx;
+  width: 80%;
+  padding: 20rpx;
+  height: 350rpx;
+}
+
+.userinfo-after image{
+  margin-top: -100rpx;
+  margin-bottom: 20rpx;
+}
+.basicInfoResult {
+  text-align: right;
+}
+
+button {
+  color: #20492e;
 }
 
 .userinfo-avatar {
@@ -21,7 +43,7 @@
 }
 
 .userinfo-nickname {
-  color: #3d4966;
+  color: #20492e;
 }
 
 .questionButtonView {
@@ -29,21 +51,21 @@
   
 }
 .questionButton {
-  border: 3px solid #3d4966;
-  border-radius: 40rpx;
-  color: #3d4966;
+   border-radius: 40rpx;
+  color: #ffffff;
+  background-color: #4cb16f;
 }
 .header-backgroup {
   width: 100%;
   height: 150rpx;
-  background-color: #3d4966;
+  background-color: #4cb16f;
   margin: 0;
 }
 
 .slogon {
   padding-top: 60rpx;
   text-align: center;
-  color: #3d4966;
+  color: #20492e;
   line-height: 2rem;
   font-family: 'Wawati SC','STZhongsong';
   font-size: 50rpx;
@@ -52,8 +74,8 @@
   font-size: 52rpx;
   font-style: bold;
   padding-bottom: 5rpx;
-  border-top:1px solid #3d4966;
-  border-bottom:1px solid #3d4966;
+  border-top:1px solid #20492e;
+  border-bottom:1px solid #20492e;
 }
 
 #slogon2 {
@@ -63,37 +85,38 @@
 /* 4 grid tab */
 .gridTab {
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   justify-content: center;
   align-items: stretch;
-  margin: 10rpx 20rpx;
-  margin-top: 30rpx;
-  height: 220rpx;
   text-align: center;
-  padding-top: 30rpx;
+  padding-left: 10rpx;
+  width: 80%;
+  margin-top: 20rpx;
 }
 .tab-box {
+  display: flex;
+  flex-flow: row;
   border-bottom: 0;
-  color: #3d4966;
-  margin: 0rpx 10rpx 10rpx 10rpx;
-  width: 25%;
+  color: #20492e;
+  margin: 5rpx;
   
 }
 .mini-tab-header {
-  background-color: #3d4966;
-  color: white;
+  background-color: #4cb16f;
+  border-radius: 10rpx;
+  color:#ffffff;
   font-size: 35rpx;
-  padding:10rpx;
-  height: 100rpx;
+  margin: 3rpx;
+  padding: 3rpx;
+  width: 45%;
+  font-style: bold;
 }
 .mini-tab-info {
   vertical-align: center;
-  border: 3rpx solid #3d4966;
   font-size: 33rpx;
-  padding: 8rpx;
   overflow-wrap:break-word;
   word-break: break-all;
-  height: 100rpx;
+  padding-left: 20rpx;
 }
 
 /* menu */
@@ -106,7 +129,7 @@
     height: 80rpx;
     line-height: 80rpx;
     background-color: #fff;
-    color: #3d4966;
+    color: #20492e;
     font-size: 35rpx;
     margin-bottom: 20rpx;
     box-sizing:border-box;

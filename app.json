@@ -26,7 +26,7 @@
   ],
   "window": {
     "backgroundTextStyle": "bold",
-    "navigationBarBackgroundColor": "#3d4966",
+    "navigationBarBackgroundColor": "#4cb16f",
     "navigationBarTitleText": "肾脏营养师  ",
     "navigationBarTextStyle": "white",
     "navigationBarLoading": true
@@ -53,6 +53,6 @@
       }
     ],
     "color": "#929292",
-    "selectedColor": "#3d4966"
+    "selectedColor": "#20492e"
   }
 }
