@@ -19,7 +19,7 @@ App({
           "X-WX-Code": res.code
         };
         wx.request({
-          url: "https://173.254.228.220/common/wxLogin",
+          url: "http://173.254.228.220/common/wxLogin",
           method: "GET",
           header: header,
           dataType: "json",

@@ -57,7 +57,7 @@ Page({
     console.log('userBodyInfo is stored.');
     try {
       sdk.request({
-        url: `https://173.254.228.220/home/report`,
+        url: `http://173.254.228.220/home/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {
