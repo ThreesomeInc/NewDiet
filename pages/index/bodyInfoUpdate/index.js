@@ -68,7 +68,7 @@ Page({
   updateBodyInfo: function () {
     try {
       sdk.request({
-        url: `http://diet.martinho0330.com/home/report`,
+        url: `https://kidneyhealty.com.cn/home/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {

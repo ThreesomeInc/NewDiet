@@ -19,7 +19,7 @@ App({
           "X-WX-Code": res.code
         };
         wx.request({
-          url: "http://diet.martinho0330.com/common/wxLogin",
+          url: "https://kidneyhealty.com.cn/common/wxLogin",
           method: "GET",
           header: header,
           dataType: "json",
