@@ -26,9 +26,9 @@ Page({
     basicInfoSummary: [],
 
     barChartTitle: 'CKD饮食结构推荐',
-    barChartSubTitle: '根据您的理想体重，总能量和总蛋白质摄入需求，CKD推荐了以下的每日饮食结构',
+    barChartSubTitle: '根据您的理想体重，总能量和总蛋白质摄入需求，营养师推荐以下的每日饮食结构',
     suggestedNutrition: [],
-    advice: '您的肾脏功能属于第一期，需要控制蛋白质摄入以延缓肾脏功能的进一步恶化。同时，您的甘油三酯偏高，建议低脂饮食。',
+    advice: '',
     slogan: '具体一日三餐食谱，可参考主页面的“膳食建议“功能获得我们的智能推荐',
     footerSlogan: '返回主程序\n以获得更多贴身智能膳食推荐',
   },

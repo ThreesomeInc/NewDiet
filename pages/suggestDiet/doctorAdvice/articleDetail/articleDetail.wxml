@@ -1,0 +1,8 @@
+<!--pages/suggestDiet/doctorAdvice/articleDetail/articleDetail.wxml-->
+<view>
+
+<view>
+This is the {{postId}} article.
+</view>
+
+</view>

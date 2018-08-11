@@ -36,3 +36,11 @@
   left: 50rpx;
   transform: translateY(-50%);
 }
+
+.wx-switch-input{
+    background: #4cb16f !important;
+    border: #4cb16f !important; 
+}
+
+
+     

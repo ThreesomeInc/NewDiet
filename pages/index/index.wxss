@@ -67,7 +67,7 @@ button {
   text-align: center;
   color: #20492e;
   line-height: 2rem;
-  font-family: 'Wawati SC','STZhongsong';
+  font-family: 'Wawati SC',-apple-system-font,Helvetica Neue,Helvetica,sans-serif;
   font-size: 50rpx;
 }
 #slogon1 {

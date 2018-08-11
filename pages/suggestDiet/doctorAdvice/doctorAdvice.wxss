@@ -1,1 +1,2 @@
 /* pages/suggestDiet/doctorAdvice/doctorAdvice.wxss */
+@import '../../../vendor/weui/weui.wxss';

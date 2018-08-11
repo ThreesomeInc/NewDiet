@@ -4,7 +4,7 @@
   background-color: white;
   padding-top:30rpx;
   padding-bottom: 5rpx;
-  margin: 30rpx 15rpx;
+  margin: 30rpx 15rpx 50rpx 15rpx;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -96,17 +96,17 @@
 .session-title {
   display:block;
   font-style: bold;
-  font-size: 40rpx;
+  font-size: 45rpx;
   color: #20492e;
   width: 60%;
   margin: 10rpx auto;
   padding-bottom: 10rpx;
-  padding-top:40rpx;
-  border-bottom: 2rpx solid #20492e;
+  padding-top:50rpx;
+  border-bottom: 5rpx solid #fb8b05;
 }
 
 .session-sub-title {
-  font-size: 32rpx;
+  font-size: 35rpx;
   display:block;
   color: #20492e;
   margin: 30rpx auto;
@@ -123,7 +123,7 @@
   color: #fe6345;
   font-style: bold;
   font-size: 45rpx;
-  font-family: 'Wawati SC','STZhongsong';
+  font-family: 'Wawati SC',-apple-system-font,Helvetica Neue,Helvetica,sans-serif;
   padding: 5rpx 0;
   border-top:1px solid #fe6345;
   border-bottom:1px solid #fe6345;
@@ -133,7 +133,7 @@
   width: 90%;
   text-align: center; 
   margin: 30rpx; 
-  font-size: 32rpx;
+  font-size: 38rpx;
   padding-bottom: 50rpx;
   color: #20492e;
 }

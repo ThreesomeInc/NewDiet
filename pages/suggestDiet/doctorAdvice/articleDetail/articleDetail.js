@@ -1,37 +1,23 @@
-// pages/suggestDiet/doctorAdvice/doctorAdvice.js
+// pages/suggestDiet/doctorAdvice/articleDetail/articleDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    title: {
-      headerText: '营养提示',
-      subHeader: '来听听营养师有什么小建议？',
-    },
-    article:[
-      { postId: 1,
-        title: "Subject 1",
-        description:"Some simple description of the article",
-        author: "Doctor Zhuo",
-        time: "2018-08-09",
-        tag: "CKD"
-      },
-      {
-        postId: 2,
-        title: "Subject 2",
-        description: "Some simple description 2 of the article",
-        author: "Doctor Zhuo 2",
-        time: "2018-08-10",
-        tag: "CKD"
-      }
-    ]
+    postId: 0,
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.postId) {
+      this.setData({
+        postId: options.postId,
+      });
+    }
   
   },
 

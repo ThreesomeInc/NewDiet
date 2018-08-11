@@ -13,7 +13,7 @@
 
 .headerText{
   border: 2rpx solid white;
-  padding: 10rpx;
+  padding: 8rpx;
   margin:0 auto;
   border-radius: 50rpx;
   font-size: 40rpx;
