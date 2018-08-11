@@ -57,7 +57,7 @@ Page({
     console.log('userBodyInfo is stored.');
     try {
       sdk.request({
-        url: `http://173.254.228.220/home/report`,
+        url: `http://diet.martinho0330.comhome/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {
