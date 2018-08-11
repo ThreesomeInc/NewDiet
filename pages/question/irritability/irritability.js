@@ -13,7 +13,7 @@ Page({
     updateValueBtnText: '确认更新并返回',
     parameter: util.parameterMap.irritability,//奶/蛋/贝壳/虾蟹鱼/面粉/坚果/黄豆/玉米
     postUpdate: false,
-
+    hiddenLoading: true,
   },
 
   /**
@@ -51,13 +51,17 @@ Page({
   },
 
   sendDataAndSeeReport: function (e) {
+    var that = this;
+    that.setData({
+      hiddenLoading: false,
+    });
     wx.setStorageSync('userBodyInfo', app.globalData.userBodyInfo);
     console.log(app.globalData.userBodyInfo);
     console.log(app.globalData.userInfo);
     console.log('userBodyInfo is stored.');
     try {
       sdk.request({
-        url: `https://kidneyhealty.com.cnhome/report`,
+        url: `https://kidneyhealty.com.cn/home/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {
@@ -87,16 +91,25 @@ Page({
           wx.setStorageSync('advice', app.globalData.advice);
           wx.setStorageSync('slogan', app.globalData.slogan);
 
+          that.setData({
+            hiddenLoading: true,
+          });
           wx.redirectTo({
             url: '../../summary/summary'
           });
         },
         fail(error) {
+          that.setData({
+            hiddenLoading: true,
+          });
           util.showModel('请求失败,请检查网络', error);
           console.log('request fail', error);
         }
       });
     } catch (e) {
+      this.setData({
+        hiddenLoading: true,
+      });
       console.log('Exception happen when store userBodyInfo!')
       console.log(e)
     }

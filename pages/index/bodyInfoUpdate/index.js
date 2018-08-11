@@ -15,6 +15,7 @@ Page({
     },
     updateBodyInfoBtnText: '更新资料，获取身体报告',
     userBodyInfo: null,
+    hiddenLoading: true,
   },
 
   /**
@@ -66,6 +67,10 @@ Page({
   },
 
   updateBodyInfo: function () {
+    var that=this;
+    this.setData({
+      hiddenLoading: false,
+    });
     try {
       sdk.request({
         url: `https://kidneyhealty.com.cn/home/report`,
@@ -97,17 +102,25 @@ Page({
           wx.setStorageSync('suggestedNutrition', app.globalData.suggestedNutrition);
           wx.setStorageSync('advice', app.globalData.advice);
           wx.setStorageSync('slogan', app.globalData.slogan);
-
+          that.setData({
+            hiddenLoading: true,
+          });
           wx.redirectTo({
             url: '../../summary/summary'
           });
         },
         fail(error) {
+          that.setData({
+            hiddenLoading: true,
+          });
           util.showModel('请求失败,请检查网络', error);
           console.log('request fail', error);
         }
       });
     } catch (e) {
+      this.setData({
+        hiddenLoading: true,
+      });
       console.log('Exception happen when store userBodyInfo!')
       console.log(e)
     }

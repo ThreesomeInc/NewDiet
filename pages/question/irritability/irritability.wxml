@@ -16,7 +16,7 @@
       </view>
 		</checkbox-group>
 	</view>
-
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
   <view class="nextButtonView">
     <button wx:if="{{!postUpdate}}" 
       bindtap='sendDataAndSeeReport' 

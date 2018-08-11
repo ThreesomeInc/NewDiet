@@ -80,7 +80,7 @@
 		</view>
 	</navigator>
 </view>
-
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
 	<view class="nextButtonView">
     <button 
       bindtap='updateBodyInfo' 
