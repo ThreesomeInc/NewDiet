@@ -11,7 +11,7 @@ App({
       this.globalData.userBodyInfo = bodyInfo;
     }
     wx.request({
-      url: "http://localhost:8081/food/type",
+      url: "https://kidneyhealty.com.cn/food/type",
       method: "GET",
       header: {
         "Content-Type": "application/json"

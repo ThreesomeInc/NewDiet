@@ -2,7 +2,8 @@ const app = getApp()
 Page({
   data: {
     inputShowed: false,
-    inputVal: ""
+    inputVal: "",
+    foodList:[]
   },
   onShow: function () {
     this.setData({

@@ -17,25 +17,10 @@
             </view>
             <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
         </view>
-        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
-            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{foodList}}" wx:for-item="item">
+            <navigator url="../foodDetail/foodDetail?foodCode={{item.code}}" class="weui-cell" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
-                    <view>实时搜索文本</view>
-                </view>
-            </navigator>
-            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
-                <view class="weui-cell__bd">
-                    <view>实时搜索文本</view>
-                </view>
-            </navigator>
-            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
-                <view class="weui-cell__bd">
-                    <view>实时搜索文本</view>
-                </view>
-            </navigator>
-            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
-                <view class="weui-cell__bd">
-                    <view>实时搜索文本</view>
+                    <view>{{item.name}}</view>
                 </view>
             </navigator>
         </view>
@@ -46,9 +31,8 @@
     <block wx:for="{{foodTypeList}}" wx:for-item="item">
         <view class='templateContainer' catchtap='onFoodTypeTap' data-food-code='{{item.foodTypeCode}}'>
             <view class='category-container'>
-                <!--<image mode='aspectFill' class='food-type-img' src='{{item.picUrl}}'>
-                </image>-->
-                <image mode='aspectFill' class='food-type-img' src='https://kidneyhealty.com.cn/images/1.jpg'></image>
+                <image mode='aspectFill' class='food-type-img' src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
+                <image mode='aspectFill' class='food-type-img' src='https://kidneyhealty.com.cn/images/1.jpg' wx:else></image>
                 <text class='food-type-name'>{{item.foodTypeName}}</text>
             </view>
         </view>

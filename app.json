@@ -19,11 +19,13 @@
     "pages/index/bodyInfoUpdate/index",
     "pages/index/dietStructure/index",
     "pages/summary/share/share",
-    "pages/suggestDiet/food/food",
     "pages/suggestDiet/meal/meal",
     "pages/suggestDiet/doctorAdvice/doctorAdvice",
     "pages/suggestDiet/dailyTips/dailyTips",
-    "pages/suggestDiet/doctorAdvice/articleDetail/articleDetail"
+    "pages/suggestDiet/doctorAdvice/articleDetail/articleDetail",
+    "pages/suggestDiet/foodType/foodType",
+    "pages/suggestDiet/foodList/foodList",
+    "pages/suggestDiet/foodDetail/foodDetail"
   ],
   "window": {
     "backgroundTextStyle": "bold",
