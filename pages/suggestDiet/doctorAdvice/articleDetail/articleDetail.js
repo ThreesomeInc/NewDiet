@@ -14,7 +14,6 @@ Page({
     title:'一种简单又便宜能控制肾病的饮食方式，肾友们都能学会！',
     author:'肾脏营养师',
     time: "2018-08-08",
-    tag:'CKD',
     content: article
   
   },
@@ -31,7 +30,7 @@ Page({
       });
     }
     
-    WxParse.wxParse('article', 'html', that.data.content, that, 5);
+    WxParse.wxParse('article', 'html', that.data.content, that, 10);
   
   },
 

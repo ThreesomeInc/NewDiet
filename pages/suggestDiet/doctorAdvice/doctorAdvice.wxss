@@ -2,5 +2,5 @@
 .article-list-title {
   font-weight: bold;
   line-height: 1.6rem;
-  padding: 20rpx 10rpx 25rpx 10rpx;
+  padding: 15rpx 10rpx 25rpx 10rpx;
 }

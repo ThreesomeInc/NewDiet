@@ -1,6 +1,23 @@
 <!--pages/logFood/logFood.wxml-->
-<import src="../../template/pageHeader.wxml"/>
-<view class="main-container">
-  <template is="pageHeader" data="{{...title}}"/>
-  
+<!-- <import src="../../template/pageHeader.wxml"/> -->
+<view class="page">
+  <!-- <template is="pageHeader" data="{{...title}}"/> -->
+
+  <view bindtouchstart="touchStart" bindtouchend="touchEnd">
+
+  <view class='box1' style='width: {{ sysW * 7 }}px'>
+    <view class='dateBox' >{{ year }} - {{ month}}</view>
+    <block wx:for='{{ weekArr }}'>
+     <view style='width: {{ sysW }}px;'>
+        {{ item }}
+      </view>
+    </block>
+    <block wx:for='{{ arr }}'>
+     <view style='width: {{ sysW }}px;' class='{{ item == getDate ? "dateOn" : ""}} {{font==1?item>7?"font-color":"":font==2?item<7?"font-color":"":"" }}'>
+        {{ item }}
+     </view>
+    </block>
+  </view>
+</view>
+  <view class="break-line"/>
 </view>

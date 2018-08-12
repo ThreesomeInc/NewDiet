@@ -1,0 +1,44 @@
+.box1 .dateBox{
+width: 100%;
+text-align: center;
+vertical-align: center;
+margin-top: 30rpx;
+padding: 5rpx;
+font-size: 36rpx;
+background-color:#4cb16f;
+color: #ffffff; 
+border-radius: 50rpx;
+
+}
+
+.box1{
+display: flex;
+flex-wrap: wrap;
+margin: 0 auto;
+}
+
+.box1>view{
+text-align: center;
+font-size: 34rpx;
+margin-top: 15rpx;
+}
+
+.dateOn{
+border-radius: 50%;
+background-color: #fe6345;
+color: #fff;
+}
+.ball {
+box-shadow:2px 2px 10px #AAA;
+border-radius: 20px;
+position: absolute;
+}
+.font-color{
+color:#a9a9a9;
+}
+
+.break-line{
+  border-top: 1rpx solid #cecece;
+  width: 80%;
+  margin: 20rpx auto;
+}

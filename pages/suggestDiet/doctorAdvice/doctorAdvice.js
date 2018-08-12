@@ -15,7 +15,6 @@ Page({
         description:"众所周知，大鱼大肉这样的高蛋白饮食会加重肾脏滤过负担，对肾不好。但是，如果肾友今天偏偏就多吃了些肉，怎么办？或者是，今天特别想多吃一个鸡蛋、多喝一罐奶啊又怕蛋白质超标，怎么办？",
         author: "肾脏营养师",
         time: "2018-08-09",
-        tag: "CKD"
       },
       {
         postId: 2,
@@ -38,7 +37,7 @@ Page({
   goArticleDetail: function (e) {
     //This is the postId could be use for HTTP get request
     console.log(e.currentTarget.dataset.variable);
-    
+
     wx.navigateTo({
       url: 'articleDetail/articleDetail'
     });
