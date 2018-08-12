@@ -1,2 +1,6 @@
 /* pages/suggestDiet/doctorAdvice/doctorAdvice.wxss */
-@import '../../../vendor/weui/weui.wxss';
+.article-list-title {
+  font-weight: bold;
+  line-height: 1.6rem;
+  padding: 20rpx 10rpx 25rpx 10rpx;
+}

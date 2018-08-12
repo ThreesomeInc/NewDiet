@@ -17,7 +17,7 @@
       <text id='slogon1'>{{slogon1}}</text>
     </view>
     <view class="slogon">
-      <text id='slogon2'>{{slogon2}}</text>
+      <text>{{slogon2}}</text>
     </view>
     <view class="questionButtonView">
       <button bindtap='goToQuestions' class='questionButton'>{{motto}}</button>

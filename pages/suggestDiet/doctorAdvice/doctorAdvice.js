@@ -11,17 +11,17 @@ Page({
     },
     article:[
       { postId: 1,
-        title: "Subject 1",
-        description:"Some simple description of the article",
-        author: "Doctor Zhuo",
+        title: "一种简单又便宜能控制肾病的饮食方式，肾友们都能学会！",
+        description:"众所周知，大鱼大肉这样的高蛋白饮食会加重肾脏滤过负担，对肾不好。但是，如果肾友今天偏偏就多吃了些肉，怎么办？或者是，今天特别想多吃一个鸡蛋、多喝一罐奶啊又怕蛋白质超标，怎么办？",
+        author: "肾脏营养师",
         time: "2018-08-09",
         tag: "CKD"
       },
       {
         postId: 2,
-        title: "Subject 2",
-        description: "Some simple description 2 of the article",
-        author: "Doctor Zhuo 2",
+        title: "肾脏不好怎么调理?",
+        description: "肾脏不好怎么调理？除了要多运动、作息合理，饮食也要多做调整。具体肾脏不好怎么调理呢？首先要多喝水，常吃黑色食物！下面小编为您介绍肾脏不好的调理方法。",
+        author: "肾脏营养师",
         time: "2018-08-10",
         tag: "CKD"
       }
@@ -33,6 +33,15 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+
+  goArticleDetail: function (e) {
+    //This is the postId could be use for HTTP get request
+    console.log(e.currentTarget.dataset.variable);
+    
+    wx.navigateTo({
+      url: 'articleDetail/articleDetail'
+    });
   },
 
   /**

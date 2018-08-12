@@ -70,7 +70,7 @@
 }
 
 .report-header {
-  font-style: bold;
+  font-weight: bold;
   font-size: 50rpx;
   margin: 0;
   height: 100rpx;
@@ -95,7 +95,7 @@
 
 .session-title {
   display:block;
-  font-style: bold;
+  font-weight: bold;
   font-size: 45rpx;
   color: #20492e;
   width: 60%;
@@ -121,7 +121,7 @@
   text-align: center; 
   margin: 30rpx; 
   color: #fe6345;
-  font-style: bold;
+  font-weight: bold;
   font-size: 45rpx;
   font-family: 'Wawati SC',-apple-system-font,Helvetica Neue,Helvetica,sans-serif;
   padding: 5rpx 0;
@@ -136,4 +136,7 @@
   font-size: 38rpx;
   padding-bottom: 50rpx;
   color: #20492e;
+}
+.weui-footer{
+  margin-bottom: 20rpx;
 }

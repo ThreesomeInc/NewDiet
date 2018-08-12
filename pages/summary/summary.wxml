@@ -47,6 +47,12 @@
     </view>
 </view>
 
+<view class="page__bd page__bd_spacing center green">
+<view class="weui-footer">
+  <view class="weui-footer__text">-- Copyright © 肾脏营养师 --</view>
+</view>
+</view>
+
 
 
 

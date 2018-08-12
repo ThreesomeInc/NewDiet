@@ -1,6 +1,17 @@
 /**app.wxss**/
 @import "template/pageHeader.wxss";
+@import "vendor/wxParse/wxParse.wxss";
+@import 'vendor/weui/weui.wxss';
 
+.center {
+  text-align: center;
+}
+.left{
+  text-align: left;
+}
+.bold {
+  font-weight: bold;
+}
 .orange {
   color: #fb8b05;
 }
@@ -11,7 +22,7 @@
   color: #fe6345;
 }
 .red {
-  color: #e35d42;
+  color: #dbd7d6;
 }
 
 .green {
@@ -70,7 +81,7 @@ page{
   padding:20rpx;
 }
 .question-header {
-  font-style: bold;
+  font-weight: bold;
   font-size: 45rpx;
   text-align: center;  
 }
