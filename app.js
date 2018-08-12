@@ -10,6 +10,23 @@ App({
     if (bodyInfo) {
       this.globalData.userBodyInfo = bodyInfo;
     }
+    wx.request({
+      url: "http://localhost:8081/food/type",
+      method: "GET",
+      header: {
+        "Content-Type": "application/json"
+      },
+      dataType: "json",
+      success: (result) => {
+        console.log("foodTypeList:" + result.data.foodTypeList);
+        this.globalData.foodTypeList = result.data.foodTypeList;
+
+      },
+
+      fail: (result) => {
+        util.showModel('登录错误', result.msg)
+      },
+    });
     // 登录
     wx.login({
       success: res => {
@@ -18,12 +35,17 @@ App({
         const header = {
           "X-WX-Code": res.code
         };
+        wx.showLoading({
+          title: "登录中...",
+          mask: true
+        });
         wx.request({
           url: "https://kidneyhealty.com.cn/common/wxLogin",
           method: "GET",
           header: header,
           dataType: "json",
           success: (result) => {
+            wx.hideLoading();
             wx.setStorageSync('skey', result.data.session_key);
             wx.setStorageSync('openid', result.data.openid);
             util.showSuccess('登录成功');
@@ -33,12 +55,13 @@ App({
           },
 
           fail: (result) => {
-            util.showModel('登录错误', result.message)
+            wx.hideLoading();
+            util.showModel('登录错误', result.msg)
           },
         });
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
-    })
+    });
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -65,13 +88,13 @@ App({
       skey: null,
       openid: null
     },
+    foodTypeList: null,
     userInfo: null,
     logoUrl: '../../../images/diet_big_logo.png',
-    userBodyInfo: {
-    },
-    basicInfoSummary:[],
+    userBodyInfo: {},
+    basicInfoSummary: [],
     suggestedNutrition: [],
-    advice:'',
-    slogan:''
+    advice: '',
+    slogan: ''
   }
 });

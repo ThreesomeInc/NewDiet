@@ -19,3 +19,40 @@ page{
 .page__bd {
     padding-bottom: 40px;
 }
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+    background-color: #f2f2f2;
+}
+
+
+.templateContainer {
+    width: 30%;
+    background-color: white;
+    margin: 10rpx;
+}
+
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30rpx;
+    text-align: center;
+}
+
+.food-type-img {
+    width: 50rpx;
+    height: 50rpx;
+    padding-bottom: 20rpx;
+    border: 0 solid #ff0000;
+    border-radius: 100rpx;
+    margin: 0 auto;
+}
+
+.food-type-name{
+    margin-bottom: 16rpx;
+    font-size: 24rpx;
+}

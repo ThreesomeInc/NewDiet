@@ -1,7 +1,13 @@
+const app = getApp()
 Page({
   data: {
     inputShowed: false,
     inputVal: ""
+  },
+  onShow: function () {
+    this.setData({
+      foodTypeList: app.globalData.foodTypeList
+    });
   },
   showInput: function () {
     this.setData({
@@ -24,5 +30,8 @@ Page({
       inputVal: e.detail.value
     });
     console.log(this.data.inputVal);
+  },
+  onFoodTypeTap: function (e) {
+
   }
 });
