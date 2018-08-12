@@ -4,7 +4,8 @@
             <view class="weui-search-bar__form">
                 <view class="weui-search-bar__box">
                     <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" placeholder="搜索食材" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索食材" value="{{inputVal}}"
+                           focus="{{inputShowed}}" bindinput="inputTyping"/>
                     <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
                         <icon type="clear" size="14"></icon>
                     </view>
@@ -39,4 +40,17 @@
             </navigator>
         </view>
     </view>
+</view>
+
+<view class='content'>
+    <block wx:for="{{foodTypeList}}" wx:for-item="item">
+        <view class='templateContainer' catchtap='onFoodTypeTap' data-food-code='{{item.foodTypeCode}}'>
+            <view class='category-container'>
+                <!--<image mode='aspectFill' class='food-type-img' src='{{item.picUrl}}'>
+                </image>-->
+                <image mode='aspectFill' class='food-type-img' src='https://kidneyhealty.com.cn/images/1.jpg'></image>
+                <text class='food-type-name'>{{item.foodTypeName}}</text>
+            </view>
+        </view>
+    </block>
 </view>
