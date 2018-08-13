@@ -3,12 +3,44 @@ Page({
   data: {
     inputShowed: false,
     inputVal: "",
-    foodList:[]
+    typeCode: null,
+    foodList: [],//for all data return from server
+    foodListView: [],//for page filtering only
   },
-  onShow: function () {
+  onLoad: function (options) {
+    let that = this;
     this.setData({
-      foodTypeList: app.globalData.foodTypeList
+      typeCode: options.typeCode
     });
+    if(this.data.typeCode) {
+      wx.showLoading({
+        title: "正在加载食材信息...",
+        mask: true
+      });
+      wx.request({
+        url: "https://kidneyhealty.com.cn/food/",
+        method: "GET",
+        data: {
+          "typeId": options.typeCode
+        },
+        header: {
+          "Content-Type": "application/json"
+        },
+        dataType: "json",
+        success: res => {
+          wx.hideLoading();
+          console.log(res);
+          that.setData({
+            foodList: res.data.foodList,
+            foodListView: res.data.foodList
+          });
+        },
+        fail: res => {
+          wx.hideLoading();
+          console.log(res);
+        }
+      })
+    }
   },
   showInput: function () {
     this.setData({

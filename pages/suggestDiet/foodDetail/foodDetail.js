@@ -1,4 +1,5 @@
 // pages/foodDetail.js
+const app = getApp();
 Page({
 
   /**
@@ -19,6 +20,34 @@ Page({
     this.setData({
       foodCode: options.foodCode
     });
+    console.log(options);
+    wx.showLoading({
+      title: "正在加载食材信息...",
+      mask: true
+    });
+    if (this.data.foodCode) {
+      let that = this;
+      wx.request({
+        url: "https://kidneyhealty.com.cn/food/detail/" + this.data.foodCode,
+        data: {
+          "openId": app.globalData.authInfo.openid
+        },
+        method: "GET",
+        header: {
+          "Content-Type": "application/json"
+        },
+        dataType: "json",
+        success: res => {
+          wx.hideLoading();
+          that.setData({
+            foodInfo: res.data
+          });
+        },
+        fail: res => {
+          wx.hideLoading();
+        }
+      });
+    }
   },
 
   /**
@@ -32,33 +61,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.showLoading({
-      title: "正在加载商品信息...",
-      mask: true
-    });
-    if (this.data.foodCode) {
-      let that = this;
-      wx.request({
-        url: "https://kidneyhealty.com.cn/food/detail",
-        data: {
-          "foodCode": this.data.foodCode
-        },
-        method: "GET",
-        header: {
-          "Content-Type": "application/json"
-        },
-        dataType: "json",
-        success: res => {
-          wx.hiddenLoading();
-          that.setData({
-            foodInfo: res.detail
-          });
-        },
-        fail: res => {
-          wx.hiddenLoading();
-        }
-      });
-    }
 
   },
 
@@ -96,4 +98,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});

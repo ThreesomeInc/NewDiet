@@ -18,9 +18,9 @@
             <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
         </view>
         <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{foodList}}" wx:for-item="item">
-            <navigator url="../foodDetail/foodDetail?foodCode={{item.code}}" class="weui-cell" hover-class="weui-cell_active">
+            <navigator url="../foodDetail/foodDetail?foodCode={{item.foodId}}" class="weui-cell" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
-                    <view>{{item.name}}</view>
+                    <view>{{item.foodName}}</view>
                 </view>
             </navigator>
         </view>

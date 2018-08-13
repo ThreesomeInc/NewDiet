@@ -1,1 +1,26 @@
 @import '../../../vendor/weui/weui.wxss';
+.row-container{
+    display: flex;
+    flex-direction:row;
+    width:90%;
+    height:120rpx;
+    border: 2rpx solid #eeeeee;
+    padding:10rpx 10rpx;
+    margin:10rpx auto;
+}
+.con-trimg{
+    width:70rpx;
+    height:70rpx;
+    margin:15rpx 20rpx;
+}
+.con-info{
+    margin:15rpx 20rpx;
+    overflow: hidden;
+    font-size: 32rpx;
+    font-family: "微软雅黑";
+    color:#606060;
+}
+.coin-info{
+    line-height: 60rpx;
+    font-size: 28rpx;
+}

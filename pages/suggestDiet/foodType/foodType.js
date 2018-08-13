@@ -1,9 +1,9 @@
-const app = getApp()
+const app = getApp();
 Page({
   data: {
     inputShowed: false,
     inputVal: "",
-    foodList:[]
+    foodList: []
   },
   onShow: function () {
     this.setData({
@@ -30,9 +30,29 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+    wx.request({
+      url: "https://kidneyhealty.com.cn/food/search",
+      method: "GET",
+      data: {
+        name: e.detail.value
+      },
+      success: res => {
+        this.setData({
+          foodList: res.data.foodList
+        })
+      },
+      fail: res => {
+        wx.showToast({
+          title: res,
+          icon: 'success'
+        });
+      }
+    });
     console.log(this.data.inputVal);
   },
   onFoodTypeTap: function (e) {
-
+    wx.navigateTo({
+      url: "../foodList/foodList?typeCode=" + e.currentTarget.dataset.foodCode
+    })
   }
 });
