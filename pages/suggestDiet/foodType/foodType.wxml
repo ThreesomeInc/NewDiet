@@ -12,7 +12,7 @@
                 </view>
                 <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
                     <icon class="weui-icon-search" type="search" size="14"></icon>
-                    <view class="weui-search-bar__text">搜索</view>
+                    <view class="weui-search-bar__text">搜索食材</view>
                 </label>
             </view>
             <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
@@ -32,7 +32,7 @@
         <view class='templateContainer' catchtap='onFoodTypeTap' data-food-code='{{item.foodTypeCode}}'>
             <view class='category-container'>
                 <image mode='aspectFill' class='food-type-img' src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
-                <image mode='aspectFill' class='food-type-img' src='https://kidneyhealty.com.cn/images/1.jpg' wx:else></image>
+                <image mode='aspectFill' class='food-type-img' src='../../../images/item_icon.png' wx:else></image>
                 <text class='food-type-name'>{{item.foodTypeName}}</text>
             </view>
         </view>
