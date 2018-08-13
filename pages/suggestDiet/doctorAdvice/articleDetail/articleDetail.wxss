@@ -9,8 +9,3 @@
   font-size: 36rpx;
   margin-bottom: 50rpx;
 }
-.break-line{
-  border-top: 1rpx solid #cecece;
-  width: 90%;
-  margin: 0 auto;
-}

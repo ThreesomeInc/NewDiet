@@ -18,12 +18,12 @@
   padding: 5rpx 40rpx;
   padding-left: 60rpx;
   width: 60%;
-  border: 1px solid black;
+  border: 1px solid c9c9c9;
   border-radius: 40rpx;
   text-align: left;
 }
 .checkbox-group .is_checked {
-  background-color: #3d4966;
+  background-color: #4cb16f;
   color: white;
 }
 

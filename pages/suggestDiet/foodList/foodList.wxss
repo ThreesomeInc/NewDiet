@@ -17,7 +17,6 @@
     margin:15rpx 20rpx;
     overflow: hidden;
     font-size: 32rpx;
-    font-family: "微软雅黑";
     color:#606060;
 }
 .coin-info{

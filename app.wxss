@@ -122,6 +122,12 @@ picker-view-column {
     border: 5rpx solid white;
 }
 
+.break-line{
+  border-top: 1rpx solid #cecece;
+  width: 90%;
+  margin: 0 auto;
+}
+
 
 
 

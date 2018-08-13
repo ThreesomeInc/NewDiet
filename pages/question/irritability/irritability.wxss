@@ -16,12 +16,21 @@
   line-height: 2.5rem;
 }
 .checkbox-group label {
-  margin: 30rpx 20rpx;
-  padding: 10rpx 30rpx;
-  border: 1px solid black;
+  margin: 20rpx;
+  padding: 20rpx 40rpx;
+  border: 1px solid #c9c9c9;
   border-radius: 30rpx;
   text-align: left;
+  height: 60rpx;
+  width: 45%;
 }
+.checkbox-group .is_checked {
+  background-color: #4cb16f;
+  color: white;
+}
+
+
+
 
 
 

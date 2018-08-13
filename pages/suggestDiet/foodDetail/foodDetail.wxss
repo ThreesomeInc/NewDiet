@@ -1,2 +1,108 @@
 @import '../../../vendor/weui/weui.wxss';
 
+/* pages/suggestDiet/meal/meal.wxss */
+.top_block {
+  width: 80%;
+  background-color: #fe6345;
+  color: #ffffff;
+  border-radius: 50rpx;
+  margin: 30rpx 10rpx;
+  padding: 10rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.food_image{
+    width:150rpx;
+    height:150rpx;
+    margin:auto 20rpx;
+}
+
+.right_block{
+  display: flex;
+  flex-direction: column;
+  padding-left: 20rpx;
+}
+
+.title_row, .lable_row {
+ padding: 20rpx 0;
+}
+
+.food_name {
+  font-weight: bold;
+}
+.food_label {
+  background-color: #ffffff;
+  color: #fe6345;
+  border-radius: 30rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.preference-icon {
+    position:absolute;
+    top: 60rpx;
+    right: 90rpx;
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.info_block {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 20rpx;
+  margin: 15rpx auto;
+  color: #20492e;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.advise {
+  margin: 10rpx auto;
+  width: 82%;
+  font-size: 36rpx;
+  line-height: 1.4rem;
+  text-align: left;
+}
+.title{
+  color: #929292;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    padding: 10rpx 30rpx 40rpx 30rpx;
+    text-align: center;
+}
+
+
+.templateContainer {
+    width: 27%;
+    background-color: white;
+    margin: 8rpx 15rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid #cecece;
+}
+
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.composite_name{
+    padding: 16rpx;
+    font-size: 34rpx;
+    color: #ffffff;
+    background-color: #4cb16f;
+}
+.composite_value{
+    padding: 16rpx;
+    font-size: 32rpx;
+    color: #20492e;
+}
+

@@ -1,5 +1,26 @@
 // pages/foodDetail.js
 const app = getApp();
+const dummy_resp = {
+  "advice": "",
+  "errorCode": 0,
+  "errorMsg": null,
+  "name": "小麦(粒)",
+  "label": "低嘌呤",
+  "preference": "",
+  "composition": {
+    "钠": "6.8克",
+    "水": "10.0克",
+    "碳水化合物": "75.2克",
+    "磷": "325克",
+    "脂肪": "1.3克",
+    "热量": "339千卡",
+    "蛋白质": "11.9克",
+    "钾": "289克"
+  },
+  "foodDieticianAdvice": "您的肾脏功能属于第一期，血压偏高，该食物蛋白质和纳含量低，可以经常食用。"
+}
+
+
 Page({
 
   /**
@@ -8,8 +29,9 @@ Page({
   data: {
     foodCode: null,
     foodInfo: {
-      imageUrl: 'https://kidneyhealty.com.cn/images/1.jpg',
+      imageUrl: '../../../images/item_icon.png',
     },
+    food_composition:null,
 
   },
 
@@ -39,9 +61,25 @@ Page({
         dataType: "json",
         success: res => {
           wx.hideLoading();
+          // that.setData({
+          //   foodInfo: res.data
+          // });
           that.setData({
-            foodInfo: res.data
+            foodInfo: dummy_resp,
           });
+          that.setData({
+            food_composition: [                           
+              { name: "蛋白质", value: this.data.foodInfo.composition["蛋白质"] },
+              { name: "碳水化合物", value: this.data.foodInfo.composition["碳水化合物"] },  
+              { name: "脂肪", value: this.data.foodInfo.composition["脂肪"] },
+              { name: "钠", value: this.data.foodInfo.composition["钠"] },
+              { name: "钾", value: this.data.foodInfo.composition["钾"] },
+              { name: "磷", value: this.data.foodInfo.composition["磷"] },
+              { name: "水", value: this.data.foodInfo.composition["水"] },
+              { name: "热量", value: this.data.foodInfo.composition["热量"] },
+            ]
+          });
+          
         },
         fail: res => {
           wx.hideLoading();

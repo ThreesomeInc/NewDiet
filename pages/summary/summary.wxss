@@ -102,7 +102,7 @@
   margin: 10rpx auto;
   padding-bottom: 10rpx;
   padding-top:50rpx;
-  border-bottom: 5rpx solid #fb8b05;
+  border-bottom: 5rpx solid #c9c9c9;
 }
 
 .session-sub-title {

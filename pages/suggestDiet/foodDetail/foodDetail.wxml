@@ -1,0 +1,35 @@
+<view class="main-container page">
+		<view class="top_block">
+      <block>
+			  <image mode='aspectFill' class="food_image" src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
+			  <image mode='aspectFill' class="food_image" src='https://kidneyhealty.com.cn/images/1.jpg' wx:else></image>
+      </block>
+		<view class="right_block">
+		  <view class="title_row">
+			  <view class="food_name">{{foodInfo.name}}</view>
+        <image class="preference-icon" src="../../../images/thumb_up_white.png" />
+		  </view>
+      <view class="lable_row">
+        <view class="food_label">{{foodInfo.label}}</view>
+      </view>
+    </view>
+    </view>
+
+    <view class='content'>
+    <block wx:for="{{food_composition}}" wx:for-item="item">
+        <view class='templateContainer' catchtap='onFoodTypeTap' data-food-code='{{item.foodTypeCode}}'>
+            <view class='category-container'>
+                <text class='composite_name'>{{item.name}}</text>
+                <text class='composite_value'>{{item.value}}</text>
+            </view>
+        </view>
+    </block>
+</view>
+
+    <view class="info_block">
+      <view class="advise title">营养师建议</view>
+      <view class="advise">{{foodInfo.foodDieticianAdvice}}</view>
+    
+    </view>
+
+</view>
