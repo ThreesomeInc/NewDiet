@@ -51,7 +51,7 @@
   background-color: #ffffff;
   width: 100%;
   padding: 20rpx;
-  margin: 15rpx auto;
+  margin: 20rpx auto;
   color: #20492e;
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    background-color: #f2f2f2;
+    background-color: #ffffff;
     margin: 0 auto;
     padding: 10rpx 30rpx 40rpx 30rpx;
     text-align: center;
@@ -93,15 +93,15 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    font-size: 34rpx;
 }
 .composite_name{
-    padding: 16rpx;
-    font-size: 34rpx;
+    padding: 8rpx;
     color: #ffffff;
     background-color: #4cb16f;
 }
 .composite_value{
-    padding: 16rpx;
+    padding: 8rpx;
     font-size: 32rpx;
     color: #20492e;
 }

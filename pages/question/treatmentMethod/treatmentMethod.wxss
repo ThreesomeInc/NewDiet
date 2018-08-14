@@ -18,7 +18,6 @@
   padding: 5rpx 40rpx;
   padding-left: 60rpx;
   width: 60%;
-  border: 1px solid c9c9c9;
   border-radius: 40rpx;
   text-align: left;
 }

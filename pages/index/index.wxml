@@ -13,10 +13,10 @@
       <view class="userinfo-before" >
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       </view>
-    <view class="slogon">
-      <text id='slogon1'>{{slogon1}}</text>
+    <view class="slogon1 center dark-green">
+      <text>{{slogon1}}</text>
     </view>
-    <view class="slogon">
+    <view class="slogon2 center dark-green">
       <text>{{slogon2}}</text>
     </view>
     <view class="questionButtonView">

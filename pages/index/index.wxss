@@ -61,16 +61,16 @@ button {
   margin: 0;
 }
 
-.slogon {
-  padding-top: 60rpx;
-  text-align: center;
-  color: #20492e;
+.slogon2 {
+  padding-top: 30rpx;
   line-height: 2rem;
-  font-family: 'Wawati SC',-apple-system-font,Helvetica Neue,Helvetica,sans-serif;
   font-size: 52rpx;
 }
-#slogon1 {
+.slogon1 {
   font-weight: bold;
+  font-size: 52rpx;
+  margin: 60rpx 20rpx;
+  padding: 10rpx;
   border-top:1px solid #20492e;
   border-bottom:1px solid #20492e;
 }
