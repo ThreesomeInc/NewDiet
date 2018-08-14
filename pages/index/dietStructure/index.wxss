@@ -28,5 +28,5 @@
   margin: 30rpx auto;
   width: 80%;
   text-align: left; 
-  line-height: 1.2rem;
+  line-height: 1.3rem;
 }

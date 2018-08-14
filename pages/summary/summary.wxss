@@ -12,7 +12,7 @@
   justify-content: center;
   box-sizing: border-box;
   text-align: center;
-  border: 10rpx solid #4cb16f;
+  border: 1rpx solid #4cb16f;
   border-radius: 30rpx;
 } 
 
@@ -32,41 +32,6 @@
     border-radius: 40rpx;
     background-color: #4cb16f;
     width: 70%;
-}
-
-
-/* 4 grid tab */
-.gridTab {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: stretch;
-  text-align: center;
-  margin-left: 80rpx;
-  width: 90%;
-}
-.tab-box {
-  display: flex;
-  flex-flow: row;
-  border-bottom: 0;
-  color: #20492e;
-  margin: 5rpx;
-  
-}
-.mini-tab-header {
-  background-color: #4cb16f;
-  border-radius: 10rpx;
-  color: #ffffff;
-  font-size: 35rpx;
-  padding: 3rpx;
-  width: 30%;
-}
-.mini-tab-info {
-  vertical-align: center;
-  font-size: 33rpx;
-  overflow-wrap:break-word;
-  word-break: break-all;
-  padding-left: 40rpx;
 }
 
 .report-header {
@@ -112,7 +77,7 @@
   margin: 30rpx auto;
   width: 85%;
   text-align: left; 
-  line-height: 1.2rem;
+  line-height: 1.3rem;
 }
 
 .slogan {

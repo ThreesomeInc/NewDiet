@@ -1,26 +1,4 @@
-/* menu */
-.menu-list {
-  width: 100%;
-  margin-top: 50rpx;
-}
-.menu-item {
-    position: relative;
-    height: 80rpx;
-    line-height: 80rpx;
-    background-color: #fff;
-    color: #3d4966;
-    font-size: 35rpx;
-    margin-bottom: 20rpx;
-    box-sizing:border-box;
-    padding-left: 50rpx;
-}
 
-.menu-item .menu-item-title {
-    overflow:hidden;
-    text-align: left;
-    padding: 0 80rpx;
-    box-sizing: border-box;
-}
 .switch-icon {
     position:absolute;
     top: 50%;

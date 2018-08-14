@@ -3,7 +3,7 @@
 <view class="main-container">
   <template is="pageHeader" data="{{...title}}"/>
 
-<view class="menu-list">
+<view class="menu-list dark-green">
   <view class="menu-item">
     <image class="title-icon" src="../../../images/setting_icon.png" />
     <view class="menu-item-title">

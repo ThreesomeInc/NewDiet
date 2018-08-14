@@ -6,6 +6,7 @@
 }
 .content {
   padding: 50rpx 25rpx; 
-  font-size: 36rpx;
+  font-size: 33rpx;
   margin-bottom: 50rpx;
+  color: #606060;
 }

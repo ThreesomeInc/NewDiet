@@ -1,5 +1,5 @@
 <!--pages/question/sportRate/sportRate.wxml-->
-<view class="question-container">
+<view class="question-container dark-green">
 	<view class="big-logo-view">
 		<image class="big-logo" mode="widthFix" src="{{logoUrl}}" ></image>
 	</view>

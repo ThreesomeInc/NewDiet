@@ -4,3 +4,7 @@
   line-height: 1.6rem;
   padding: 15rpx 10rpx 25rpx 10rpx;
 }
+
+.weui-media-box__desc {
+  line-height: 1.2rem;
+}

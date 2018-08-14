@@ -36,7 +36,7 @@
         </block>
       </view>
     </view>
-    <view class="menu-list">
+    <view class="menu-list dark-green">
         <navigator url="dietStructure/index">
             <view class="menu-item">
             <image class="title-icon" src="../../images/tips_icon.png" />

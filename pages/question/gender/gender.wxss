@@ -1,11 +1,11 @@
 /* pages/question-sex/question-sex.wxss */
 /* Part 2 question*/
 .parameter-wrap {
-  padding: 180rpx 50rpx;
+  padding: 140rpx 50rpx;
 }
 .parameter-info {
-  padding: 40rpx;
-  margin: 50rpx;
+  padding: 60rpx;
+  margin: 40rpx;
   border: 3rpx solid #4cb16f;
   border-radius: 50%;
   font-style: bold;

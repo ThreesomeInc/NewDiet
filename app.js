@@ -90,7 +90,7 @@ App({
     },
     foodTypeList: null,
     userInfo: null,
-    logoUrl: '../../../images/diet_big_logo.png',
+    logoUrl: '../../../images/Diet_logo.png',
     userBodyInfo: {},
     basicInfoSummary: [],
     suggestedNutrition: [],

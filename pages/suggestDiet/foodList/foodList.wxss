@@ -2,22 +2,26 @@
 .row-container{
     display: flex;
     flex-direction:row;
-    width:90%;
-    height:120rpx;
+    width:100%;
+    height:90rpx;
     border: 2rpx solid #eeeeee;
-    padding:10rpx 10rpx;
-    margin:10rpx auto;
+    padding:10rpx;
+    font-size: 35rpx;
+    margin:0;
+    background-color: #ffffff;
 }
 .con-trimg{
-    width:70rpx;
-    height:70rpx;
-    margin:15rpx 20rpx;
+    width:60rpx;
+    height:60rpx;
+    margin:10rpx;
+    padding-left: 30rpx;
+
 }
 .con-info{
-    margin:15rpx 20rpx;
+    margin:20rpx;
     overflow: hidden;
-    font-size: 32rpx;
     color:#606060;
+
 }
 .coin-info{
     line-height: 60rpx;
