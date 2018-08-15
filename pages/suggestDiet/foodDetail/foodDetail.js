@@ -71,13 +71,13 @@ Page({
           that.setData({
             food_composition: [                           
               { name: "蛋白质", value: this.data.foodInfo.composition["蛋白质"] },
+              { name: "热量", value: this.data.foodInfo.composition["热量"] },
               { name: "碳水化合物", value: this.data.foodInfo.composition["碳水化合物"] },  
               { name: "脂肪", value: this.data.foodInfo.composition["脂肪"] },
+              { name: "水", value: this.data.foodInfo.composition["水"] },
               { name: "钠", value: this.data.foodInfo.composition["钠"] },
               { name: "钾", value: this.data.foodInfo.composition["钾"] },
-              { name: "磷", value: this.data.foodInfo.composition["磷"] },
-              { name: "水", value: this.data.foodInfo.composition["水"] },
-              { name: "热量", value: this.data.foodInfo.composition["热量"] },
+              { name: "磷", value: this.data.foodInfo.composition["磷"] },              
             ]
           });
           

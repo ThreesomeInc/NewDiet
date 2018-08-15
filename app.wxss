@@ -139,8 +139,7 @@ picker-view-column {
   flex-flow: row;
   border-bottom: 0;
   color: #20492e;
-  margin: 5rpx;
-  
+  margin: 5rpx; 
 }
 .mini-tab-header {
   background-color: #4cb16f;

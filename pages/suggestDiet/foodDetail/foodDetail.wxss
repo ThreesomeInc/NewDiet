@@ -60,7 +60,6 @@ page {
   width: 100%;
   padding: 20rpx;
   margin: 10rpx auto;
-  color: #20492e;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -78,42 +77,32 @@ page {
 }
 .break-line{
   border-top: 1rpx solid #cecece;
-  width: 80%;
+  width: 90%;
   margin: 8rpx auto;
 }
 .content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     width: 100%;
     margin: 0 auto;
-    padding: 8rpx 30rpx 40rpx 30rpx;
+    padding: 8rpx 30rpx;
     text-align: center;
 }
-
-.templateContainer {
-    width: 27%;
-    margin: 8rpx 15rpx;
-    border-radius: 10rpx;
+.tab-box {
+  margin: 2rpx;
 }
 
-.category-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 34rpx;
+.mini-tab-header {
+  text-align: left;
+  font-size: 35rpx;
+  margin: 3rpx;
+  width: 45%;
+  background-color: #ffffff;
+  color: #20492e;
 }
-.composite_name{
-    padding: 5rpx 8rpx;
-    color: #20492e;
- 
-}
-.composite_value{
-    padding: 5rpx 8rpx;
-    font-size: 32rpx;
-    color: #606060;
-    border-radius: 30rpx;
-    border: 1rpx solid #606060;
-    height: 44rpx;
+.mini-tab-info {
+  vertical-align: center;
+  font-size: 33rpx;
+  overflow-wrap:break-word;
+  word-break: break-all;
+  text-align: right;
 }
 
