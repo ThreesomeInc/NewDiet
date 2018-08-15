@@ -1,6 +1,9 @@
 @import '../../../vendor/weui/weui.wxss';
 
 /* pages/suggestDiet/meal/meal.wxss */
+page {
+  background-color: #ffffff;
+}
 .top_block {
   width: 85%;
   background-color: #fe6345;
@@ -54,11 +57,10 @@
 }
 
 .info_block {
-  background-color: #ffffff;
   width: 100%;
   padding: 20rpx;
-  margin: 20rpx auto;
-  color: #606060;
+  margin: 10rpx auto;
+  color: #20492e;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -71,28 +73,29 @@
   text-align: left;
 }
 .title{
-  color: #929292;
+  color: #fe6345;
+  font-weight: bold;
 }
-
+.break-line{
+  border-top: 1rpx solid #cecece;
+  width: 80%;
+  margin: 8rpx auto;
+}
 .content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    background-color: #ffffff;
     margin: 0 auto;
-    padding: 10rpx 30rpx 40rpx 30rpx;
+    padding: 8rpx 30rpx 40rpx 30rpx;
     text-align: center;
 }
 
-
 .templateContainer {
     width: 27%;
-    background-color: white;
     margin: 8rpx 15rpx;
     border-radius: 10rpx;
 }
-
 
 .category-container {
     display: flex;
@@ -101,12 +104,12 @@
     font-size: 34rpx;
 }
 .composite_name{
-    padding: 8rpx;
-    color: #606060;
+    padding: 5rpx 8rpx;
+    color: #20492e;
  
 }
 .composite_value{
-    padding: 6rpx;
+    padding: 5rpx 8rpx;
     font-size: 32rpx;
     color: #606060;
     border-radius: 30rpx;

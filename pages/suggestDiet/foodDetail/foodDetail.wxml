@@ -15,7 +15,7 @@
         </block>
       </view>
     </view>
-    
+
     </view>
 
     <view class='content'>
@@ -31,6 +31,7 @@
 
     <view class="info_block">
       <view class="advise title">营养师建议</view>
+      <view class="break-line"/>
       <view class="advise">{{foodInfo.dieticianAdvice}}</view>
     
     </view>
