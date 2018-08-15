@@ -1,4 +1,8 @@
 /* pages/question/treatmentMethod/treatmentMethod.wxss */
+page{
+  background-color: #ffffff;
+}
+
 .data-checkbox-view {
     margin: 5rpx auto;
     width:100%;

@@ -1,3 +1,6 @@
 /* pages/question-sex/question-sex.wxss */
+page{
+  background-color: #ffffff;
+}
 
 

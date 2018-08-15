@@ -1,7 +1,9 @@
+
 .canvas{
-  width: 96%;
-  margin-top: 50rpx;
-  padding: 0;
+  height: 300px;
+  text-align: center;
+  margin: 5rpx auto;
+  padding: 0rpx 20rpx;
 }
 .bar-char {
   width: 100%;

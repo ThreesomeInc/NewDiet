@@ -80,28 +80,23 @@ Page({
     }
     let suggestedNutrition = wx.getStorageSync('suggestedNutrition');
     let categories = suggestedNutrition.map(item => item.name);
-    let data = suggestedNutrition.map(item => item.value).map(item => parseFloat(/\d+/.exec(item)[0]));
+    let data = suggestedNutrition.map(item => {
+      var index = item.value.indexOf("克");
+      return {
+        name: item.name,
+        data: parseInt(item.value.substring(0, index)),
+      }
+    })
+    console.log(data);
     columnChart = new wxCharts({
       canvasId: 'columnCanvas',
-      type: 'column',
+      type: 'pie',
       animation: true,
-      categories: categories,//chartData.main.categories,
-      series: [{
-        name: '一日分量',
-        color: '#fe6345',
-        data: data,//chartData.main.data,
-        format: function (val, name) {
-          return val.toFixed(2) + 'g';
-        }
-      }],
-      yAxis: {
-        format: function (val) {
-          return val + 'g';
-        },
-        min: 0
-      },
-      width: windowWidth * 0.9,
-      height: 180,
+      categories: categories,
+      series: data,
+      width: 300,
+      height: 290,
+      dataLabel: true,
     });
   },
 

@@ -39,6 +39,7 @@ App({
           title: "登录中...",
           mask: true
         });
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
           url: "https://kidneyhealty.com.cn/common/wxLogin",
           method: "GET",
@@ -48,7 +49,7 @@ App({
             wx.hideLoading();
             wx.setStorageSync('skey', result.data.session_key);
             wx.setStorageSync('openid', result.data.openid);
-            util.showSuccess('登录成功');
+            util.showSuccess('登录后台成功');
             console.log(this.globalData);
             this.globalData.authInfo.skey = result.data.session_key;
             this.globalData.authInfo.openid = result.data.openid;
@@ -56,10 +57,10 @@ App({
 
           fail: (result) => {
             wx.hideLoading();
-            util.showModel('登录错误', result.msg)
+            util.showModel('登录后台错误', result.msg)
           },
         });
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        
       }
     });
     // 获取用户信息

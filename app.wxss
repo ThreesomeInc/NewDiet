@@ -12,17 +12,9 @@
 .bold {
   font-weight: bold;
 }
-.orange {
-  color: #fb8b05;
-}
-.brown {
-  color:#9c3d1f;
-}
+
 .ping {
   color: #fe6345;
-}
-.red {
-  color: #dbd7d6;
 }
 
 .green {
@@ -30,6 +22,10 @@
 }
 .dark-green {
   color: #20492e;
+}
+
+page{
+  background-color: #00000008;
 }
 
 .main-container {
@@ -41,9 +37,6 @@
   box-sizing: border-box;
   margin:0rpx;
 } 
-page{
-  background-color: rgba(0, 0, 0, 0.05);
-}
 
 .question-container {
   background-color: white;
@@ -57,7 +50,6 @@ page{
   justify-content: center;
   box-sizing: border-box;
   text-align: center;
-
   border-radius: 30rpx;
 } 
 

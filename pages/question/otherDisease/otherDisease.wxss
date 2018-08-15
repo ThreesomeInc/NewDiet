@@ -1,3 +1,6 @@
+page{
+  background-color: #ffffff;
+}
 
 .data-checkbox-view {
     margin: 5rpx auto;

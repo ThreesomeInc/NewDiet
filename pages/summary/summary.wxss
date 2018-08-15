@@ -4,7 +4,7 @@
   background-color: white;
   padding-top:30rpx;
   padding-bottom: 5rpx;
-  margin: 30rpx 15rpx 50rpx 15rpx;
+  margin: 30rpx 15rpx;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -47,9 +47,10 @@
 
 /* bar chart related */
 .canvas{
-  width: 96%;
-  margin-top: 50rpx;
-  padding: 0;
+  height: 300px;
+  text-align: center;
+  margin: 5rpx auto;
+  padding: 0rpx 20rpx;
 }
 .bar-char {
   width: 100%;
@@ -67,7 +68,7 @@
   margin: 10rpx auto;
   padding-bottom: 10rpx;
   padding-top:50rpx;
-  border-bottom: 5rpx solid #c9c9c9;
+  border-bottom: 3rpx solid #c9c9c9;
 }
 
 .session-sub-title {

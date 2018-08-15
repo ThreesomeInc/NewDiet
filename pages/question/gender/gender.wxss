@@ -1,5 +1,9 @@
 /* pages/question-sex/question-sex.wxss */
 /* Part 2 question*/
+page{
+  background-color: #ffffff;
+}
+
 .parameter-wrap {
   padding: 140rpx 50rpx;
 }

@@ -1,4 +1,5 @@
 /**index.wxss**/
+
 .userinfo-before {
   display: flex;
   flex-direction: column;
@@ -83,7 +84,7 @@ button {
   justify-content: center;
   align-items: stretch;
   text-align: center;
-  width: 80%;
+  width: 90%;
   margin-top: 20rpx;
 }
 

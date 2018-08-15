@@ -2,13 +2,6 @@
 const wxCharts = require('../../../utils/wxcharts-min.js');
 const app = getApp();
 var columnChart = null;
-const chartData = {
-  main: {
-    title: 'CKD饮食结构推荐',
-    data: [175, 50, 250, 400, 368, 50],
-    categories: ['谷薯类', '淀粉', '绿叶蔬菜', '瓜果蔬菜', '肉蛋类', '油脂类']
-  }
-};
 
 Page({
 
@@ -22,7 +15,7 @@ Page({
     }, 
     suggestedNutrition: [],
     barChartTitle:'CKD饮食结构推荐',
-    barChartSubTitle:'根据您的理想体重，目标能量和目标蛋白质，CKD推荐了以下的每日饮食结构',
+    barChartSubTitle:'根据您的理想体重，目标能量和目标蛋白质，营养师推荐了以下的每日饮食结构',
     advice:'',
   },
 
@@ -50,37 +43,26 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let windowWidth = 320;
-    try {
-      let res = wx.getSystemInfoSync();
-      windowWidth = res.windowWidth;
-    } catch (e) {
-      console.log('fail to get system width.');
-    }
     let suggestedNutrition = wx.getStorageSync('suggestedNutrition');
     let categories = suggestedNutrition.map(item => item.name);
-    let data = suggestedNutrition.map(item => item.value).map(item => parseFloat(/\d+/.exec(item)[0]));
+    let data = suggestedNutrition.map(item => {
+      var index = item.value.indexOf("克");
+      var m= {
+        name : item.name, 
+        data: parseInt(item.value.substring(0, index)),
+      }
+      return m;
+    })
+    console.log(data);
     columnChart = new wxCharts({
       canvasId: 'columnCanvas',
-      type: 'column',
+      type: 'pie',
       animation: true,
       categories: categories,
-      series: [{
-        name: '一日分量',
-        color: '#fe6345',
-        data: data,
-        format: function (val, name) {
-          return val.toFixed(2) + 'g';
-        }
-      }],
-      yAxis: {
-        format: function (val) {
-          return val + 'g';
-        },
-        min: 0
-      },
-      width: windowWidth,
-      height: 180,
+      series: data,
+      width: 300,
+      height: 290,
+      dataLabel: true,
     });
   },
 
