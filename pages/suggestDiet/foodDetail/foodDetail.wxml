@@ -1,5 +1,5 @@
 <view class="main-container page">
-		<view class="top_block">
+	<view class="top_block">
       <!-- <block>
 			  <image mode='aspectFill' class="food_image" src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
 			  <image mode='aspectFill' class="food_image" src='https://kidneyhealty.com.cn/images/1.jpg' wx:else></image>
@@ -15,7 +15,12 @@
         </block>
       </view>
     </view>
+  </view>
 
+    <view class="info_block">
+      <view class="advise title">营养师建议</view>
+      <view class="break-line"/>
+      <view class="advise">{{foodInfo.dieticianAdvice}}</view>
     </view>
 
     <view class='content'>
@@ -30,12 +35,5 @@
         </view>
     </block>
 </view>
-
-    <view class="info_block">
-      <view class="advise title">营养师建议</view>
-      <view class="break-line"/>
-      <view class="advise">{{foodInfo.dieticianAdvice}}</view>
-    
-    </view>
 
 </view>

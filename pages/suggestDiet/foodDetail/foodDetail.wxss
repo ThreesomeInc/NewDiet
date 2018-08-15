@@ -50,19 +50,20 @@ page {
 
 .preference-icon {
     position:absolute;
-    top: 50rpx;
+    top: 45rpx;
     right: 60rpx;
-    width: 60rpx;
-    height: 60rpx;
+    width: 56rpx;
+    height: 56rpx;
 }
 
 .info_block {
   width: 100%;
-  padding: 20rpx;
+  padding: 0 20rpx 20rpx 20rpx;
   margin: 10rpx auto;
   display: flex;
   flex-direction: column;
   text-align: center;
+
 }
 .advise {
   margin: 10rpx auto;
@@ -70,6 +71,7 @@ page {
   font-size: 36rpx;
   line-height: 1.4rem;
   text-align: left;
+  color: #20492e;
 }
 .title{
   color: #fe6345;
@@ -77,7 +79,7 @@ page {
 }
 .break-line{
   border-top: 1rpx solid #cecece;
-  width: 90%;
+  width: 80%;
   margin: 8rpx auto;
 }
 .content {
