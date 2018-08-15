@@ -5,7 +5,7 @@ const dummy_resp = {
   "errorCode": 0,
   "errorMsg": null,
   "name": "小麦(粒)",
-  "label": "低嘌呤",
+  "label": ["低嘌呤","低血压"],
   "preference": "",
   "composition": {
     "钠": "6.8克",
@@ -17,7 +17,7 @@ const dummy_resp = {
     "蛋白质": "11.9克",
     "钾": "289克"
   },
-  "foodDieticianAdvice": "您的肾脏功能属于第一期，血压偏高，该食物蛋白质和纳含量低，可以经常食用。"
+  "dieticianAdvice": "您的肾脏功能属于第一期，血压偏高，该食物蛋白质和纳含量低，可以经常食用。"
 }
 
 
@@ -61,12 +61,13 @@ Page({
         dataType: "json",
         success: res => {
           wx.hideLoading();
-          // that.setData({
-          //   foodInfo: res.data
-          // });
           that.setData({
-            foodInfo: dummy_resp,
+            foodInfo: res.data
           });
+          console.log(this.data.foodInfo);
+          // that.setData({
+          //   foodInfo: dummy_resp,
+          // });
           that.setData({
             food_composition: [                           
               { name: "蛋白质", value: this.data.foodInfo.composition["蛋白质"] },

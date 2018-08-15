@@ -2,12 +2,12 @@
 
 /* pages/suggestDiet/meal/meal.wxss */
 .top_block {
-  width: 80%;
+  width: 85%;
   background-color: #fe6345;
   color: #ffffff;
-  border-radius: 50rpx;
+  border-radius: 40rpx;
   margin: 30rpx 10rpx;
-  padding: 10rpx 30rpx;
+  padding: 10rpx;
   display: flex;
   flex-direction: row;
 }
@@ -25,26 +25,32 @@
 }
 
 .title_row, .lable_row {
- padding: 20rpx 0;
+ padding: 10rpx 0;
+   display: flex;
+  flex-direction: row;
+    overflow-wrap:break-word;
+    flex-wrap: wrap;
 }
 
 .food_name {
-  font-weight: bold;
+  font-size: 32rpx;
 }
 .food_label {
   background-color: #ffffff;
   color: #fe6345;
   border-radius: 30rpx;
   text-align: center;
-  font-size: 32rpx;
+  font-size: 30rpx;
+  padding: 2rpx 8rpx;
+  margin: 8rpx;
 }
 
 .preference-icon {
     position:absolute;
-    top: 60rpx;
-    right: 90rpx;
-    width: 70rpx;
-    height: 70rpx;
+    top: 50rpx;
+    right: 60rpx;
+    width: 60rpx;
+    height: 60rpx;
 }
 
 .info_block {
@@ -52,7 +58,7 @@
   width: 100%;
   padding: 20rpx;
   margin: 20rpx auto;
-  color: #20492e;
+  color: #606060;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -85,7 +91,6 @@
     background-color: white;
     margin: 8rpx 15rpx;
     border-radius: 10rpx;
-    border: 1rpx solid #cecece;
 }
 
 
@@ -97,12 +102,15 @@
 }
 .composite_name{
     padding: 8rpx;
-    color: #ffffff;
-    background-color: #4cb16f;
+    color: #606060;
+ 
 }
 .composite_value{
-    padding: 8rpx;
+    padding: 6rpx;
     font-size: 32rpx;
-    color: #20492e;
+    color: #606060;
+    border-radius: 30rpx;
+    border: 1rpx solid #606060;
+    height: 44rpx;
 }
 

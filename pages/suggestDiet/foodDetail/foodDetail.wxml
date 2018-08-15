@@ -1,22 +1,25 @@
 <view class="main-container page">
 		<view class="top_block">
-      <block>
+      <!-- <block>
 			  <image mode='aspectFill' class="food_image" src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
 			  <image mode='aspectFill' class="food_image" src='https://kidneyhealty.com.cn/images/1.jpg' wx:else></image>
-      </block>
+      </block> -->
 		<view class="right_block">
 		  <view class="title_row">
 			  <view class="food_name">{{foodInfo.name}}</view>
         <image class="preference-icon" src="../../../images/thumb_up_white.png" />
 		  </view>
       <view class="lable_row">
-        <view class="food_label">{{foodInfo.label}}</view>
+        <block wx:for="{{foodInfo.label}}" wx:for-item="i">
+          <view class="food_label">{{i}}</view>
+        </block>
       </view>
     </view>
+    
     </view>
 
     <view class='content'>
-    <block wx:for="{{food_composition}}" wx:for-item="item">
+    <block wx:for="{{food_composition}}" wx:for-item="item" wx:key="name">
         <view class='templateContainer' catchtap='onFoodTypeTap' data-food-code='{{item.foodTypeCode}}'>
             <view class='category-container'>
                 <text class='composite_name'>{{item.name}}</text>
@@ -28,7 +31,7 @@
 
     <view class="info_block">
       <view class="advise title">营养师建议</view>
-      <view class="advise">{{foodInfo.foodDieticianAdvice}}</view>
+      <view class="advise">{{foodInfo.dieticianAdvice}}</view>
     
     </view>
 
