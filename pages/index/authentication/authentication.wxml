@@ -9,8 +9,6 @@
     <view class="menu-item-title">
       微信昵称及头像资料
     </view>
-    <!-- <image class="next-icon" src="../../../images/rightArrow.png" /> -->
-    <!-- <switch class="switch-icon" checked="{{switch1Checked}}" bindchange="switch1Change"/> -->
     <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="auth-btn"> 
         <block wx:if="{{hasUserInfo}}" >
             <image class="auth-btn-image" src="../../../images/green_tick.png" background-size="cover"></image>

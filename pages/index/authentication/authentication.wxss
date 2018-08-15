@@ -11,7 +11,7 @@
     position:absolute;
     top: 70%;
     transform: translateY(-50%);
-    right: 50rpx;
+    right: 40rpx;
     background-color: #ffffff;
     border-radius: 50%;
 }
