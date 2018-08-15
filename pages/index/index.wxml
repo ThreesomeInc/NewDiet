@@ -1,41 +1,41 @@
 <!--index.wxml-->
 <view class="main-container">
-  <view class="header-backgroup"></view>
-  <view class="userinfo-before" wx:if="{{!hasUserInfo && canIUse}}">
-
-      <image class="diet-logo" src="../../images/Diet_logo.png" background-size="cover"></image>
-      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 轻点授权，\n看到大不同 </button>
-
+      <view class="header-backgroup"></view>
+      <view class="userinfo-before">
+        <block wx:if="{{!hasUserInfo && canIUse}}">       
+          <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="logo_btn"> 
+            <image class="userinfo-avatar" src="../../images/Diet_logo.png" background-size="cover"></image>
+          </button>
+        </block>
+        <block wx:else>
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        </block>
       </view>
-      <block wx:else>
+ 
 
+  <!-- Not yet input body info -->
   <block wx:if="{{!hasUserBodyInfo}}">
-      <view class="userinfo-before" >
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <view class="slogon1 center dark-green">
+        <text>{{slogon1}}</text>
       </view>
-    <view class="slogon1 center dark-green">
-      <text>{{slogon1}}</text>
-    </view>
-    <view class="slogon2 center dark-green">
-      <text>{{slogon2}}</text>
-    </view>
-    <view class="questionButtonView">
-      <button bindtap='goToQuestions' class='questionButton'>{{motto}}</button>
-    </view>
+      <view class="slogon2 center dark-green">
+        <text>{{slogon2}}</text>
+      </view>
+      <view class="questionButtonView">
+        <button bindtap='goToQuestions' class='questionButton'>{{motto}}</button>
+      </view>
   </block>
 
-  <block wx:elif="{{hasUserBodyInfo}}">
-    <view class="userinfo-after" >
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <!-- Already input body info -->
+  <block wx:else>
       <view class="gridTab">
         <block wx:for="{{basicInfoSummary}}" wx:key="name">
           <view class="tab-box">
-          <view class="mini-tab-header">{{item.name}}</view>
-          <view class="mini-tab-info">{{item.value}}</view>
+            <view class="mini-tab-header">{{item.name}}</view>
+            <view class="mini-tab-info">{{item.value}}</view>
           </view>
         </block>
       </view>
-    </view>
     <view class="menu-list dark-green">
         <navigator url="dietStructure/index">
             <view class="menu-item">
@@ -74,6 +74,5 @@
             </view>
         </navigator>
     </view>
-  </block>
   </block>
 </view>

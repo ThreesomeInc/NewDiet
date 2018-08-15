@@ -1,25 +1,29 @@
 /**index.wxss**/
-
+.header-backgroup {
+  width: 100%;
+  height: 150rpx;
+  background-color: #4cb16f;
+  margin: 0;
+}
 .userinfo-before {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top:-120rpx;
+  margin-bottom: 30rpx;
 }
-.userinfo-after {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top:-120rpx;
-  width: 80%;
-  padding: 20rpx;
-  height: 500rpx;
+.logo_btn{
+  border-radius: 50%;
+  padding:0;
 }
 
-.userinfo-after image{
-  margin-top: 0rpx;
-  margin-bottom: 20rpx;
+.userinfo-avatar {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background-color: #ffffff;
 }
+
 .basicInfoResult {
   text-align: right;
 }
@@ -28,19 +32,6 @@ button {
   color: #20492e;
 }
 
-.userinfo-avatar {
-  width: 180rpx;
-  height: 180rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-.diet-logo {
-  width: 180rpx;
-  height: 180rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-  background-color: #ffffff;
-}
 
 .userinfo-nickname {
   color: #20492e;
@@ -55,12 +46,7 @@ button {
   color: #ffffff;
   background-color: #4cb16f;
 }
-.header-backgroup {
-  width: 100%;
-  height: 150rpx;
-  background-color: #4cb16f;
-  margin: 0;
-}
+
 
 .slogon2 {
   padding-top: 30rpx;

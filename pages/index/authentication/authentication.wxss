@@ -1,11 +1,4 @@
 
-.switch-icon {
-    position:absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 80rpx;
-    width: 60rpx;
-}
 .title-icon {
   width: 60rpx;
   height: 60rpx;
@@ -14,11 +7,19 @@
   left: 50rpx;
   transform: translateY(-50%);
 }
-
-.wx-switch-input{
-    background: #4cb16f !important;
-    border: #4cb16f !important; 
+.auth-btn{
+    position:absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    right: 50rpx;
+    background-color: #ffffff;
+    border-radius: 50%;
 }
+.auth-btn-image{  
+    width: 60rpx;
+    height: 60rpx;
+}
+
 
 
      
