@@ -10,18 +10,12 @@
         <image class="preference-icon" src="../../../images/thumb_up_white.png" />
 		  </view>
       <view class="lable_row">
-        <block wx:for="{{foodInfo.label}}" wx:for-item="i">
+        <block wx:for="{{foodInfo.label}}" wx:for-item="i" wx:key="i">
           <view class="food_label">{{i}}</view>
         </block>
       </view>
     </view>
   </view>
-
-    <view class="info_block">
-      <view class="advise title">营养师建议</view>
-      <view class="break-line"/>
-      <view class="advise">{{foodInfo.dieticianAdvice}}</view>
-    </view>
 
     <view class='content'>
       <view class="advise title">重要成分列表</view>
@@ -35,5 +29,11 @@
         </view>
     </block>
 </view>
+
+    <view class="info_block">
+      <view class="advise title">营养师建议</view>
+      <view class="break-line"/>
+      <view class="advise">{{foodInfo.dieticianAdvice}}</view>
+    </view>
 
 </view>

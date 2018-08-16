@@ -20,12 +20,13 @@
 .green {
   color: #4cb16f;
 }
+
 .dark-green {
   color: #20492e;
 }
 
 page{
-  background-color: #00000008;
+  background-color: #f3f3f3;
 }
 
 .main-container {
@@ -110,8 +111,7 @@ picker-view-column {
 .nextQuestionButton {
     color: white;
     border: 1rpx solid white;
-    font-size: 40rpx;
-    background-color:#4cb16f;
+    background-color: #4cb16f;
 }
 .nextQuestionButton:hover{
     border: 5rpx solid white;
