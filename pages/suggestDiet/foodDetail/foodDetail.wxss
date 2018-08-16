@@ -89,13 +89,13 @@ page {
     text-align: center;
 }
 .tab-box {
-  margin: 2rpx;
+  margin: 0rpx;
 }
 
 .mini-tab-header {
   text-align: left;
-  font-size: 35rpx;
-  margin: 3rpx;
+  font-size: 33rpx;
+  margin: 1rpx;
   width: 45%;
   background-color: #ffffff;
   color: #20492e;

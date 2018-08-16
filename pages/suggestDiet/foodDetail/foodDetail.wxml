@@ -18,7 +18,7 @@
   </view>
 
     <view class='content'>
-      <view class="advise title">重要成分列表</view>
+      <view class="advise title">重要成分列表（每100克）</view>
       <view class="break-line"/>
     <block wx:for="{{food_composition}}" wx:for-item="item" wx:key="name">
         <view class='gridTab' catchtap='onFoodTypeTap' data-food-code='{{item.foodTypeCode}}'>
