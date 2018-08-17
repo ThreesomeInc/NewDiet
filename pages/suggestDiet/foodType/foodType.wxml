@@ -32,7 +32,7 @@
         <view class='templateContainer' catchtap='onFoodTypeTap' data-food-code='{{item.foodTypeCode}}'>
             <view class='category-container'>
                 <image mode='aspectFill' class='food-type-img' src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
-                <image mode='aspectFill' class='food-type-img' src='../../../images/item_icon.png' wx:else></image>
+                <image mode='aspectFill' class='food-type-img' src='https://kidneyhealty.com.cn/images/item_icon.png' wx:else></image>
                 <text class='food-type-name'>{{item.foodTypeName}}</text>
             </view>
         </view>

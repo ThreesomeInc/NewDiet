@@ -10,6 +10,9 @@ Page({
       subHeader: '更多信息将有助于了解你的身体状况',
     },
     hasUserInfo: false,
+    settingIconUrl: app.globalData.imageBasePath + 'setting_icon.png',
+    greentickIconUrl: app.globalData.imageBasePath + 'green_tick.png',
+    greytickIconUrl: app.globalData.imageBasePath + 'grey_tick.png',
   },
 
   /**

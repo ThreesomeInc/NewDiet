@@ -14,6 +14,33 @@ Page({
     slogon2: '肾脏营养师\n为您规划一日三餐!',
     hasUserBodyInfo: false,
     basicInfoSummary:[],
+    menu: {
+      menuList:[
+      {
+          iconUrl: app.globalData.imageBasePath+'tips_icon.png',
+        menuName:'膳食结构建议',
+        directUrl:'dietStructure/index',
+          rightImageUrl: app.globalData.imageBasePath +'rightArrow.png',
+      },
+      {
+        iconUrl: app.globalData.imageBasePath +'setting_icon.png',
+        menuName: '更新我的身体资料',
+        directUrl: 'bodyInfoUpdate/index',
+        rightImageUrl: app.globalData.imageBasePath +'rightArrow.png',
+      },
+      {
+        iconUrl: app.globalData.imageBasePath +'authentication_icon.png',
+        menuName: '授权设置',
+        directUrl: 'authentication/authentication',
+        rightImageUrl: app.globalData.imageBasePath +'rightArrow.png',
+      },
+      {
+        iconUrl: app.globalData.imageBasePath +'about_icon.png',
+        menuName: '关于肾脏营养师',
+        directUrl: 'about/about',
+        rightImageUrl: app.globalData.imageBasePath +'rightArrow.png',
+      },
+    ]},
   },
   //事件处理函数
   goToQuestions: function () {
@@ -22,6 +49,12 @@ Page({
     })
   },
   onLoad: function () {
+    if (app.globalData.logoUrl) {
+      this.setData({
+        logoUrl: app.globalData.logoUrl
+      })
+    }
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

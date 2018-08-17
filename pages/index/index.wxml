@@ -1,10 +1,12 @@
 <!--index.wxml-->
+<import src="../../template/menuList.wxml"/>
+
 <view class="main-container">
       <view class="header-backgroup"></view>
       <view class="userinfo-before">
         <block wx:if="{{!hasUserInfo && canIUse}}">       
           <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="logo_btn"> 
-            <image class="userinfo-avatar" src="../../images/Diet_logo.png" background-size="cover"></image>
+            <image class="userinfo-avatar" src="{{logoUrl}}" background-size="cover"></image>
           </button>
         </block>
         <block wx:else>
@@ -36,43 +38,7 @@
           </view>
         </block>
       </view>
-    <view class="menu-list dark-green">
-        <navigator url="dietStructure/index">
-            <view class="menu-item">
-            <image class="title-icon" src="../../images/tips_icon.png" />
-                <view class="menu-item-title">
-                    膳食结构建议
-                </view>
-                <image class="next-icon" src="../../images/rightArrow.png" />
-            </view>
-        </navigator>
-        <navigator url="bodyInfoUpdate/index">
-            <view class="menu-item">
-                <image class="title-icon" src="../../images/setting_icon.png" />
-                <view class="menu-item-title">
-                    更新我的身体资料
-                </view>
-                <image class="next-icon" src="../../images/rightArrow.png" />
-            </view>
-        </navigator>
-        <navigator url="authentication/authentication">
-            <view class="menu-item">
-              <image class="title-icon" src="../../images/authentication_icon.png" />
-                <view class="menu-item-title">
-                    授权设置
-                </view>
-                <image class="next-icon" src="../../images/rightArrow.png" />
-            </view>
-        </navigator>
-        <navigator url="about/about">
-            <view class="menu-item">
-            <image class="title-icon" src="../../images/about_icon.png" />
-                <view class="menu-item-title">
-                    关于肾脏营养师
-                </view>
-                <image class="next-icon" src="../../images/rightArrow.png" />
-            </view>
-        </navigator>
-    </view>
+ 
+    <template is="menuWithIconAndRightImage" data="{{...menu}}"/>
   </block>
 </view>

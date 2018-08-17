@@ -7,7 +7,7 @@
 		<view class="right_block">
 		  <view class="title_row">
 			  <view class="food_name">{{foodInfo.name}}</view>
-        <image class="preference-icon" src="../../../images/thumb_up_white.png" />
+        <image class="preference-icon" src="https://kidneyhealty.com.cn/images/thumb_up_white.png" />
 		  </view>
       <view class="lable_row">
         <block wx:for="{{foodInfo.label}}" wx:for-item="i" wx:key="i">

@@ -29,7 +29,7 @@ Page({
   data: {
     foodCode: null,
     foodInfo: {
-      imageUrl: '../../../images/item_icon.png',
+      imageUrl: 'https://kidneyhealty.com.cn/images/item_icon.png',
     },
     food_composition:null,
 

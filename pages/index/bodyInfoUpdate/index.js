@@ -16,6 +16,8 @@ Page({
     updateBodyInfoBtnText: '更新资料，获取身体报告',
     userBodyInfo: null,
     hiddenLoading: true,
+    itemIconUrl: app.globalData.imageBasePath + 'item_icon.png',
+    arrowIconUrl: app.globalData.imageBasePath + 'greyArrow.png',
   },
 
   /**

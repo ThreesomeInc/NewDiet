@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "template/pageHeader.wxss";
+@import "template/menuList.wxss";
 @import "vendor/wxParse/wxParse.wxss";
 @import 'vendor/weui/weui.wxss';
 

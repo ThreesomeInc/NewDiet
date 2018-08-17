@@ -9,7 +9,7 @@ Page({
       headerText: '膳食建议',
       subHeader: '没有垃圾食品，只有垃圾食法',
     },
-    foodIconUrl:'../../images/food_logo.jpeg',
+    foodIconUrl:'https://kidneyhealty.com.cn/images/food_logo.jpeg',
     logoUrl: 'http://wiki.saraqian.com/wp-content/uploads/2018/08/diet_big_logo.png',
   },
 
