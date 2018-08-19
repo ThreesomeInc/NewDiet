@@ -25,7 +25,9 @@
     "pages/suggestDiet/doctorAdvice/articleDetail/articleDetail",
     "pages/suggestDiet/foodType/foodType",
     "pages/suggestDiet/foodList/foodList",
-    "pages/suggestDiet/foodDetail/foodDetail"
+    "pages/suggestDiet/foodDetail/foodDetail",
+    "pages/suggestDiet/recipeList/recipeList",
+    "pages/suggestDiet/recipeDetail/recipeDetail"
   ],
   "window": {
     "backgroundTextStyle": "bold",
@@ -42,7 +44,6 @@
         "selectedIconPath": "images/mine.png",
         "iconPath": "images/mine1.png"
       },
- 
       {
         "pagePath": "pages/suggestDiet/suggestDiet",
         "text": "膳食建议",

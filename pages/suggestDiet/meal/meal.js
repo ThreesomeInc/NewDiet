@@ -6,6 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    recipeList: [],
+    inputShowed: false,
+    inputVal: "",
     types: [],
     mealtime: [],
     category: [],
@@ -68,6 +71,43 @@ Page({
         }
       });
     });
+  },
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+    wx.request({
+      url: "https://kidneyhealty.com.cn/recipe/search/" + e.detail.value,
+      method: "GET",
+      success: res => {
+        this.setData({
+          recipeList: res.data.recipeList
+        })
+      },
+      fail: res => {
+        wx.showToast({
+          title: res,
+          icon: 'success'
+        });
+      }
+    });
+    console.log(this.data.inputVal);
   },
 
   /**

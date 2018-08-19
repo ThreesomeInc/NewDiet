@@ -18,12 +18,12 @@
 			</view>
 			<view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
 		</view>
-		<view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{foodList}}"
+		<view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{recipeList}}"
 			  wx:for-item="item" wx:key="foodId">
-			<navigator url="../foodDetail/foodDetail?foodCode={{item.foodId}}" class="weui-cell"
+			<navigator url="../recipeDetail/recipeDetail?recipeCode={{item.recipeId}}" class="weui-cell"
 					   hover-class="weui-cell_active">
 				<view class="weui-cell__bd">
-					<view>{{item.foodName}}</view>
+					<view>{{item.recipeName}}</view>
 				</view>
 			</navigator>
 		</view>
@@ -57,7 +57,7 @@
 					<text>简短描述</text>
 				</view>
 				<view class="control">
-					<navigator>打开</navigator>
+					<navigator url="../recipeList/recipeList?recipeType=mealtime&subKey={{item}}">打开</navigator>
 				</view>
 			</view>
 		</view>
@@ -77,7 +77,7 @@
 					<text>简短描述</text>
 				</view>
 				<view class="control">
-					<navigator>打开</navigator>
+					<navigator url="../recipeList/recipeList?recipeType=category&subKey={{item}}">打开</navigator>
 				</view>
 			</view>
 		</view>
