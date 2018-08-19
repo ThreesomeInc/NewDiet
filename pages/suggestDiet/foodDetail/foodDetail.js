@@ -77,6 +77,11 @@ Page({
       });
     }
   },
+  showPreferenceInput: function () {
+    this.setData({
+      showModalStatus: true
+    });
+  },
   showModal: function () {
     // 显示遮罩层
     let animation = wx.createAnimation({
