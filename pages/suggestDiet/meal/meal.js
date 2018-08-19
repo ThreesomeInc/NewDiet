@@ -1,4 +1,5 @@
 // pages/suggestDiet/meal/meal.js
+const app = getApp();
 Page({
 
   /**
@@ -6,8 +7,8 @@ Page({
    */
   data: {
     types: [],
-    mealtimeList: [],
-    categories: [],
+    mealtime: [],
+    category: [],
     style: [],
     state: 0,
     _num: '0'
@@ -49,29 +50,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: "https://kidneyhealty.com.cn/recipe/mealtime",
-      method: "GET",
-      success: res => {
-        this.setData({
-          mealtimeList: res.data.recipeTypeList
-        });
-      },
-      fail: res => {
-
-      }
+    this.setData({
+      types: app.globalData.recipeTypes
     });
-    wx.request({
-      url: "https://kidneyhealty.com.cn/recipe/category",
-      method: "GET",
-      success: res => {
-        this.setData({
-          categories: res.data.recipeTypeList
-        });
-      },
-      fail: res => {
+    this.data.types.forEach(item => {
+      wx.request({
+        url: "https://kidneyhealty.com.cn/recipe/" + item.key,
+        method: "GET",
+        success: res => {
+          if (!res.data.recipeTypeList) return;
+          let param = {};
+          param[item.key + ""] = res.data.recipeTypeList;
+          this.setData(param);
+        },
+        fail: res => {
 
-      }
+        }
+      });
     });
   },
 
