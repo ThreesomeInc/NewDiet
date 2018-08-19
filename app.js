@@ -10,23 +10,7 @@ App({
     if (bodyInfo) {
       this.globalData.userBodyInfo = bodyInfo;
     }
-    wx.request({
-      url: "https://kidneyhealty.com.cn/food/type",
-      method: "GET",
-      header: {
-        "Content-Type": "application/json"
-      },
-      dataType: "json",
-      success: (result) => {
-        console.log("foodTypeList:" + result.data.foodTypeList);
-        this.globalData.foodTypeList = result.data.foodTypeList;
-
-      },
-
-      fail: (result) => {
-        util.showModel('登录错误', result.msg)
-      },
-    });
+    this.initCategories();
     // 登录
     wx.login({
       success: res => {
@@ -60,7 +44,6 @@ App({
             util.showModel('登录后台错误', result.msg)
           },
         });
-        
       }
     });
     // 获取用户信息
@@ -84,12 +67,40 @@ App({
       }
     })
   },
+  initCategories: function () {
+    wx.request({
+      url: "https://kidneyhealty.com.cn/recipe",
+      method: "GET",
+      success: res => {
+        this.globalData.recipeTypes = res.data.recipeTypes;
+      },
+      fail: res => {
+        util.showModel('获取食谱分类错误', result.msg)
+      }
+    });
+    wx.request({
+      url: "https://kidneyhealty.com.cn/food/type",
+      method: "GET",
+      header: {
+        "Content-Type": "application/json"
+      },
+      dataType: "json",
+      success: (result) => {
+        console.log("foodTypeList:" + result.data.foodTypeList);
+        this.globalData.foodTypeList = result.data.foodTypeList;
+      },
+      fail: (result) => {
+        util.showModel('获取食材分类错误', result.msg)
+      },
+    });
+  },
   globalData: {
     authInfo: {
       skey: null,
       openid: null
     },
     foodTypeList: null,
+    recipeTypes: null,
     userInfo: null,
     imageBasePath: 'https://kidneyhealty.com.cn/images/',
     logoUrl: 'https://kidneyhealty.com.cn/images/Diet_logo.png',

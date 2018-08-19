@@ -50,19 +50,7 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: "http://localhost:8080/recipe",
-      method: "GET",
-      success: res => {
-        this.setData({
-          types: res.data.recipeTypes
-        });
-      },
-      fail: res => {
-
-      }
-    });
-    wx.request({
-      url: "http://localhost:8080/recipe/mealtime",
+      url: "https://kidneyhealty.com.cn/recipe/mealtime",
       method: "GET",
       success: res => {
         this.setData({
@@ -74,7 +62,7 @@ Page({
       }
     });
     wx.request({
-      url: "http://localhost:8080/recipe/category",
+      url: "https://kidneyhealty.com.cn/recipe/category",
       method: "GET",
       success: res => {
         this.setData({
