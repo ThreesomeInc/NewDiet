@@ -2,20 +2,24 @@
 <import src="../../template/pageHeader.wxml"/>
 
 <view class="main-container">
-  <template is="pageHeader" data="{{...title}}"/>
-  <view class="grid-icon">
-  <view >
-  <image class="icon" bindtap="foodViewTap" mode="widthFix" src="https://kidneyhealty.com.cn/images/food_logo.jpeg" ></image>
-  </view>
-  <!-- <view>
-    <image class="icon" bindtap="mealViewTap" mode="widthFix" src="https://kidneyhealty.com.cn/images/meal.jpeg" ></image>
-  </view>
+<template is="pageHeader" data="{{...title}}"/>
+<view class="grid-icon">
+	<view>
+		<image class="icon" bindtap="foodViewTap" mode="widthFix"
+			   src="https://kidneyhealty.com.cn/images/food_logo.jpeg"/>
+	</view>
+	<view>
+		<image class="icon" bindtap="mealViewTap" mode="widthFix"
+			   src="https://kidneyhealty.com.cn/images/meal.jpeg"/>
+	</view>
+	<!--
   <view>
-    <image class="icon" bindtap="dailyTipsViewTap" mode="widthFix" src="https://kidneyhealty.com.cn/images/daily_tips.jpeg" ></image>
+	<image class="icon" bindtap="dailyTipsViewTap" mode="widthFix" src="https://kidneyhealty.com.cn/images/daily_tips.jpeg" ></image>
   </view> -->
-  <view>
-    <image class="icon" bindtap="doctorAdviceViewTap" mode="widthFix" src="https://kidneyhealty.com.cn/images/diet_tips.jpg" ></image>
-  </view>
-  </view>
-  
+	<view>
+		<image class="icon" bindtap="doctorAdviceViewTap" mode="widthFix"
+			   src="https://kidneyhealty.com.cn/images/diet_tips.jpg"/>
+	</view>
+</view>
+
 </view>
