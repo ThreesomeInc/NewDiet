@@ -124,7 +124,7 @@ page {
     width: 100%;
     overflow: hidden;
     position: fixed;
-    bottom: 50%;
+    bottom: 0;
     left: 0;
     z-index: 2000;
     background: #fff;

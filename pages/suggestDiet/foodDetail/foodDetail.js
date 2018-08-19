@@ -16,8 +16,8 @@ Page({
     showModalStatus: true,
     animationData: null,
     preferenceMap: [
-      {key: "1", class: "preference-button", value: "不经常吃"},
-      {key: "2", class: "preference-button", value: "一般"},
+      {key: "1", class: "preference-button", value: "不吃"},
+      {key: "2", class: "preference-button", value: "偶尔吃"},
       {key: "3", class: "preference-button", value: "经常吃"},
     ]
   },
@@ -48,8 +48,10 @@ Page({
         dataType: "json",
         success: res => {
           wx.hideLoading();
+          console.log(res.data.frequency === undefined);
           that.setData({
-            foodInfo: res.data
+            foodInfo: res.data,
+            showModalStatus: (res.data.frequency === undefined)
           });
           console.log(this.data.foodInfo);
           // that.setData({
@@ -120,7 +122,7 @@ Page({
     let preference = e.target.dataset.preference;
     let foodCode = this.data.foodCode;
     wx.request({
-      url: "http://localhost:8080/food/preference",
+      url: "https://kidneyhealty.com.cn/food/preference",
       data: {
         "userId": app.globalData.authInfo.openid,
         "foodId": foodCode,
@@ -128,6 +130,7 @@ Page({
       },
       method: "POST",
       header: {
+        "Accept":"application/json",
         "Content-Type": "application/x-www-form-urlencoded"
       },
       dataType: "json",
