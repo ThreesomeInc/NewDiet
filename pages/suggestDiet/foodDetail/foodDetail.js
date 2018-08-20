@@ -17,7 +17,7 @@ Page({
     animationData: null,
     preferenceMap: [
       {key: "1", value: "不吃"},
-      {key: "2", value: "偶尔吃", default_checked: true},
+      {key: "2", value: "偶尔吃"},
       {key: "3", value: "经常吃"},
     ],
     hasUserBodyInfo: false,
