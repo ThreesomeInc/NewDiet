@@ -52,7 +52,7 @@ Page({
   goToNextQuestion: function (e) {
     console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
-      url: '../../question/weight/weight?postUpdate=false'
+      url: '../weight/weight?postUpdate=false'
     })
   },
 

@@ -42,6 +42,7 @@ Page({
       }
     }else{
       this.data.parameter[0].checked = true;
+      app.globalData.userBodyInfo = {};
       app.globalData.userBodyInfo.gender = this.data.parameter[0].key;   
     }
 
@@ -71,7 +72,7 @@ Page({
   goToNextQuestion: function (e) {
     console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
-      url: '../../question/birth/birth?postUpdate=false'
+      url: '../birth/birth?postUpdate=false'
     })
   },
 

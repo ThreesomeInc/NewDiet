@@ -25,7 +25,7 @@ Page({
    */
   onLoad: function (options) {
     try {
-      app.globalData.userBodyInfowx.getStorageSync('userBodyInfo');
+      app.globalData.userBodyInfo=wx.getStorageSync('userBodyInfo');
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!')
     }

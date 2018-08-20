@@ -55,7 +55,7 @@ Page({
   goToNextQuestion: function (e) {
     console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
-      url: '../../question/height/height?postUpdate=false'
+      url: '../height/height?postUpdate=false'
     })
   },
   updateValue: function (e) {

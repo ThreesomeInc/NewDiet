@@ -50,7 +50,7 @@ Page({
   goToNextQuestion: function (e) {
     console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
-      url: '../../question/irritability/irritability?postUpdate=false'
+      url: '../irritability/irritability?postUpdate=false'
     })
   },
 

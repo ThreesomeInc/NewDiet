@@ -57,7 +57,7 @@
 
 .info_block {
   width: 100%;
-  padding: 20rpx;
+  padding: 30rpx 20rpx;
   margin: 10rpx auto;
   display: flex;
   flex-direction: column;
@@ -108,28 +108,27 @@
   text-align: right;
 }
 
+.radio-group{
+  color:#20492e;
+  font-size: 33rpx;
+  padding: 10rpx;
 
-.preference-box{
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  margin: 0 auto;
 }
-.info_block .preference-box .preference-button{
-    border: 1rpx solid #4cb16f;
-    margin:15rpx;
-    color: #4cb16f;
-    background-color: #ffffff;
+.radio{
+  padding: 16rpx;
 }
 
-.info_block .preference-box .checked{
-    color: white;
-    border: 1rpx solid #4cb16f;
-    background-color: #4cb16f;
+.questionButtonView {
+  margin: 20rpx auto; 
+  width: 70%;
 }
-
-.info_block .preference-box .button-hover{
-    color: white;
-    border: 1rpx solid #4cb16f;
-    background-color: #4cb16f;
+.questionButton {
+   border-radius: 40rpx;
+  color: #ffffff;
+  background-color: #4cb16f;
+}
+.slogon2 {
+  padding-top: 20rpx;
+  line-height: 1.8rem;
+  font-size: 38rpx;
 }

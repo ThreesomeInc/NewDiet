@@ -104,7 +104,7 @@ App({
     userInfo: null,
     imageBasePath: 'https://kidneyhealty.com.cn/images/',
     logoUrl: 'https://kidneyhealty.com.cn/images/Diet_logo.png',
-    userBodyInfo: {},
+    userBodyInfo: null,
     basicInfoSummary: [],
     suggestedNutrition: [],
     advice: '',

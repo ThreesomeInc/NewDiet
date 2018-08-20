@@ -19,13 +19,21 @@ Page({
       {key: "1", value: "不吃"},
       { key: "2", value: "偶尔吃", default_checked: true},
       { key: "3", value: "经常吃"},
-    ]
+    ],
+    hasUserBodyInfo: false,
+    motto: '只需九步，了解自己更多',
+    slogon2: '记录身体信息\n获得营养师更有针对性的推荐',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (app.globalData.userBodyInfo != null) {
+      this.setData({
+        hasUserBodyInfo: true
+      })
+    }
     this.setData({
       foodCode: options.foodCode
     });
@@ -59,14 +67,12 @@ Page({
           // });
           that.setData({
             food_composition: [
-              {name: "蛋白质", value: this.data.foodInfo.composition["蛋白质"]},
               {name: "热量", value: this.data.foodInfo.composition["热量"]},
               {name: "碳水化合物", value: this.data.foodInfo.composition["碳水化合物"]},
               {name: "脂肪", value: this.data.foodInfo.composition["脂肪"]},
               {name: "水", value: this.data.foodInfo.composition["水"]},
+              {name: "蛋白质", value: this.data.foodInfo.composition["蛋白质"] },
               {name: "钠", value: this.data.foodInfo.composition["钠"]},
-              {name: "钾", value: this.data.foodInfo.composition["钾"]},
-              {name: "磷", value: this.data.foodInfo.composition["磷"]},
             ]
           });
 
@@ -78,6 +84,13 @@ Page({
     }
   },
 
+  //事件处理函数
+  goToQuestions: function () {
+    wx.switchTab({
+      url: '../../index/index'
+    })
+  },
+  
   updatePreference: function (e) {
     let preference = e.detail.value;
     console.log(preference);

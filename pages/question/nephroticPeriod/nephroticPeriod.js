@@ -54,7 +54,7 @@ Page({
   goToNextQuestion: function (e) {
     console.log(app.globalData.userBodyInfo);
     wx.navigateTo({
-      url: '../../question/treatmentMethod/treatmentMethod?postUpdate=false'
+      url: '../treatmentMethod/treatmentMethod?postUpdate=false'
     })
   },
 

@@ -38,15 +38,13 @@ button {
 }
 
 .questionButtonView {
-  margin-top: 70rpx;
-  
+  margin-top: 70rpx; 
 }
 .questionButton {
    border-radius: 40rpx;
   color: #ffffff;
   background-color: #4cb16f;
 }
-
 
 .slogon2 {
   padding-top: 30rpx;
