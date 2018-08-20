@@ -17,8 +17,8 @@ Page({
     animationData: null,
     preferenceMap: [
       {key: "1", value: "不吃"},
-      { key: "2", value: "偶尔吃", default_checked: true},
-      { key: "3", value: "经常吃"},
+      {key: "2", value: "偶尔吃", default_checked: true},
+      {key: "3", value: "经常吃"},
     ],
     hasUserBodyInfo: false,
     motto: '只需九步，了解自己更多',
@@ -56,24 +56,19 @@ Page({
         dataType: "json",
         success: res => {
           wx.hideLoading();
-          console.log(res.data.frequency === undefined);
+          if (res.data.frequency !== undefined) {
+            this.data.preferenceMap.forEach(item => {
+              item.default_checked = (item.key === res.data.frequency);
+            });
+          }
           that.setData({
             foodInfo: res.data,
-            showModalStatus: (res.data.frequency === undefined)
+            preferenceMap: this.data.preferenceMap,
           });
-          console.log(this.data.foodInfo);
-          // that.setData({
-          //   foodInfo: dummy_resp,
-          // });
           that.setData({
-            food_composition: [
-              {name: "热量", value: this.data.foodInfo.composition["热量"]},
-              {name: "碳水化合物", value: this.data.foodInfo.composition["碳水化合物"]},
-              {name: "脂肪", value: this.data.foodInfo.composition["脂肪"]},
-              {name: "水", value: this.data.foodInfo.composition["水"]},
-              {name: "蛋白质", value: this.data.foodInfo.composition["蛋白质"] },
-              {name: "钠", value: this.data.foodInfo.composition["钠"]},
-            ]
+            food_composition: Object.entries(this.data.foodInfo.composition).map(item => {
+              return {name: item[0], value: item[1]}
+            }),
           });
 
         },
@@ -90,7 +85,7 @@ Page({
       url: '../../index/index'
     })
   },
-  
+
   updatePreference: function (e) {
     let preference = e.detail.value;
     console.log(preference);
@@ -104,7 +99,7 @@ Page({
       },
       method: "POST",
       header: {
-        "Accept":"application/json",
+        "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded"
       },
       dataType: "json",
@@ -114,7 +109,7 @@ Page({
             title: res.data.message,
             status: "fail"
           })
-        }else{
+        } else {
           console.log("Successfully post preference to backend")
         }
       },
