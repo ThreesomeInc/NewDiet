@@ -89,8 +89,8 @@
     align-items: center;
 }
 .active{
-    color: #DF2E26;
-    border-bottom:3px solid #DF2E26;
+    color: #fe6345;
+    border-bottom:3px solid #fe6345;
 }
 /* 有优惠 */
 .recipe_article{
@@ -106,14 +106,14 @@
     flex-direction: row;
     font-size: 28rpx;
     /* justify-content: space-between; */
-    color: #000;
+    color: #000000;
     align-items: center;
 }
 .recipe1_article1>view>view{
-    color: #000;
+    color: #000000;
 }
 .recipe1_article2>view>view{
-    color: #000;
+    color: #000000;
 }
 .photo{
     display: flex;
@@ -131,7 +131,7 @@
     font-size: 24rpx;
 }
 .recipe1_article1>view>view>view:nth-of-type(2){
-    color:#000;
+    color:#000000;
 }
 .recipe_article>view>view>view:nth-of-type(2)>text:nth-of-type(1){
     font-size:38rpx;
@@ -142,10 +142,11 @@
 }
 .control navigator{
     width:150rpx;
-    height:55rpx;
+    height:65rpx;
     line-height:55rpx;
-    background-color: #662727;
+    background-color: #4cb16f;
     text-align: center;
     border-radius: 6rpx;
     color: #fff;
+    margin: 2rpx;
 }

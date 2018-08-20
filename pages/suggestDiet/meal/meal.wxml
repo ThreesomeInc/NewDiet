@@ -32,7 +32,7 @@
 
 <view class="recipe">
 <view class="{{_num==0?'active':''}}" data-index='0' bindtap='toggle'>
-	时间
+	早午晚
 </view>
 <view class="{{_num==1?'active':''}}" data-index='1' bindtap='toggle'>
 	荤素
@@ -54,7 +54,6 @@
 				</view>
 				<view style="width:40%">
 					<text>{{item}}</text>
-					<text>简短描述</text>
 				</view>
 				<view class="control">
 					<navigator url="../recipeList/recipeList?recipeType=mealtime&subKey={{item}}">打开</navigator>
@@ -74,7 +73,6 @@
 				</view>
 				<view style="width:40%">
 					<text>{{item}}</text>
-					<text>简短描述</text>
 				</view>
 				<view class="control">
 					<navigator url="../recipeList/recipeList?recipeType=category&subKey={{item}}">打开</navigator>
@@ -94,7 +92,6 @@
 				</view>
 				<view>
 					<text></text>
-					<text>简短描述</text>
 				</view>
 				<view class="control">
 					<navigator>打开</navigator>

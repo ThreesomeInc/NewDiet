@@ -1,4 +1,5 @@
-<view class="main-container page">
+<view class="main-container">
+  <view class="info_block">
 	<view class="top_block">
 		<!-- <block>
 				<image mode='aspectFill' class="food_image" src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
@@ -7,8 +8,8 @@
 		<view class="right_block">
 			<view class="title_row">
 				<view class="food_name">{{foodInfo.name}}</view>
-				<image bindtap="showPreferenceInput" class="preference-icon"
-					   src="https://kidneyhealty.com.cn/images/thumb_up_white.png"/>
+				<!-- <image bindtap="showPreferenceInput" class="preference-icon"
+					   src="https://kidneyhealty.com.cn/images/thumb_up_white.png"/> -->
 			</view>
 			<view class="lable_row">
 				<block wx:for="{{foodInfo.label}}" wx:for-item="i" wx:key="i">
@@ -17,10 +18,9 @@
 			</view>
 		</view>
 	</view>
-
-	<view class='content'>
+  </view>
+	<view class='content info_block'>
 		<view class="advise title">重要成分列表（每100克）</view>
-		<view class="break-line"/>
 		<block wx:for="{{food_composition}}" wx:for-item="item" wx:key="name">
 			<view class='gridTab' catchtap='onFoodTypeTap' data-food-code='{{item.foodTypeCode}}'>
 				<view class='tab-box'>
@@ -33,18 +33,23 @@
 
 	<view class="info_block">
 		<view class="advise title">营养师建议</view>
-		<view class="break-line"/>
 		<view class="advise">{{foodInfo.dieticianAdvice}}</view>
 	</view>
 
-	<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
-	<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
-		<text class="question-box">请问您经常吃这个食材吗？</text>
-		<block wx:for="{{preferenceMap}}" wx:for-item="item" wx:key="key">
-			<button class="{{item.class}}" hover-class="button-hover" bindtap="updatePreference" size="mini"
+	<view class="info_block">
+		<text class="advise title">您经常吃这个食材吗？</text>
+    <view class="preference-box" >
+		<!-- <block wx:for="{{preferenceMap}}" wx:for-item="item" wx:key="key">
+			<button class="preference-button {{item.checked}}" hover-class="button-hover" bindtap="updatePreference" size="mini"
 					data-preference="{{item.key}}">{{item.value}}
 			</button>
-		</block>
+		</block> -->
+    <radio-group class="radio-group" bindchange="updatePreference">
+      <label class="radio" wx:for="{{preferenceMap}}" wx:for-item="item" wx:key="key">
+      <radio value="{{item.key}}" checked="{{item.default_checked}}"/>{{item.value}}
+    </label>
+</radio-group>
+    </view>
 	</view>
 
 </view>

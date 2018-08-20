@@ -9,7 +9,7 @@ Page({
   data: {
     title:{
       headerText: '关于肾脏营养师',
-      subHeader: 'v0.1.5',
+      subHeader: 'v0.1.6',
     },
     content: '以迅雷不及掩耳盗铃儿响叮当之势，肾脏营养师面世啦。这里有最智能的膳食建议，务求令你吃得饱又吃得好！',
     logoUrl: '',

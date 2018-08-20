@@ -16,9 +16,9 @@ Page({
     showModalStatus: true,
     animationData: null,
     preferenceMap: [
-      {key: "1", class: "preference-button", value: "不吃"},
-      {key: "2", class: "preference-button", value: "偶尔吃"},
-      {key: "3", class: "preference-button", value: "经常吃"},
+      {key: "1", value: "不吃"},
+      { key: "2", value: "偶尔吃", default_checked: true},
+      { key: "3", value: "经常吃"},
     ]
   },
 
@@ -77,54 +77,10 @@ Page({
       });
     }
   },
-  showPreferenceInput: function () {
-    this.setData({
-      showModalStatus: true
-    });
-  },
-  showModal: function () {
-    // 显示遮罩层
-    let animation = wx.createAnimation({
-      duration: 200,
-      timingFunction: "linear",
-      delay: 0
-    });
-    this.animation = animation;
-    animation.translateY(300).step()
-    this.setData({
-      animationData: animation.export(),
-      showModalStatus: true
-    });
-    setTimeout(function () {
-      animation.translateY(0).step();
-      this.setData({
-        animationData: animation.export()
-      });
-    }.bind(this), 200)
-  },
-  hideModal: function () {
-    // 隐藏遮罩层
-    let animation = wx.createAnimation({
-      duration: 200,
-      timingFunction: "linear",
-      delay: 0
-    });
-    this.animation = animation;
-    animation.translateY(300).step();
-    this.setData({
-      animationData: animation.export(),
-    });
-    setTimeout(function () {
-      animation.translateY(0).step();
-      this.setData({
-        animationData: animation.export(),
-        showModalStatus: false
-      })
-    }.bind(this), 200)
-  },
 
   updatePreference: function (e) {
-    let preference = e.target.dataset.preference;
+    let preference = e.detail.value;
+    console.log(preference);
     let foodCode = this.data.foodCode;
     wx.request({
       url: "https://kidneyhealty.com.cn/food/preference",
@@ -145,8 +101,9 @@ Page({
             title: res.data.message,
             status: "fail"
           })
+        }else{
+          console.log("Successfully post preference to backend")
         }
-        this.hideModal();
       },
       fail: res => {
       }
