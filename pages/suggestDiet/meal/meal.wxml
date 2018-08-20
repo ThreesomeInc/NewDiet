@@ -37,9 +37,9 @@
 <view class="{{_num==1?'active':''}}" data-index='1' bindtap='toggle'>
 	荤素
 </view>
-<view class="{{_num==2?'active':''}}" data-index='2' bindtap='toggle'>
+<!-- <view class="{{_num==2?'active':''}}" data-index='2' bindtap='toggle'>
 	菜系
-</view>
+</view> -->
 </view>
 
 <swiper current="{{_num}}" class="swiper-box" duration="200" bindchange="bindChange" style='min-height:645rpx'>
