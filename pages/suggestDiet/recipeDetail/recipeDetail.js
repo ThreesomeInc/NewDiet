@@ -1,4 +1,5 @@
 // pages/suggestDiet/recipeDetail/recipeDetail.js
+const app = getApp();
 Page({
 
   /**
@@ -7,13 +8,26 @@ Page({
   data: {
     recipeCode: null,
     recipeInfo: null,
+    recipe_composition: null,
+    preferenceMap: [
+      {key: "1", value: "不喜欢"},
+      {key: "2", value: "马马马虎虎"},
+      {key: "3", value: "超爱吃的"},
+    ],
+    hasUserBodyInfo: false,
+    motto: '只需九步，了解自己更多',
+    slogon2: '记录身体信息\n获得营养师更有针对性的推荐',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (app.globalData.userBodyInfo !== null) {
+      this.setData({
+        hasUserBodyInfo: true
+      })
+    }
     let that = this;
     this.setData({
       recipeCode: options.recipeCode
@@ -33,8 +47,17 @@ Page({
         success: res => {
           wx.hideLoading();
           console.log(res);
+          let recipeInfo = res.data;
+          recipeInfo.label = [
+            `类别：${recipeInfo.category}`,
+            `难度：${recipeInfo.difficulty}`,
+            `风味：${recipeInfo.taste}`,
+            `烹饪方式：${recipeInfo.cookMethod}`,
+          ];
+          let recipe_composition = recipeInfo.mainIngredients;
           that.setData({
-            recipeInfo: res.data
+            recipeInfo: recipeInfo,
+            recipe_composition: recipe_composition,
           });
         },
         fail: res => {
@@ -43,6 +66,12 @@ Page({
         }
       })
     }
+  },
+
+  onFoodTap: function (e) {
+    wx.navigateTo({
+      url: '../foodDetail/foodDetail?foodCode=' + e.currentTarget.dataset.foodCode
+    })
   },
 
   /**
@@ -93,4 +122,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});
