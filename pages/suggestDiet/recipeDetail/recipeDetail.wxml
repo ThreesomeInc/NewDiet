@@ -30,6 +30,7 @@
 
 	<view class="info_block">
 		<view class="advise title">烹饪步骤</view>
+		<view class="step">戳我了解</view>
 	</view>
 
 	<view class="info_block">
