@@ -17,7 +17,7 @@
 		</view>
 	</view>
 	<view class='content info_block'>
-		<view class="advise title">重要成分列表（每100克）</view>
+		<view class="advise title">主要食材（以菜谱实际内容为准）</view>
 		<block wx:for="{{recipe_composition}}" wx:for-item="item" wx:key="foodName">
 			<view class='gridTab' catchtap='onFoodTap' data-food-code='{{item.foodId}}'>
 				<view class='tab-box'>
