@@ -17,6 +17,9 @@ Page({
     hasUserBodyInfo: false,
     motto: '只需九步，了解自己更多',
     slogon2: '记录身体信息\n获得营养师更有针对性的推荐',
+    cookMethodText: [],
+    showExpand: false,
+    briefText: "",
   },
 
   /**
@@ -38,7 +41,7 @@ Page({
         mask: true
       });
       wx.request({
-        url: "https://kidneyhealty.com.cn/recipe/detail/" + options.recipeCode,
+        url: "http://localhost:8080/recipe/detail/" + options.recipeCode,
         data: {
           "openId": app.globalData.authInfo.openid
         },
@@ -63,10 +66,14 @@ Page({
             `烹饪方式：${recipeInfo.cookMethod}`,
           ];
           let recipe_composition = recipeInfo.mainIngredients;
+          let showBrief = recipeInfo.cookingNote.length > 30;
           that.setData({
             recipeInfo: recipeInfo,
             recipe_composition: recipe_composition,
             preferenceMap: this.data.preferenceMap,
+            cookMethodText: recipeInfo.cookingNote.split("\n"),
+            showExpand: showBrief,
+            briefText: showBrief ? recipeInfo.cookingNote.substr(0, 30) : "",
           });
         },
         fail: res => {
@@ -75,6 +82,12 @@ Page({
         }
       })
     }
+  },
+
+  toggleBrief: function (e) {
+    this.setData({
+      showExpand: !this.data.showExpand,
+    })
   },
 
   onFoodTap: function (e) {

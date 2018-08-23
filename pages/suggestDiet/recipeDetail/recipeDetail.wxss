@@ -130,3 +130,29 @@
     line-height: 1.8rem;
     font-size: 38rpx;
 }
+.info_block .expand-btn {
+    color: #2e8dff;
+    bottom: 0;
+    right: 0;
+    position: relative;
+}
+.info_block .step{
+    width: 80%;
+    padding: 30rpx 20rpx;
+    margin: 10rpx auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: #ffffff;
+}
+
+.info_block .brief-text {
+    text-align: left;
+    width: 80%;
+    margin: 10rpx auto;
+}
+
+view.step-block {
+    overflow: hidden;
+    position: relative;
+}
