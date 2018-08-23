@@ -61,7 +61,7 @@
 				<view class="recommendWrap" scroll-x="true" >
 					<view class="recommendItem" wx:for="{{recipeList}}" wx:for-item="item" wx:key="recipeId">
 						<image class="recommendItemImage" src="https://kidneyhealty.com.cn/images/item_icon.png"></image>
-						<text class="recommendItem">{{item.recipeName}}</text>
+						<text class="recommendItemText">{{item.recipeName}}</text>
 					</view>
 				</view>
 			</scroll-view>
