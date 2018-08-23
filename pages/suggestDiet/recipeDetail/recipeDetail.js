@@ -41,7 +41,7 @@ Page({
         mask: true
       });
       wx.request({
-        url: "http://localhost:8080/recipe/detail/" + options.recipeCode,
+        url: "https://kidneyhealty.com.cn/recipe/detail/" + options.recipeCode,
         data: {
           "openId": app.globalData.authInfo.openid
         },
