@@ -60,7 +60,7 @@ Page({
           }
           let recipeInfo = res.data;
           recipeInfo.label = [
-            `类别：${recipeInfo.category}`,
+            `${recipeInfo.category}`,
             `难度：${recipeInfo.difficulty}`,
             `风味：${recipeInfo.taste}`,
             `烹饪方式：${recipeInfo.cookMethod}`,

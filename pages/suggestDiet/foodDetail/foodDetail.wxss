@@ -35,7 +35,7 @@
 }
 
 .food_name {
-  font-size: 32rpx;
+  font-size: 42rpx;
 }
 .food_label {
   background-color: #ffffff;

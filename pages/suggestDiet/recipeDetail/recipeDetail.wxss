@@ -33,7 +33,7 @@
 }
 
 .recipe_name {
-    font-size: 32rpx;
+    font-size: 42rpx;
 }
 .recipe_label {
     background-color: #ffffff;
@@ -131,7 +131,7 @@
     font-size: 38rpx;
 }
 .info_block .expand-btn {
-    color: #2e8dff;
+    color: #4cb16f;
     bottom: 0;
     right: 0;
     position: relative;
