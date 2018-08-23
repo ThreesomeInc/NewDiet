@@ -33,6 +33,7 @@
 		<block wx:if="{{!showExpand}}">
 			<view class="step" wx:for="{{cookMethodText}}" wx:for-item="item">{{item}}</view>
 		</block>
+		<view wx:if="{{!showExpand}}" class="expand-btn" bindtap="toggleBrief">...收起</view>
 		<block wx:else>
 			<view class="brief-text">{{briefText}}</view>
 			<view class="expand-btn" bindtap="toggleBrief">...展开</view>

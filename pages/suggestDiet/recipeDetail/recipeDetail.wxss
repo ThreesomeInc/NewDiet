@@ -138,18 +138,20 @@
 }
 .info_block .step{
     width: 80%;
-    padding: 30rpx 20rpx;
+    padding: 5rpx 10rpx;
     margin: 10rpx auto;
     display: flex;
     flex-direction: column;
     text-align: left;
     background-color: #ffffff;
+    font-size:33rpx;
 }
 
 .info_block .brief-text {
     text-align: left;
     width: 80%;
     margin: 10rpx auto;
+    font-size:33rpx;
 }
 
 view.step-block {
