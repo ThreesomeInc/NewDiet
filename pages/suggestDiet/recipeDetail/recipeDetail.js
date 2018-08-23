@@ -52,7 +52,7 @@ Page({
           console.log(res);
           if (res.data.preference !== undefined) {
             this.data.preferenceMap.forEach(item => {
-              item.default_checked = (item.key === res.data.preference);
+              item.default_checked = (+item.key === res.data.preference);
             });
           }
           let recipeInfo = res.data;
