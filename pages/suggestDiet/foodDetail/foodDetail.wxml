@@ -44,7 +44,7 @@
 	</view>
 
 	<view class="info_block">
-		<text class="advise title">您经常吃这个食材吗？</text>
+		<text class="advise title">这是您喜欢的食材吗？</text>
 		<view class="preference-box">
 			<radio-group class="radio-group" bindchange="updatePreference">
 				<label class="radio" wx:for="{{preferenceMap}}" wx:for-item="item" wx:key="key">
@@ -60,7 +60,7 @@
 			<scroll-view scroll-x="true">
 				<view class="recommendWrap" scroll-x="true" >
 					<view class="recommendItem" wx:for="{{recipeList}}" wx:for-item="item" wx:key="recipeId">
-						<image class="recommendItemImage" src="https://kidneyhealty.com.cn/images/item_icon.png"></image>
+						<image class="recommendItemImage" src="https://kidneyhealty.com.cn/images/recipe/recipe_default.jpg"></image>
 						<text class="recommendItemText">{{item.recipeName}}</text>
 					</view>
 				</view>

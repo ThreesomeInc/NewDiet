@@ -150,10 +150,11 @@
 .recommendItemText {
     flex-direction:row;
     flex: 2;
+    display:block;
 }
 
 .recommendItemImage {
     flex-direction:row;
-    width: 160 rpx;
-    height: 160 rpx;
+    width: 100 rpx;
+    height: 100 rpx;
 }

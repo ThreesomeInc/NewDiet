@@ -16,9 +16,9 @@ Page({
     showModalStatus: true,
     animationData: null,
     preferenceMap: [
-      {key: "1", value: "不吃"},
-      {key: "2", value: "偶尔吃"},
-      {key: "3", value: "经常吃"},
+      {key: "1", value: "不喜欢吃"},
+      {key: "2", value: "马马虎虎"},
+      {key: "3", value: "超爱吃的"},
     ],
     hasUserBodyInfo: false,
     motto: '只需九步，了解自己更多',
