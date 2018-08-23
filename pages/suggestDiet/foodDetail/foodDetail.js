@@ -88,6 +88,13 @@ Page({
     })
   },
 
+  jumpRecipe: function (e) {
+    let recipeId = e.currentTarget.dataset.recipeCode;
+    wx.navigateTo({
+      url: '../recipeDetail/recipeDetail?recipeCode=' + recipeId
+    });
+  },
+
   updatePreference: function (e) {
     let preference = e.detail.value;
     console.log(preference);

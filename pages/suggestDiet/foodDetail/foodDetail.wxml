@@ -59,7 +59,7 @@
 		<view class="preference-box">
 			<scroll-view scroll-x="true">
 				<view class="recommendWrap" scroll-x="true" >
-					<view class="recommendItem" wx:for="{{recipeList}}" wx:for-item="item" wx:key="recipeId">
+					<view class="recommendItem" bindtap="jumpRecipe" data-recipe-code="{{item.recipeId}}" wx:for="{{recipeList}}" wx:for-item="item" wx:key="recipeId">
 						<image class="recommendItemImage" src="https://kidneyhealty.com.cn/images/recipe/recipe_default.jpg"></image>
 						<text class="recommendItemText">{{item.recipeName}}</text>
 					</view>
