@@ -54,4 +54,18 @@
 		</view>
 	</view>
 
+	<view class="info_block">
+		<text class="advise title">精选菜品推荐</text>
+		<view class="preference-box">
+			<scroll-view scroll-x="true">
+				<view class="recommendWrap" scroll-x="true" >
+					<view class="recommendItem" wx:for="{{recipeList}}" wx:for-item="item" wx:key="recipeId">
+						<image class="recommendItemImage" src="https://kidneyhealty.com.cn/images/item_icon.png"></image>
+						<text class="recommendItem">{{item.recipeName}}</text>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+
 </view>

@@ -23,6 +23,7 @@ Page({
     hasUserBodyInfo: false,
     motto: '只需九步，了解自己更多',
     slogon2: '记录身体信息\n获得营养师更有针对性的推荐',
+    recipeList: []
   },
 
   /**
@@ -64,6 +65,7 @@ Page({
           that.setData({
             foodInfo: res.data,
             preferenceMap: this.data.preferenceMap,
+            recipeList: res.data.recipeList,
           });
           that.setData({
             food_composition: Object.entries(this.data.foodInfo.composition).map(item => {

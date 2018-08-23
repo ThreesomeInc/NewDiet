@@ -42,7 +42,7 @@
 </view> -->
 </view>
 
-<swiper current="{{_num}}" class="swiper-box" duration="200" bindchange="bindChange" style='min-height:645rpx'>
+<swiper current="{{_num}}" class="swiper-box" duration="200" bindchange="bindChange" style='min-height:845rpx'>
 <!-- 未使用 -->
 <swiper-item>
 	<view class="recipe_article" wx:for="{{mealtime}}" wx:for-item="item">

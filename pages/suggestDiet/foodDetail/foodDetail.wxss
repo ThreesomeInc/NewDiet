@@ -119,7 +119,7 @@
 }
 
 .questionButtonView {
-  margin: 20rpx auto; 
+  margin: 20rpx auto;
   width: 70%;
 }
 .questionButton {
@@ -131,4 +131,29 @@
   padding-top: 20rpx;
   line-height: 1.8rem;
   font-size: 38rpx;
+}
+
+.recommendWrap {
+    height: 160 rpx;
+    width: 100%;
+    display: flex;
+    display: -webkit-box;
+    flex-direction: column;
+}
+
+.recommendItem {
+    width: 160 rpx;
+    height: 160 rpx;
+    flex-direction:row;
+    flex: 1;
+}
+
+.recommendItemImage {
+    flex-direction:row;
+    flex: 2;
+}
+
+.recommendItemImage {
+    width: 160 rpx;
+    height: 160 rpx;
 }

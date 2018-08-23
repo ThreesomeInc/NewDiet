@@ -39,6 +39,9 @@ Page({
       });
       wx.request({
         url: "https://kidneyhealty.com.cn/recipe/detail/" + options.recipeCode,
+        data: {
+          "openId": app.globalData.authInfo.openid
+        },
         method: "GET",
         header: {
           "Content-Type": "application/json"
@@ -47,6 +50,11 @@ Page({
         success: res => {
           wx.hideLoading();
           console.log(res);
+          if (res.data.preference !== undefined) {
+            this.data.preferenceMap.forEach(item => {
+              item.default_checked = (item.key === res.data.preference);
+            });
+          }
           let recipeInfo = res.data;
           recipeInfo.label = [
             `类别：${recipeInfo.category}`,
@@ -58,6 +66,7 @@ Page({
           that.setData({
             recipeInfo: recipeInfo,
             recipe_composition: recipe_composition,
+            preferenceMap: this.data.preferenceMap,
           });
         },
         fail: res => {
@@ -72,6 +81,38 @@ Page({
     wx.navigateTo({
       url: '../foodDetail/foodDetail?foodCode=' + e.currentTarget.dataset.foodCode
     })
+  },
+
+  updatePreference: function (e) {
+    let preference = e.detail.value;
+    console.log(preference);
+    let recipeCode = this.data.recipeCode;
+    wx.request({
+      url: "https://kidneyhealty.com.cn/recipe/preference",
+      data: {
+        "userId": app.globalData.authInfo.openid,
+        "recipeId": recipeCode,
+        "preference": preference,
+      },
+      method: "POST",
+      header: {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      dataType: "json",
+      success: res => {
+        if (res.data.status === 500) {
+          wx.showModal({
+            title: res.data.message,
+            status: "fail"
+          })
+        } else {
+          console.log("Successfully post preference to backend")
+        }
+      },
+      fail: res => {
+      }
+    });
   },
 
   /**
