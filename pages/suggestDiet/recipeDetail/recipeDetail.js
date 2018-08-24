@@ -86,6 +86,13 @@ Page({
     }
   },
 
+  //事件处理函数
+  goToQuestions: function () {
+    wx.switchTab({
+      url: '../../index/index'
+    })
+  },
+
   toggleBrief: function (e) {
     this.setData({
       showExpand: !this.data.showExpand,
