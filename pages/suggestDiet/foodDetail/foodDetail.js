@@ -46,7 +46,7 @@ Page({
     if (this.data.foodCode) {
       let that = this;
       wx.request({
-        url: "https://kidneyhealty.com.cn/food/detail/" + this.data.foodCode,
+        url: app.globalData.apiBase + "/food/detail/" + this.data.foodCode,
         data: {
           "openId": app.globalData.authInfo.openid
         },
@@ -100,7 +100,7 @@ Page({
     console.log(preference);
     let foodCode = this.data.foodCode;
     wx.request({
-      url: "https://kidneyhealty.com.cn/food/preference",
+      url: app.globalData.apiBase + "/food/preference",
       data: {
         "userId": app.globalData.authInfo.openid,
         "foodId": foodCode,

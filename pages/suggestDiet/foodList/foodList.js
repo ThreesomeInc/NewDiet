@@ -18,7 +18,7 @@ Page({
         mask: true
       });
       wx.request({
-        url: "https://kidneyhealty.com.cn/food/",
+        url: app.globalData.apiBase + "/food/",
         method: "GET",
         data: {
           "typeId": options.typeCode

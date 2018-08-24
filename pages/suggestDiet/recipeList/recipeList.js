@@ -25,7 +25,7 @@ Page({
         mask: true
       });
       wx.request({
-        url: "https://kidneyhealty.com.cn/recipe/" + options.recipeType + "/" + options.subKey,
+        url: app.globalData.apiBase + "/recipe/" + options.recipeType + "/" + options.subKey,
         method: "GET",
         header: {
           "Content-Type": "application/json"

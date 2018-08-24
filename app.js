@@ -25,7 +25,7 @@ App({
         });
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
-          url: "https://kidneyhealty.com.cn/common/wxLogin",
+          url: this.globalData.apiBase + "/common/wxLogin",
           method: "GET",
           header: header,
           dataType: "json",
@@ -69,7 +69,7 @@ App({
   },
   initCategories: function () {
     wx.request({
-      url: "https://kidneyhealty.com.cn/recipe",
+      url: this.globalData.apiBase + "/recipe",
       method: "GET",
       success: res => {
         this.globalData.recipeTypes = res.data.recipeTypes;
@@ -79,7 +79,7 @@ App({
       }
     });
     wx.request({
-      url: "https://kidneyhealty.com.cn/food/type",
+      url: this.globalData.apiBase + "/food/type",
       method: "GET",
       header: {
         "Content-Type": "application/json"
@@ -102,6 +102,7 @@ App({
     foodTypeList: null,
     recipeTypes: null,
     userInfo: null,
+    apiBase: "https://kidneyhealty.com.cn",
     imageBasePath: 'https://kidneyhealty.com.cn/images/',
     logoUrl: 'https://kidneyhealty.com.cn/images/Diet_logo.png',
     userBodyInfo: null,

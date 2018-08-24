@@ -31,7 +31,7 @@ Page({
       inputVal: e.detail.value
     });
     wx.request({
-      url: "https://kidneyhealty.com.cn/food/search",
+      url: app.globalData.apiBase + "/food/search",
       method: "GET",
       data: {
         name: e.detail.value

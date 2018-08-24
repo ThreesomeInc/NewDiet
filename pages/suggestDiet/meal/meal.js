@@ -58,7 +58,7 @@ Page({
     });
     this.data.types.forEach(item => {
       wx.request({
-        url: "https://kidneyhealty.com.cn/recipe/" + item.key,
+        url: app.globalData.apiBase + "/" + item.key,
         method: "GET",
         success: res => {
           if (!res.data.recipeTypeList) return;
@@ -93,7 +93,7 @@ Page({
       inputVal: e.detail.value
     });
     wx.request({
-      url: "https://kidneyhealty.com.cn/recipe/search/" + e.detail.value,
+      url: app.globalData.apiBase + "/recipe/search/" + e.detail.value,
       method: "GET",
       success: res => {
         this.setData({

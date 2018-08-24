@@ -75,7 +75,7 @@ Page({
     });
     try {
       sdk.request({
-        url: `https://kidneyhealty.com.cn/home/report`,
+        url: app.globalData.apiBase + `/home/report`,
         method: 'POST',
         header: {"Content-Type": "application/json"},
         data: {

@@ -42,7 +42,7 @@ Page({
         mask: true
       });
       wx.request({
-        url: "https://kidneyhealty.com.cn/recipe/detail/" + options.recipeCode,
+        url: app.globalData.apiBase + "/recipe/detail/" + options.recipeCode,
         data: {
           "openId": app.globalData.authInfo.openid
         },
@@ -110,7 +110,7 @@ Page({
     console.log(preference);
     let recipeCode = this.data.recipeCode;
     wx.request({
-      url: "https://kidneyhealty.com.cn/recipe/preference",
+      url: app.globalData.apiBase + "/recipe/preference",
       data: {
         "userId": app.globalData.authInfo.openid,
         "recipeId": recipeCode,
