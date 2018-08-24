@@ -66,12 +66,12 @@ Page({
             `烹饪方式：${recipeInfo.cookMethod}`,
           ];
           let recipe_composition = recipeInfo.mainIngredients;
-          let showBrief = recipeInfo.cookingNote.length > 30;
+          let showBrief = recipeInfo.cookingNote && recipeInfo.cookingNote.length > 30;
           that.setData({
             recipeInfo: recipeInfo,
             recipe_composition: recipe_composition,
             preferenceMap: this.data.preferenceMap,
-            cookMethodText: recipeInfo.cookingNote.split("\n"),
+            cookMethodText: recipeInfo.cookingNote !== undefined ? recipeInfo.cookingNote.split("\n") : "",
             showExpand: showBrief,
             briefText: showBrief ? recipeInfo.cookingNote.substr(0, 30) : "",
           });
