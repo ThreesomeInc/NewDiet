@@ -19,6 +19,7 @@ Page({
     slogon2: '记录身体信息\n获得营养师更有针对性的推荐',
     cookMethodText: [],
     showExpand: false,
+    needExpand: false,
     briefText: "",
   },
 
@@ -73,6 +74,7 @@ Page({
             preferenceMap: this.data.preferenceMap,
             cookMethodText: recipeInfo.cookingNote !== undefined ? recipeInfo.cookingNote.split("\n") : "",
             showExpand: showBrief,
+            needExpand: showBrief,
             briefText: showBrief ? recipeInfo.cookingNote.substr(0, 30) : "",
           });
         },

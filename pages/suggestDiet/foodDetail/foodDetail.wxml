@@ -54,7 +54,7 @@
 		</view>
 	</view>
 
-	<view class="info_block">
+	<view class="info_block" wx:if="{{recipeList.length > 0}}">
 		<text class="advise title">精选菜品推荐</text>
 		<view class="preference-box">
 			<scroll-view scroll-x="true">
