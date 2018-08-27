@@ -58,7 +58,7 @@ Page({
     });
     this.data.types.forEach(item => {
       wx.request({
-        url: app.globalData.apiBase + "/" + item.key,
+        url: app.globalData.apiBase + "/recipe/" + item.key,
         method: "GET",
         success: res => {
           if (!res.data.recipeTypeList) return;
