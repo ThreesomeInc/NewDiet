@@ -45,6 +45,12 @@
         "iconPath": "images/mine1.png"
       },
       {
+        "pagePath": "pages/logFood/logFood",
+        "text": "饮食记录",
+        "selectedIconPath": "images/calendar-logo.png",
+        "iconPath": "images/calendar-logo-uncheck.png"
+      },
+      {
         "pagePath": "pages/suggestDiet/suggestDiet",
         "text": "膳食建议",
         "selectedIconPath": "images/front.png",

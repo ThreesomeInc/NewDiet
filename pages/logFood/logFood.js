@@ -6,8 +6,8 @@ var flag_hd = true;
 Page({
 
   /**
-  * 页面的初始数据
-  */
+   * 页面的初始数据
+   */
   data: {
     font: "",
     arr: [],
@@ -27,6 +27,14 @@ Page({
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
     clearInterval(interval); // 清除setInterval
     time = 0;
+  },
+  switchWeek: function (e) {
+    let screenWidth = wx.getSystemInfoSync().windowWidth;
+    if (e.detail.x > (screenWidth / 2)) {
+      this.next(e);
+    } else {
+      this.last(e);
+    }
   },
   test: function (event) {
 
@@ -48,27 +56,27 @@ Page({
 
     if (this.data.endDay < this.data.getDate) {
 
-      this.onLoad(res, this.data.year, this.data.month, this.data.endDay, 2)
+      this.onLoad(res, this.data.year, this.data.month, this.data.endDay, 2);
     }
 
-    else if (this.data.lastDay == this.data.getDate && this.data.endDay != null) {
-      this.onLoad(res, this.data.year, Number(this.data.month), 1, 2)
+    else if (this.data.lastDay === this.data.getDate && this.data.endDay !== null) {
+      this.onLoad(res, this.data.year, Number(this.data.month), 1, 2);
     }
-    else if (this.data.lastDay != this.data.endDay) {
+    else if (this.data.lastDay !== this.data.endDay) {
 
-      this.onLoad(res, this.data.year, Number(this.data.month - 1), Number(this.data.endDay + 1), 2)
+      this.onLoad(res, this.data.year, Number(this.data.month - 1), Number(this.data.endDay + 1), 2);
     }
     else {
 
-      this.data.endDay = 0
-      this.onLoad(res, this.data.year, Number(this.data.month), 1, 2)
+      this.data.endDay = 0;
+      this.onLoad(res, this.data.year, Number(this.data.month), 1, 2);
     }
   },
   last: function (res) {
     if (this.data.startDay < 7) {
       this.onLoad(res, this.data.year, this.data.month - 1, this.data.startDay - 1)
     }
-    else if (this.data.startDay > this.data.endDay && this.data.font == 1) {
+    else if (this.data.startDay > this.data.endDay && this.data.font === 1) {
       this.onLoad(res, this.data.year, this.data.month - 2, this.data.startDay)
     }
     else {
@@ -78,15 +86,15 @@ Page({
   //获取日历相关参数
   dataTime: function (year, month, day, state) {
 
-    var last = this.data.lastDay
-    var date = new Date(year, month, day);
-    if (year == null) {
+    let last = this.data.lastDay;
+    let date = new Date(year, month, day);
+    if (!year) {
       date = new Date()
     }
-    var year = date.getFullYear();
-    var month = date.getMonth();
-    var day = date.getDate();
-    var months = date.getMonth() + 1;
+    year = date.getFullYear();
+    month = date.getMonth();
+    day = date.getDate();
+    let months = date.getMonth() + 1;
 
     //获取现今年份
     this.data.year = year;
@@ -96,13 +104,13 @@ Page({
     //获取今日日期
     this.data.getDate = date.getDate();
     //最后一天是几号
-    var d = new Date(year, months, 0);
+    let d = new Date(year, months, 0);
 
     this.data.lastDay = d.getDate();
     //第一天星期几
 
     let firstDay
-    if (state == 1) {
+    if (state === 1) {
       if (d.getDate() == date.getDate()) {
         if (this.data.startDay == 1) {
           firstDay = new Date(year, Number(month), Number(new Date(year, month - 1, 0).getDate() - 6));
@@ -182,7 +190,7 @@ Page({
   },
   // 触摸结束事件
   touchEnd: function (e) {
-    var touchMove = e.changedTouches[0].pageX;
+    let touchMove = e.changedTouches[0].pageX;
     // 向左滑动
     if (touchMove - touchDot <= -20 && time < 10) {
       //执行切换页面的方法
@@ -198,7 +206,7 @@ Page({
 
   },
   onLoad: function (options, year, month, day, state) {
-    var _this = this;
+    let _this = this;
     wx.getSystemInfo({
       success: function (res) {
         _this.setData({
@@ -209,11 +217,11 @@ Page({
       }
     });
     this.dataTime(year, month, day, state);
-    var two;
+    let two;
     //根据今天是星期几，几号获得周的日期
-    var res = wx.getSystemInfoSync();
-    var date = ""
-    if (this.data.getWeek == 0) {
+    let res = wx.getSystemInfoSync();
+    let date = ""
+    if (this.data.getWeek === 0) {
       date = this.data.getDate
     }
     else if (this.data.getDate <= this.data.getWeek) {
@@ -223,31 +231,31 @@ Page({
     else {
       date = this.data.getDate - Number(this.data.getWeek)
     }
-    var num = Number(this.data.getDate + (6 - this.data.getWeek));
+    let num = Number(this.data.getDate + (6 - this.data.getWeek));
 
     if (num > this.data.lastDay) {
       num = this.data.lastDay
     }
 
-    var cha = Number(this.data.lastDay - date)
-    var endDay;
-    this.data.arr = []
-    var startDay = date;
+    let cha = Number(this.data.lastDay - date);
+    let endDay;
+    this.data.arr = [];
+    let startDay = date;
     if (two == 1) {
       this.setData({
         font: 1
-      })
-      var last = new Date(this.data.year, this.data.month - 1, 1).getDay()
-      var start = new Date(this.data.year, this.data.month - 1, 0).getDate()
-      var now = start - last + 1
-      var newdate = new Date(this.data.year, this.data.month - 1, now)
-      startDay = newdate.getDate()
-      for (var i = startDay; i <= start; i++) {
+      });
+      let last = new Date(this.data.year, this.data.month - 1, 1).getDay();
+      let start = new Date(this.data.year, this.data.month - 1, 0).getDate();
+      let now = start - last + 1;
+      let newdate = new Date(this.data.year, this.data.month - 1, now);
+      startDay = newdate.getDate();
+      for (let i = startDay; i <= start; i++) {
         this.data.arr.push(i);
       }
     }
 
-    for (var i = date; i <= num; i++) {
+    for (let i = date; i <= num; i++) {
 
       this.data.arr.push(i);
       endDay = i;
@@ -256,8 +264,8 @@ Page({
     if (cha < 6) {
       this.setData({
         font: 2
-      })
-      for (var i = 1; i <= (6 - cha); i++) {
+      });
+      for (let i = 1; i <= (6 - cha); i++) {
         this.data.arr.push(i);
         endDay = i;
       }
@@ -274,4 +282,4 @@ Page({
       startDay: startDay
     });
   }
-})
+});
