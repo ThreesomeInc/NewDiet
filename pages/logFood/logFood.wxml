@@ -13,7 +13,7 @@
       </view>
     </block>
     <block wx:for='{{ arr }}'>
-     <view bindtap="selectedLog" style='width: {{ sysW }}px;' class='{{ item == getDate ? "dateOn" : ""}} {{font==1?item>7?"font-color":"":font==2?item<7?"font-color":"":"" }}'>
+     <view bindtap="selectedLog" data-date="{{item}}" style='width: {{ sysW }}px;' class='{{ item == currentDate ? "dateOn" : ""}} {{font==1?item>7?"font-color":"":font==2?item<7?"font-color":"":"" }}'>
         {{ item }}
      </view>
     </block>

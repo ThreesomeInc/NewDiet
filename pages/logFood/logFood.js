@@ -14,6 +14,8 @@ Page({
     sysW: null,
     lastDay: null,
     firstDay: null,
+    currentDate: null,
+    currentWeekday: null,
     weekArr: ['日', '一', '二', '三', '四', '五', '六'],
     year: null,
     day: null,
@@ -28,6 +30,22 @@ Page({
     clearInterval(interval); // 清除setInterval
     time = 0;
   },
+  selectedLog: function (e) {
+    let selectedDate = e.target.dataset.date;
+    if (Math.abs(this.data.currentDate - selectedDate) > 10) {
+      if (selectedDate < 10) {
+        this.next(e);
+      } else {
+        this.last(e);
+      }
+    }
+    this.setData({
+      currentDate: selectedDate
+    });
+
+    this.dataTime(this.data.year, this.data.month - 1, selectedDate, 2)
+  },
+
   switchWeek: function (e) {
     let screenWidth = wx.getSystemInfoSync().windowWidth;
     if (e.detail.x > (screenWidth / 2)) {
@@ -54,12 +72,12 @@ Page({
   },
   next: function (res) {
 
-    if (this.data.endDay < this.data.getDate) {
+    if (this.data.endDay < this.data.currentDate) {
 
       this.onLoad(res, this.data.year, this.data.month, this.data.endDay, 2);
     }
 
-    else if (this.data.lastDay === this.data.getDate && this.data.endDay !== null) {
+    else if (this.data.lastDay === this.data.currentDate && this.data.endDay !== null) {
       this.onLoad(res, this.data.year, Number(this.data.month), 1, 2);
     }
     else if (this.data.lastDay !== this.data.endDay) {
@@ -102,7 +120,7 @@ Page({
     //获取现今月份
     this.data.month = months;
     //获取今日日期
-    this.data.getDate = date.getDate();
+    this.data.currentDate = date.getDate();
     //最后一天是几号
     let d = new Date(year, months, 0);
 
@@ -178,7 +196,7 @@ Page({
     }
     this.data.firstDay = firstDay.getDay();
     this.setData({
-      getWeek: date.getDay()
+      currentWeekday: date.getDay()
     })
   },
   touchStart: function (e) {
@@ -221,17 +239,17 @@ Page({
     //根据今天是星期几，几号获得周的日期
     let res = wx.getSystemInfoSync();
     let date = ""
-    if (this.data.getWeek === 0) {
-      date = this.data.getDate
+    if (this.data.currentWeekday === 0) {
+      date = this.data.currentDate
     }
-    else if (this.data.getDate <= this.data.getWeek) {
+    else if (this.data.currentDate <= this.data.currentWeekday) {
       two = 1
       date = 1
     }
     else {
-      date = this.data.getDate - Number(this.data.getWeek)
+      date = this.data.currentDate - Number(this.data.currentWeekday)
     }
-    let num = Number(this.data.getDate + (6 - this.data.getWeek));
+    let num = Number(this.data.currentDate + (6 - this.data.currentWeekday));
 
     if (num > this.data.lastDay) {
       num = this.data.lastDay
@@ -276,7 +294,7 @@ Page({
       marLet: this.data.firstDay,
       arr: this.data.arr,
       year: this.data.year,
-      getDate: this.data.getDate,
+      currentDate: this.data.currentDate,
       month: this.data.month,
       endDay: endDay,
       startDay: startDay
