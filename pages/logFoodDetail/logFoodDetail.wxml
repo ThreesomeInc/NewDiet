@@ -2,12 +2,12 @@
 <view class="main-container">
   <template is="pageHeader" data="{{...title}}"/>
 </view>
-  <view class="page__bd">
+<view class="page__bd">
           <view class="weui-search-bar">
             <view class="weui-search-bar__form">
                 <view class="weui-search-bar__box">
                     <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" placeholder="搜索食材" value="{{inputVal}}"
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索添加食材" value="{{inputVal}}"
                            focus="{{inputShowed}}" bindinput="inputTyping"/>
                     <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
                         <icon type="clear" size="14"></icon>
@@ -20,4 +20,40 @@
             </view>
             <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
         </view>
+                <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{foodList}}" wx:for-item="item" wx:key="foodId">
+            <view class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>{{item.foodName}}</view>
+                </view>
+                <view>
+                  <image mode='aspectFill' class='add-icon' src='https://kidneyhealty.com.cn/images/plus.png'  data-selected-food-id='{{item.foodId}}' bindtap="addFood"></image>
+                </view>
+            </view>
+        </view>
   </view>
+
+  <block  wx:if='{{selectedFood}}'>
+    <view class='info_block'>
+		<view class="title dark-green">{{selectedFood.name}}</view>
+    <view class='unit_choice flex-row'>
+      <view >大概吃了</view>
+      <view class="flex-row">
+        <input class="input" value="{{selectedFood.unit}}" maxlength="5"
+     bindinput="unitInput" /> 克
+      </view>
+    </view>
+    <view wx:if='{{selectedFood.edible != 100}}'>
+			<radio-group class="radio-group" bindchange="updateEdible">
+				<label class="radio" wx:for="{{sourceMap}}" wx:for-item="item" wx:key="key">
+					<radio value="{{item.key}}" checked="{{item.default_checked}}"/>{{item.value}}
+				</label>
+			</radio-group>
+    </view>
+    </view>
+    <view class="btn_group flex-row">
+      <button bindtap='confirmBtn' class='btn'>确认</button>
+      <button bindtap='cancelBtn' class='btn'>取消</button>
+    </view>
+	</block>
+  
+

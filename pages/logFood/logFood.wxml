@@ -34,7 +34,7 @@
             <text>{{item}}</text>
         </view>
         <view class="control">
-            <image mode='aspectFill' class='meal-type-img' src='add.png' data-mealtime="{{item}}" bindtap="showMealDetail"></image>
+            <image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/plus.png' data-mealtime="{{item}}" bindtap="showMealDetail"></image>
         </view>
     </view>
 </view>
