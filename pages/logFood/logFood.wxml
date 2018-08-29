@@ -21,3 +21,21 @@
 </view>
   <view class="break-line"/>
 </view>
+
+
+<view class="recipe_article" wx:for="{{mealtime}}" wx:for-item="item">
+<view>
+    <view style="background-size:100%;">
+        <view class="photo">
+            <image mode='aspectFill' class='meal-type-img' src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
+            <image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/item_icon.png' wx:else></image>
+        </view>
+        <view style="width:80%">
+            <text>{{item}}</text>
+        </view>
+        <view class="control">
+            <image mode='aspectFill' class='meal-type-img' src='add.png' data-mealtime="{{item}}" bindtap="showMealDetail"></image>
+        </view>
+    </view>
+</view>
+</view>

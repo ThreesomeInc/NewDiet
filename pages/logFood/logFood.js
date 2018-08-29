@@ -2,6 +2,7 @@ var time = 0;
 var touchDot = 0;//触摸时的原点
 var interval = "";
 var flag_hd = true;
+const app = getApp();
 
 Page({
 
@@ -16,6 +17,7 @@ Page({
     firstDay: null,
     currentDate: null,
     currentWeekday: null,
+    mealtime: [],
     weekArr: ['日', '一', '二', '三', '四', '五', '六'],
     year: null,
     day: null,
@@ -223,7 +225,17 @@ Page({
     time = 0;
 
   },
+  showMealDetail: function (e) {
+    console.log(e);
+    wx.navigateTo({
+      url: "../logFoodDetail/logFoodDetail?mealtime=" + e.currentTarget.dataset.mealtime + "&openId=" + this.data.openId,
+    })
+  },
   onLoad: function (options, year, month, day, state) {
+    this.setData({
+      mealtime: app.globalData.mealtime,
+      openId: app.globalData.authInfo.openid
+    });
     let _this = this;
     wx.getSystemInfo({
       success: function (res) {
