@@ -55,9 +55,9 @@
 	</view>
 </view>
 </block>
-<view class="btn_group flex-row" wx:if="{{selectedFood.length != 0}}">
+<view class="btn_group flex-row" >
 <button bindtap='confirmBtn' class='btn'>确认</button>
-<button bindtap='cancelBtn' class='btn'>清空</button>
+<button bindtap='cancelBtn' class='btn' wx:if="{{selectedFood.length != 0}}">清空</button>
 </view>
 
   
