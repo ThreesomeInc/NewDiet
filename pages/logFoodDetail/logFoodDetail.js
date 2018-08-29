@@ -1,10 +1,5 @@
 // pages/logFoodDetail/logFoodDetail.js
 const app = getApp();
-const exampleFood = {
-  name: '牛肉',
-  unit: 50,
-  edible: 80,
-}
 Page({
 
   /**
@@ -12,47 +7,78 @@ Page({
    */
   data: {
     mealtime: null,
-    openId:null,
+    logDate: null,
+    openId: null,
     inputVal: "",
     inputShowed: false,
     foodList: [],
-    selectedFood:null,
+    selectedFood: [],
     sourceMap: [
-      { key: "1", value: "市场买的", default_checked:true },
-      { key: "2", value: "超市净菜", default_checked:false },
+      {key: "1", text: "市场买的", value: "市场", default_checked: true},
+      {key: "2", text: "超市净菜", value: "超市", default_checked: false},
     ],
+    title: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.mealtime){
+    if (options.mealtime) {
       this.setData({
         mealtime: options.mealtime,
-        searchBarTips: options.mealtime +'吃了啥？',
-        title:{
-          headerText: options.mealtime +'记录',
+        logDate: options.logDate,
+        searchBarTips: options.mealtime + '吃了啥？',
+        title: {
+          headerText: options.mealtime + '记录',
           subHeader: '坚持完整记录，结果更精确哦',
         }
       })
-    };
+    }
     if (options.openId) {
       this.setData({
         openId: options.openId,
       })
-    };
+    }
   },
-  addFood: function(e){
+  addFood: function (e) {
     this.setData({
       inputVal: "",
       inputShowed: false
     });
-    console.log(e.currentTarget.dataset.selectedFoodId);
-    //TODO: here should REST call to get 名称+默认值+可食部
-    this.setData({
-      selectedFood: exampleFood,
-    })    
+    let foodId = e.currentTarget.dataset.selectedFoodId;
+    console.log(foodId);
+    wx.request({
+      url: app.globalData.apiBase + "/foodLog/food/" + foodId,
+      method: "GET",
+      success: res => {
+        if (this.data.selectedFood.filter(item => item.foodId === res.data.foodId).length !== 0) {
+          wx.showToast({
+            title: "食材已存在！",
+            icon: 'loading',
+            duration: 1000
+          });
+          return;
+        }
+        this.data.selectedFood.push({
+          foodId: res.data.foodId,
+          edible: res.data.edible,
+          unit: res.data.unit,
+          channel: this.data.sourceMap[0].value,
+          foodName: res.data.foodName,
+          foodAlias: res.data.foodAlias
+        });
+        this.setData({
+          selectedFood: this.data.selectedFood,
+        });
+      },
+      fail: res => {
+        wx.showToast({
+          title: res,
+          icon: 'success'
+        });
+      }
+    });
     console.log(this.data.selectedFood.edible);
   },
   showInput: function () {
@@ -102,62 +128,96 @@ Page({
 
   cancelBtn: function (e) {
     this.setData({
-      selectedFood: null
+      selectedFood: []
     });
   },
 
   confirmBtn: function (e) {
-    //TODO: this is to pose the selectedFood info
-    wx.navigateBack({
-      delta: -1
-    })
+    wx.request({
+      url: app.globalData.apiBase + "/foodLog",
+      method: "POST",
+      data: {
+        openId: this.data.openId,
+        logDate: this.data.logDate,
+        mealTime: this.data.mealtime,
+        foodLogItems: this.data.selectedFood,
+      },
+      success: res => {
+
+        wx.navigateBack({
+          delta: -1
+        })
+      },
+      fail: res => {
+        wx.showToast({
+          title: res,
+          icon: 'success'
+        });
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
-  }
-})
+
+  },
+
+  updateEdible: function (e) {
+    let index = e.currentTarget.dataset.foodIndex;
+    this.data.selectedFood[index].channel = e.detail.value;
+    this.setData({
+      selectedFood: this.data.selectedFood,
+    });
+  },
+
+  removeFood: function (e) {
+    let index = e.currentTarget.dataset.removeIndex;
+    this.data.selectedFood.splice(index, 1);
+    this.setData({
+      selectedFood: this.data.selectedFood,
+    });
+  },
+});

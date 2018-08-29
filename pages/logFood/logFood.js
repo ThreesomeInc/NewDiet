@@ -2,6 +2,7 @@ var time = 0;
 var touchDot = 0;//触摸时的原点
 var interval = "";
 var flag_hd = true;
+let util = require('../../utils/util.js');
 const app = getApp();
 
 Page({
@@ -221,8 +222,9 @@ Page({
   },
   showMealDetail: function (e) {
     console.log(e);
+    let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
     wx.navigateTo({
-      url: "../logFoodDetail/logFoodDetail?mealtime=" + e.currentTarget.dataset.mealtime + "&openId=" + this.data.openId,
+      url: "../logFoodDetail/logFoodDetail?logDate=" + logDate + "&mealtime=" + e.currentTarget.dataset.mealtime + "&openId=" + this.data.openId,
     })
   },
   onLoad: function (options, year, month, day, state) {

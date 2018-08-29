@@ -69,3 +69,11 @@
   background-color: #4cb16f;
   width: 40%;
 }
+
+.info_block .close {
+    margin-right: 0rpx;
+    margin-top: 0rpx;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
