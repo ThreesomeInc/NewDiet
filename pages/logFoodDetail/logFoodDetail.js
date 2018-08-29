@@ -24,6 +24,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.request({
+      url: app.globalData.apiBase + "/foodLog/single",
+      method: "GET",
+      data: {
+        openId: options.openId,
+        date: options.logDate,
+        mealtime: options.mealtime,
+      },
+      success: res => {
+        let currentRecord = res.data.dietRecordList.filter(item => item.mealtime === options.mealtime);
+        if (currentRecord.length > 0) {
+          this.setData({
+            selectedFood: currentRecord[0].foodLogItems,
+          });
+        }
+      },
+      fail: res => {
+        wx.showToast({
+          title: res,
+          icon: 'success'
+        });
+      }
+    });
     if (options.mealtime) {
       this.setData({
         mealtime: options.mealtime,
