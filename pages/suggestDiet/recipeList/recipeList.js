@@ -1,4 +1,5 @@
 // pages/suggestDiet/recipeList.js
+const app = getApp();
 Page({
 
   /**
