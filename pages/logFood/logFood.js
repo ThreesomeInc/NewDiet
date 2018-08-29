@@ -19,6 +19,8 @@ Page({
     currentDate: null,
     currentWeekday: null,
     mealtime: [],
+    mealFoodMap: null,
+    nutritionRatio: null,
     weekArr: ['日', '一', '二', '三', '四', '五', '六'],
     year: null,
     day: null,
@@ -32,6 +34,38 @@ Page({
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
     clearInterval(interval); // 清除setInterval
     time = 0;
+    this.loadFood();
+  },
+  loadFood: function () {
+    if (this.data.year && this.data.month && this.data.currentDate) {
+      let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
+      wx.request({
+        url: app.globalData.apiBase + "/foodLog/single",
+        method: "GET",
+        data: {
+          openId: app.globalData.authInfo.openid,
+          date: logDate,
+        },
+        success: res => {
+          let currentRecord = res.data.dietRecordList;
+          let nutritionRatio = res.data.monthFoodLog;
+          let param = {};
+          currentRecord.forEach(item => {
+            param[item.mealtime] = item.foodLogItems.map(item2 => item2.foodName + ": " + item2.unit + "g")
+          });
+          this.setData({
+            mealFoodMap: param,
+            nutritionRatio: nutritionRatio,
+          })
+        },
+        fail: res => {
+          wx.showToast({
+            title: res,
+            icon: 'success'
+          });
+        }
+      });
+    }
   },
   selectedLog: function (e) {
     let selectedDate = e.target.dataset.date;
@@ -45,7 +79,7 @@ Page({
     this.setData({
       currentDate: selectedDate
     });
-
+    this.loadFood();
     this.dataTime(this.data.year, this.data.month - 1, selectedDate, 2)
   },
 

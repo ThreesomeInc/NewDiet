@@ -32,6 +32,9 @@
         </view>
         <view style="width:80%">
             <text>{{item}}</text>
+            <view wx:for-item="item2" wx:for="{{mealFoodMap[item]}}">
+                {{item2}}
+            </view>
         </view>
         <view class="control">
             <image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/plus.png' data-mealtime="{{item}}" bindtap="showMealDetail"></image>

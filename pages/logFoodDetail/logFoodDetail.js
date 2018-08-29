@@ -13,6 +13,7 @@ Page({
     inputShowed: false,
     foodList: [],
     selectedFood: [],
+    showConfirm: true,
     sourceMap: [
       {key: "1", text: "市场买的", value: "市场", default_checked: true},
       {key: "2", text: "超市净菜", value: "超市", default_checked: false},
@@ -36,7 +37,12 @@ Page({
         let currentRecord = res.data.dietRecordList.filter(item => item.mealtime === options.mealtime);
         if (currentRecord.length > 0) {
           this.setData({
+            showConfirm: true,
             selectedFood: currentRecord[0].foodLogItems,
+          });
+        } else {
+          this.setData({
+            showConfirm: false,
           });
         }
       },
@@ -93,6 +99,7 @@ Page({
         });
         this.setData({
           selectedFood: this.data.selectedFood,
+          showConfirm: true,
         });
       },
       fail: res => {
@@ -151,7 +158,7 @@ Page({
 
   cancelBtn: function (e) {
     this.setData({
-      selectedFood: []
+      selectedFood: [],
     });
   },
 
