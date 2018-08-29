@@ -79,6 +79,16 @@ App({
       }
     });
     wx.request({
+      url: this.globalData.apiBase + "/recipe/mealtime",
+      method: "GET",
+      success: res => {
+        this.globalData.mealtime = res.data.recipeTypeList;
+      },
+      fail: res => {
+        util.showModel('获取分类错误', result.msg)
+      }
+    });
+    wx.request({
       url: this.globalData.apiBase + "/food/type",
       method: "GET",
       header: {
@@ -99,6 +109,7 @@ App({
       skey: null,
       openid: null
     },
+    mealtime: [],
     foodTypeList: null,
     recipeTypes: null,
     userInfo: null,
