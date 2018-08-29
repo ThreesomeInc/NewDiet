@@ -3,7 +3,7 @@ const app = getApp();
 const exampleFood = {
   name: '牛肉',
   unit: 50,
-  edible: 100,
+  edible: 80,
 }
 Page({
 
@@ -13,6 +13,8 @@ Page({
   data: {
     mealtime: null,
     openId:null,
+    inputVal: "",
+    inputShowed: false,
     foodList: [],
     selectedFood:null,
     sourceMap: [
@@ -74,6 +76,7 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+    console.log('going to search from backend');
     wx.request({
       url: app.globalData.apiBase + "/food/search",
       method: "GET",
@@ -81,11 +84,13 @@ Page({
         name: e.detail.value
       },
       success: res => {
+        console.log('get response from backend');
         this.setData({
           foodList: res.data.foodList
         })
       },
       fail: res => {
+        console.log('fail to get response from backend');
         wx.showToast({
           title: res,
           icon: 'success'
