@@ -172,22 +172,16 @@ Page({
       }
       else {
         if (this.data.startDay == 4 && month == 2) {
-
           firstDay = new Date(year, Number(month - 1), Number(new Date(year, month - 1, 0).getDate() - day + 1));
-
         }
         else if (month == 1) {
-
           firstDay = new Date(year, Number(month), Number(new Date(year, month - 1, 0).getDate() - day + 2));
         }
       }
     }
     else if (state == 2) {
-
       if (this.data.endDay == last && last != null) {
-
         firstDay = new Date(year, month, 1);
-
       }
       else {
         firstDay = new Date(year, Number(month), Number(1 + this.data.endDay));

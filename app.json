@@ -13,6 +13,7 @@
     "pages/question/irritability/irritability",
     "pages/summary/summary",
     "pages/logFood/logFood",
+    "pages/logFoodDetail/logFoodDetail",
     "pages/suggestDiet/suggestDiet",
     "pages/index/about/about",
     "pages/index/authentication/authentication",

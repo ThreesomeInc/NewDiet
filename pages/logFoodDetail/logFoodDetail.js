@@ -5,14 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    mealtime: null,
+    openId:null,
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (options.mealtime){
+      this.setData({
+        mealtime: options.mealtime,
+        searchBarTips: '搜索并添加' + options.mealtime +'食材',
+        title:{
+          headerText: options.mealtime +'吃了啥？',
+          subHeader: '坚持完整记录，结果更精确哦',
+        }
+      })
+    };
+    if (options.openId) {
+      this.setData({
+        openId: options.openId,
+      })
+      console.log(this.data.openId);
+    }
   },
 
   /**

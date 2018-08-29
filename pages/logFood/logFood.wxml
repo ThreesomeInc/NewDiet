@@ -7,12 +7,12 @@
 
   <view class='box1' style='width: {{ sysW * 7 }}px'>
     <view class='dateBox' bindtap="switchWeek">{{ year }} - {{ month}}</view>
-    <block wx:for='{{ weekArr }}'>
+    <block wx:for='{{ weekArr }}' wx:key='{{weekArr.id}}'>
      <view style='width: {{ sysW }}px;'>
         {{ item }}
       </view>
     </block>
-    <block wx:for='{{ arr }}'>
+    <block wx:for='{{ arr }}' wx:key='{{ arr.id }}'>
      <view bindtap="selectedLog" data-date="{{item}}" style='width: {{ sysW }}px;' class='{{ item == currentDate ? "dateOn" : ""}} {{font==1?item>7?"font-color":"":font==2?item<7?"font-color":"":"" }}'>
         {{ item }}
      </view>
@@ -23,7 +23,7 @@
 </view>
 
 
-<view class="recipe_article" wx:for="{{mealtime}}" wx:for-item="item">
+<view class="recipe_article" wx:for="{{mealtime}}" wx:for-item="item" wx:key='{{mealtime.id}}'>
 <view>
     <view style="background-size:100%;">
         <view class="photo">
