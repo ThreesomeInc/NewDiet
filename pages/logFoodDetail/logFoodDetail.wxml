@@ -22,24 +22,20 @@
 </view>
 <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{foodList}}" wx:for-item="item"
 	  wx:key="foodId">
-	<view class="weui-cell" hover-class="weui-cell_active">
+	<view class="weui-cell" hover-class="weui-cell_active" bindtap="addFood" data-selected-food-id='{{item.foodId}}'>
 		<view class="weui-cell__bd">
 			<view>{{item.foodName}}</view>
-		</view>
-		<view>
-			<image mode='aspectFill' class='add-icon' src='https://kidneyhealty.com.cn/images/plus.png'
-				   data-selected-food-id='{{item.foodId}}' bindtap="addFood"></image>
 		</view>
 	</view>
 </view>
 </view>
 
-<block wx:for='{{selectedFood}}' wx:for-item="item" wx:for-index="foodIndex">
+<block wx:for='{{selectedFood}}' wx:for-item="item" wx:for-index="foodIndex" wx:key="foodIndex">
 <view class='info_block'>
 	<view class="close" bindtap="removeFood" data-remove-index="{{foodIndex}}">X</view>
 	<view class="title dark-green">{{item.foodName}}</view>
 	<view class='unit_choice flex-row'>
-		<view>大概吃了</view>
+		<view>份量大概有</view>
 		<view class="flex-row">
 			<input class="input" value="{{item.unit}}" maxlength="5"
 				   bindinput="unitInput"/>
