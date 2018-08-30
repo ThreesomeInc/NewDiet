@@ -67,10 +67,16 @@
 		</block>
     </view>
   
+  <button wx:if="{{is_complete_logged}}" bindtap='threeDayDietReport' class='btn'>
+  最新三日膳食评价</button>
   <checkbox-group bindchange="checkboxChange">
   <label class="checkbox" >
     <checkbox value="checked" checked="{{is_complete_logged}}" />这是我一天完整的饮食记录啦
   </label>
   </checkbox-group>
-  <view class="remark"><text>* 只有被标记为完整的膳食记录才会纳入「三日膳食计算」和获得更详细的营养师评价哦！</text></view>
+  <view class="remark">
+  <text>* 只有被标记为完整的膳食记录才会纳入「三日膳食」计算和获得更详细的营养师评价哦！</text>
+  </view>
+
+  
 </view>

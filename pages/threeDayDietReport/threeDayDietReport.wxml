@@ -1,0 +1,12 @@
+<import src="../../template/pageHeader.wxml"/>
+<view class="main-container">
+  <template is="pageHeader" data="{{...title}}"/>
+
+  <view wx:if='{{logTypeInfo}}'>{{logTypeInfo}}</view>
+
+  <view wx:if='{{elementEvgs}}'>{{elementEvgs}}</view>
+
+  <view wx:if='{{dieticianAdvice}}'>{{dieticianAdvice}}</view>
+
+  
+</view>

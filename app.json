@@ -28,7 +28,8 @@
     "pages/suggestDiet/foodList/foodList",
     "pages/suggestDiet/foodDetail/foodDetail",
     "pages/suggestDiet/recipeList/recipeList",
-    "pages/suggestDiet/recipeDetail/recipeDetail"
+    "pages/suggestDiet/recipeDetail/recipeDetail",
+    "pages/threeDayDietReport/threeDayDietReport"
   ],
   "window": {
     "backgroundTextStyle": "bold",

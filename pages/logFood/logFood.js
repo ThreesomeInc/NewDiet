@@ -120,6 +120,11 @@ Page({
     })
   },
 
+  threeDayDietReport: function(e){
+    wx.navigateTo({
+      url: "../threeDayDietReport/threeDayDietReport",
+    })
+  },
   selectedLog: function (e) {
     let selectedDate = e.target.dataset.date;
     if (Math.abs(this.data.currentDate - selectedDate) > 10) {

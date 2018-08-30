@@ -103,6 +103,7 @@ color:#a9a9a9;
   width: 65%;
   padding: 2rpx;
   margin: 40rpx auto;
+  margin-bottom: 10rpx;
 }
 .report{
   width: 100%;
@@ -113,6 +114,7 @@ color:#a9a9a9;
 
 checkbox-group{
   margin-left: 30rpx;
+  margin-top: 40rpx;
 }
 .tab-box {
   margin: 0rpx;
