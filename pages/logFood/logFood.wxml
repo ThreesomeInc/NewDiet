@@ -19,10 +19,10 @@
   <view class="break-line"/>
 </view>
 <!-- <view class="dark-green"><text>饮食记录</text></view> -->
-<view class="recipe_article" wx:for="{{mealtime}}" wx:for-item="item" wx:key='{{mealtime.id}}'>
-    <view class="flex-column info_block">
+<view wx:for="{{mealtime}}" wx:for-item="item" wx:key='{{mealtime.id}}'>
+    <view class="mealtime-block">
 
-        <view class="flex-row heading-block">
+        <view class="heading-block">
           <view class="photo">
             <image mode='aspectFill' class='meal-type-img' src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
             <image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/item_icon.png' wx:else></image>

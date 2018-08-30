@@ -34,7 +34,7 @@
 <view class='info_block'>
 	<view class="close" bindtap="removeFood" data-remove-index="{{foodIndex}}">X</view>
 	<view class="title dark-green">{{item.foodName}}</view>
-	<view class='unit_choice flex-row'>
+	<view class='flex-row unit_choice'>
 		<view>份量大概有</view>
 		<view class="flex-row">
 			<input class="input" value="{{item.unit}}" maxlength="5" data-id="{{foodIndex}}"

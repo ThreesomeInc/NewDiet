@@ -42,40 +42,32 @@ color:#a9a9a9;
   width: 80%;
   margin: 20rpx auto;
 }
-.photo {
-  position: absolute;
-  left: 50rpx;
-}
+
 .meal-type-img {
   width: 50rpx;
   height: 50rpx;
-  padding-bottom: 10rpx 20rpx;
   border: 0 solid #ff0000;
   border-radius: 100rpx;
-  margin: 0 auto;
 }
 .mealtime-header {
-  margin-left: 60rpx;
-}
-
-.info_block {
-  width: 100%;
-  padding: 20rpx 20rpx 10rpx 20rpx;
-  margin: 5rpx auto;
-  text-align: center;
-
+  margin-left: 20rpx;
 }
 
 .heading-block{
-  width: 100%;
-  padding: 10rpx 30rpx 5rpx 30rpx;
+  width: 90%;
+  padding: 10rpx 20rpx 5rpx 30rpx;
   font-size: 105%;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
 }
-.recipe_article{
-    width: 100%;
+.flex-column {
+  display:flex;
+  flex-direction: column;
+  margin: 10rpx auto;
 }
 .food-list{
-  width: 90%;
+  width: 85%;
   line-height: 150%;
   font-size: 90%;
   text-align: left;
@@ -83,11 +75,9 @@ color:#a9a9a9;
   color: #a9a9a9;
 }
 .control{
-  position: absolute;
-  right: 60rpx;
-  width: 100rpx;
   padding: 2rpx;
   color: #a9a9a9;
+  padding-left: 63%;
 }
 
 .bottom-control {
@@ -108,8 +98,8 @@ color:#a9a9a9;
   border-radius: 30rpx;
   color: #ffffff;
   background-color: #4cb16f;
-  width: 70%;
-  padding: 2rpx 5rpx;
+  width: 65%;
+  padding: 2rpx;
   margin: 40rpx auto;
 }
 .report{
@@ -128,14 +118,12 @@ checkbox-group{
 
 .mini-tab-header {
   text-align: left;
-  font-size: 33rpx;
   margin: 1rpx;
   width: 60%;
   background-color: #f3f3f3;
   color: #20492e;
 }
 .mini-tab-info {
-  font-size: 33rpx;
   overflow-wrap:break-word;
   word-break: break-all;
   text-align: right;
