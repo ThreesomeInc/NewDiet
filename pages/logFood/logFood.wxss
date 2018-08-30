@@ -3,7 +3,7 @@ width: 100%;
 text-align: center;
 vertical-align: center;
 margin-top: 30rpx;
-padding: 5rpx;
+padding: 10rpx;
 font-size: 36rpx;
 background-color:#4cb16f;
 color: #ffffff; 
@@ -26,10 +26,10 @@ margin-top: 15rpx;
 .dateOn{
 border-radius: 50%;
 background-color: #fe6345;
-color: #fff;
+color: #ffffff;
 }
 .ball {
-box-shadow:2px 2px 10px #AAA;
+box-shadow:2px 2px 10px #a9a9a9;
 border-radius: 20px;
 position: absolute;
 }
@@ -43,60 +43,67 @@ color:#a9a9a9;
   margin: 20rpx auto;
 }
 
-
 .meal-type-img {
   width: 50rpx;
   height: 50rpx;
-  padding-bottom: 10rpx;
-  padding-top: 10rpx;
+  padding-bottom: 10rpx 20rpx;
   border: 0 solid #ff0000;
   border-radius: 100rpx;
   margin: 0 auto;
 }
-.recipe_article{
+.mealtime-header {
+  margin-left: 20rpx;
+}
+
+.info_block {
+  width: 96%;
+  padding: 20rpx 20rpx 10rpx 20rpx;
+  margin: 5rpx auto;
+  text-align: center;
+
+}
+
+.heading-block{
   width: 100%;
+  padding: 10rpx 30rpx 5rpx 30rpx;
+  font-size: 105%;
 }
-.recipe_article>view{
-  padding:15rpx 20rpx;
-  box-sizing: border-box;
-}
-.recipe_article>view>view{
-  min-height:185rpx;
-  display: flex;
-  flex-direction: row;
-  font-size: 28rpx;
-  /* justify-content: space-between; */
-  color: #000000;
-  align-items: center;
-}
-.recipe1_article1>view>view{
-  color: #000000;
-}
-.recipe1_article2>view>view{
-  color: #000000;
-}
-.recipe_article>view>view>view:nth-of-type(2){
-  display: flex;
-  flex-direction: column;
-  font-size: 24rpx;
-}
-.recipe1_article1>view>view>view:nth-of-type(2){
-  color:#000000;
-}
-.recipe_article>view>view>view:nth-of-type(2)>text:nth-of-type(1){
-  font-size:38rpx;
-  margin-bottom: 30rpx;
+.food-list{
+  width: 90%;
+  line-height: 150%;
+  font-size: 90%;
+  text-align: left;
+  padding-left: 50rpx;
 }
 .control{
-  margin-left:30rpx;
+  position: absolute;
+  right: 60rpx;
+  width: 100rpx;
+  padding: 2rpx;
+  color: #a9a9a9;
 }
-.control navigator{
-  width:150rpx;
-  height:65rpx;
-  line-height:55rpx;
-  background-color: #4cb16f;
+
+.bottom-control {
   text-align: center;
-  border-radius: 6rpx;
-  color: #fff;
-  margin: 2rpx;
+  margin: 10rpx auto;
+  padding: 5rpx 20rpx;
+  width: 90%;
+  margin-bottom: 40rpx;
+}
+.remark{
+  padding: 20rpx;
+  color: #a9a9a9;
+  font-size: 94%;
+  text-align: left;
+}
+.btn {
+  border-radius: 30rpx;
+  color: #ffffff;
+  background-color: #4cb16f;
+  width: 70%;
+  padding: 2rpx 5rpx;
+  margin: 40rpx auto;
+}
+.report{
+  width: 100%;
 }

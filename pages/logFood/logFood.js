@@ -18,6 +18,8 @@ Page({
     firstDay: null,
     currentDate: null,
     currentWeekday: null,
+    is_complete_logged: false,
+    if_show_report: false,
     mealtime: [],
     mealFoodMap: null,
     nutritionRatio: null,
@@ -48,15 +50,21 @@ Page({
         },
         success: res => {
           let currentRecord = res.data.dietRecordList;
-          let nutritionRatio = res.data.monthFoodLog;
           let param = {};
           currentRecord.forEach(item => {
             param[item.mealtime] = item.foodLogItems.map(item2 => item2.foodName + ": " + item2.unit + "g")
           });
           this.setData({
             mealFoodMap: param,
-            nutritionRatio: nutritionRatio,
           })
+
+          if (res.data.monthFoodLog){
+            let nutritionRatio = res.data.monthFoodLog;
+            this.setData({
+              nutritionRatio: nutritionRatio,
+            })
+            console.log(nutritionRatio);
+          }
         },
         fail: res => {
           wx.showToast({
@@ -66,6 +74,16 @@ Page({
         }
       });
     }
+  },
+  showReport: function(e){
+    this.setData({
+      if_show_report: true,
+    })
+  },
+  hiddenReport: function(e){
+    this.setData({
+      if_show_report: false,
+    })
   },
   selectedLog: function (e) {
     let selectedDate = e.target.dataset.date;
@@ -254,6 +272,19 @@ Page({
     time = 0;
 
   },
+  checkboxChange: function (e) {
+    var checked = e.detail.value;
+    if(checked.length>0)
+      this.setData({
+        is_complete_logged: true
+      })
+    else
+      this.setData({
+        is_complete_logged: false
+      })
+
+  },
+
   showMealDetail: function (e) {
     console.log(e);
     let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);

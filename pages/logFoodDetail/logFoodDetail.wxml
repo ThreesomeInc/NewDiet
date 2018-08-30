@@ -37,7 +37,7 @@
 	<view class='unit_choice flex-row'>
 		<view>份量大概有</view>
 		<view class="flex-row">
-			<input class="input" value="{{item.unit}}" maxlength="5"
+			<input class="input" value="{{item.unit}}" maxlength="5" data-id="{{foodIndex}}"
 				   bindinput="unitInput"/>
 			克
 		</view>

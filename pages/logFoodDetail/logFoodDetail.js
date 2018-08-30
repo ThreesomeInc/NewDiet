@@ -132,7 +132,6 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
-    console.log('going to search from backend');
     wx.request({
       url: app.globalData.apiBase + "/food/search",
       method: "GET",
@@ -140,13 +139,11 @@ Page({
         name: e.detail.value
       },
       success: res => {
-        console.log('get response from backend');
         this.setData({
           foodList: res.data.foodList
         })
       },
       fail: res => {
-        console.log('fail to get response from backend');
         wx.showToast({
           title: res,
           icon: 'success'
@@ -156,6 +153,18 @@ Page({
     console.log(this.data.inputVal);
   },
 
+  unitInput: function(e){
+    var value = e.detail.value;
+    var id = e.target.dataset.id;
+    var temp = this.data.selectedFood;
+
+    temp[id].unit = value;
+    this.setData({
+      selectedFood: temp,
+    });
+    
+    
+  },
   cancelBtn: function (e) {
     this.setData({
       selectedFood: [],

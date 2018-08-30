@@ -183,5 +183,15 @@ picker-view-column {
     box-sizing: border-box;
 }
 
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
 
 

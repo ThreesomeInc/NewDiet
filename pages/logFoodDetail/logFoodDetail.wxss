@@ -36,10 +36,7 @@
   padding: 0rpx 30rpx;
   text-align: left;
 }
-.flex-row{
-  display: flex;
-  flex-direction: row;
-}
+
 .unit_choice { 
   margin: 20rpx auto;
   width: 70%;
