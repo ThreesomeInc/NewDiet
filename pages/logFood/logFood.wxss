@@ -1,7 +1,7 @@
 .tab-header{
   height: 110rpx;
 }
-.box1 .dateBox{
+.dateBox{
 width: 100%;
 text-align: center;
 vertical-align: center;
@@ -11,7 +11,6 @@ font-size: 36rpx;
 margin-top: -5rpx;
 background-color:#4cb16f;
 color: #ffffff; 
-border-radius: 0 0 100% 100%;
 }
 
 .box1{

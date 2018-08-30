@@ -47,8 +47,8 @@ Page({
     title: {
       headerText: '饮食记录',
     }, 
-    leftIcon: '<',
-    rightIcon: '>',
+    leftIcon: '<<',
+    rightIcon: '>>',
   },
   onShow: function () {
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
