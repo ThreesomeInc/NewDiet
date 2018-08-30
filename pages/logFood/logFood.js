@@ -31,6 +31,19 @@ Page({
     screenHeight: 0,
     screenWidth: 0,
     text: "没有滑动",
+    headerMapping: {
+      totalEnergy: "总能量",
+      totalProtein:"总蛋白质",
+      peRatio:"优质蛋白比例（建议0.5-0.7)",
+      fat:"脂肪",
+      feRatio:"脂肪供能比 (建议0.25-0.35)",
+      cho:"碳水化合物",
+      ceRatio:"碳水化合物供能比 (建议0.55-0.65）",
+      na:"钠 (建议<2000mg/d)",
+      k:"钾",
+      p:"磷 (建议<800mg/d)",
+      ca:"钙 (建议<2000mg/d)"
+    }, 
   },
   onShow: function () {
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
@@ -59,11 +72,32 @@ Page({
           })
 
           if (res.data.monthFoodLog){
-            let nutritionRatio = res.data.monthFoodLog;
+            let temp = res.data.monthFoodLog;
+            let nutritionRatio = Object.entries(temp)
+              .filter(item => item[0] in this.data.headerMapping)
+              .map(item => {
+                  return { name: this.data.headerMapping[item[0]], value: item[1] }             
+            });
             this.setData({
               nutritionRatio: nutritionRatio,
+              is_complete_logged: temp.isLogged,
             })
-            console.log(nutritionRatio);
+          }else{
+            console.log('res.data.monthFoodLog is null');
+            var temp = [];
+            for (var key in this.data.headerMapping) {
+              if (this.data.headerMapping.hasOwnProperty(key)) {
+                temp.push({ 
+                  name: this.data.headerMapping[key],
+                  value:0
+                  });
+              }
+            }
+
+            this.setData({
+              nutritionRatio: temp,
+              is_complete_logged: false,
+            })
           }
         },
         fail: res => {
@@ -75,16 +109,12 @@ Page({
       });
     }
   },
-  showReport: function(e){
+  switchReport: function(e){
     this.setData({
-      if_show_report: true,
+      if_show_report: !this.data.if_show_report,
     })
   },
-  hiddenReport: function(e){
-    this.setData({
-      if_show_report: false,
-    })
-  },
+
   selectedLog: function (e) {
     let selectedDate = e.target.dataset.date;
     if (Math.abs(this.data.currentDate - selectedDate) > 10) {

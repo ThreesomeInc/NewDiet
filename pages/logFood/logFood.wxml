@@ -34,7 +34,7 @@
         </view>
 
         <view class="flex-column" wx:if="{{mealFoodMap[item].length>0}}"> 
-            <view class="break-line"/>           
+            <!-- <view class="break-line"/>            -->
             <view wx:for-item="item2" wx:for="{{mealFoodMap[item]}}" class="food-list" wx:key="item2">
                 {{item2}}
             </view>
@@ -44,13 +44,20 @@
 </view>
 <view class="bottom-control">
     <view wx:if="{{!if_show_report}}">
-      <button bindtap='showReport' class='btn'>看看我今天吃够了吗？</button>
+      <button bindtap='switchReport' class='btn'>看看我今天吃够了吗？</button>
     </view>
     <view wx:else>
-      <button bindtap='hiddenReport' class='btn'>收起饮食报告</button>
+      <button bindtap='switchReport' class='btn'>收起饮食报告</button>
     </view>
     <view class="report" wx:if="{{if_show_report}}">
-    Here is the report detail
+    		<block wx:for="{{nutritionRatio}}" wx:for-item="item" wx:key="name">
+			<view class='gridTab'>
+				<view class='tab-box'>
+					<text class='mini-tab-header'>{{item.name}}</text>
+					<text class='mini-tab-info'>{{item.value}}</text>
+				</view>
+			</view>
+		</block>
     </view>
   
   <checkbox-group bindchange="checkboxChange">
