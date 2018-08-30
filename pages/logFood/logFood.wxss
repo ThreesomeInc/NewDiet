@@ -115,13 +115,18 @@ checkbox-group{
 .tab-box {
   margin: 0rpx;
 }
-
+.gridTab{
+  width: 92%;
+  text-align: center;
+  margin: 5rpx auto;
+}
 .mini-tab-header {
   text-align: left;
   margin: 1rpx;
-  width: 60%;
+  width: 68%;
   background-color: #f3f3f3;
   color: #20492e;
+  font-size: 90%;
 }
 .mini-tab-info {
   overflow-wrap:break-word;
