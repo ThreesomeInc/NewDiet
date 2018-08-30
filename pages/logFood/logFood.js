@@ -314,15 +314,40 @@ Page({
   },
   checkboxChange: function (e) {
     var checked = e.detail.value;
-    if(checked.length>0)
+    let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
+    if(checked.length>0){
       this.setData({
         is_complete_logged: true
       })
-    else
+      wx.request({
+        url: app.globalData.apiBase + "/foodLog/isCompletedLog",
+        method: "POST",
+        data: {
+          openId: app.globalData.authInfo.openid,
+          date: logDate,
+          checked: true
+        },
+        success: res => {
+          console.log(res.data);
+        }
+      })
+    } else {
       this.setData({
         is_complete_logged: false
       })
-
+      wx.request({
+        url: app.globalData.apiBase + "/foodLog/isCompletedLog",
+        method: "POST",
+        data: {
+          openId: app.globalData.authInfo.openid,
+          date: logDate,
+          checked: false
+        },
+        success: res => {
+          console.log(res.data);
+        }
+      })
+    }
   },
 
   showMealDetail: function (e) {
