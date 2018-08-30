@@ -44,6 +44,11 @@ Page({
       p:"磷 (建议<800mg/d)",
       ca:"钙 (建议<2000mg/d)"
     }, 
+    title: {
+      headerText: '饮食记录',
+    }, 
+    leftIcon: '<',
+    rightIcon: '>',
   },
   onShow: function () {
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码

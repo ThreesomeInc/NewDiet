@@ -1,14 +1,17 @@
+.tab-header{
+  height: 110rpx;
+}
 .box1 .dateBox{
 width: 100%;
 text-align: center;
 vertical-align: center;
-margin-top: 30rpx;
 padding: 10rpx;
+padding-top: 0rpx;
 font-size: 36rpx;
+margin-top: -5rpx;
 background-color:#4cb16f;
 color: #ffffff; 
-border-radius: 50rpx;
-
+border-radius: 0 0 100% 100%;
 }
 
 .box1{
@@ -67,7 +70,7 @@ color:#a9a9a9;
   margin: 10rpx auto;
 }
 .food-list{
-  width: 85%;
+  width: 78%;
   line-height: 150%;
   font-size: 90%;
   text-align: left;

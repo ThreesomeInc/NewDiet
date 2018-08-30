@@ -1,11 +1,17 @@
 <!--pages/logFood/logFood.wxml-->
+<import src="../../template/pageHeader.wxml"/>
 <view class="page">
+<template is="pageHeader" data="{{...title}}"/>
   <view bindtouchstart="touchStart" bindtouchend="touchEnd">
 
   <view class='box1' style='width: {{ sysW * 7 }}px'>
-    <view class='dateBox' bindtap="switchWeek"> {{ year }} - {{ month}} </view>
+    <view class='dateBox' bindtap="switchWeek"> 
+      <text style="padding-right: 70rpx;">{{leftIcon}}</text>
+      {{ year }} - {{ month}} 
+      <text style="padding-left: 70rpx;">{{rightIcon}}</text>
+    </view>
     <block wx:for='{{ weekArr }}' wx:key='{{weekArr.id}}'>
-     <view style='width: {{ sysW }}px;'>
+     <view style='width: {{ sysW }}px;color=#f3f3f3;'>
         {{ item }}
       </view>
     </block>
