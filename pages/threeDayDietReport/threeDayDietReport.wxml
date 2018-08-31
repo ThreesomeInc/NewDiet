@@ -2,8 +2,7 @@
 <view class="main-container">
   <template is="pageHeader" data="{{...title}}"/>
 
-  <view>
-
+  <view wx:if="{{hasResult}}">
     <view wx:if='{{elementEvgs}}'>
       <view class="header">三日综合营养摄入均值</view>
       <block wx:for="{{nutritionRatio}}" wx:for-item="item" wx:key="name">
@@ -30,18 +29,27 @@
       <text>PS. 以上建议是基于您在「饮食记录」里记录的食物分量得出的结果。希望您能准确记录您的食物摄入量，以便获得更准确的数值哦！</text>
     </view>
 
-    <view class="header">饮食记录小知识</view>
+    <view class="header">膳食记录小知识</view>
     <view class="dark-green knowledge-block">
       <view class="kheader">什么是标准三日膳食记录法?</view>
-      <view class="kbody">记录饮食连续三日，包括两个工作日和一个休息日，计算三日膳食营养物质平均值。</view> 
+      <view class="kbody">记录膳食连续三日，包括两个工作日和一个休息日，计算三日膳食营养物质平均值。</view> 
     </view>
 
     <view wx:if='{{standardLog}}' class="dark-green logTypeInfo">
-      您使用的正是标准三日膳食记录哦！赞赞赞！
+      您使用的正是标准三日膳食记录，赞赞赞！继续加油哦！
     </view>
     <view wx:else class="dark-green logTypeInfo">
-    您使用的是折衷三日膳食记录，继续坚持记录也能获得比较精确的营养师评价哦！
+    您使用的是折衷三日膳食记录，只要继续坚持记录也能获得比较精确的营养师评价哦！
     </view>
-
+  </view>
+  <view wx:else>
+    <view class="header">膳食记录小知识</view>
+      <view class="dark-green knowledge-block">
+      <view class="kheader">什么是标准三日膳食记录法?</view>
+      <view class="kbody">记录膳食连续三日，包括两个工作日和一个休息日，计算三日膳食营养物质平均值。</view> 
+    </view>
+    <view class="dark-green logTypeInfo">
+      你的膳食记录还少于3天，无法准确分析哦，继续坚持记录吧！
+    </view>
   </view>
 </view>

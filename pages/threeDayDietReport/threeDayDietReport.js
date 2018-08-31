@@ -10,7 +10,7 @@ Page({
       headerText: '三日膳食分析',
       subHeader: '您，吃对了吗？',
     }, 
-    logTypeInfo: null,
+    standardLog: null,
     elementEvgs: null,
     nutritionRatio: null,
     dieticianAdvice:null,
@@ -27,6 +27,7 @@ Page({
       p: "磷 (建议<800mg/d)",
       ca: "钙 (建议<2000mg/d)"
     }, 
+    hasResult: false,
 
   },
 
@@ -43,9 +44,10 @@ Page({
       success: res => {
         console.log(res.data);
         var result = res.data;
-        if (result.logTypeInfo){
+        if (result.standardLog){
           this.setData({
-            logTypeInfo: result.logTypeInfo,
+            standardLog: result.standardLog,
+            hasResult: true,
           })
         }
         if (result.elementEvgs) {
