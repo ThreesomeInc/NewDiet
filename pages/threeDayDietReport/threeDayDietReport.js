@@ -12,7 +12,21 @@ Page({
     }, 
     logTypeInfo: null,
     elementEvgs: null,
+    nutritionRatio: null,
     dieticianAdvice:null,
+    headerMapping: {
+      totalEnergy: "总能量",
+      totalProtein: "总蛋白质",
+      peRatio: "优质蛋白比例（建议0.5-0.7)",
+      fat: "脂肪",
+      feRatio: "脂肪供能比(建议0.25-0.35)",
+      cho: "碳水化合物",
+      ceRatio: "碳水化合物供能比(建议0.55-0.65）",
+      na: "钠 (建议<2000mg/d)",
+      k: "钾",
+      p: "磷 (建议<800mg/d)",
+      ca: "钙 (建议<2000mg/d)"
+    }, 
 
   },
 
@@ -37,7 +51,16 @@ Page({
         if (result.elementEvgs) {
           this.setData({
             elementEvgs: result.elementEvgs,
+          });
+          console.log(this.data.elementEvgs);
+          let nutritionRatio = Object.entries(this.data.elementEvgs)
+            .map(item => {
+              return { name: item[0], value: item[1] }
+            });
+          this.setData({
+            nutritionRatio: nutritionRatio,
           })
+          console.log(this.data.nutritionRatio)
         }
         if (result.dieticianAdvice) {
           this.setData({
