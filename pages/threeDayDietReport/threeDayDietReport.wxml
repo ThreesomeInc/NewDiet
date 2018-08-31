@@ -30,8 +30,8 @@
       </block>
     </view>
 
-    <view wx:if='{{dieticianAdvice}}' class="reminder dark-green">
-      <text>以上建议是基于您上述输入的食物分量得出的结果。希望您能准确记录您的食物摄入量，以便获得更准确的数值哦！</text>
+    <view wx:if='{{dieticianAdvice}}' class="reminder">
+      <text>PS. 以上建议是基于您上述输入的食物分量得出的结果。希望您能准确记录您的食物摄入量，以便获得更准确的数值哦！</text>
     </view>
   </view>
 </view>

@@ -53,18 +53,20 @@
   flex-direction: row;
   margin: 0 auto;
   text-align: left;
+  color: #20492e;
 }
 .adviseIndex {
   width: 45rpx;
   margin-right: 5rpx;
 }
 .adviseContent{
-  margin-left: 10rpx;
+  margin-left: 5rpx;
 }
 
 .reminder {
-  margin: 10rpx auto;
-  text-indent: 5rpx;
+  margin: 50rpx auto;
   width: 85%;
   text-align: left;
+  font-style: italic;
+  color: #20492e;
 }
