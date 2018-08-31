@@ -16,7 +16,10 @@
 .logTypeInfo{
   padding: 20rpx 10rpx;
   color: #a9a9a9;
-  text-align: center;
+  text-align: left;
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 50rpx;
 }
 
 .tab-box {
@@ -68,5 +71,23 @@
   width: 85%;
   text-align: left;
   font-style: italic;
+  color: #a9a9a9;
+}
+
+.knowledge-block {
+  margin: 0rpx auto;
+  text-align: left;
+  width: 85%;
   color: #20492e;
+  border: 1px solid #20492e;
+  border-radius: 10rpx;
+}
+.kheader {
+  background-color: #4cb16f;
+  color: #f3f3f3;
+  padding: 10rpx;
+  text-align: center;
+}
+.kbody{
+  padding: 10rpx 15rpx;
 }
