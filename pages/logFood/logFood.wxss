@@ -56,7 +56,7 @@ color:#a9a9a9;
 }
 
 .heading-block{
-  width: 90%;
+  width: 86%;
   padding: 15rpx 20rpx 8rpx 30rpx;
   font-size: 105%;
   display: flex;

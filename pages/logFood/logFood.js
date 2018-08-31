@@ -49,6 +49,7 @@ Page({
     }, 
     leftIcon: '<<',
     rightIcon: '>>',
+    hasMealRecord: false,
   },
   onShow: function () {
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
@@ -68,6 +69,15 @@ Page({
         },
         success: res => {
           let currentRecord = res.data.dietRecordList;
+          if(currentRecord.length>0){
+            this.setData({
+              hasMealRecord: true,
+            })
+          }else{
+            this.setData({
+              hasMealRecord: false,
+            })
+          }
           let param = {};
           currentRecord.forEach(item => {
             param[item.mealtime] = item.foodLogItems.map(item2 => item2.foodName + ": " + item2.unit + "g")
