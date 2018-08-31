@@ -2,12 +2,10 @@
 <view class="main-container">
   <template is="pageHeader" data="{{...title}}"/>
 
-  <view class="body-content">
-    <view wx:if='{{logTypeInfo}}' class="dark-green logTypeInfo">
-      {{logTypeInfo}}  
-    </view>
+  <view>
 
     <view wx:if='{{elementEvgs}}'>
+      <view class="header">三日综合营养摄入均值</view>
       <block wx:for="{{nutritionRatio}}" wx:for-item="item" wx:key="name">
 			  <view class='gridTab'>
 				  <view class='tab-box'>
@@ -18,11 +16,21 @@
 		  </block>
     </view>
 
-    <view wx:if='{{dieticianAdvice}}' class="dieticianAdvice">
-      {{dieticianAdvice}}
+    <view wx:if='{{logTypeInfo}}' class="dark-green logTypeInfo">
+      {{logTypeInfo}}  
     </view>
 
-    <view wx:if='{{dieticianAdvice}}' class="reminder">
+    <view wx:if='{{dieticianAdvice}}' >
+      <view class="header">营养师评价</view>
+      <block wx:for="{{dieticianAdvice}}" wx:for-item="item" wx:key="item" class="dieticianAdvice">
+        <view class="advise">
+          <view class="adviseIndex">{{index+1}}</view> 
+          <view class="adviseContent">{{item}}</view>
+        </view>
+      </block>
+    </view>
+
+    <view wx:if='{{dieticianAdvice}}' class="reminder dark-green">
       <text>以上建议是基于您上述输入的食物分量得出的结果。希望您能准确记录您的食物摄入量，以便获得更准确的数值哦！</text>
     </view>
   </view>

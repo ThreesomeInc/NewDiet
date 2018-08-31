@@ -52,7 +52,6 @@ Page({
           this.setData({
             elementEvgs: result.elementEvgs,
           });
-          console.log(this.data.elementEvgs);
           let nutritionRatio = Object.entries(this.data.elementEvgs)
             .map(item => {
               return { name: item[0], value: item[1] }
@@ -60,12 +59,12 @@ Page({
           this.setData({
             nutritionRatio: nutritionRatio,
           })
-          console.log(this.data.nutritionRatio)
         }
         if (result.dieticianAdvice) {
           this.setData({
             dieticianAdvice: result.dieticianAdvice,
           })
+          console.log(this.data.dieticianAdvice);
         }
           
 
