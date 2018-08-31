@@ -51,32 +51,33 @@
 </view>
 <block wx:if="{{hasMealRecord}}">
 <view class="bottom-control" >
-    <view wx:if="{{!if_show_report}}">
-      <button bindtap='switchReport' class='btn'>看看我今天吃够了吗？</button>
-    </view>
-    <view wx:else>
-      <button bindtap='switchReport' class='btn'>收起饮食报告</button>
-    </view>
-    <view class="report" wx:if="{{if_show_report}}">
-    		<block wx:for="{{nutritionRatio}}" wx:for-item="item" wx:key="name">
-			<view class='gridTab'>
-				<view class='tab-box'>
-					<text class='mini-tab-header'>{{item.name}}</text>
-					<text class='mini-tab-info'>{{item.value}}</text>
-				</view>
-			</view>
-		</block>
-    </view>
-  
-  <button wx:if="{{is_complete_logged}}" bindtap='threeDayDietReport' class='btn'>
-  最新三日膳食评价</button>
+
   <checkbox-group bindchange="checkboxChange">
   <label class="checkbox" >
     <checkbox value="checked" checked="{{is_complete_logged}}" />这是我一天完整的饮食记录啦
   </label>
   </checkbox-group>
   <view class="remark">
-  <text>* 只有被标记为完整的膳食记录才会纳入「三日膳食」计算和获得更详细的营养师评价哦！</text>
+    <text>* 只有被标记为完整的膳食记录才会纳入「三日膳食」计算和获得更详细的营养师评价哦！</text>
   </view>
+
+  <view wx:if="{{!if_show_report}}">
+      <button bindtap='switchReport' class='btn'>看看我今天吃够了吗？</button>
+    </view>
+    <view wx:else>
+      <button bindtap='switchReport' class='btn'>收起饮食报告</button>
+    </view>
+    <view class="report" wx:if="{{if_show_report}}">
+    	<block wx:for="{{nutritionRatio}}" wx:for-item="item" wx:key="name">
+			  <view class='gridTab'>
+				  <view class='tab-box'>
+					  <text class='mini-tab-header'>{{item.name}}</text>
+					  <text class='mini-tab-info'>{{item.value}}</text>
+				  </view>
+			  </view>
+		  </block>
+    </view>
+    <button wx:if="{{is_complete_logged}}" bindtap='threeDayDietReport' class='btn'>
+  最新三日膳食评价</button>
 </view>
 </block>
