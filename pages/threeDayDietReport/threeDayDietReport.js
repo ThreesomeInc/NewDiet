@@ -47,7 +47,7 @@ Page({
       success: res => {
         console.log(res.data);
         var result = res.data;
-        if (result.standardLog){
+        if (result.standardLog !=null){
           this.setData({
             standardLog: result.standardLog,
             hasResult: true,

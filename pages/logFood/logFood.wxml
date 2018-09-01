@@ -78,6 +78,6 @@
 		  </block>
     </view>
     <button wx:if="{{is_complete_logged}}" bindtap='threeDayDietReport' class='btn'>
-  最新三日膳食评价</button>
+  综合三日膳食评价</button>
 </view>
 </block>
