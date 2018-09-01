@@ -35,11 +35,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let logDate = options.logDate
+    console.log(logDate)
     wx.request({
       url: app.globalData.apiBase + "/foodLog/analysis",
       method: "GET",
       data: {
         openId: app.globalData.authInfo.openid,
+        date: logDate,
       },
       success: res => {
         console.log(res.data);

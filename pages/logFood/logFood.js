@@ -131,8 +131,9 @@ Page({
   },
 
   threeDayDietReport: function(e){
+    let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
     wx.navigateTo({
-      url: "../threeDayDietReport/threeDayDietReport",
+      url: "../threeDayDietReport/threeDayDietReport?logDate="+logDate,
     })
   },
   selectedLog: function (e) {
