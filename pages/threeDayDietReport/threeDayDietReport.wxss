@@ -92,3 +92,21 @@
   margin: 0 auto;
   margin-bottom: 50rpx;
 }
+.basicInfoSummary{
+  width: 90%;
+  margin: 10rpx auto;
+  color: #20492e;
+}
+.basicInfo {
+    display: flex;
+    flex-direction: row;
+    overflow-wrap:break-word;
+    flex-wrap: wrap;
+    color: #20492e;
+    width: 75%;
+    margin: 0rpx auto;
+}
+.bold {
+  font-style: bold;
+  margin-bottom: 20rpx;
+}

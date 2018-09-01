@@ -28,7 +28,7 @@ Page({
       ca: "钙 (建议<2000mg/d)"
     }, 
     hasResult: false,
-
+    basicInfoSummary:[],
   },
 
   /**
@@ -53,27 +53,41 @@ Page({
             hasResult: true,
           })
         }
-        if (result.elementEvgs) {
+        if (result.elementEvgs!=null) {
           this.setData({
             elementEvgs: result.elementEvgs,
           });
           let nutritionRatio = Object.entries(this.data.elementEvgs)
             .map(item => {
-              return { name: item[0], value: item[1] }
+              return { name: this.data.headerMapping[item[0]], value: item[1] }
             });
+          // let nutritionRatio = Object.entries(this.data.elementEvgs)
+          //   .map(item => {
+          //     return { name: item[0], value: item[1] }
+          //   });
           this.setData({
             nutritionRatio: nutritionRatio,
           })
         }
-        if (result.dieticianAdvice) {
+        if (result.dieticianAdvice!=null) {
           this.setData({
             dieticianAdvice: result.dieticianAdvice,
           })
-          console.log(this.data.dieticianAdvice);
-        }
-          
-
-        
+          try {
+            if (wx.getStorageSync("basicInfoSummary")) {
+              this.setData({
+                basicInfoSummary: wx.getStorageSync("basicInfoSummary")
+              })
+              console.log("Session contained basicInfoSummary.");
+              console.log(this.data.basicInfoSummary);
+            }else{
+              console.log("Session does not contained basicInfoSummary.");
+            }
+          } catch (e) {
+            console.log('Exception happen when try to get basicInfoSummary from storage!');
+            console.log(e);
+          }
+        }  
       },
       fail: res => {
         wx.showToast({
