@@ -61,10 +61,6 @@ Page({
             .map(item => {
               return { name: this.data.headerMapping[item[0]], value: item[1] }
             });
-          // let nutritionRatio = Object.entries(this.data.elementEvgs)
-          //   .map(item => {
-          //     return { name: item[0], value: item[1] }
-          //   });
           this.setData({
             nutritionRatio: nutritionRatio,
           })
