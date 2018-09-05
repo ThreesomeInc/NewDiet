@@ -69,6 +69,7 @@ Page({
         },
         success: res => {
           let currentRecord = res.data.dietRecordList;
+          console.log(currentRecord);
           if(currentRecord.length>0){
             this.setData({
               hasMealRecord: true,
