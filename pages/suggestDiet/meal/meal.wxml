@@ -45,7 +45,7 @@
 <swiper current="{{_num}}" class="swiper-box" duration="200" bindchange="bindChange" style='min-height:845rpx'>
 <!-- 未使用 -->
 <swiper-item>
-	<view class="recipe_article" wx:for="{{mealtime}}" wx:for-item="item">
+	<view class="recipe_article" wx:for="{{mealtime}}" wx:for-item="item" wx:key="item">
 		<view>
 			<view style="background-size:100%;"><!--background:url('../img/wyl014.png') no-repeat;-->
 				<view class="photo">
@@ -64,7 +64,7 @@
 </swiper-item>
 <!-- 已使用 -->
 <swiper-item>
-	<view class="recipe_article recipe1_article1" wx:for="{{category}}" wx:for-item="item">
+	<view class="recipe_article recipe1_article1" wx:for="{{category}}" wx:for-item="item" wx:key="item">
 		<view>
 			<view style="background-size:100%;"><!--background:url('../img/wyl014.png') no-repeat;-->
 				<view class="photo">
@@ -83,7 +83,7 @@
 </swiper-item>
 <!-- 已过期 -->
 <swiper-item>
-	<view class="recipe_article recipe1_article2" wx:for="{{style}}" wx:for-item="item">
+	<view class="recipe_article recipe1_article2" wx:for="{{style}}" wx:for-item="item" wx:key="item">
 		<view>
 			<view style="background-size:100%;"><!--background:url('../img/wyl014.png') no-repeat;-->
 				<view class="photo">

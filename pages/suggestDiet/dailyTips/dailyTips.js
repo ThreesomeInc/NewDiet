@@ -1,5 +1,4 @@
 // pages/suggestDiet/dailyTips/dailyTips.js
-let sdk = require('../../../vendor/wafer2-client-sdk/index');
 const app = getApp();
 const sampleData = [
   {meatime:"早餐",

@@ -31,7 +31,7 @@
 	<view class="info_block step-block">
 		<view class="advise title">烹饪步骤</view>
 		<block wx:if="{{!showExpand}}">
-			<view class="step" wx:for="{{cookMethodText}}" wx:for-item="item">{{item}}</view>
+			<view class="step" wx:for="{{cookMethodText}}" wx:for-item="item" wx:key="item">{{item}}</view>
 		</block>
 		<view wx:if="{{!showExpand && needExpand}}" class="expand-btn" bindtap="toggleBrief">...收起</view>
 		<block wx:else>
