@@ -37,6 +37,48 @@ App({
             console.log(this.globalData);
             this.globalData.authInfo.skey = result.data.session_key;
             this.globalData.authInfo.openid = result.data.openid;
+            // 获取用户信息
+            wx.getSetting({
+              success: res2 => {
+                if (res2.authSetting['scope.userInfo']) {
+                  // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                  wx.getUserInfo({
+                    success: res3 => {
+                      console.log(res3);
+                      if (res3.iv && res3.encryptedData) {
+                        wx.request({
+                          url: this.globalData.apiBase + "/common/decrypt",
+                          method: "GET",
+                          header: {
+                            iv: res3.iv,
+                            encryptedData: res3.encryptedData,
+                            appId: "wxd7b407ad92867db4",
+                            skey: result.data.session_key
+                          },
+                          dataType: "json",
+                          success: (result2) => {
+
+                          },
+
+                          fail: (result2) => {
+                            wx.hideLoading();
+                            util.showModel('登录后台错误', result2.msg)
+                          },
+                        });
+                      }
+                      // 可以将 res 发送给后台解码出 unionId
+                      this.globalData.userInfo = res3.userInfo;
+
+                      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                      // 所以此处加入 callback 以防止这种情况
+                      if (this.userInfoReadyCallback) {
+                        this.userInfoReadyCallback(res3)
+                      }
+                    }
+                  })
+                }
+              }
+            });
           },
 
           fail: (result) => {
@@ -46,26 +88,6 @@ App({
         });
       }
     });
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
   },
   initCategories: function () {
     wx.request({

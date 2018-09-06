@@ -66,6 +66,7 @@ Page({
         header: {"Content-Type": "application/json"},
         data: {
           userInfo: {
+            info: app.globalData.userInfo,
             openId: wx.getStorageSync('openid')
           },
           userDataInfo: wx.getStorageSync('userBodyInfo')
