@@ -2,6 +2,7 @@
 const app = getApp();
 const sampleData = [
   {meatime:"早餐",
+   id:1,
     recipeList:[
       { recipeId: "11", recipeName: "牛奶", shortIntroduction: "建议食用230g" },
       { recipeId: "4", recipeName: "馒头", shortIntroduction: "建议食用80g" },
@@ -10,6 +11,7 @@ const sampleData = [
    ]},
   {
     meatime: "午餐",
+    id: 2,
     recipeList: [
       { recipeId: "15", recipeName: "土豆红烧肉", shortIntroduction: "建议食用土豆80g，红烧肉50g" },
       { recipeId: "41", recipeName: "清炒大白菜", shortIntroduction: "建议食用100g" },
@@ -18,6 +20,7 @@ const sampleData = [
   },
   {
     meatime: "晚餐",
+    id: 3,
     recipeList: [
       { recipeId: "42", recipeName: "西红柿炒鸡蛋", shortIntroduction: "建议食用西红柿100g，鸡蛋50g" },
       { recipeId: "43", recipeName: "白灼西兰花", shortIntroduction: "建议食用120g" },
@@ -26,6 +29,7 @@ const sampleData = [
   },
   {
     meatime: "加餐",
+    id: 4,
     recipeList: [
       { recipeId: "48", recipeName: "苹果", shortIntroduction:"建议食用200g" },
     ]
