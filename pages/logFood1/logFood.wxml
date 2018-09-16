@@ -6,7 +6,7 @@
 <view class='dateBox' bindtap="showDatePicker">
 	{{year}} - {{month}} - {{currentDate}}
 </view>
-<view class="container">
+<view class="container" wx:if="{{energyRemaining}}">
 	<view class='progress_box' style="float:left;">
 		<canvas class="progress_bg" canvas-id="canvasProgressbg1"></canvas>
 		<canvas class="progress_canvas" canvas-id="canvasProgress1"></canvas>

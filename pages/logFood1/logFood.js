@@ -49,8 +49,10 @@ Page({
     hasMealRecord: false,
     proteinPieText: '尚可吃蛋白质\n',
     energyPieText: '尚可吃热量\n',
-    proteinRemaining: "1111",
-    energyRemaining: "1111",
+    expectedProtein: null,
+    expectedEnergy: null,
+    proteinRemaining: null,
+    energyRemaining: null,
   },
   onShow: function () {
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
@@ -95,9 +97,18 @@ Page({
               .map(item => {
                 return {name: this.data.headerMapping[item[0]], value: item[1]}
               });
+            let proteinRemaining = parseFloat(temp.expectProtein) - parseFloat(temp.totalProtein);
+            let energyRemaining = parseFloat(temp.expectEnergy) - parseFloat(temp.totalEnergy);
+            let proteinRatio = proteinRemaining / parseFloat(temp.expectProtein);
+            let energyRatio = energyRemaining / parseFloat(temp.expectEnergy);
+            this.drawDiagram(proteinRatio, energyRatio);
             this.setData({
               nutritionRatio: nutritionRatio,
               is_complete_logged: temp.isLogged,
+              expectedProtein: temp.expectProtein,
+              expectedEnergy: temp.expectEnergy,
+              proteinRemaining: proteinRemaining.toFixed(2),
+              energyRemaining: energyRemaining.toFixed(2),
             })
           } else {
             console.log('res.data.monthFoodLog is null');
@@ -253,7 +264,6 @@ Page({
         });
       }
     });
-    this.drawDiagram(0.87, 0.65);
     this.setData({
       mealtime: app.globalData.mealtime,
       openId: app.globalData.authInfo.openid
