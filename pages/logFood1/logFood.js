@@ -47,8 +47,10 @@ Page({
       headerText: '饮食记录',
     },
     hasMealRecord: false,
-    proteinPieText: '蛋白质',
-    energyPieText: '能量',
+    proteinPieText: '尚可吃蛋白质\n',
+    energyPieText: '尚可吃热量\n',
+    proteinRemaining: "1111",
+    energyRemaining: "1111",
   },
   onShow: function () {
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码

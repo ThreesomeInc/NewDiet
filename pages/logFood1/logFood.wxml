@@ -7,20 +7,31 @@
 	{{year}} - {{month}} - {{currentDate}}
 </view>
 <view class="container">
-	<view class='progress_box1'>
-		<canvas class="progress_bg"   canvas-id="canvasProgressbg1">  </canvas>
-		<canvas class="progress_canvas"   canvas-id="canvasProgress1">  </canvas>
-		<view class="progress_text">
-			<view class="progress_dot"></view>
-			<text class='progress_info'> {{proteinPieText}}</text>
+	<view class='progress_box' style="float:left;">
+		<canvas class="progress_bg" canvas-id="canvasProgressbg1"></canvas>
+		<canvas class="progress_canvas" canvas-id="canvasProgress1"></canvas>
+		<view class="central_text">
+			<!--<view class="progress_dot" style="background-color: #fb9126;"></view>-->
+			<text class='progress_info'>{{proteinPieText}}</text>
+			<text style="font-size:42px;">
+				{{proteinRemaining}}
+			</text>
+			<text class="progress_info">
+				预算{{proteinRemaining}}
+			</text>
 		</view>
 	</view>
-	<view class='progress_box2'>
-		<canvas class="progress_bg"   canvas-id="canvasProgressbg2">  </canvas>
-		<canvas class="progress_canvas"   canvas-id="canvasProgress2">  </canvas>
-		<view class="progress_text">
-			<view class="progress_dot"></view>
-			<text class='progress_info'> {{energyPieText}}</text>
+	<view class='progress_box' style="float:right;overflow-x: hidden;">
+		<canvas class="progress_bg" canvas-id="canvasProgressbg2"></canvas>
+		<canvas class="progress_canvas" canvas-id="canvasProgress2"></canvas>
+		<view class="central_text">
+			<text class='progress_info'>{{energyPieText}}</text>
+			<text style="font-size:42px">
+				{{energyRemaining}}
+			</text>
+			<text class="progress_info">
+				预算{{energyRemaining}}
+			</text>
 		</view>
 	</view>
 </view>

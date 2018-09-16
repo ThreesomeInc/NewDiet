@@ -138,7 +138,7 @@ checkbox-group{
   text-align: right;
 }
 
-.progress_box1{
+.progress_box{
   position: relative;
   width:50vw;
   height: 50vw;
@@ -146,19 +146,6 @@ checkbox-group{
   align-items: center;
   justify-content: center;
   background-color: #eee;
-  float:left;
-}
-
-.progress_box2{
-  position: relative;
-  width:50vw;
-  height: 50vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #eee;
-  float:right;
-  overflow-x: hidden;
 }
 .progress_bg{
   position: absolute;
@@ -169,20 +156,29 @@ checkbox-group{
   width:50vw;
   height: 50vw;
 }
-.progress_text{
+.central_text{
   position: absolute;
-  display: flex;
+  display: list-item;
+  line-height: 70%;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  overflow-y: hidden;
 }
 .progress_info{
-  font-size: 36rpx;
+  font-size: 26rpx;
   padding-left: 16rpx;
-  letter-spacing: 2rpx
+  letter-spacing: 2rpx;
+  horiz-align: center;
+  display: block;
 }
 .progress_dot{
   width:16rpx;
   height: 16rpx;
   border-radius: 50%;
   background-color: #fb9126;
+}
+
+.page{
+  background-color: #f3f3f3;
+  overflow-x: hidden;
 }
