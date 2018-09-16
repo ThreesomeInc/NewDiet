@@ -9,6 +9,7 @@ Page({
    */
   data: {
     headerText: '',
+    currentDate: null,
     subHeader: '换一批推荐看看',
     mealList: null,
     aliasMap: {
@@ -27,18 +28,21 @@ Page({
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
+    const currentDate = year + "-" + util.formatNumber(month) + "-" + util.formatNumber(day);
+    this.setData({
+      headerText: currentDate,
+      currentDate: currentDate,
+    });
 
     let dailyRecommendation = wx.getStorageSync('dailyRecommendation');
-    if (!dailyRecommendation) {
+    if (!dailyRecommendation
+      || (dailyRecommendation.length > 0 && this.data.currentDate !== dailyRecommendation[0].effectDate)) {
       this.refreshRecommendation();
     } else {
       this.setData({
         mealList: dailyRecommendation,
       });
     }
-    this.setData({
-      headerText: year + '-' + month + '-' + day,
-    });
   },
 
   /**
@@ -59,6 +63,7 @@ Page({
           .filter(item => item[0] in this.data.aliasMap)
           .map(item => {
             return {
+              effectDate: this.data.headerText,
               meatime: this.data.aliasMap[item[0]],
               recipeList: item[1].map(item2 => {
                 return {
