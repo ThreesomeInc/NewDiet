@@ -33,7 +33,7 @@ Page({
       this.refreshRecommendation();
     } else {
       this.setData({
-        headerText: dailyRecommendation,
+        mealList: dailyRecommendation,
       });
     }
     this.setData({
