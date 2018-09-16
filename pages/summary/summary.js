@@ -2,13 +2,6 @@
 const wxCharts = require('../../utils/wxcharts-min.js');
 const app = getApp();
 var columnChart = null;
-const chartData = {
-  main: {
-    title: 'CKD饮食结构推荐',
-    data: [175, 50, 250, 400, 368, 50],
-    categories: ['谷薯类', '淀粉', '绿叶蔬菜', '瓜果蔬菜', '肉蛋类', '油脂类']
-  }
-};
 
 Page({
 

@@ -30,15 +30,6 @@
 
   <!-- Already input body info -->
   <block wx:else>
-      <view class="gridTab">
-        <block wx:for="{{basicInfoSummary}}" wx:key="name">
-          <view class="tab-box">
-            <view class="mini-tab-header">{{item.name}}</view>
-            <view class="mini-tab-info">{{item.value}}</view>
-          </view>
-        </block>
-      </view>
- 
     <template is="menuWithIconAndRightImage" data="{{...menu}}"/>
   </block>
 </view>

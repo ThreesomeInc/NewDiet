@@ -15,15 +15,6 @@
 	</block>
   </view>
 
-  <!-- <view class="gridTab">
-    <block wx:for="{{suggestedNutrition}}" wx:key="name">
-	    <view class="tab-box">
-		    <view class="mini-tab-header">{{item.name}}</view>
-		    <view class="mini-tab-info">{{item.value}}</view>
-	    </view>
-    </block>
-  </view> -->
-
     <view class="bar-char">
       <text class="session-title">{{barChartTitle}}</text>
       <text class="session-sub-title">{{barChartSubTitle}}</text>
@@ -47,11 +38,6 @@
     </view>
 </view>
 
-<view class="page__bd page__bd_spacing center green">
-<view class="weui-footer">
-  <view class="weui-footer__text">-- Copyright © 肾脏营养师 --</view>
-</view>
-</view>
 
 
 

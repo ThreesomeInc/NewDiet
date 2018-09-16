@@ -19,7 +19,7 @@ Page({
       {
           iconUrl: app.globalData.imageBasePath+'tips_icon.png',
         menuName:'膳食结构建议',
-        directUrl:'dietStructure/index',
+        directUrl:'../summary/summary',
           rightImageUrl: app.globalData.imageBasePath +'rightArrow.png',
       },
       {
