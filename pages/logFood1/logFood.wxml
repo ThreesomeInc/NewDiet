@@ -1,0 +1,93 @@
+<!--pages/logFood/logFood.wxml-->
+<import src="../../template/pageHeader.wxml"/>
+<view class="page">
+<template is="pageHeader" data="{{...title}}"/>
+
+<view class='dateBox' bindtap="showDatePicker">
+	{{year}} - {{month}} - {{currentDate}}
+</view>
+<view class="container">
+	<view class='progress_box1'>
+		<canvas class="progress_bg"   canvas-id="canvasProgressbg1">  </canvas>
+		<canvas class="progress_canvas"   canvas-id="canvasProgress1">  </canvas>
+		<view class="progress_text">
+			<view class="progress_dot"></view>
+			<text class='progress_info'> {{proteinPieText}}</text>
+		</view>
+	</view>
+	<view class='progress_box2'>
+		<canvas class="progress_bg"   canvas-id="canvasProgressbg2">  </canvas>
+		<canvas class="progress_canvas"   canvas-id="canvasProgress2">  </canvas>
+		<view class="progress_text">
+			<view class="progress_dot"></view>
+			<text class='progress_info'> {{energyPieText}}</text>
+		</view>
+	</view>
+</view>
+<view class="break-line"/>
+</view>
+		<!-- <view class="dark-green"><text>饮食记录</text></view> -->
+<view wx:for="{{mealtime}}" wx:for-item="item" wx:key='{{mealtime.id}}'>
+<view class="mealtime-block">
+
+	<view class="heading-block">
+		<view class="photo">
+			<image mode='aspectFill' class='meal-type-img' src='{{item.picUrl}}'
+				   wx:if="{{item.picUrl.startsWith('https://')}}"></image>
+			<image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/item_icon.png'
+				   wx:else></image>
+		</view>
+		<view class="mealtime-header">{{item}}</view>
+		<view class="control" data-mealtime="{{item}}" bindtap="showMealDetail" wx:if="{{!is_complete_logged}}">
+			<image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/plus.png'></image>
+		</view>
+	</view>
+
+	<view class="flex-column" wx:if="{{mealFoodMap[item].length>0}}">
+		<!-- <view class="break-line"/>            -->
+		<view wx:for-item="item2" wx:for="{{mealFoodMap[item]}}" class="food-list" wx:key="item2">
+			{{item2}}
+		</view>
+	</view>
+
+</view>
+</view>
+<block wx:if="{{hasMealRecord}}">
+<view class="bottom-control">
+
+	<checkbox-group bindchange="checkboxChange">
+		<label class="checkbox">
+			<checkbox value="checked" checked="{{is_complete_logged}}"/>这是我一天完整的饮食记录啦
+		</label>
+	</checkbox-group>
+	<view class="remark">
+		<text>* 只有被标记为完整的膳食记录才会纳入「三日膳食」计算和获得更详细的营养师评价哦！</text>
+	</view>
+
+	<view wx:if="{{!if_show_report}}">
+		<button bindtap='switchReport' class='btn'>看看我今天吃够了吗？</button>
+	</view>
+	<view wx:else>
+		<button bindtap='switchReport' class='btn'>收起饮食报告</button>
+	</view>
+	<view class="report" wx:if="{{if_show_report}}">
+		<block wx:for="{{nutritionRatio}}" wx:for-item="item" wx:key="name">
+			<view class='gridTab'>
+				<view class='tab-box'>
+					<text class='mini-tab-header'>{{item.name}}</text>
+					<text class='mini-tab-info'>{{item.value}}</text>
+				</view>
+			</view>
+		</block>
+	</view>
+	<button wx:if="{{is_complete_logged}}" bindtap='threeDayDietReport' class='btn'>
+		综合三日膳食评价
+	</button>
+</view>
+</block>
+
+<date-picker id="date-picker"
+			 value="{{datePickerValue}}"
+			 isShow="{{datePickerIsShow}}"
+			 bindsureclick="confirmDate"
+			 bindcancelclick="hideDatePicker"/>
