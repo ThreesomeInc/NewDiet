@@ -94,7 +94,7 @@ Page({
             mealFoodMap: param,
           });
 
-          if (res.data.monthFoodLog) {
+          if (res.data.monthFoodLog && res.data.monthFoodLog.totalProtein) {
             let temp = res.data.monthFoodLog;
             let nutritionRatio = Object.entries(temp)
               .filter(item => item[0] in this.data.headerMapping)
@@ -117,6 +117,16 @@ Page({
               energyPieText: energyRemaining < 0 ? this.data.energyOverText : this.data.energyBelowText,
             })
           } else {
+            if (res.data.monthFoodLog) {
+              let temp = res.data.monthFoodLog;
+              this.drawDiagram(0, 0);
+              this.setData({
+                expectedProtein: temp.expectProtein,
+                expectedEnergy: temp.expectEnergy,
+                proteinRemaining: temp.expectProtein,
+                energyRemaining: temp.expectEnergy,
+              });
+            }
             console.log('res.data.monthFoodLog is null');
             var temp = [];
             for (var key in this.data.headerMapping) {
