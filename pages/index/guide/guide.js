@@ -6,10 +6,10 @@ Page({
    */
   data: {
     imgs: [
-      "http://img.kaiyanapp.com/7ff70fb62f596267ea863e1acb4fa484.jpeg",     
-      "http://img.kaiyanapp.com/7ff70fb62f596267ea863e1acb4fa484.jpeg",
+      "https://kidneyhealty.com.cn/images/guide1.jpg",     
+      "https://kidneyhealty.com.cn/images/guide2.jpg",
+      "https://kidneyhealty.com.cn/images/guide1.jpg", 
     ],
-    currentIndex: 0,
   },
 
   /**

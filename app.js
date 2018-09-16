@@ -19,10 +19,11 @@ App({
         const header = {
           "X-WX-Code": res.code
         };
-        wx.showLoading({
-          title: "登录中...",
-          mask: true
-        });
+        console.log("登录中...");
+        // wx.showLoading({
+        //   title: "登录中...",
+        //   mask: true
+        // });
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
           url: this.globalData.apiBase + "/common/wxLogin",
@@ -33,7 +34,8 @@ App({
             wx.hideLoading();
             wx.setStorageSync('skey', result.data.session_key);
             wx.setStorageSync('openid', result.data.openid);
-            util.showSuccess('登录后台成功');
+            console.log("登录后台成功");
+            // util.showSuccess('登录后台成功');
             console.log(this.globalData);
             this.globalData.authInfo.skey = result.data.session_key;
             this.globalData.authInfo.openid = result.data.openid;
