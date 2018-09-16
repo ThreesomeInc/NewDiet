@@ -49,6 +49,10 @@ Page({
     hasMealRecord: false,
     proteinPieText: '尚可吃蛋白质\n',
     energyPieText: '尚可吃热量\n',
+    proteinBelowText: '尚可吃蛋白质\n',
+    energyBelowText: '尚可吃热量\n',
+    proteinOverText: '蛋白质已超吃\n',
+    energyOverText: '热量已超吃\n',
     expectedProtein: null,
     expectedEnergy: null,
     proteinRemaining: null,
@@ -101,14 +105,16 @@ Page({
             let energyRemaining = parseFloat(temp.expectEnergy) - parseFloat(temp.totalEnergy);
             let proteinRatio = proteinRemaining / parseFloat(temp.expectProtein);
             let energyRatio = energyRemaining / parseFloat(temp.expectEnergy);
-            this.drawDiagram(proteinRatio, energyRatio);
+            this.drawDiagram(proteinRatio < 0 ? 1 : proteinRatio, energyRatio < 0 ? 1 : energyRatio);
             this.setData({
               nutritionRatio: nutritionRatio,
               is_complete_logged: temp.isLogged,
               expectedProtein: temp.expectProtein,
               expectedEnergy: temp.expectEnergy,
-              proteinRemaining: proteinRemaining.toFixed(2),
-              energyRemaining: energyRemaining.toFixed(2),
+              proteinRemaining: Math.abs(proteinRemaining.toFixed(2)),
+              energyRemaining: Math.abs(energyRemaining.toFixed(2)),
+              proteinPieText: proteinRemaining < 0 ? this.data.proteinOverText : this.data.proteinBelowText,
+              energyPieText: energyRemaining < 0 ? this.data.energyOverText : this.data.energyBelowText,
             })
           } else {
             console.log('res.data.monthFoodLog is null');
