@@ -11,8 +11,7 @@
 	<view>
 		<image class="icon" bindtap="mealViewTap" mode="widthFix"
 			   src="https://kidneyhealty.com.cn/images/meal.jpeg"/>
-	</view>
-	
+	</view>	
   <view>
 	<image class="icon" bindtap="dailyTipsViewTap" mode="widthFix" src="https://kidneyhealty.com.cn/images/daily_tips.jpeg" ></image>
   </view>
