@@ -1,43 +1,6 @@
 // pages/suggestDiet/dailyTips/dailyTips.js
 let util = require('../../../utils/util.js');
 const app = getApp();
-const sampleData = [
-  {
-    meatime: "早餐",
-    id: 1,
-    recipeList: [
-      {recipeId: "11", recipeName: "牛奶", shortIntroduction: "建议食用230g"},
-      {recipeId: "4", recipeName: "馒头", shortIntroduction: "建议食用80g"},
-      {recipeId: "47", recipeName: "拍黄瓜", shortIntroduction: "建议食用60g"},
-      {recipeId: "3", recipeName: "面包", shortIntroduction: "建议食用60g"},
-    ]
-  },
-  {
-    meatime: "午餐",
-    id: 2,
-    recipeList: [
-      {recipeId: "15", recipeName: "土豆红烧肉", shortIntroduction: "建议食用土豆80g，红烧肉50g"},
-      {recipeId: "41", recipeName: "清炒大白菜", shortIntroduction: "建议食用100g"},
-      {recipeId: "3", recipeName: "面包", shortIntroduction: "建议食用100g"},
-    ]
-  },
-  {
-    meatime: "晚餐",
-    id: 3,
-    recipeList: [
-      {recipeId: "42", recipeName: "西红柿炒鸡蛋", shortIntroduction: "建议食用西红柿100g，鸡蛋50g"},
-      {recipeId: "43", recipeName: "白灼西兰花", shortIntroduction: "建议食用120g"},
-      {recipeId: "3", recipeName: "面包", shortIntroduction: "建议食用100g"},
-    ]
-  },
-  {
-    meatime: "加餐",
-    id: 4,
-    recipeList: [
-      {recipeId: "48", recipeName: "苹果", shortIntroduction: "建议食用200g"},
-    ]
-  }
-];
 
 Page({
 
@@ -45,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headerText:'',
+    headerText: '',
     subHeader: '换一批推荐看看',
     mealList: null,
     aliasMap: {
@@ -65,11 +28,25 @@ Page({
     const month = date.getMonth() + 1;
     const day = date.getDate();
 
+    let dailyRecommendation = wx.getStorageSync('dailyRecommendation');
+    if (!dailyRecommendation) {
+      this.refreshRecommendation();
+    } else {
+      this.setData({
+        headerText: dailyRecommendation,
+      });
+    }
     this.setData({
-      mealList: sampleData,
       headerText: year + '-' + month + '-' + day,
     });
+  },
 
+  /**
+   * 换一批推荐菜谱
+   */
+  refreshRecommendation: function (e) {
+    console.log("Get new batch of recommendation recipe.");
+    let _this = this;
     wx.request({
       url: app.globalData.apiBase + "/meals/recommendation",
       method: "GET",
@@ -78,29 +55,33 @@ Page({
       },
       dataType: "json",
       success: (result) => {
-        let mealListResult = Object.entries(temp)
-          .filter(item => item[0] in this.data.headerMapping)
+        let mealListResult = Object.entries(result.data)
+          .filter(item => item[0] in this.data.aliasMap)
           .map(item => {
             return {
               meatime: this.data.aliasMap[item[0]],
-              recipeList: []
+              recipeList: item[1].map(item2 => {
+                return {
+                  recipeId: item2.recipeId,
+                  recipeName: item2.recipeName,
+                  shortIntroduction: "建议食用" + Object.entries(item2.materials)
+                    .map(item3 => item3[0] + item3[1] + "g")
+                    .join(",")
+                };
+              })
             }
           });
-        console.log(mealListResult);
-        console.log(result);//TODO: there is still problem from the api since the recommended list is not about recipe but food.
+
+        wx.setStorageSync('dailyRecommendation', mealListResult);
+        _this.setData({
+          mealList: mealListResult,
+        })
       },
 
       fail: (result) => {
         wx.showModel('后台错误', result.msg)
       },
     });
-  },
-
-/**
- * 换一批推荐菜谱
- */
-  refleshRecomment: function (e) {
-    console.log("Get new batch of recomment receipt.");
   },
 
   /**
@@ -151,4 +132,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});
