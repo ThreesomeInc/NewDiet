@@ -1,4 +1,5 @@
 // pages/suggestDiet/dailyTips/dailyTips.js
+let util = require('../../../utils/util.js');
 const app = getApp();
 const sampleData = [
   {meatime:"早餐",
@@ -42,10 +43,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: {
-      headerText: '是日三餐推荐',
-      subHeader: '',
-    },
+    headerText:'',
+    subHeader: '换一批推荐看看',
     mealList: null,
   
   },
@@ -54,9 +53,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
     this.setData({
       mealList: sampleData,
-    })
+      headerText: year + '-' + month + '-' + day,
+    });
+
+
+  },
+
+/**
+ * 换一批推荐菜谱
+ */
+  refleshRecomment: function (e) {
+    console.log("Get new batch of recomment receipt.");
   },
 
   /**

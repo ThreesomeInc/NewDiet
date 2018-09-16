@@ -1,7 +1,16 @@
 <import src="../../../template/pageHeader.wxml"/>
 
 <view class="main-container">
-  <template is="pageHeader" data="{{...title}}"/>
+    
+  <view class="tab-header">
+    <view class="headerText">
+      <text>{{headerText}}</text>
+    </view>
+    <view class="subHeader">
+      <button bindtap='refleshRecomment' id='refleshRecomment'>{{subHeader}}</button>
+    </view>
+  </view>
+  
   <view class="mealList">
   <view wx:for="{{mealList}}" wx:for-item="item" wx:key='{{mealList.id}}'>
     <view class="mealtime-block">

@@ -31,6 +31,35 @@
   padding: 10rpx;
   padding-top: 30rpx;
 }
-.tab-header{
-  height: 140rpx;
+.tab-header {
+  background-color: #4cb16f;
+  color:white;
+  height: 180rpx;
+  padding:10rpx;
+  margin:0;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 20rpx;
+}
+
+#refleshRecomment {
+  border: 2rpx solid #ffffff;
+  color:#ffffff;
+  margin:1rpx auto;
+  padding: 1rpx;
+  border-radius: 50rpx;
+  font-size: 35rpx;
+  line-height: 54rpx;
+  width: 60%;
+  background-color: #4cb16f;
+}
+
+.subHeader{
+  padding: 0;
+  margin: 3rpx;
+}
+.headerText {
+  font-size: 40rpx;
+  border: 0rpx;
 }
