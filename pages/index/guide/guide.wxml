@@ -1,0 +1,18 @@
+<!--pages/index/guide/guide.wxml-->
+<swiper indicator-dots="false" autoplay="true" interval="2500" bindchange="swiperChange"
+  current="{{currentIndex}}">
+  <block wx:for="{{imgs}}">
+    <swiper-item class="swiper-items">
+      <!-- <image class="swiper-image" src="{{item}}"></image> -->
+      <view class="main-slogon">
+        <view>让食物成为你的药物</view>
+        <view>而不是让药物成为你的食物</view>       
+      </view>
+      <view class="sub-slogon">
+        <view>希波克拉底</view>
+        <view>现代医学之父</view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+

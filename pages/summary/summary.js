@@ -49,16 +49,11 @@ Page({
   },
 
   goBackMain: function (e) {
-    wx.navigateBack({
-      delta: 11
+    wx.switchTab({
+      url: '../index/index'
     })
   },
 
-  goShare: function (e) {
-    wx.redirectTo({
-      url: 'share/share'
-    })
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

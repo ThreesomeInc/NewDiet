@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/guide/guide",
     "pages/index/index",
     "pages/logs/logs",
     "pages/question/gender/gender",
