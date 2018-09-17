@@ -19,6 +19,7 @@ Page({
       {key: "2", text: "超市净菜", value: "超市", default_checked: false},
     ],
     mealtimes: [],
+    existingFood: [],
     title: null,
   },
 
@@ -26,38 +27,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: app.globalData.apiBase + "/foodLog/single",
-      method: "GET",
-      data: {
-        openId: options.openId,
-        date: options.logDate,
-        mealtime: options.mealtime,
-      },
-      success: res => {
-        let currentRecord = res.data.dietRecordList.filter(item => item.mealtime === options.mealtime);
-        if (currentRecord.length > 0) {
-          this.setData({
-            showConfirm: true,
-            selectedFood: currentRecord[0].foodLogItems,
-          });
-        } else {
-          this.setData({
-            showConfirm: false,
-          });
-        }
-      },
-      fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
-      }
-    });
     this.setData({
-      mealtimes:app.globalData.mealtime.map(item => {
-        return {key: item, value: item, default_checked:false}
+      mealtimes: app.globalData.mealtime.map(item => {
+        return {key: item, value: item, default_checked: item === app.globalData.mealtime[0]}
       }),
+      mealtime: app.globalData.mealtime[0]
     });
     if (options.logDate) {
       this.setData({
@@ -73,6 +47,7 @@ Page({
         openId: options.openId,
       })
     }
+    this.reloadCurrentList();
   },
   addFood: function (e) {
     this.setData({
@@ -81,11 +56,17 @@ Page({
     });
     let foodId = e.currentTarget.dataset.selectedFoodId;
     console.log(foodId);
+    while (this.data.selectedFood.length > 0) {
+      this.data.selectedFood.splice(0, 1);
+      this.setData({
+        selectedFood: this.data.selectedFood,
+      });
+    }
     wx.request({
       url: app.globalData.apiBase + "/foodLog/food/" + foodId,
       method: "GET",
       success: res => {
-        if (this.data.selectedFood.filter(item => item.foodId === res.data.foodId).length !== 0) {
+        if (this.data.existingFood.filter(item => item.foodId === res.data.foodId).length !== 0) {
           wx.showToast({
             title: "食材已存在！",
             icon: 'loading',
@@ -157,17 +138,17 @@ Page({
     console.log(this.data.inputVal);
   },
 
-  unitInput: function(e){
-    var value = e.detail.value;
-    var id = e.target.dataset.id;
-    var temp = this.data.selectedFood;
+  unitInput: function (e) {
+    let value = e.detail.value;
+    let id = e.target.dataset.id;
+    let temp = this.data.selectedFood;
 
     temp[id].unit = value;
     this.setData({
       selectedFood: temp,
     });
-    
-    
+
+
   },
   cancelBtn: function (e) {
     this.setData({
@@ -183,7 +164,7 @@ Page({
         openId: this.data.openId,
         logDate: this.data.logDate,
         mealTime: this.data.mealtime,
-        foodLogItems: this.data.selectedFood,
+        foodLogItems: this.data.selectedFood.concat(this.data.existingFood),
       },
       success: res => {
 
@@ -246,6 +227,41 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  updateMealTime: function (e) {
+    this.setData({
+      mealtime: e.detail.value
+    });
+    this.reloadCurrentList();
+  },
+
+  reloadCurrentList: function () {
+    let _this = this;
+    wx.request({
+      url: app.globalData.apiBase + "/foodLog/single",
+      method: "GET",
+      data: {
+        openId: _this.data.openId,
+        date: _this.data.logDate,
+        mealtime: _this.data.mealtime,
+      },
+      success: res => {
+        let currentRecord = res.data.dietRecordList.filter(item => item.mealtime === _this.data.mealtime);
+        if (currentRecord.length > 0) {
+          this.setData({
+            showConfirm: true,
+            existingFood: currentRecord[0].foodLogItems,
+          });
+        }
+      },
+      fail: res => {
+        wx.showToast({
+          title: res,
+          icon: 'success'
+        });
+      }
+    });
   },
 
   updateEdible: function (e) {

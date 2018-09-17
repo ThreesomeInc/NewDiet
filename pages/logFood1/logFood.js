@@ -88,7 +88,13 @@ Page({
           }
           let param = {};
           currentRecord.forEach(item => {
-            param[item.mealtime] = item.foodLogItems.map(item2 => item2.foodName + ": " + item2.unit + "g")
+            param[item.mealtime] = item.foodLogItems.map((item2, index) => {
+              return {
+                description: item2.foodName + ": " + item2.unit + "g",
+                object: item2,
+                index: index,
+              }
+            })
           });
           this.setData({
             mealFoodMap: param,
@@ -237,6 +243,43 @@ Page({
     wx.navigateTo({
       url: "../logFoodDetail1/logFoodDetail?logDate=" + logDate + "&openId=" + this.data.openId,
     })
+  },
+  deleteMealDetail: function (e) {
+    console.log(e);
+    let index = e.currentTarget.dataset.index;
+    let mealtime = e.currentTarget.dataset.mealtime;
+    let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
+
+    wx.showLoading({
+      title: "正在删除选中用餐信息...",
+      mask: true
+    });
+    let foodList = this.data.mealFoodMap[mealtime];
+    foodList.splice(index, 1);
+    wx.request({
+      url: app.globalData.apiBase + "/foodLog",
+      method: "POST",
+      data: {
+        openId: this.data.openId,
+        logDate: logDate,
+        mealTime: mealtime,
+        foodLogItems: foodList.map(item => item.object),
+      },
+      success: res => {
+        wx.hideLoading();
+        console.log(res);
+        this.setData({
+          mealFoodMap: this.data.mealFoodMap,
+        });
+      },
+      fail: res => {
+        wx.showToast({
+          title: res,
+          icon: 'success'
+        });
+      }
+    });
+
   },
   drawDiagram: function (proteinCompletionRatio, energyCompletionRatio) {
     this.drawProgressbg('canvasProgressbg1');

@@ -79,7 +79,7 @@ color:#a9a9a9;
 .control{
   padding: 2rpx;
   color: #a9a9a9;
-  padding-left: 63%;
+  float:right;
 }
 
 .bottom-control {
