@@ -5,7 +5,7 @@
 			<image mode='aspectFill' class="con-trimg" src='https://kidneyhealty.com.cn/images/item_icon.png' wx:else></image>
 		</view>
 		<view class="con-info">
-			<view class="coin-name">{{item.foodName}}</view>
+			<view class="coin-name">{{item.foodAlias}}</view>
 			<view class="coin-info">{{item.shortIntroduction}}</view>
 		</view>
 	</navigator>

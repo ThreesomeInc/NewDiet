@@ -20,7 +20,7 @@
         <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{foodList}}" wx:for-item="item" wx:key="foodId">
             <navigator url="../foodDetail/foodDetail?foodCode={{item.foodId}}" class="weui-cell" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
-                    <view>{{item.foodName}}</view>
+                    <view>{{item.foodAlias}}</view>
                 </view>
             </navigator>
         </view>

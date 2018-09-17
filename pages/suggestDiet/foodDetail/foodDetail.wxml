@@ -6,7 +6,7 @@
 			</block>
 			<view class="right_block">
 				<view class="title_row">
-					<view class="food_name">{{foodInfo.name}}</view>
+					<view class="food_name">{{foodInfo.alias}}</view>
 				</view>
 				<view class="lable_row">
 					<block wx:for="{{foodInfo.label}}" wx:for-item="i" wx:key="i">
