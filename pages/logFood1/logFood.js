@@ -90,7 +90,7 @@ Page({
           currentRecord.forEach(item => {
             param[item.mealtime] = item.foodLogItems.map((item2, index) => {
               return {
-                description: item2.foodName + ": " + item2.unit + "g",
+                description: item2.foodAlias + ": " + item2.unit + "g",
                 object: item2,
                 index: index,
               }

@@ -32,7 +32,7 @@
 
 <block wx:for='{{selectedFood}}' wx:for-item="item" wx:for-index="foodIndex" wx:key="foodIndex">
 <view class='info_block'>
-	<view class="title dark-green">{{item.foodName}}</view>
+	<view class="title dark-green">{{item.foodAlias}}</view>
 	<radio-group class="radio-group" bindchange="updateMealTime">
 		<label class="radio" wx:for="{{mealtimes}}" wx:for-item="item" wx:key="key">
 			<radio value="{{item.key}}" checked="{{item.default_checked}}"/>{{item.value}}

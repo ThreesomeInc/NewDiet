@@ -122,7 +122,7 @@ Page({
       url: app.globalData.apiBase + "/food/search",
       method: "GET",
       data: {
-        name: e.detail.value
+        alias: e.detail.value
       },
       success: res => {
         this.setData({
