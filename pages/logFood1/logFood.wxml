@@ -59,9 +59,9 @@
 
 	<view class="flex-column" wx:if="{{mealFoodMap[item].length>0}}">
 		<!-- <view class="break-line"/>            -->
-		<view wx:for-item="item2" wx:for="{{mealFoodMap[item]}}" class="food-list" wx:key="item2">
+		<view wx:for-item="item2" wx:for="{{mealFoodMap[item]}}" wx:for-index="logItemIndex" class="food-list" wx:key="item2">
 			{{item2.description}}
-			<view class="control" data-mealtime="{{item}}" data-index="{{item2.index}}" bindtap="deleteMealDetail" wx:if="{{!is_complete_logged}}">
+			<view class="control" data-mealtime="{{item}}" data-index="{{logItemIndex}}" bindtap="deleteMealDetail" wx:if="{{!is_complete_logged}}">
 				<image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/subtract.png'></image>
 			</view>
 		</view>
