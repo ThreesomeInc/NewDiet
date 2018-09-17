@@ -24,7 +24,7 @@
 	  wx:key="foodId">
 	<view class="weui-cell" hover-class="weui-cell_active" bindtap="addFood" data-selected-food-id='{{item.foodId}}'>
 		<view class="weui-cell__bd">
-			<view>{{item.foodName}}</view>
+			<view>{{item.foodAlias}}</view>
 		</view>
 	</view>
 </view>
@@ -32,7 +32,6 @@
 
 <block wx:for='{{selectedFood}}' wx:for-item="item" wx:for-index="foodIndex" wx:key="foodIndex">
 <view class='info_block'>
-	<view class="close" bindtap="removeFood" data-remove-index="{{foodIndex}}">X</view>
 	<view class="title dark-green">{{item.foodName}}</view>
 	<radio-group class="radio-group" bindchange="updateMealTime">
 		<label class="radio" wx:for="{{mealtimes}}" wx:for-item="item" wx:key="key">
