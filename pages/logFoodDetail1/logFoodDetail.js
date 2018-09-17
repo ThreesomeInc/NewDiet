@@ -18,6 +18,7 @@ Page({
       {key: "1", text: "市场买的", value: "市场", default_checked: true},
       {key: "2", text: "超市净菜", value: "超市", default_checked: false},
     ],
+    mealtimes: [],
     title: null,
   },
 
@@ -53,13 +54,16 @@ Page({
         });
       }
     });
-    if (options.mealtime) {
+    this.setData({
+      mealtimes:app.globalData.mealtime.map(item => {
+        return {key: item, value: item, default_checked:false}
+      }),
+    });
+    if (options.logDate) {
       this.setData({
-        mealtime: options.mealtime,
         logDate: options.logDate,
-        searchBarTips: options.mealtime + '吃了啥？',
         title: {
-          headerText: options.mealtime + '记录',
+          headerText: '用餐记录',
           subHeader: '坚持完整记录，结果更精确哦',
         }
       })

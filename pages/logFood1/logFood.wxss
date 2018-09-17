@@ -182,3 +182,18 @@ checkbox-group{
   background-color: #f3f3f3;
   overflow-x: hidden;
 }
+
+.add-button {
+  margin-left:10%;
+  margin-top:0;
+  margin-bottom:0;
+  line-height: 80%;
+  width:80%;
+  color: #4cb16f;
+  font-size:45px;
+  text-align: center;
+  horiz-align: center;
+  overflow-y:hidden;
+  font-weight: 900;
+  border: 10rpx solid #4cb16f;
+}

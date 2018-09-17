@@ -232,6 +232,12 @@ Page({
     });
     this.loadFood();
   },
+  addFoodLog: function () {
+    let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
+    wx.navigateTo({
+      url: "../logFoodDetail1/logFoodDetail?logDate=" + logDate + "&openId=" + this.data.openId,
+    })
+  },
   drawDiagram: function (proteinCompletionRatio, energyCompletionRatio) {
     this.drawProgressbg('canvasProgressbg1');
     this.drawCircle('canvasProgress1', 2 * proteinCompletionRatio);

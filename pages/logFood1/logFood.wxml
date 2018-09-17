@@ -36,6 +36,9 @@
 	</view>
 </view>
 <view class="break-line"/>
+<view class="add-button" bindtap="addFoodLog">
+	+
+</view>
 </view>
 		<!-- <view class="dark-green"><text>饮食记录</text></view> -->
 <view wx:for="{{mealtime}}" wx:for-item="item" wx:key='{{mealtime.id}}'>
