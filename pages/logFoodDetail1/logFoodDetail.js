@@ -117,6 +117,7 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+    if (e.detail.value.length === 0) return;
     wx.request({
       url: app.globalData.apiBase + "/food/search",
       method: "GET",
