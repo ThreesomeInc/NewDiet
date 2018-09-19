@@ -20,9 +20,8 @@
 
 .info_block {
   width: 96%;
-  padding: 5rpx 20rpx;
+  padding: 30rpx 20rpx;
   margin: 0rpx auto;
-  border-bottom: 5rpx solid #f3f3f3;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -32,7 +31,7 @@
   font-weight: bold;
   font-size:105%;
   margin: 0rpx;
-  margin-bottom: 5rpx;
+  margin-bottom: 10rpx;
   padding: 0rpx 30rpx;
   text-align: left;
 }
@@ -47,16 +46,17 @@
   border: 1rpx solid #929292;
   width: 200rpx;
   margin: 0rpx 20rpx;
+  border-radius: 5rpx;
 }
 .radio-group {
   color: #929292;
   margin: 15rpx auto;
   padding-bottom: 10rpx;
-  width: 100%;
+  width: 98%;
   text-align: center;
 }
 .radio{
-  margin: 0rpx 20rpx;
+  margin: 0rpx 10rpx;
 }
 .btn_group{
   margin: 20rpx auto;
@@ -69,13 +69,4 @@
   color: #ffffff;
   background-color: #4cb16f;
   width: 40%;
-}
-
-.info_block .close {
-    padding: 0rpx;
-    margin: 0rpx 20rpx;
-    padding-top: 10rpx;
-    text-align: right;
-    font-size: 90%;
-    color: #929292;
 }

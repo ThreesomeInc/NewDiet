@@ -51,10 +51,7 @@
 			<image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/item_icon.png'
 				   wx:else></image>
 		</view>
-		<view class="mealtime-header">{{item}}</view><!--
-		<view class="control" data-mealtime="{{item}}" bindtap="showMealDetail" wx:if="{{!is_complete_logged}}">
-			<image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/plus.png'></image>
-		</view>-->
+		<view class="mealtime-header">{{item}}</view>
 	</view>
 
 	<view class="flex-column" wx:if="{{mealFoodMap[item].length>0}}">
@@ -71,16 +68,6 @@
 </view>
 <block wx:if="{{hasMealRecord}}">
 <view class="bottom-control">
-
-	<checkbox-group bindchange="checkboxChange">
-		<label class="checkbox">
-			<checkbox value="checked" checked="{{is_complete_logged}}"/>这是我一天完整的饮食记录啦
-		</label>
-	</checkbox-group>
-	<view class="remark">
-		<text>* 只有被标记为完整的膳食记录才会纳入「三日膳食」计算和获得更详细的营养师评价哦！</text>
-	</view>
-
 	<view wx:if="{{!if_show_report}}">
 		<button bindtap='switchReport' class='btn'>看看我今天吃够了吗？</button>
 	</view>
@@ -97,9 +84,6 @@
 			</view>
 		</block>
 	</view>
-	<button wx:if="{{is_complete_logged}}" bindtap='threeDayDietReport' class='btn'>
-		综合三日膳食评价
-	</button>
 </view>
 </block>
 
