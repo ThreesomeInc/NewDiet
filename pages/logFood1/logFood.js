@@ -43,16 +43,16 @@ Page({
       p: "磷 (建议<800mg/d)",
       ca: "钙 (建议<2000mg/d)"
     },
-    title: {
-      headerText: '饮食记录',
-    },
+
+    headerText: '饮食记录',
+
     hasMealRecord: false,
-    proteinPieText: '尚可吃蛋白质\n',
-    energyPieText: '尚可吃热量\n',
-    proteinBelowText: '尚可吃蛋白质\n',
-    energyBelowText: '尚可吃热量\n',
-    proteinOverText: '蛋白质已超吃\n',
-    energyOverText: '热量已超吃\n',
+    proteinPieText: '蛋白质摄入\n',
+    energyPieText: '热量摄入\n',
+    proteinBelowText: '尚可摄入蛋白质\n',
+    energyBelowText: '尚可摄入热量\n',
+    proteinOverText: '蛋白质已超量\n',
+    energyOverText: '热量已超量\n',
     expectedProtein: null,
     expectedEnergy: null,
     proteinRemaining: null,
@@ -271,6 +271,7 @@ Page({
         this.setData({
           mealFoodMap: this.data.mealFoodMap,
         });
+        
       },
       fail: res => {
         wx.showToast({
@@ -288,11 +289,11 @@ Page({
     this.drawCircle('canvasProgress2', 2 * energyCompletionRatio);
   },
   drawProgressbg: function (backgroundId) {
-    let radius = this.data.screenWidth / 4;
+    let radius = this.data.screenWidth / 5;
     // 使用 wx.createContext 获取绘图上下文 context
     let ctx = wx.createCanvasContext(backgroundId);
-    ctx.setLineWidth(4);// 设置圆环的宽度
-    ctx.setStrokeStyle('#20183b'); // 设置圆环的颜色
+    ctx.setLineWidth(3);// 设置圆环的宽度
+    ctx.setStrokeStyle('#93c8a5'); // 设置圆环的颜色
     ctx.setLineCap('round');// 设置圆环端点的形状
     ctx.beginPath();//开始一个新的路径
     ctx.arc(radius, radius, radius * 0.9, 0, 2 * Math.PI, false);
@@ -301,16 +302,11 @@ Page({
     ctx.draw();
   },
   drawCircle: function (progressId, step) {
-    let radius = this.data.screenWidth / 4;
+    let radius = this.data.screenWidth / 5;
     let context = wx.createCanvasContext(progressId);
-    // 设置渐变
-    let gradient = context.createLinearGradient(200, 100, 100, 200);
-    gradient.addColorStop("0", "#83bcf3");
-    gradient.addColorStop("0.5", "#1fedd6");
-    gradient.addColorStop("1.0", "#4cb16f");
-    // gradient.addColorStop("2.0", "#4cb16f");
     context.setLineWidth(10);
-    context.setStrokeStyle(gradient);
+    // context.setStrokeStyle(gradient);
+    context.setStrokeStyle('#ffffff'); 
     context.setLineCap('round');
     context.beginPath();
     // 参数step 为绘制的圆环周长，从0到2为一周 。 -Math.PI / 2 将起始角设在12点钟位置 ，结束角 通过改变 step 的值确定

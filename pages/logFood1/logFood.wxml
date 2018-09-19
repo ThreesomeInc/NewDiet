@@ -1,11 +1,14 @@
 <!--pages/logFood/logFood.wxml-->
-<import src="../../template/pageHeader.wxml"/>
 <view class="page">
-<template is="pageHeader" data="{{...title}}"/>
 
-<view class='dateBox' bindtap="showDatePicker">
-	{{year}} - {{month}} - {{currentDate}}
-</view>
+  <view class="tab-header">
+    <view class="headerText">
+      <view bindtap="showDatePicker">
+	      {{year}} - {{month}} - {{currentDate}}
+      </view>
+    </view>
+  </view>
+
 <view class="container" wx:if="{{energyRemaining}}">
 	<view class='progress_box' style="float:left;">
 		<canvas class="progress_bg" canvas-id="canvasProgressbg1"></canvas>
@@ -13,7 +16,7 @@
 		<view class="central_text">
 			<!--<view class="progress_dot" style="background-color: #fb9126;"></view>-->
 			<text class='progress_info'>{{proteinPieText}}</text>
-			<text style="font-size:42px;">
+			<text style="font-size:120%;">
 				{{proteinRemaining}}
 			</text>
 			<text class="progress_info">
@@ -26,7 +29,7 @@
 		<canvas class="progress_canvas" canvas-id="canvasProgress2"></canvas>
 		<view class="central_text">
 			<text class='progress_info'>{{energyPieText}}</text>
-			<text style="font-size:42px">
+			<text style="font-size:140%;">
 				{{energyRemaining}}
 			</text>
 			<text class="progress_info">
@@ -35,14 +38,13 @@
 		</view>
 	</view>
 </view>
-<view class="break-line"/>
 <view class="add-button" bindtap="addFoodLog">
-	+
+	+添加饮食记录
 </view>
 </view>
 		<!-- <view class="dark-green"><text>饮食记录</text></view> -->
 <view wx:for="{{mealtime}}" wx:for-item="item" wx:key='{{mealtime.id}}'>
-<view class="mealtime-block">
+ <view class="mealtime-block" wx:if="{{mealFoodMap[item].length>0}}">
 
 	<view class="heading-block">
 		<view class="photo">
@@ -55,17 +57,17 @@
 	</view>
 
 	<view class="flex-column" wx:if="{{mealFoodMap[item].length>0}}">
-		<!-- <view class="break-line"/>            -->
 		<view wx:for-item="item2" wx:for="{{mealFoodMap[item]}}" wx:for-index="logItemIndex" class="food-list" wx:key="item2">
 			{{item2.description}}
-			<view class="control" data-mealtime="{{item}}" data-index="{{logItemIndex}}" bindtap="deleteMealDetail" wx:if="{{!is_complete_logged}}">
+			<view class="control" data-mealtime="{{item}}" data-index="{{logItemIndex}}" bindtap="deleteMealDetail">
 				<image mode='aspectFill' class='meal-type-img' src='https://kidneyhealty.com.cn/images/subtract.png'></image>
 			</view>
 		</view>
 	</view>
 
+ </view>
 </view>
-</view>
+
 <block wx:if="{{hasMealRecord}}">
 <view class="bottom-control">
 	<view wx:if="{{!if_show_report}}">
