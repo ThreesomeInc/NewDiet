@@ -304,8 +304,7 @@ Page({
   drawCircle: function (progressId, step) {
     let radius = this.data.screenWidth / 5;
     let context = wx.createCanvasContext(progressId);
-    context.setLineWidth(10);
-    // context.setStrokeStyle(gradient);
+    context.setLineWidth(5);
     context.setStrokeStyle('#ffffff'); 
     context.setLineCap('round');
     context.beginPath();

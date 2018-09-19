@@ -13,13 +13,13 @@
 
 .headerText{
   border: 2rpx solid white;
-  padding: 8rpx;
+  padding: 2rpx;
   margin:0 auto;
   border-radius: 50rpx;
   font-size: 40rpx;
   width: 60%;
+  vertical-align: center;
 }
-
 
 .box1{
 display: flex;
@@ -47,17 +47,20 @@ position: absolute;
 color:#a9a9a9;
 }
 
-.break-line{
-  border-top: 1rpx solid #cecece;
-  width: 80%;
-  margin: 20rpx auto;
-}
-
 .meal-type-img {
   width: 50rpx;
   height: 50rpx;
   border: 0 solid #ff0000;
   border-radius: 100rpx;
+}
+
+.arrow-img {
+  width: 40rpx;
+  height: 40rpx;
+  border: 1rpx solid #a9a9a9;
+  border-radius: 100rpx;
+  padding: 3rpx;
+  margin-top: 3rpx;
 }
 .mealtime-header {
   margin-left: 20rpx;
@@ -106,12 +109,13 @@ color:#a9a9a9;
 .btn {
   text-align: center;
   border-radius: 30rpx;
-  color: #ffffff;
-  background-color: #4cb16f;
+  border: 2rpx solid #a9a9a9;
+  color: #a9a9a9;
+  background-color: #f3f3f3;
   width: 65%;
-  padding: 2rpx;
   margin: 40rpx auto;
   margin-bottom: 10rpx;
+  font-size: 90%;
 }
 .report{
   width: 100%;
@@ -153,7 +157,8 @@ checkbox-group{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #eee;
+  background-color: #eeeeee;
+  margin-bottom: 10rpx;
 }
 
 .progress_bg{
@@ -177,10 +182,9 @@ checkbox-group{
 }
 .progress_info{
   font-size: 26rpx;
-  padding-left: 16rpx;
-  letter-spacing: 2rpx;
   display: block;
 }
+
 .progress_dot{
   width:16rpx;
   height: 16rpx;
@@ -196,16 +200,16 @@ checkbox-group{
 .add-button {
   margin:40rpx auto;
   padding: 5rpx;
-  line-height: 130%;
+  line-height: 140%;
   width:60%;
   color: #4cb16f;
   text-align: center;
-  border: 5rpx solid #4cb16f;
+  border: 6rpx solid #4cb16f;
   border-radius: 50rpx;
 }
 
 .container {
   background-color: #4cb16f;
-  padding: 20rpx 40rpx;
+  padding: 10rpx 40rpx 20rpx 40rpx;
   color: #f3f3f3;
 }

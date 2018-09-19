@@ -13,7 +13,7 @@ Page({
     inputShowed: false,
     foodList: [],
     selectedFood: [],
-    showConfirm: true,
+    showConfirm: false,
     sourceMap: [
       {key: "1", text: "市场买的", value: "市场", default_checked: true},
       {key: "2", text: "超市净菜", value: "超市", default_checked: false},
@@ -154,6 +154,7 @@ Page({
   cancelBtn: function (e) {
     this.setData({
       selectedFood: [],
+      showConfirm: false,
     });
   },
 

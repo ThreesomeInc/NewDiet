@@ -5,6 +5,7 @@
     <view class="headerText">
       <view bindtap="showDatePicker">
 	      {{year}} - {{month}} - {{currentDate}}
+        <!-- <image mode='aspectFill' class='arrow-img' src='https://kidneyhealty.com.cn/images/arrow-down-white.png'></image> -->
       </view>
     </view>
   </view>
@@ -39,7 +40,7 @@
 	</view>
 </view>
 <view class="add-button" bindtap="addFoodLog">
-	+添加饮食记录
+	+ 添加饮食记录
 </view>
 </view>
 		<!-- <view class="dark-green"><text>饮食记录</text></view> -->
@@ -71,7 +72,10 @@
 <block wx:if="{{hasMealRecord}}">
 <view class="bottom-control">
 	<view wx:if="{{!if_show_report}}">
-		<button bindtap='switchReport' class='btn'>看看我今天吃够了吗？</button>
+		<button bindtap='switchReport' class='btn'>
+        看看我今天吃够了吗？  
+        <!-- <image mode='aspectFill' class='arrow-img' src='https://kidneyhealty.com.cn/images/arrow-down-grey.png'></image> -->
+    </button>
 	</view>
 	<view wx:else>
 		<button bindtap='switchReport' class='btn'>收起饮食报告</button>
