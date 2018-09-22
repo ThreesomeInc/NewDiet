@@ -111,7 +111,7 @@ Page({
             if (proteinEaten < 100){
               this.setData({ protein_color : '#ffffff' })
             }else{
-              this.setData({ protein_color: '#fe6345' })
+              this.setData({ protein_color: '#e35d42' })
             }
 
             let energyRatio = parseFloat(temp.totalEnergy) / parseFloat(temp.expectEnergy);
@@ -119,7 +119,7 @@ Page({
             if (energyEaten<100) {
               this.setData({ energy_color: '#ffffff' })
             } else {
-              this.setData({ energy_color: '#fe6345' })
+              this.setData({ energy_color: '#e35d42' })
             }
 
             this.drawDiagram(proteinRatio < 0 ? 1 : proteinRatio, energyRatio < 0 ? 1 : energyRatio);
