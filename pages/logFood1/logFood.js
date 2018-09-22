@@ -53,6 +53,8 @@ Page({
     expectedEnergy: null,
     proteinEaten: null,
     energyEaten: null,
+    protein_color: '#ffffff',
+    energy_color: '#ffffff',
   },
   onShow: function () {
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
@@ -105,9 +107,20 @@ Page({
               });
             let proteinRatio = parseFloat(temp.totalProtein) / parseFloat(temp.expectProtein);
             let proteinEaten = proteinRatio*100;
+            
+            if (proteinEaten < 100){
+              this.setData({ protein_color : '#ffffff' })
+            }else{
+              this.setData({ protein_color: '#fe6345' })
+            }
 
             let energyRatio = parseFloat(temp.totalEnergy) / parseFloat(temp.expectEnergy);
             let energyEaten = energyRatio*100;
+            if (energyEaten<100) {
+              this.setData({ energy_color: '#ffffff' })
+            } else {
+              this.setData({ energy_color: '#fe6345' })
+            }
 
             this.drawDiagram(proteinRatio < 0 ? 1 : proteinRatio, energyRatio < 0 ? 1 : energyRatio);
             this.setData({
@@ -117,8 +130,6 @@ Page({
               expectedEnergy: temp.expectEnergy,
               proteinEaten: Math.abs(proteinEaten.toFixed(1)),
               energyEaten: Math.abs(energyEaten.toFixed(1)),
-              // proteinPieText: proteinRemaining < 0 ? this.data.proteinOverText : this.data.proteinBelowText,
-              // energyPieText: energyRemaining < 0 ? this.data.energyOverText : this.data.energyBelowText,
             })
           } else {
             if (res.data.monthFoodLog) {

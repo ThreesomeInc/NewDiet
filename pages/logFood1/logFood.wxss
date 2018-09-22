@@ -192,6 +192,9 @@ checkbox-group{
   font-size: 30rpx;
   display: block;
 }
+.ratio_info{
+  font-size:160%;
+}
 
 .page{
   background-color: #f3f3f3;

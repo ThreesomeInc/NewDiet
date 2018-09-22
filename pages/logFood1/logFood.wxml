@@ -12,9 +12,9 @@
 	<view class='progress_box' style="float:left;">
 		<canvas class="progress_bg" canvas-id="canvasProgressbg1"></canvas>
 		<canvas class="progress_canvas" canvas-id="canvasProgress1"></canvas>
-		<view class="central_text">
+		<view class="central_text" >
 				<text class='progress_info'>{{proteinPieText}}</text>
-			<text style="font-size:160%;">
+			<text class="ratio_info" style="color: {{protein_color}};">
 				{{proteinEaten}}%
 			</text>
 			<text class="progress_info">
@@ -25,9 +25,9 @@
 	<view class='progress_box' style="float:right;overflow-x: hidden;">
 		<canvas class="progress_bg" canvas-id="canvasProgressbg2"></canvas>
 		<canvas class="progress_canvas" canvas-id="canvasProgress2"></canvas>
-		<view class="central_text">
+		<view class="central_text" >
 			<text class='progress_info'>{{energyPieText}}</text>
-			<text style="font-size:160%;">
+			<text class="ratio_info" style="color: {{energy_color}};">
 				{{energyEaten}}%
 			</text>
 			<text class="progress_info">
