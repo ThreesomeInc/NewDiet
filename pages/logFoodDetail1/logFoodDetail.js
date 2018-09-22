@@ -255,6 +255,10 @@ Page({
             showConfirm: true,
             existingFood: currentRecord[0].foodLogItems,
           });
+        } else {
+          this.setData({
+            existingFood: [],
+          });
         }
       },
       fail: res => {
