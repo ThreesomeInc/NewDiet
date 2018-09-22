@@ -94,6 +94,17 @@
 	</view>
 </view>
 </block>
+<block wx:else >
+<view class="center">
+<image mode='aspectFill' class='common-img' src='https://kidneyhealty.com.cn/images/empty_food.png'></image>
+  <view class="common_info">
+    还没有今天的记录哦 :(
+  </view>
+  <view class="common_info">
+    添加饮食记录，获取更多营养建议！
+  </view>
+  </view>
+</block>
 
 <date-picker id="date-picker"
 			 value="{{datePickerValue}}"

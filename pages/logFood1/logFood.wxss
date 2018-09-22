@@ -204,7 +204,7 @@ checkbox-group{
 .flex-row {
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 88%;
   text-align: center;
   margin: 0 auto;
 }
@@ -223,4 +223,17 @@ checkbox-group{
   background-color: #4cb16f;
   padding: 10rpx 40rpx 20rpx 40rpx;
   color: #f3f3f3;
+}
+
+.common_info {
+  color: #a9a9a9;
+  font-size: 90%;
+}
+.common-img {
+  width: 150rpx;
+  height: 150rpx;
+}
+.center {
+  text-align: center;
+  margin: 10rpx auto;
 }

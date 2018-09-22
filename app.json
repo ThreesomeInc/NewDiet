@@ -21,7 +21,6 @@
     "pages/index/about/about",
     "pages/index/authentication/authentication",
     "pages/index/bodyInfoUpdate/index",
-    "pages/summary/share/share",
     "pages/suggestDiet/meal/meal",
     "pages/suggestDiet/dailyTips/dailyTips",
     "pages/suggestDiet/foodType/foodType",
