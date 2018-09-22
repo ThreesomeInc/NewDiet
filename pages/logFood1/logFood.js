@@ -49,14 +49,10 @@ Page({
     hasMealRecord: false,
     proteinPieText: '蛋白质摄入\n',
     energyPieText: '热量摄入\n',
-    proteinBelowText: '尚可摄入蛋白质\n',
-    energyBelowText: '尚可摄入热量\n',
-    proteinOverText: '蛋白质已超量\n',
-    energyOverText: '热量已超量\n',
     expectedProtein: null,
     expectedEnergy: null,
-    proteinRemaining: null,
-    energyRemaining: null,
+    proteinEaten: null,
+    energyEaten: null,
   },
   onShow: function () {
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
@@ -107,20 +103,22 @@ Page({
               .map(item => {
                 return {name: this.data.headerMapping[item[0]], value: item[1]}
               });
-            let proteinRemaining = parseFloat(temp.expectProtein) - parseFloat(temp.totalProtein);
-            let energyRemaining = parseFloat(temp.expectEnergy) - parseFloat(temp.totalEnergy);
-            let proteinRatio = proteinRemaining / parseFloat(temp.expectProtein);
-            let energyRatio = energyRemaining / parseFloat(temp.expectEnergy);
+            let proteinRatio = parseFloat(temp.totalProtein) / parseFloat(temp.expectProtein);
+            let proteinEaten = proteinRatio*100;
+
+            let energyRatio = parseFloat(temp.totalEnergy) / parseFloat(temp.expectEnergy);
+            let energyEaten = energyRatio*100;
+
             this.drawDiagram(proteinRatio < 0 ? 1 : proteinRatio, energyRatio < 0 ? 1 : energyRatio);
             this.setData({
               nutritionRatio: nutritionRatio,
               is_complete_logged: temp.isLogged,
               expectedProtein: temp.expectProtein,
               expectedEnergy: temp.expectEnergy,
-              proteinRemaining: Math.abs(proteinRemaining.toFixed(2)),
-              energyRemaining: Math.abs(energyRemaining.toFixed(2)),
-              proteinPieText: proteinRemaining < 0 ? this.data.proteinOverText : this.data.proteinBelowText,
-              energyPieText: energyRemaining < 0 ? this.data.energyOverText : this.data.energyBelowText,
+              proteinEaten: Math.abs(proteinEaten.toFixed(1)),
+              energyEaten: Math.abs(energyEaten.toFixed(1)),
+              // proteinPieText: proteinRemaining < 0 ? this.data.proteinOverText : this.data.proteinBelowText,
+              // energyPieText: energyRemaining < 0 ? this.data.energyOverText : this.data.energyBelowText,
             })
           } else {
             if (res.data.monthFoodLog) {
@@ -129,8 +127,8 @@ Page({
               this.setData({
                 expectedProtein: temp.expectProtein,
                 expectedEnergy: temp.expectEnergy,
-                proteinRemaining: temp.expectProtein,
-                energyRemaining: temp.expectEnergy,
+                proteinEaten: 0,
+                energyEaten: 0,
               });
             }
             console.log('res.data.monthFoodLog is null');
@@ -271,7 +269,7 @@ Page({
         this.setData({
           mealFoodMap: this.data.mealFoodMap,
         });
-        
+        this.loadFood();
       },
       fail: res => {
         wx.showToast({
