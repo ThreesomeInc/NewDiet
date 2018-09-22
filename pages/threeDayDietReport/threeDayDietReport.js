@@ -50,6 +50,7 @@ Page({
     this.loadCalendar();
     let logDate = options.logDate;
     console.log(logDate);
+    this.refreshCalendarDates();
     this.loadCalendar();
     this.loadReport(logDate);
   },
@@ -89,7 +90,7 @@ Page({
   loadCalendar: function () {
     let logMonth = this.data.year + "-" + util.formatNumber(this.data.month);
     wx.request({
-      url: "http://localhost:8080" + "/foodLog/reports",//TODO: after the backend api is working fine, would switch it back
+      url: app.globalData.apiBase + "/foodLog/reports",
       method: "POST",
       data: {
         openId: app.globalData.authInfo.openid,
