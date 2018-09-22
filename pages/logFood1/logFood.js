@@ -56,10 +56,23 @@ Page({
     energy_color: '#ffffff',
   },
   onShow: function () {
+    this.resetColor();
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
     clearInterval(interval); // 清除setInterval
     time = 0;
     this.loadFood();
+  },
+  resetColor: function () {
+    if (this.data.proteinEaten < 100) {
+      this.setData({protein_color: '#ffffff'})
+    } else {
+      this.setData({protein_color: '#e35d42'})
+    }
+    if (this.data.energyEaten < 100) {
+      this.setData({energy_color: '#ffffff'})
+    } else {
+      this.setData({energy_color: '#e35d42'})
+    }
   },
   loadFood: function () {
     if (this.data.year && this.data.month && this.data.currentDate) {
@@ -105,21 +118,10 @@ Page({
                 return {name: this.data.headerMapping[item[0]], value: item[1]}
               });
             let proteinRatio = parseFloat(temp.totalProtein) / parseFloat(temp.expectProtein);
-            let proteinEaten = proteinRatio*100;
-            
-            if (proteinEaten < 100){
-              this.setData({ protein_color : '#ffffff' })
-            }else{
-              this.setData({ protein_color: '#e35d42' })
-            }
+            let proteinEaten = proteinRatio * 100;
 
             let energyRatio = parseFloat(temp.totalEnergy) / parseFloat(temp.expectEnergy);
-            let energyEaten = energyRatio*100;
-            if (energyEaten<100) {
-              this.setData({ energy_color: '#ffffff' })
-            } else {
-              this.setData({ energy_color: '#e35d42' })
-            }
+            let energyEaten = energyRatio * 100;
 
             this.drawDiagram(proteinRatio < 0 ? 1 : proteinRatio, energyRatio < 0 ? 1 : energyRatio);
             this.setData({
@@ -153,8 +155,9 @@ Page({
 
             this.setData({
               nutritionRatio: temp,
-            })
+            });
           }
+          this.resetColor();
         },
         fail: res => {
           wx.showToast({
@@ -310,7 +313,7 @@ Page({
     let radius = this.data.screenWidth / 5;
     let context = wx.createCanvasContext(progressId);
     context.setLineWidth(5);
-    context.setStrokeStyle('#ffffff'); 
+    context.setStrokeStyle('#ffffff');
     context.setLineCap('round');
     context.beginPath();
     // 参数step 为绘制的圆环周长，从0到2为一周 。 -Math.PI / 2 将起始角设在12点钟位置 ，结束角 通过改变 step 的值确定
