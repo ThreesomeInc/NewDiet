@@ -66,14 +66,6 @@ Page({
       url: app.globalData.apiBase + "/foodLog/food/" + foodId,
       method: "GET",
       success: res => {
-        if (this.data.existingFood.filter(item => item.foodId === res.data.foodId).length !== 0) {
-          wx.showToast({
-            title: "食材已存在！",
-            icon: 'loading',
-            duration: 1000
-          });
-          return;
-        }
         this.data.selectedFood.push({
           foodId: res.data.foodId,
           edible: res.data.edible,
@@ -159,6 +151,16 @@ Page({
   },
 
   confirmBtn: function (e) {
+    if (this.data.selectedFood.length > 0 &&
+      this.data.existingFood.filter(item =>
+        this.data.selectedFood.map(item2 => item2.foodId).includes(item.foodId)).length !== 0) {
+      wx.showToast({
+        title: "食材已存在！",
+        icon: 'loading',
+        duration: 1000
+      });
+      return;
+    }
     wx.request({
       url: app.globalData.apiBase + "/foodLog",
       method: "POST",
