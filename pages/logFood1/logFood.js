@@ -14,7 +14,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    is_complete_logged: false,
     if_show_report: false,
     mealtime: [],
     mealFoodMap: null,
@@ -51,8 +50,8 @@ Page({
     energyPieText: '热量摄入\n',
     expectedProtein: null,
     expectedEnergy: null,
-    proteinEaten: null,
-    energyEaten: null,
+    proteinEaten: 0,
+    energyEaten: 0,
     protein_color: '#ffffff',
     energy_color: '#ffffff',
   },
@@ -125,7 +124,6 @@ Page({
             this.drawDiagram(proteinRatio < 0 ? 1 : proteinRatio, energyRatio < 0 ? 1 : energyRatio);
             this.setData({
               nutritionRatio: nutritionRatio,
-              is_complete_logged: temp.isLogged,
               expectedProtein: temp.expectProtein,
               expectedEnergy: temp.expectEnergy,
               proteinEaten: Math.abs(proteinEaten.toFixed(1)),
@@ -155,7 +153,6 @@ Page({
 
             this.setData({
               nutritionRatio: temp,
-              is_complete_logged: false,
             })
           }
         },
@@ -184,9 +181,6 @@ Page({
     var checked = e.detail.value;
     let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
     if (checked.length > 0) {
-      this.setData({
-        is_complete_logged: true
-      })
       wx.request({
         url: app.globalData.apiBase + "/foodLog/isCompletedLog",
         method: "POST",
@@ -200,9 +194,6 @@ Page({
         }
       })
     } else {
-      this.setData({
-        is_complete_logged: false
-      })
       wx.request({
         url: app.globalData.apiBase + "/foodLog/isCompletedLog",
         method: "POST",

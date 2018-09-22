@@ -1,5 +1,9 @@
 // pages/threeDayDietReport/threeDayDietReport.js
 const app = getApp();
+let util = require('../../utils/util.js');
+const currentYear = new Date().getFullYear();
+const currentMonth = util.formatNumber(new Date().getMonth() + 1);
+const currentDate = util.formatNumber(new Date().getDate());
 Page({
 
   /**
@@ -29,6 +33,10 @@ Page({
     },
     hasResult: false,
     basicInfoSummary: [],
+    year: currentYear,
+    month: currentMonth,
+    currentDate: currentDate,
+    day: new Date().getDate(),
   },
 
   /**
@@ -36,7 +44,13 @@ Page({
    */
   onLoad: function (options) {
     let logDate = options.logDate;
+    if (!logDate) {
+      logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
+    }
     console.log(logDate);
+    this.loadReport(logDate);
+  },
+  loadReport: function (logDate) {
     wx.request({
       url: app.globalData.apiBase + "/foodLog/analysis",
       method: "GET",

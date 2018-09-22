@@ -13,34 +13,41 @@ Page({
     slogon1: '知道怎样吃得好又吃的饱?',
     slogon2: '肾脏营养师\n为您规划一日三餐!',
     hasUserBodyInfo: false,
-    basicInfoSummary:[],
+    basicInfoSummary: [],
     menu: {
-      menuList:[
-      {
-          iconUrl: app.globalData.imageBasePath+'tips_icon.png',
-        menuName:'膳食结构建议',
-        directUrl:'../summary/summary',
-          rightImageUrl: app.globalData.imageBasePath +'rightArrow.png',
-      },
-      {
-        iconUrl: app.globalData.imageBasePath +'setting_icon.png',
-        menuName: '更新我的身体资料',
-        directUrl: 'bodyInfoUpdate/index',
-        rightImageUrl: app.globalData.imageBasePath +'rightArrow.png',
-      },
-      {
-        iconUrl: app.globalData.imageBasePath +'authentication_icon.png',
-        menuName: '授权设置',
-        directUrl: 'authentication/authentication',
-        rightImageUrl: app.globalData.imageBasePath +'rightArrow.png',
-      },
-      {
-        iconUrl: app.globalData.imageBasePath +'about_icon.png',
-        menuName: '关于肾脏营养师',
-        directUrl: 'about/about',
-        rightImageUrl: app.globalData.imageBasePath +'rightArrow.png',
-      },
-    ]},
+      menuList: [
+        {
+          iconUrl: app.globalData.imageBasePath + 'index/tips_icon.png',
+          menuName: '膳食结构建议',
+          directUrl: '../summary/summary',
+          rightImageUrl: app.globalData.imageBasePath + 'rightArrow.png',
+        },
+        {
+          iconUrl: app.globalData.imageBasePath + 'index/three_day_report.png',
+          menuName: '三日膳食报告',
+          directUrl: '../threeDayDietReport/threeDayDietReport',
+          rightImageUrl: app.globalData.imageBasePath + 'rightArrow.png',
+        },
+        {
+          iconUrl: app.globalData.imageBasePath + 'index/setting_icon.png',
+          menuName: '更新我的身体资料',
+          directUrl: 'bodyInfoUpdate/index',
+          rightImageUrl: app.globalData.imageBasePath + 'rightArrow.png',
+        },
+        {
+          iconUrl: app.globalData.imageBasePath + 'index/authentication_icon.png',
+          menuName: '授权设置',
+          directUrl: 'authentication/authentication',
+          rightImageUrl: app.globalData.imageBasePath + 'rightArrow.png',
+        },
+        {
+          iconUrl: app.globalData.imageBasePath + 'index/about_icon.png',
+          menuName: '关于肾脏营养师',
+          directUrl: 'about/about',
+          rightImageUrl: app.globalData.imageBasePath + 'rightArrow.png',
+        },
+      ]
+    },
   },
   //事件处理函数
   goToQuestions: function () {
@@ -54,7 +61,7 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-    
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -73,18 +80,18 @@ Page({
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
-          app.globalData.userInfo = res
+          app.globalData.userInfo = res;
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
         }
-      })
+      });
       wx.navigateTo({
         url: '../question/gender/gender?postUpdate=false'
       })
     }
-  
+
   },
   /**
    * 生命周期函数--监听页面显示
@@ -97,7 +104,7 @@ Page({
       })
     }
     try {
-      var info= wx.getStorageSync('userBodyInfo');
+      var info = wx.getStorageSync('userBodyInfo');
       if (info != "") {
         this.setData({
           hasUserBodyInfo: true,
@@ -105,7 +112,7 @@ Page({
         app.globalData.userBodyInfo = info;
         console.log("Session contained userBodyInfo.");
         console.log(app.globalData.userBodyInfo);
-      }else{
+      } else {
         this.setData({
           hasUserBodyInfo: false,
         });
@@ -128,16 +135,16 @@ Page({
 
   getUserInfo: function (e) {
     console.log(e)
-    if(e.detail.userInfo){
+    if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo;
       console.log(app.globalData.userInfo);
       this.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
       })
-    }else{
+    } else {
       console.log('User reject the authentication');
     }
-    
+
   }
 })

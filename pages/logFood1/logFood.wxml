@@ -18,7 +18,7 @@
 				{{proteinEaten}}%
 			</text>
 			<text class="progress_info">
-				预算{{expectedProtein}}
+				预算{{expectedProtein}}g
 			</text>
 		</view>
 	</view>
@@ -31,7 +31,7 @@
 				{{energyEaten}}%
 			</text>
 			<text class="progress_info">
-				预算{{expectedEnergy}}
+				预算{{expectedEnergy}}kcal
 			</text>
 		</view>
 	</view>
