@@ -1,7 +1,20 @@
 <import src="../../template/pageHeader.wxml"/>
 <view class="main-container">
   <template is="pageHeader" data="{{...title}}"/>
-
+  <calendar
+          weeks-type="cn"
+          cell-size="55"
+          bindprevMonth="switchMonth"
+          bindnextMonth="switchMonth"
+          binddateChange="switchMonth"
+          binddayClick="switchDay"
+          next="{{true}}" prev="{{true}}" show-more-days="{{false}}"
+          lunar="{{true}}"
+          calendar-style="calendar"
+          header-style="calendar-header"
+          board-style="calendar-board"
+          days-color="{{selectedDaysStyle}}"
+  />
   <view wx:if="{{hasResult}}">
 
     <view wx:if='{{elementEvgs}}'>

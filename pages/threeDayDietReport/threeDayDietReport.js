@@ -4,6 +4,7 @@ let util = require('../../utils/util.js');
 const currentYear = new Date().getFullYear();
 const currentMonth = util.formatNumber(new Date().getMonth() + 1);
 const currentDate = util.formatNumber(new Date().getDate());
+const MONTHS = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'June.', 'July.', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
 Page({
 
   /**
@@ -37,20 +38,105 @@ Page({
     month: currentMonth,
     currentDate: currentDate,
     day: new Date().getDate(),
+    selectedDaysStyle: [],
+    hasReportsDates: [],
+    str: MONTHS[new Date().getMonth()],  // 月份字符串
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.loadCalendar();
     let logDate = options.logDate;
+    console.log(logDate);
+    this.loadCalendar();
+    this.loadReport(logDate);
+  },
+
+  switchMonth: function (e) {
+    console.log(e.detail);
+    let {prevMonth, prevYear, currentMonth, currentYear} = e.detail;
+    let logMonth = currentYear + "-" + util.formatNumber(currentMonth);
+    this.setData({
+      year: currentYear,
+      month: util.formatNumber(currentMonth),
+    });
+    this.loadCalendar();
+    this.loadReport();
+  },
+
+  switchDay: function (e) {
+    console.log(e.detail);
+    let {background, color, day, lunarDay, lunarMonth, month, year} = e.detail;
+    let logMonth = year + "-" + util.formatNumber(month);
+    console.log(+this.data.month !== month);
+    if (+this.data.month !== month) {
+      this.setData({
+        month: util.formatNumber(month),
+        currentDate: day,
+      });
+      this.loadCalendar();
+    } else {
+      this.setData({
+        currentDate: day,
+      });
+      this.refreshCalendarDates();
+    }
+    this.loadReport();
+  },
+
+  loadCalendar: function () {
+    let logMonth = this.data.year + "-" + util.formatNumber(this.data.month);
+    wx.request({
+      url: "http://localhost:8080" + "/foodLog/reports",
+      method: "POST",
+      data: {
+        openId: app.globalData.authInfo.openid,
+        month: logMonth,
+      },
+      success: res => {
+        let hasReportsDates = res.data.logDateList;
+        this.setData({
+          hasReportsDates
+        });
+        this.refreshCalendarDates();
+      },
+      fail: res => {
+        wx.showToast({
+          title: res,
+          icon: 'success'
+        });
+      }
+    });
+  },
+
+  refreshCalendarDates: function () {
+    let selectedDaysStyle = [];
+    const days_count = new Date(this.data.year, this.data.month, 0).getDate();
+    for (let i = 1; i <= days_count; i++) {
+      if (i === +this.data.currentDate) {
+        selectedDaysStyle.push({
+          month: 'current', day: i, color: 'white', background: '#4cb16f'
+        });
+      } else if (this.data.hasReportsDates.includes(i)) {
+        selectedDaysStyle.push({
+          month: 'current', day: i, color: 'white', background: '#84e7d0'
+        });
+      } else {
+        selectedDaysStyle.push({
+          month: 'current', day: i, color: 'black'
+        });
+      }
+    }
+    this.setData({
+      selectedDaysStyle
+    });
+  },
+  loadReport: function (logDate) {
     if (!logDate) {
       logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
     }
-    console.log(logDate);
-    this.loadReport(logDate);
-  },
-  loadReport: function (logDate) {
     wx.request({
       url: app.globalData.apiBase + "/foodLog/analysis",
       method: "GET",

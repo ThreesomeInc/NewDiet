@@ -110,3 +110,19 @@
   font-style: bold;
   margin-bottom: 20rpx;
 }
+.calendar {
+  /*background-color: #fff043;*/
+  padding-top: 10px;
+  /*box-shadow: 5px 5px 2px 1px rgba(255, 240, 67, 0.5);*/
+}
+
+.calendar-header {
+  font-size: large;
+  color: black;
+}
+
+.calendar-board {
+  color: #ff8a43;
+  font-size: large;
+  font-weight: bold;
+}
