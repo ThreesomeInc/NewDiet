@@ -89,7 +89,7 @@ Page({
   loadCalendar: function () {
     let logMonth = this.data.year + "-" + util.formatNumber(this.data.month);
     wx.request({
-      url: "http://localhost:8080" + "/foodLog/reports",
+      url: "http://localhost:8080" + "/foodLog/reports",//TODO: after the backend api is working fine, would switch it back
       method: "POST",
       data: {
         openId: app.globalData.authInfo.openid,
