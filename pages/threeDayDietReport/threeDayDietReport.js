@@ -153,6 +153,11 @@ Page({
             standardLog: result.standardLog,
             hasResult: true,
           })
+        } else {
+          this.setData({
+            standardLog: false,
+            hasResult: false,
+          })
         }
         if (result.elementEvgs) {
           this.setData({
@@ -164,6 +169,11 @@ Page({
             });
           this.setData({
             nutritionRatio: nutritionRatio,
+          })
+        } else {
+          this.setData({
+            elementEvgs: {},
+            nutritionRatio: [],
           })
         }
         if (result.dieticianAdvice) {
@@ -184,6 +194,10 @@ Page({
             console.log('Exception happen when try to get basicInfoSummary from storage!');
             console.log(e);
           }
+        } else {
+          this.setData({
+            dieticianAdvice: [],
+          });
         }
       },
       fail: res => {
