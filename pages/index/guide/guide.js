@@ -27,7 +27,7 @@ Page({
         if (info != "") {
           console.log("Session contained userBodyInfo.");
           wx.switchTab({
-            url: '../index'
+            url: '../../logFood1/logFood'
           })
         } else {
           wx.redirectTo({

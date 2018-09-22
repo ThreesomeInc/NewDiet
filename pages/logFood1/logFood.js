@@ -247,6 +247,11 @@ Page({
     });
     this.loadFood();
   },
+  foodRecomment: function () {
+    wx.navigateTo({
+      url: '../suggestDiet/dailyTips/dailyTips',
+    })
+  },
   addFoodLog: function () {
     let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
     wx.navigateTo({

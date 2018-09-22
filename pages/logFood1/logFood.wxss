@@ -201,11 +201,18 @@ checkbox-group{
   overflow-x: hidden;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
 .add-button {
   margin:40rpx auto;
   padding: 5rpx;
   line-height: 140%;
-  width:60%;
+  width:45%;
   color: #4cb16f;
   text-align: center;
   border: 6rpx solid #4cb16f;

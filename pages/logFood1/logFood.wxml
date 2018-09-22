@@ -36,8 +36,13 @@
 		</view>
 	</view>
 </view>
+<view class="flex-row">
 <view class="add-button" bindtap="addFoodLog">
 	+ 添加饮食记录
+</view>
+<view class="add-button" bindtap="foodRecomment">
+	是日三餐推荐
+</view>
 </view>
 </view>
 		<!-- <view class="dark-green"><text>饮食记录</text></view> -->
