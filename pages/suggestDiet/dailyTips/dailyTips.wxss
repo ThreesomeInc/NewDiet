@@ -12,18 +12,24 @@
 .con-trimg{
     width:70rpx;
     height:70rpx;
-    margin:10rpx 20rpx;
+    margin:10rpx 10rpx;
 }
 .con-info{
-    margin:8rpx 20rpx;
+    margin:8rpx 10rpx;
     overflow: hidden;
     font-size: 34rpx;
     font-family: "微软雅黑";
     color:#606060;
 }
-.coin-info{
-    
+.coin-info{ 
     font-size: 28rpx;
+}
+.con-right {
+  position:absolute;
+  right: 60rpx;
+  font-size: 28rpx;
+  text-align: right;
+  color: #a9a9a9;
 }
 .mealList {
   width: 85%;

@@ -27,6 +27,7 @@
 					<view class="coin-name">{{item2.recipeName}}</view>
 					<view class="coin-info">{{item2.shortIntroduction}}</view>
 				</view>
+        <view class="con-right">{{item2.protein}}</view>
 			</navigator>
 		</view>
     </view>

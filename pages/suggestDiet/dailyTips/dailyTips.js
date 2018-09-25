@@ -59,6 +59,7 @@ Page({
       },
       dataType: "json",
       success: (result) => {
+        console.log(result.data);
         let mealListResult = Object.entries(result.data)
           .filter(item => item[0] in this.data.aliasMap)
           .map(item => {
@@ -70,8 +71,9 @@ Page({
                   recipeId: item2.recipeId,
                   recipeName: item2.recipeName,
                   shortIntroduction: "建议食用" + Object.entries(item2.materials)
-                    .map(item3 => item3[0] + item3[1] + "g")
-                    .join(",")
+                    .map(item3 => item3[0] + item3[1] + "克")
+                    .join(","),
+                  protein: "含" + item2.protein + "克蛋白"
                 };
               })
             }
@@ -81,6 +83,7 @@ Page({
         _this.setData({
           mealList: mealListResult,
         })
+        console.log(mealListResult);
       },
 
       fail: (result) => {

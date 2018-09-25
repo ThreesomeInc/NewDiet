@@ -18,7 +18,7 @@
 				{{proteinEaten}}%
 			</text>
 			<text class="progress_info">
-				预算{{expectedProtein}}g
+				预算{{expectedProtein}}克
 			</text>
 		</view>
 	</view>
@@ -31,7 +31,7 @@
 				{{energyEaten}}%
 			</text>
 			<text class="progress_info">
-				预算{{expectedEnergy}}kcal
+				预算{{expectedEnergy}}千卡
 			</text>
 		</view>
 	</view>
