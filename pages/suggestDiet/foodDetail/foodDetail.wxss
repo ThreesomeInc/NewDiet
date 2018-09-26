@@ -3,12 +3,10 @@
 /* pages/suggestDiet/meal/meal.wxss */
 
 .top_block {
-  width: 85%;
-  background-color: #fe6345;
-  color: #ffffff;
-  border-radius: 40rpx;
+  width: 90%;
+  color: #20492e;
   margin: 0 auto;
-  padding: 10rpx;
+  padding: 5rpx;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -17,7 +15,7 @@
 .food_image{
     width:150rpx;
     height:150rpx;
-    margin:auto 20rpx;
+    padding:auto 20rpx;
 }
 
 .right_block{
@@ -27,22 +25,22 @@
 }
 
 .title_row, .lable_row {
- padding: 10rpx 0;
-   display: flex;
+  padding: 5rpx 0;
+  display: flex;
   flex-direction: row;
-    overflow-wrap:break-word;
-    flex-wrap: wrap;
+  overflow-wrap:break-word;
+  flex-wrap: wrap;
 }
 
 .food_name {
   font-size: 42rpx;
 }
 .food_label {
-  background-color: #ffffff;
-  color: #fe6345;
-  border-radius: 30rpx;
+  border: 1rpx solid #929292;
+  color: #929292;
+  border-radius: 15rpx;
   text-align: center;
-  font-size: 30rpx;
+  font-size: 80%;
   padding: 2rpx 8rpx;
   margin: 8rpx;
 }
@@ -57,7 +55,7 @@
 
 .info_block {
   width: 100%;
-  padding: 30rpx 20rpx;
+  padding: 30rpx 0rpx;
   margin: 10rpx auto;
   display: flex;
   flex-direction: column;
@@ -67,14 +65,13 @@
 .advise {
   margin: 10rpx auto;
   width: 82%;
-  font-size: 36rpx;
-  line-height: 1.4rem;
+  font-size: 33rpx;
+  line-height: 1.3rem;
   text-align: left;
   color: #20492e;
 }
 .title{
   color: #fe6345;
-  font-weight: bold;
 }
 .break-line{
   border-top: 1rpx solid #cecece;
@@ -84,7 +81,7 @@
 .content {
     width: 100%;
     margin: 0 auto;
-    padding: 8rpx 30rpx;
+    padding: 8rpx 0rpx;
     text-align: center;
 }
 .tab-box {

@@ -62,9 +62,9 @@ Page({
           let recipeInfo = res.data;
           recipeInfo.label = [
             `${recipeInfo.category}`,
-            `难度：${recipeInfo.difficulty}`,
-            `风味：${recipeInfo.taste}`,
-            `烹饪方式：${recipeInfo.cookMethod}`,
+            `难度:${recipeInfo.difficulty}`,
+            `风味:${recipeInfo.taste}`,
+            `烹饪方式:${recipeInfo.cookMethod}`,
           ];
           let recipe_composition = recipeInfo.mainIngredients;
           let showBrief = recipeInfo.cookingNote && recipeInfo.cookingNote.length > 30;

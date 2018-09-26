@@ -1,12 +1,9 @@
 @import '../../../vendor/weui/weui.wxss';
 
 .top_block {
-    width: 85%;
-    background-color: #fe6345;
-    color: #ffffff;
-    border-radius: 40rpx;
+    width: 92%;
+    color: #20492e;
     margin: 0 auto;
-    padding: 10rpx;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -25,7 +22,7 @@
 }
 
 .title_row, .lable_row {
-    padding: 10rpx 0;
+    padding: 5rpx 0;
     display: flex;
     flex-direction: row;
     overflow-wrap:break-word;
@@ -34,13 +31,15 @@
 
 .recipe_name {
     font-size: 42rpx;
+    font-weight: bold;
 }
 .recipe_label {
     background-color: #ffffff;
-    color: #fe6345;
-    border-radius: 30rpx;
+    color: #929292;
+    border: 1rpx solid #929292;
+    border-radius: 15rpx;
     text-align: center;
-    font-size: 30rpx;
+    font-size: 80%;
     padding: 2rpx 8rpx;
     margin: 8rpx;
 }
@@ -55,7 +54,7 @@
 
 .info_block {
     width: 100%;
-    padding: 30rpx 20rpx;
+    padding: 30rpx 0rpx;
     margin: 10rpx auto;
     display: flex;
     flex-direction: column;
@@ -66,8 +65,8 @@
 .advise {
     margin: 10rpx auto;
     width: 82%;
-    font-size: 36rpx;
-    line-height: 1.4rem;
+    font-size: 33rpx;
+    line-height: 1.3rem;
     text-align: left;
     color: #20492e;
 }
@@ -83,11 +82,12 @@
 .content {
     width: 100%;
     margin: 0 auto;
-    padding: 8rpx 30rpx;
+    padding: 8rpx 0rpx;
     text-align: center;
 }
 .tab-box {
     margin: 0rpx;
+    color: #20492e;
 }
 
 .mini-tab-header {
@@ -124,17 +124,19 @@
     border-radius: 40rpx;
     color: #ffffff;
     background-color: #4cb16f;
+    font-size: 33rpx;
 }
 .slogon2 {
     padding-top: 20rpx;
     line-height: 1.8rem;
-    font-size: 38rpx;
+    font-size: 33rpx;
 }
 .info_block .expand-btn {
     color: #4cb16f;
     bottom: 0;
     right: 0;
     position: relative;
+    font-size: 33rpx;
 }
 .info_block .step{
     width: 80%;
@@ -145,6 +147,7 @@
     text-align: left;
     background-color: #ffffff;
     font-size:33rpx;
+    color: #20492e;
 }
 
 .info_block .brief-text {

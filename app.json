@@ -13,8 +13,6 @@
     "pages/question/nephroticPeriod/nephroticPeriod",
     "pages/question/irritability/irritability",
     "pages/summary/summary",
-    "pages/logFood/logFood",
-    "pages/logFoodDetail/logFoodDetail",
     "pages/logFood1/logFood",
     "pages/logFoodDetail1/logFoodDetail",
     "pages/suggestDiet/suggestDiet",
