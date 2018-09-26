@@ -4,7 +4,7 @@
   <view class='calendar_block'>
   <calendar
           weeks-type="cn"
-          cell-size="45"
+          cell-size="40"
           bindprevMonth="switchMonth"
           bindnextMonth="switchMonth"
           binddateChange="switchMonth"

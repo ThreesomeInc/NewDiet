@@ -49,6 +49,7 @@
   margin: 0 auto;
   text-align: left;
   color: #20492e;
+  font-size: 90%;
 }
 .adviseIndex {
   width: 45rpx;
@@ -64,6 +65,7 @@
   text-align: left;
   font-style: italic;
   color: #a9a9a9;
+  font-size: 85%;
 }
 
 .knowledge-block {
@@ -73,6 +75,7 @@
   color: #20492e;
   border: 1px solid #20492e;
   border-radius: 10rpx;
+  font-size: 90%;
 }
 .kheader {
   background-color: #4cb16f;
@@ -91,6 +94,7 @@
   width: 85%;
   margin: 0 auto;
   margin-bottom: 50rpx;
+  font-size: 90%;
 }
 .basicInfoSummary{
   width: 90%;
@@ -105,6 +109,7 @@
     color: #20492e;
     width: 75%;
     margin: 0rpx auto;
+    font-size: 90%;
 }
 .bold {
   font-style: bold;
