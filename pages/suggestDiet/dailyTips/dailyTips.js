@@ -70,9 +70,9 @@ Page({
                 return {
                   recipeId: item2.recipeId,
                   recipeName: item2.recipeName,
-                  shortIntroduction: "建议食用" + Object.entries(item2.materials)
+                  shortIntroduction: util.cutMessage("建议食用" + Object.entries(item2.materials)
                     .map(item3 => item3[0] + item3[1] + "克")
-                    .join(","),
+                    .join(","), 15),
                   protein: "含" + item2.protein + "克蛋白"
                 };
               })

@@ -38,8 +38,9 @@ page{
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  overflow-x: hidden;
   margin:0rpx;
-} 
+}
 
 .question-container {
   background-color: white;
@@ -54,7 +55,7 @@ page{
   box-sizing: border-box;
   text-align: center;
   border-radius: 30rpx;
-} 
+}
 
 /* Big logo for Question pages */
 .big-logo {
@@ -80,7 +81,7 @@ page{
 .question-header {
   font-weight: bold;
   font-size: 45rpx;
-  text-align: center;  
+  text-align: center;
 }
 
 /* Picker Question Page */
@@ -141,7 +142,7 @@ picker-view-column {
   flex-flow: row;
   border-bottom: 0;
   color: #20492e;
-  margin: 5rpx; 
+  margin: 5rpx;
 }
 .mini-tab-header {
   background-color: #4cb16f;
