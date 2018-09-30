@@ -14,22 +14,7 @@
         </block>
       </view>
  
-
-  <!-- Not yet input body info -->
-  <block wx:if="{{!hasUserBodyInfo}}">
-      <view class="slogon1 center dark-green">
-        <text>{{slogon1}}</text>
-      </view>
-      <view class="slogon2 center dark-green">
-        <text>{{slogon2}}</text>
-      </view>
-      <view class="questionButtonView">
-        <button bindtap='goToQuestions' class='questionButton'>{{motto}}</button>
-      </view>
-  </block>
-
-  <!-- Already input body info -->
-  <block wx:else>
+  <block>
     <template is="menuWithIconAndRightImage" data="{{...menu}}"/>
   </block>
 </view>

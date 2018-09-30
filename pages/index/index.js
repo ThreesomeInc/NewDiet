@@ -1,18 +1,14 @@
 //index.js
 //获取应用实例
-let sdk = require('../../vendor/wafer2-client-sdk/index');
+//let sdk = require('../../vendor/wafer2-client-sdk/index');
 let util = require('../../utils/util.js');
 const app = getApp();
 
 Page({
   data: {
-    motto: '只需九步，了解自己更多',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    slogon1: '知道怎样吃得好又吃的饱?',
-    slogon2: '肾脏营养师\n为您规划一日三餐!',
-    hasUserBodyInfo: false,
     basicInfoSummary: [],
     menu: {
       menuList: [
@@ -49,12 +45,7 @@ Page({
       ]
     },
   },
-  //事件处理函数
-  goToQuestions: function () {
-    wx.navigateTo({
-      url: '../question/gender/gender?postUpdate=false'
-    })
-  },
+
   onLoad: function () {
     if (app.globalData.logoUrl) {
       this.setData({
@@ -106,17 +97,10 @@ Page({
     try {
       var info = wx.getStorageSync('userBodyInfo');
       if (info != "") {
-        this.setData({
-          hasUserBodyInfo: true,
-        });
         app.globalData.userBodyInfo = info;
         console.log("Session contained userBodyInfo.");
         console.log(app.globalData.userBodyInfo);
-      } else {
-        this.setData({
-          hasUserBodyInfo: false,
-        });
-      }
+      } 
       if (wx.getStorageSync("basicInfoSummary")) {
         this.setData({
           basicInfoSummary: wx.getStorageSync("basicInfoSummary")
@@ -127,9 +111,6 @@ Page({
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!');
       console.log(e);
-      this.setData({
-        hasUserBodyInfo: false,
-      });
     }
   },
 
