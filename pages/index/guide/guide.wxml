@@ -1,5 +1,5 @@
 <!--pages/index/guide/guide.wxml-->
-<swiper indicator-dots="false" autoplay="true" interval="3000" bindchange="swiperChange"
+<swiper indicator-dots="false" autoplay="true" interval="2500" bindchange="swiperChange"
   current="{{currentIndex}}">
   <block wx:for="{{imgs}}">
     <swiper-item class="swiper-items">
