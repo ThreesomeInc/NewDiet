@@ -24,15 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const currentDate = year + "-" + util.formatNumber(month) + "-" + util.formatNumber(day);
-    this.setData({
-      headerText: currentDate,
-      currentDate: currentDate,
-    });
+    this.freshDay();
 
     let dailyRecommendation = wx.getStorageSync('dailyRecommendation');
     if (!dailyRecommendation
@@ -43,6 +35,18 @@ Page({
         mealList: dailyRecommendation,
       });
     }
+  },
+
+  freshDay: function () {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const currentDate = year + "-" + util.formatNumber(month) + "-" + util.formatNumber(day);
+    this.setData({
+      headerText: currentDate,
+      currentDate: currentDate,
+    });
   },
 
   /**
@@ -64,15 +68,15 @@ Page({
           .filter(item => item[0] in this.data.aliasMap)
           .map(item => {
             return {
-              effectDate: this.data.headerText,
+              effectDate: this.data.currentDate,
               meatime: this.data.aliasMap[item[0]],
               recipeList: item[1].map(item2 => {
                 return {
                   recipeId: item2.recipeId,
                   recipeName: item2.recipeName,
                   shortIntroduction: util.cutMessage("建议食用" + Object.entries(item2.materials)
-                    .map(item3 => item3[0] + item3[1] + "克")
-                    .join(","), 15),
+                      .map(item3 => item3[0] + item3[1] + "克")
+                      .join(","), 15),
                   protein: "含" + item2.protein + "克蛋白"
                 };
               })
@@ -82,7 +86,7 @@ Page({
         wx.setStorageSync('dailyRecommendation', mealListResult);
         _this.setData({
           mealList: mealListResult,
-        })
+        });
         console.log(mealListResult);
       },
 
@@ -103,7 +107,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.freshDay();
   },
 
   /**
