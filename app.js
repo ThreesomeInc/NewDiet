@@ -98,8 +98,8 @@ App({
       .then((isConnected) => this.globalData.isNetworkConnected = isConnected)
       .catch((isConnected) => this.globalData.isNetworkConnected = isConnected);
     wx.onNetworkStatusChange(res => {
-      this.globalData.isNetworkConnected = false;
       if (res.networkType === 'none') {
+        this.globalData.isNetworkConnected = false;
         wx.showToast({
           title: '当前没有网络!',
           mask: true,
@@ -110,12 +110,15 @@ App({
         if (!this.globalData.authInfo.openid) {
           this.wxLogin();
         }
-        this.globalData.isNetworkConnected = true;
-        let curpage = util.getCurrentPageUrlWithArgs();
-        wx.reLaunch({
-          url: "/" + curpage
-        });
+        if (!this.globalData.isNetworkConnected) {
+          let curpage = util.getCurrentPageUrlWithArgs();
+          wx.reLaunch({
+            url: "/" + curpage
+          });
+          this.globalData.isNetworkConnected = true;
+        }
       } else {// for Android Unknown status
+        this.globalData.isNetworkConnected = false;
         wx.showToast({
           title: '网络情况异常!',
           image: this.globalData.imageBasePath + "/public/error.png",
