@@ -113,7 +113,7 @@ App({
         this.globalData.isNetworkConnected = true;
         let curpage = util.getCurrentPageUrlWithArgs();
         wx.reLaunch({
-          url: "/" + curpage.route
+          url: "/" + curpage
         });
       } else {// for Android Unknown status
         wx.showToast({
