@@ -340,7 +340,8 @@ Page({
     //   withShareTicket: true
     // });
   },
-    onShareAppMessage: function (ops) {
+
+  onShareAppMessage: function (ops) {
     if (ops.from === 'button') {
       // 来自页面内转发按钮
       console.log(ops.target)

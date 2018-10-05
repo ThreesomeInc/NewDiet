@@ -34,7 +34,7 @@
 
     <view class="summaryReportButtonView">
       <button bindtap='goBackMain' id='goBackMain'>{{goBackMain}}</button>
-      <button open-type="share" id='goShare'>{{goShare}}</button>
+      <button catchtap="onShareAppMessage" open-type="share" id='goShare'>{{goShare}}</button>
     </view>
 </view>
 
