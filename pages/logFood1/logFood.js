@@ -336,5 +336,8 @@ Page({
       mealtime: app.globalData.mealtime,
       openId: app.globalData.authInfo.openid
     });
+    wx.showShareMenu({
+      withShareTicket: true
+    });
   }
 });

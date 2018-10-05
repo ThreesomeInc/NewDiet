@@ -7,7 +7,7 @@ Page({
   data: {
     imgs: [
       "https://kidneyhealty.com.cn/images/guide1.jpg",     
-      "https://kidneyhealty.com.cn/images/guide2.jpg",
+      // "https://kidneyhealty.com.cn/images/guide2.jpg",
       "",
     ],
   },

@@ -127,6 +127,7 @@ App({
         util.showModel('获取食材分类错误', result.msg)
       },
     });
+
   },
   globalData: {
     authInfo: {

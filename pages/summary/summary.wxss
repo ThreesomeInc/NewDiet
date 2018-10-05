@@ -30,6 +30,7 @@
     border-radius: 40rpx;
     background-color: #4cb16f;
     width: 70%;
+    margin: 5rpx;
 }
 
 .report-header {
