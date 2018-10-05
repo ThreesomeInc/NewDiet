@@ -1,6 +1,6 @@
 // pages/foodDetail.js
 const app = getApp();
-
+let util = require('../../../utils/util.js');
 
 Page({
 
@@ -55,8 +55,10 @@ Page({
           "Content-Type": "application/json"
         },
         dataType: "json",
-        success: res => {
+        complete: res => {
           wx.hideLoading();
+        },
+        success: res => {
           if (res.data.frequency !== undefined) {
             this.data.preferenceMap.forEach(item => {
               item.default_checked = (item.key === res.data.frequency);
@@ -75,7 +77,7 @@ Page({
 
         },
         fail: res => {
-          wx.hideLoading();
+          util.showModel('请求失败,请检查网络', res);
         }
       });
     }
@@ -99,6 +101,10 @@ Page({
     let preference = e.detail.value;
     console.log(preference);
     let foodCode = this.data.foodCode;
+    wx.showLoading({
+      title: "正在加载食材信息...",
+      mask: true
+    });
     wx.request({
       url: app.globalData.apiBase + "/food/preference",
       data: {
@@ -123,6 +129,7 @@ Page({
         }
       },
       fail: res => {
+        util.showModel('请求失败,请检查网络', res);
       }
     });
   },

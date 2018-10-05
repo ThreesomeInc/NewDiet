@@ -89,12 +89,19 @@ Page({
 
   loadCalendar: function () {
     let logMonth = this.data.year + "-" + util.formatNumber(this.data.month);
+    wx.showLoading({
+      title: "加载报告列表中",
+      mask: true
+    });
     wx.request({
       url: app.globalData.apiBase + "/foodLog/reports",
       method: "POST",
       data: {
         openId: app.globalData.authInfo.openid,
         month: logMonth,
+      },
+      complete: res => {
+        wx.hideLoading();
       },
       success: res => {
         let hasReportsDates = res.data.logDateList;
@@ -104,10 +111,7 @@ Page({
         this.refreshCalendarDates();
       },
       fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
+        util.showModel('请求失败,请检查网络', res);
       }
     });
   },
@@ -138,12 +142,19 @@ Page({
     if (!logDate) {
       logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
     }
+    wx.showLoading({
+      title: "加载报告中",
+      mask: true
+    });
     wx.request({
       url: app.globalData.apiBase + "/foodLog/analysis",
       method: "GET",
       data: {
         openId: app.globalData.authInfo.openid,
         date: logDate,
+      },
+      complete: res => {
+        wx.hideLoading();
       },
       success: res => {
         console.log(res.data);
@@ -201,10 +212,7 @@ Page({
         }
       },
       fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
+        util.showModel('请求失败,请检查网络', res);
       }
     });
   },

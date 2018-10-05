@@ -1,5 +1,6 @@
 // pages/suggestDiet/meal/meal.js
 const app = getApp();
+let util = require('../../../utils/util.js');
 Page({
 
   /**
@@ -60,6 +61,9 @@ Page({
       wx.request({
         url: app.globalData.apiBase + "/recipe/" + item.key,
         method: "GET",
+        complete: res => {
+          wx.hideLoading();
+        },
         success: res => {
           if (!res.data.recipeTypeList) return;
           let param = {};
@@ -67,7 +71,7 @@ Page({
           this.setData(param);
         },
         fail: res => {
-
+          util.showModel('请求失败,请检查网络', res);
         }
       });
     });
@@ -95,16 +99,16 @@ Page({
     wx.request({
       url: app.globalData.apiBase + "/recipe/search/" + e.detail.value,
       method: "GET",
+      complete: res => {
+        wx.hideLoading();
+      },
       success: res => {
         this.setData({
           recipeList: res.data.recipeList
         })
       },
       fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
+        util.showModel('请求失败,请检查网络', res);
       }
     });
     console.log(this.data.inputVal);

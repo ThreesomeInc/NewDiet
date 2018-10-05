@@ -1,4 +1,5 @@
 const app = getApp();
+let util = require('../../../utils/util.js');
 Page({
   data: {
     inputShowed: false,
@@ -36,16 +37,16 @@ Page({
       data: {
         alias: e.detail.value
       },
+      complete: res => {
+        wx.hideLoading();
+      },
       success: res => {
         this.setData({
           foodList: res.data.foodList
         })
       },
       fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
+        util.showModel('请求失败,请检查网络', res);
       }
     });
     console.log(this.data.inputVal);

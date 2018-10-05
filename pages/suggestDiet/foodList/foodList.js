@@ -1,4 +1,5 @@
-const app = getApp()
+const app = getApp();
+let util = require('../../../utils/util.js');
 Page({
   data: {
     inputShowed: false,
@@ -27,8 +28,10 @@ Page({
           "Content-Type": "application/json"
         },
         dataType: "json",
-        success: res => {
+        complete: res => {
           wx.hideLoading();
+        },
+        success: res => {
           console.log(res);
           that.setData({
             foodList: res.data.foodList,
@@ -36,7 +39,6 @@ Page({
           });
         },
         fail: res => {
-          wx.hideLoading();
           console.log(res);
         }
       })

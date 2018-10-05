@@ -29,8 +29,10 @@ App({
           method: "GET",
           header: header,
           dataType: "json",
-          success: (result) => {
+          complete: res => {
             wx.hideLoading();
+          },
+          success: (result) => {
             wx.setStorageSync('skey', result.data.session_key);
             wx.setStorageSync('openid', result.data.openid);
             console.log("登录后台成功");
@@ -57,12 +59,14 @@ App({
                             skey: result.data.session_key
                           },
                           dataType: "json",
+                          complete: res => {
+                            wx.hideLoading();
+                          },
                           success: (result2) => {
 
                           },
 
                           fail: (result2) => {
-                            wx.hideLoading();
                             util.showModel('登录后台错误', result2.msg)
                           },
                         });
@@ -83,7 +87,6 @@ App({
           },
 
           fail: (result) => {
-            wx.hideLoading();
             util.showModel('登录后台错误', result.msg)
           },
         });
@@ -104,6 +107,9 @@ App({
           duration: 1000
         });
       } else if (res.isConnected) {
+        if (!this.globalData.authInfo.openid) {
+          this.wxLogin();
+        }
         this.globalData.isNetworkConnected = true;
         let curpage = util.getCurrentPageUrlWithArgs();
         wx.reLaunch({
@@ -123,6 +129,9 @@ App({
     wx.request({
       url: this.globalData.apiBase + "/recipe",
       method: "GET",
+      complete: res => {
+        wx.hideLoading();
+      },
       success: res => {
         this.globalData.recipeTypes = res.data.recipeTypes;
       },
@@ -133,6 +142,9 @@ App({
     wx.request({
       url: this.globalData.apiBase + "/recipe/mealtime",
       method: "GET",
+      complete: res => {
+        wx.hideLoading();
+      },
       success: res => {
         this.globalData.mealtime = res.data.recipeTypeList;
       },
@@ -147,6 +159,9 @@ App({
         "Content-Type": "application/json"
       },
       dataType: "json",
+      complete: res => {
+        wx.hideLoading();
+      },
       success: (result) => {
         console.log("foodTypeList:" + result.data.foodTypeList);
         this.globalData.foodTypeList = result.data.foodTypeList;

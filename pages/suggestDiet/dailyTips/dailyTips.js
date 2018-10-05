@@ -54,6 +54,10 @@ Page({
    */
   refreshRecommendation: function (e) {
     console.log("Get new batch of recommendation recipe.");
+    wx.showLoading({
+      title: "加载中",
+      mask: true
+    });
     let _this = this;
     wx.request({
       url: app.globalData.apiBase + "/meals/recommendation",
@@ -62,6 +66,9 @@ Page({
         openId: app.globalData.authInfo.openid
       },
       dataType: "json",
+      complete: res => {
+        wx.hideLoading();
+      },
       success: (result) => {
         console.log(result.data);
         let mealListResult = Object.entries(result.data)

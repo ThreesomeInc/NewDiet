@@ -1,5 +1,6 @@
 // pages/suggestDiet/recipeDetail/recipeDetail.js
 const app = getApp();
+let util = require('../../../utils/util.js');
 Page({
 
   /**
@@ -51,8 +52,10 @@ Page({
           "Content-Type": "application/json"
         },
         dataType: "json",
-        success: res => {
+        complete: res => {
           wx.hideLoading();
+        },
+        success: res => {
           console.log(res);
           if (res.data.preference !== undefined) {
             this.data.preferenceMap.forEach(item => {
@@ -79,8 +82,8 @@ Page({
           });
         },
         fail: res => {
-          wx.hideLoading();
           console.log(res);
+          util.showModel('请求失败,请检查网络', res);
         }
       })
     }
@@ -122,6 +125,9 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       dataType: "json",
+      complete: res => {
+        wx.hideLoading();
+      },
       success: res => {
         if (res.data.status === 500) {
           wx.showModal({
@@ -133,6 +139,7 @@ Page({
         }
       },
       fail: res => {
+        util.showModel('请求失败,请检查网络', res);
       }
     });
   },

@@ -1,5 +1,6 @@
 // pages/suggestDiet/recipeList.js
 const app = getApp();
+let util = require('../../../utils/util.js');
 Page({
 
   /**
@@ -32,8 +33,10 @@ Page({
           "Content-Type": "application/json"
         },
         dataType: "json",
-        success: res => {
+        complete: res => {
           wx.hideLoading();
+        },
+        success: res => {
           console.log(res);
           that.setData({
             recipeList: res.data.recipeList,
@@ -41,8 +44,8 @@ Page({
           });
         },
         fail: res => {
-          wx.hideLoading();
           console.log(res);
+          util.showModel('请求失败,请检查网络', res);
         }
       })
     }
@@ -96,4 +99,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+});

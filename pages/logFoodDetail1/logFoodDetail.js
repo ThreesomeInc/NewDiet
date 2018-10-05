@@ -1,5 +1,6 @@
 // pages/logFoodDetail/logFoodDetail.js
 const app = getApp();
+let util = require('../../utils/util.js');
 Page({
 
   /**
@@ -62,9 +63,16 @@ Page({
         selectedFood: this.data.selectedFood,
       });
     }
+    wx.showLoading({
+      title: "加载中",
+      mask: true
+    });
     wx.request({
       url: app.globalData.apiBase + "/foodLog/food/" + foodId,
       method: "GET",
+      complete: res => {
+        wx.hideLoading();
+      },
       success: res => {
         this.data.selectedFood.push({
           foodId: res.data.foodId,
@@ -116,16 +124,16 @@ Page({
       data: {
         alias: e.detail.value
       },
+      complete: res => {
+        wx.hideLoading();
+      },
       success: res => {
         this.setData({
           foodList: res.data.foodList
         })
       },
       fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
+        util.showModel('请求失败,请检查网络', res);
       }
     });
     console.log(this.data.inputVal);
@@ -161,6 +169,10 @@ Page({
       });
       return;
     }
+    wx.showLoading({
+      title: "保存记录中",
+      mask: true
+    });
     wx.request({
       url: app.globalData.apiBase + "/foodLog",
       method: "POST",
@@ -170,6 +182,9 @@ Page({
         mealTime: this.data.mealtime,
         foodLogItems: this.data.selectedFood.concat(this.data.existingFood),
       },
+      complete: res => {
+        wx.hideLoading();
+      },
       success: res => {
 
         wx.navigateBack({
@@ -177,10 +192,7 @@ Page({
         })
       },
       fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
+        util.showModel('请求失败,请检查网络', res);
       }
     });
   },
@@ -249,6 +261,9 @@ Page({
         openId: _this.data.openId,
         date: _this.data.logDate,
         mealtime: _this.data.mealtime,
+      },
+      complete: res => {
+        wx.hideLoading();
       },
       success: res => {
         let currentRecord = res.data.dietRecordList.filter(item => item.mealtime === _this.data.mealtime);

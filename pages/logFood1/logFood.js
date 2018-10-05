@@ -88,8 +88,10 @@ Page({
           openId: app.globalData.authInfo.openid,
           date: logDate,
         },
-        success: res => {
+        complete: res => {
           wx.hideLoading();
+        },
+        success: res => {
           let currentRecord = res.data.dietRecordList;
           console.log(currentRecord);
           if (currentRecord.length > 0) {
@@ -165,11 +167,7 @@ Page({
           this.resetColor();
         },
         fail: res => {
-          wx.hideLoading();
-          wx.showToast({
-            title: res,
-            icon: 'success'
-          });
+          util.showModel('请求失败,请检查网络', res);
         }
       });
     }
@@ -198,6 +196,9 @@ Page({
           date: logDate,
           checked: true
         },
+        complete: res => {
+          wx.hideLoading();
+        },
         success: res => {
           console.log(res.data);
         }
@@ -210,6 +211,9 @@ Page({
           openId: app.globalData.authInfo.openid,
           date: logDate,
           checked: false
+        },
+        complete: res => {
+          wx.hideLoading();
         },
         success: res => {
           console.log(res.data);
@@ -279,8 +283,10 @@ Page({
         mealTime: mealtime,
         foodLogItems: foodList.map(item => item.object),
       },
-      success: res => {
+      complete: res => {
         wx.hideLoading();
+      },
+      success: res => {
         console.log(res);
         this.setData({
           mealFoodMap: this.data.mealFoodMap,
@@ -288,10 +294,7 @@ Page({
         this.loadFood();
       },
       fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
+        util.showModel('请求失败,请检查网络', res);
       }
     });
 
