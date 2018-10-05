@@ -48,8 +48,8 @@ Page({
     hasMealRecord: false,
     proteinPieText: '蛋白质摄入\n',
     energyPieText: '热量摄入\n',
-    expectedProtein: null,
-    expectedEnergy: null,
+    expectedProtein: 0,
+    expectedEnergy: 0,
     proteinEaten: 0,
     energyEaten: 0,
     protein_color: '#ffffff',
@@ -77,6 +77,10 @@ Page({
   loadFood: function () {
     if (this.data.year && this.data.month && this.data.currentDate) {
       let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
+      wx.showLoading({
+        title: "加载用餐记录中",
+        mask: true
+      });
       wx.request({
         url: app.globalData.apiBase + "/foodLog/single",
         method: "GET",
@@ -85,6 +89,7 @@ Page({
           date: logDate,
         },
         success: res => {
+          wx.hideLoading();
           let currentRecord = res.data.dietRecordList;
           console.log(currentRecord);
           if (currentRecord.length > 0) {
@@ -160,6 +165,7 @@ Page({
           this.resetColor();
         },
         fail: res => {
+          wx.hideLoading();
           wx.showToast({
             title: res,
             icon: 'success'

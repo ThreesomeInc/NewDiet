@@ -11,7 +11,10 @@ App({
       this.globalData.userBodyInfo = bodyInfo;
     }
     this.initCategories();
-    // 登录
+    this.bindNetworkChangeRefresh();
+    this.wxLogin();
+  },
+  wxLogin: function () {
     wx.login({
       success: res => {
         console.log(res);
@@ -20,10 +23,6 @@ App({
           "X-WX-Code": res.code
         };
         console.log("登录中...");
-        // wx.showLoading({
-        //   title: "登录中...",
-        //   mask: true
-        // });
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
           url: this.globalData.apiBase + "/common/wxLogin",
@@ -91,6 +90,35 @@ App({
       }
     });
   },
+  bindNetworkChangeRefresh: function () {
+    util.networkTypePromise()
+      .then((isConnected) => this.globalData.isNetworkConnected = isConnected)
+      .catch((isConnected) => this.globalData.isNetworkConnected = isConnected);
+    wx.onNetworkStatusChange(res => {
+      this.globalData.isNetworkConnected = false;
+      if (res.networkType === 'none') {
+        wx.showToast({
+          title: '当前没有网络!',
+          mask: true,
+          icon: "loading",
+          duration: 1000
+        });
+      } else if (res.isConnected) {
+        this.globalData.isNetworkConnected = true;
+        let curpage = util.getCurrentPageUrlWithArgs();
+        wx.reLaunch({
+          url: "/" + curpage.route
+        });
+      } else {// for Android Unknown status
+        wx.showToast({
+          title: '网络情况异常!',
+          image: this.globalData.imageBasePath + "/public/error.png",
+          mask: true,
+          duration: 1000
+        });
+      }
+    })
+  },
   initCategories: function () {
     wx.request({
       url: this.globalData.apiBase + "/recipe",
@@ -135,6 +163,7 @@ App({
       openid: null
     },
     mealtime: [],
+    isNetworkConnected: true,
     foodTypeList: null,
     recipeTypes: null,
     userInfo: null,

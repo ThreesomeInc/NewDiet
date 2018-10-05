@@ -85,6 +85,45 @@ const getAliasMultiOption = (options, value) => parameterMap[options].filter(ite
 
 const cutMessage = (source, length) => source.length > length ? source.substr(0, length) + "..." : source;
 
+const getCurrentPageUrl = () => {
+  let pages = getCurrentPages();
+  let currentPage = pages[pages.length - 1];
+  return currentPage.route;
+};
+
+const getCurrentPageUrlWithArgs = () => {
+  let pages = getCurrentPages();
+  let currentPage = pages[pages.length - 1];
+  let url = currentPage.route;
+  let options = currentPage.options;
+
+  let urlWithArgs = url + '?';
+  for (let key in options) {
+    let value = options[key];
+    urlWithArgs += key + '=' + value + '&';
+  }
+  urlWithArgs = urlWithArgs.substring(0, urlWithArgs.length - 1);
+
+  return urlWithArgs
+};
+
+const networkTypePromise = () => new Promise((resolve, reject) => {
+  let req = wx.getNetworkType({
+    success: function (res) {
+      var networkType = res.networkType;
+      if (networkType === 'none') {
+        resolve(false)
+      } else {
+        resolve(true)
+      }
+    },
+    fail() {
+      reject(false)
+    }
+  });
+  console.log(req);
+});
+
 module.exports = {
   formatTime: formatTime,
   formatNumber: formatNumber,
@@ -98,4 +137,7 @@ module.exports = {
   getAliasSingleOption: getAliasSingleOption,
   cutMessage: cutMessage,
   getAliasMultiOption: getAliasMultiOption,
+  getCurrentPageUrl: getCurrentPageUrl,
+  getCurrentPageUrlWithArgs: getCurrentPageUrlWithArgs,
+  networkTypePromise: networkTypePromise,
 };
