@@ -183,10 +183,17 @@ Page({
         wx.hideLoading();
       },
       success: res => {
-
-        wx.navigateBack({
-          delta: -1
-        })
+        let pageCount = getCurrentPages().length;
+        console.log(pageCount);
+        if (pageCount > 1) {
+          wx.navigateBack({
+            delta: -1
+          });
+        } else {
+          wx.reLaunch({
+            url: "/pages/logFood1/logFood"
+          });
+        }
       },
       fail: res => {
         util.showModel('请求失败,请检查网络', res.errMsg);
