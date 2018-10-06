@@ -21,6 +21,7 @@ Page({
     cookMethodText: [],
     showExpand: false,
     needExpand: false,
+    showCookMethodText: false,
     briefText: "",
   },
 
@@ -76,6 +77,7 @@ Page({
             recipe_composition: recipe_composition,
             preferenceMap: this.data.preferenceMap,
             cookMethodText: recipeInfo.cookingNote !== undefined ? recipeInfo.cookingNote.split("\n") : "",
+            showCookMethodText: recipeInfo.cookingNote !== "" ? true:false,
             showExpand: showBrief,
             needExpand: showBrief,
             briefText: showBrief ? recipeInfo.cookingNote.substr(0, 30) : "",
@@ -85,6 +87,7 @@ Page({
           console.log(res);
           util.showModel('请求失败,请检查网络', res.errMsg);
         }
+        
       })
     }
   },

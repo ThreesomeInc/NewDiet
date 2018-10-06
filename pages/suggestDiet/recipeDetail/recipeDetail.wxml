@@ -28,6 +28,7 @@
 		</block>
 	</view>
 
+<block wx:if="{{showCookMethodText}}">
 	<view class="info_block step-block">
 		<view class="advise title">烹饪步骤</view>
 		<block wx:if="{{!showExpand}}">
@@ -39,6 +40,7 @@
 			<view class="expand-btn" wx:if="{{needExpand}}" bindtap="toggleBrief">...展开</view>
 		</block>
 	</view>
+  </block>
 
 	<view class="info_block">
 		<view class="advise title">营养师建议</view>

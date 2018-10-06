@@ -57,22 +57,7 @@ Page({
     })
   },
 
-  // onShareAppMessage: function () {
-  //   return {
-  //     title: '肾脏健康营养师',
-  //     path: '/pages/index/guide/guide',
-  //     imageUrl: 'https://kidneyhealty.com.cn/images/guide2.jpg',
-  //     success: function (res) {
-  //       // 转发成功
-  //       console.log("转发成功:" + JSON.stringify(res));
-  //     },
-  //     fail: function (res) {
-  //       // 转发失败
-  //       console.log("转发失败:" + JSON.stringify(res));
-  //     }
-  //   }
-  // },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
