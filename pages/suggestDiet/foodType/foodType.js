@@ -7,6 +7,9 @@ Page({
     foodList: []
   },
   onShow: function () {
+    if (app.globalData.foodTypeList === null || app.globalData.foodTypeList.length === 0) {
+      app.initCategories();
+    }
     this.setData({
       foodTypeList: app.globalData.foodTypeList
     });
@@ -46,7 +49,7 @@ Page({
         })
       },
       fail: res => {
-        util.showModel('请求失败,请检查网络', res);
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
     console.log(this.data.inputVal);

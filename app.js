@@ -87,7 +87,7 @@ App({
           },
 
           fail: (result) => {
-            util.showModel('登录后台错误', result.msg)
+            util.showModel('登录后台错误', result.errMsg)
           },
         });
       }
@@ -98,8 +98,8 @@ App({
       .then((isConnected) => this.globalData.isNetworkConnected = isConnected)
       .catch((isConnected) => this.globalData.isNetworkConnected = isConnected);
     wx.onNetworkStatusChange(res => {
-      this.globalData.isNetworkConnected = false;
       if (res.networkType === 'none') {
+        this.globalData.isNetworkConnected = false;
         wx.showToast({
           title: '当前没有网络!',
           mask: true,
@@ -110,12 +110,15 @@ App({
         if (!this.globalData.authInfo.openid) {
           this.wxLogin();
         }
-        this.globalData.isNetworkConnected = true;
-        let curpage = util.getCurrentPageUrlWithArgs();
-        wx.reLaunch({
-          url: "/" + curpage.route
-        });
+        if (!this.globalData.isNetworkConnected) {
+          let curpage = util.getCurrentPageUrlWithArgs();
+          wx.reLaunch({
+            url: "/" + curpage
+          });
+          this.globalData.isNetworkConnected = true;
+        }
       } else {// for Android Unknown status
+        this.globalData.isNetworkConnected = false;
         wx.showToast({
           title: '网络情况异常!',
           image: this.globalData.imageBasePath + "/public/error.png",
@@ -136,7 +139,7 @@ App({
         this.globalData.recipeTypes = res.data.recipeTypes;
       },
       fail: res => {
-        util.showModel('获取食谱分类错误', result.msg)
+        util.showModel('获取食谱分类错误', res.errMsg)
       }
     });
     wx.request({
@@ -149,7 +152,7 @@ App({
         this.globalData.mealtime = res.data.recipeTypeList;
       },
       fail: res => {
-        util.showModel('获取分类错误', result.msg)
+        util.showModel('获取分类错误', res.errMsg)
       }
     });
     wx.request({
@@ -167,7 +170,7 @@ App({
         this.globalData.foodTypeList = result.data.foodTypeList;
       },
       fail: (result) => {
-        util.showModel('获取食材分类错误', result.msg)
+        util.showModel('获取食材分类错误', result.errMsg)
       },
     });
 

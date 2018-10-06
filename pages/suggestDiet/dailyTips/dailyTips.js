@@ -98,7 +98,7 @@ Page({
       },
 
       fail: (result) => {
-        wx.showModel('后台错误', result.msg)
+        wx.showModel('后台错误', result.errMsg)
       },
     });
   },

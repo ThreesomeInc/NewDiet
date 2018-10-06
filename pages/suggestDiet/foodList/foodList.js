@@ -40,6 +40,7 @@ Page({
         },
         fail: res => {
           console.log(res);
+          util.showModel('请求失败,请检查网络', res.errMsg);
         }
       })
     }

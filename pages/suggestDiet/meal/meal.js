@@ -54,6 +54,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (app.globalData.recipeTypes === null || app.globalData.recipeTypes.length === 0) {
+      app.initCategories();
+    }
     this.setData({
       types: app.globalData.recipeTypes
     });
@@ -71,7 +74,7 @@ Page({
           this.setData(param);
         },
         fail: res => {
-          util.showModel('请求失败,请检查网络', res);
+          util.showModel('请求失败,请检查网络', res.errMsg);
         }
       });
     });
@@ -108,7 +111,7 @@ Page({
         })
       },
       fail: res => {
-        util.showModel('请求失败,请检查网络', res);
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
     console.log(this.data.inputVal);

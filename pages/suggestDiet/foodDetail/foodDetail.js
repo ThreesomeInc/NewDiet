@@ -77,7 +77,7 @@ Page({
 
         },
         fail: res => {
-          util.showModel('请求失败,请检查网络', res);
+          util.showModel('请求失败,请检查网络', res.errMsg);
         }
       });
     }
@@ -102,7 +102,7 @@ Page({
     console.log(preference);
     let foodCode = this.data.foodCode;
     wx.showLoading({
-      title: "正在加载食材信息...",
+      title: "正在更新信息...",
       mask: true
     });
     wx.request({
@@ -118,6 +118,9 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       dataType: "json",
+      complete: res => {
+        wx.hideLoading();
+      },
       success: res => {
         if (res.data.status === 500) {
           wx.showModal({
@@ -129,7 +132,7 @@ Page({
         }
       },
       fail: res => {
-        util.showModel('请求失败,请检查网络', res);
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
   },

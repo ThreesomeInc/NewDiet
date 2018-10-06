@@ -83,7 +83,7 @@ Page({
         },
         fail: res => {
           console.log(res);
-          util.showModel('请求失败,请检查网络', res);
+          util.showModel('请求失败,请检查网络', res.errMsg);
         }
       })
     }
@@ -112,6 +112,10 @@ Page({
     let preference = e.detail.value;
     console.log(preference);
     let recipeCode = this.data.recipeCode;
+    wx.showLoading({
+      title: "正在更新信息...",
+      mask: true
+    });
     wx.request({
       url: app.globalData.apiBase + "/recipe/preference",
       data: {
@@ -139,7 +143,7 @@ Page({
         }
       },
       fail: res => {
-        util.showModel('请求失败,请检查网络', res);
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
   },

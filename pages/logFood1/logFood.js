@@ -74,8 +74,17 @@ Page({
       this.setData({energy_color: '#e35d42'})
     }
   },
+  resetDateOptions: function () {
+    let pages = getCurrentPages();
+    let currentPage = pages[pages.length - 1];
+    let options = currentPage.options;
+    options.year = this.data.year;
+    options.month = this.data.month;
+    options.currentDate = this.data.currentDate;
+  },
   loadFood: function () {
     if (this.data.year && this.data.month && this.data.currentDate) {
+      this.resetDateOptions();
       let logDate = this.data.year + "-" + util.formatNumber(this.data.month) + "-" + util.formatNumber(this.data.currentDate);
       wx.showLoading({
         title: "加载用餐记录中",
@@ -167,7 +176,7 @@ Page({
           this.resetColor();
         },
         fail: res => {
-          util.showModel('请求失败,请检查网络', res);
+          util.showModel('请求失败,请检查网络', res.errMsg);
         }
       });
     }
@@ -294,7 +303,7 @@ Page({
         this.loadFood();
       },
       fail: res => {
-        util.showModel('请求失败,请检查网络', res);
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
 
@@ -345,6 +354,13 @@ Page({
       mealtime: app.globalData.mealtime,
       openId: app.globalData.authInfo.openid
     });
+    if (options.year) {
+      this.setData({
+        year: options.year,
+        month: options.month,
+        currentDate: options.currentDate,
+      });
+    }
     // wx.showShareMenu({
     //   withShareTicket: true
     // });
