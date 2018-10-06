@@ -7,6 +7,9 @@ Page({
     foodList: []
   },
   onShow: function () {
+    if (app.globalData.foodTypeList === null || app.globalData.foodTypeList.length === 0) {
+      app.initCategories();
+    }
     this.setData({
       foodTypeList: app.globalData.foodTypeList
     });
