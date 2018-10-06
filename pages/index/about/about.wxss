@@ -2,12 +2,12 @@
   text-align: center;
   margin: 10rpx 50rpx;
   color: #20492e;
-  width: 85%;
+  width: 76%;
   padding: 10rpx;
 }
 
 .big-logo-view{
-  padding-top: 80rpx;
+  padding-top: 60rpx;
 }
 
 #goShare {
