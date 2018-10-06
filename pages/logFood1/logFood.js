@@ -176,7 +176,7 @@ Page({
           this.resetColor();
         },
         fail: res => {
-          util.showModel('请求失败,请检查网络', res);
+          util.showModel('请求失败,请检查网络', res.errMsg);
         }
       });
     }
@@ -303,7 +303,7 @@ Page({
         this.loadFood();
       },
       fail: res => {
-        util.showModel('请求失败,请检查网络', res);
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
 

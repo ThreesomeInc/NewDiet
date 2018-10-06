@@ -71,7 +71,7 @@ Page({
           this.setData(param);
         },
         fail: res => {
-          util.showModel('请求失败,请检查网络', res);
+          util.showModel('请求失败,请检查网络', res.errMsg);
         }
       });
     });
@@ -108,7 +108,7 @@ Page({
         })
       },
       fail: res => {
-        util.showModel('请求失败,请检查网络', res);
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
     console.log(this.data.inputVal);

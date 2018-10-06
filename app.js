@@ -87,7 +87,7 @@ App({
           },
 
           fail: (result) => {
-            util.showModel('登录后台错误', result.msg)
+            util.showModel('登录后台错误', result.errMsg)
           },
         });
       }
@@ -139,7 +139,7 @@ App({
         this.globalData.recipeTypes = res.data.recipeTypes;
       },
       fail: res => {
-        util.showModel('获取食谱分类错误', result.msg)
+        util.showModel('获取食谱分类错误', res.errMsg)
       }
     });
     wx.request({
@@ -152,7 +152,7 @@ App({
         this.globalData.mealtime = res.data.recipeTypeList;
       },
       fail: res => {
-        util.showModel('获取分类错误', result.msg)
+        util.showModel('获取分类错误', res.errMsg)
       }
     });
     wx.request({
@@ -170,7 +170,7 @@ App({
         this.globalData.foodTypeList = result.data.foodTypeList;
       },
       fail: (result) => {
-        util.showModel('获取食材分类错误', result.msg)
+        util.showModel('获取食材分类错误', result.errMsg)
       },
     });
 

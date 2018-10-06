@@ -88,10 +88,7 @@ Page({
         });
       },
       fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
+        util.showModel('获取食材信息错误', res.errMsg)
       }
     });
     console.log(this.data.selectedFood.edible);
@@ -133,7 +130,7 @@ Page({
         })
       },
       fail: res => {
-        util.showModel('请求失败,请检查网络', res);
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
     console.log(this.data.inputVal);
@@ -192,7 +189,7 @@ Page({
         })
       },
       fail: res => {
-        util.showModel('请求失败,请检查网络', res);
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
   },
@@ -279,10 +276,7 @@ Page({
         }
       },
       fail: res => {
-        wx.showToast({
-          title: res,
-          icon: 'success'
-        });
+        util.showModel('请求失败,请检查网络', res.errMsg);
       }
     });
   },
