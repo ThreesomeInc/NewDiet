@@ -1,8 +1,8 @@
 <view class="page">
 	<view class="info_block">
 		<view class="top_block">
-			<block wx:if="{{recipeInfo.picUrl.startsWith('https://')}}">
-				<image mode='aspectFill' class="recipe_image" src='{{recipeInfo.picUrl}}'></image>
+			<block>
+				<image mode='aspectFill' class="recipe_image" src='https://www.kidneyhealty.com.cn/images/recipe/{{recipeCode}}.jpg'></image>
 			</block>
 			<view class="right_block">
 				<view class="title_row">
