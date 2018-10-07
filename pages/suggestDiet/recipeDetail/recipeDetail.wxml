@@ -1,7 +1,7 @@
 <view class="page">
 	<view class="info_block">
 		<view class="top_block">
-			<block>
+			<block wx:if="{{recipeCode}}">
 				<image mode='aspectFill' class="recipe_image" src='https://www.kidneyhealty.com.cn/images/recipe/{{recipeCode}}.jpg'></image>
 			</block>
 			<view class="right_block">
