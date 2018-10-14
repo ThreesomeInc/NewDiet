@@ -118,8 +118,17 @@ App({
             });
             this.globalData.isNetworkConnected = true;
           };
+          let promiseList = [];
           if (!this.globalData.authInfo.openid) {
-            Promise.all([this.wxLogin(), this.initCategories()])
+            promiseList.push(this.wxLogin());
+          }
+          if (this.globalData.mealtime.length === 0 ||
+            !this.globalData.foodTypeList ||
+            !this.globalData.recipeTypes) {
+            promiseList.push(this.initCategories());
+          }
+          if (promiseList.length !== 0) {
+            Promise.all(promiseList)
               .then(networkResumeCallback, () => {
               });
           } else {
