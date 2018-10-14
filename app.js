@@ -113,9 +113,8 @@ App({
         if (!this.globalData.isNetworkConnected) {
           let networkResumeCallback = () => {
             let curpage = util.getCurrentPageUrlWithArgs();
-            wx.reLaunch({
-              url: "/" + curpage
-            });
+            curpage.page.onLoad(curpage.keys);
+            curpage.page.onShow();
             this.globalData.isNetworkConnected = true;
           };
           let promiseList = [];
