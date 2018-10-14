@@ -104,7 +104,7 @@ const getCurrentPageUrlWithArgs = () => {
   }
   urlWithArgs = urlWithArgs.substring(0, urlWithArgs.length - 1);
 
-  return urlWithArgs
+  return {url: urlWithArgs, keys: options, page: currentPage}
 };
 
 const networkTypePromise = () => new Promise((resolve, reject) => {
