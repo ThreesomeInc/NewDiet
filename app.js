@@ -15,82 +15,85 @@ App({
     this.wxLogin();
   },
   wxLogin: function () {
-    wx.login({
-      success: res => {
-        console.log(res);
-        wx.setStorageSync('wx_code', res.code);
-        const header = {
-          "X-WX-Code": res.code
-        };
-        console.log("登录中...");
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        wx.request({
-          url: this.globalData.apiBase + "/common/wxLogin",
-          method: "GET",
-          header: header,
-          dataType: "json",
-          complete: res => {
-            wx.hideLoading();
-          },
-          success: (result) => {
-            wx.setStorageSync('skey', result.data.session_key);
-            wx.setStorageSync('openid', result.data.openid);
-            console.log("登录后台成功");
-            // util.showSuccess('登录后台成功');
-            console.log(this.globalData);
-            this.globalData.authInfo.skey = result.data.session_key;
-            this.globalData.authInfo.openid = result.data.openid;
-            // 获取用户信息
-            wx.getSetting({
-              success: res2 => {
-                if (res2.authSetting['scope.userInfo']) {
-                  // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                  wx.getUserInfo({
-                    success: res3 => {
-                      console.log(res3);
-                      if (res3.iv && res3.encryptedData) {
-                        wx.request({
-                          url: this.globalData.apiBase + "/common/decrypt",
-                          method: "GET",
-                          header: {
-                            iv: res3.iv,
-                            encryptedData: res3.encryptedData,
-                            appId: "wxd7b407ad92867db4",
-                            skey: result.data.session_key
-                          },
-                          dataType: "json",
-                          complete: res => {
-                            wx.hideLoading();
-                          },
-                          success: (result2) => {
+    return new Promise((resolve, reject) => {
 
-                          },
+      wx.login({
+        success: res => {
+          console.log(res);
+          wx.setStorageSync('wx_code', res.code);
+          const header = {
+            "X-WX-Code": res.code
+          };
+          console.log("登录中...");
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          wx.request({
+            url: this.globalData.apiBase + "/common/wxLogin",
+            method: "GET",
+            header: header,
+            dataType: "json",
+            complete: res => {
+              wx.hideLoading();
+            },
+            success: resolve,
 
-                          fail: (result2) => {
-                            util.showModel('登录后台错误', result2.msg)
-                          },
-                        });
-                      }
-                      // 可以将 res 发送给后台解码出 unionId
-                      this.globalData.userInfo = res3.userInfo;
+            fail: reject,
+          });
+        }
+      });
+    }).then((result) => {
+      wx.setStorageSync('skey', result.data.session_key);
+      wx.setStorageSync('openid', result.data.openid);
+      console.log("登录后台成功");
+      // util.showSuccess('登录后台成功');
+      console.log(this.globalData);
+      this.globalData.authInfo.skey = result.data.session_key;
+      this.globalData.authInfo.openid = result.data.openid;
+      // 获取用户信息
+      wx.getSetting({
+        success: res2 => {
+          if (res2.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+            wx.getUserInfo({
+              success: res3 => {
+                console.log(res3);
+                if (res3.iv && res3.encryptedData) {
+                  wx.request({
+                    url: this.globalData.apiBase + "/common/decrypt",
+                    method: "GET",
+                    header: {
+                      iv: res3.iv,
+                      encryptedData: res3.encryptedData,
+                      appId: "wxd7b407ad92867db4",
+                      skey: result.data.session_key
+                    },
+                    dataType: "json",
+                    complete: res => {
+                      wx.hideLoading();
+                    },
+                    success: (result2) => {
 
-                      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                      // 所以此处加入 callback 以防止这种情况
-                      if (this.userInfoReadyCallback) {
-                        this.userInfoReadyCallback(res3)
-                      }
-                    }
-                  })
+                    },
+
+                    fail: (result2) => {
+                      util.showModel('登录后台错误', result2.msg)
+                    },
+                  });
+                }
+                // 可以将 res 发送给后台解码出 unionId
+                this.globalData.userInfo = res3.userInfo;
+
+                // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                // 所以此处加入 callback 以防止这种情况
+                if (this.userInfoReadyCallback) {
+                  this.userInfoReadyCallback(res3)
                 }
               }
-            });
-          },
-
-          fail: (result) => {
-            util.showModel('登录后台错误', result.errMsg)
-          },
-        });
-      }
+            })
+          }
+        }
+      });
+    }, (result) => {
+      util.showModel('登录后台错误', result.errMsg)
     });
   },
   bindNetworkChangeRefresh: function () {
@@ -107,15 +110,21 @@ App({
           duration: 1000
         });
       } else if (res.isConnected) {
-        if (!this.globalData.authInfo.openid) {
-          this.wxLogin();
-        }
         if (!this.globalData.isNetworkConnected) {
-          let curpage = util.getCurrentPageUrlWithArgs();
-          wx.reLaunch({
-            url: "/" + curpage
-          });
-          this.globalData.isNetworkConnected = true;
+          let networkResumeCallback = () => {
+            let curpage = util.getCurrentPageUrlWithArgs();
+            wx.reLaunch({
+              url: "/" + curpage
+            });
+            this.globalData.isNetworkConnected = true;
+          };
+          if (!this.globalData.authInfo.openid) {
+            Promise.all([this.wxLogin(), this.initCategories()])
+              .then(networkResumeCallback, () => {
+              });
+          } else {
+            networkResumeCallback();
+          }
         }
       } else {// for Android Unknown status
         this.globalData.isNetworkConnected = false;
@@ -129,51 +138,31 @@ App({
     })
   },
   initCategories: function () {
-    wx.request({
-      url: this.globalData.apiBase + "/recipe",
-      method: "GET",
-      complete: res => {
-        wx.hideLoading();
-      },
-      success: res => {
-        this.globalData.recipeTypes = res.data.recipeTypes;
-      },
-      fail: res => {
-        util.showModel('获取食谱分类错误', res.errMsg)
-      }
-    });
-    wx.request({
-      url: this.globalData.apiBase + "/recipe/mealtime",
-      method: "GET",
-      complete: res => {
-        wx.hideLoading();
-      },
-      success: res => {
-        this.globalData.mealtime = res.data.recipeTypeList;
-      },
-      fail: res => {
-        util.showModel('获取分类错误', res.errMsg)
-      }
-    });
-    wx.request({
-      url: this.globalData.apiBase + "/food/type",
-      method: "GET",
-      header: {
+    return Promise.all([
+      util.request(this.globalData.apiBase + "/recipe")
+        .then((res) => {
+          this.globalData.recipeTypes = res.data.recipeTypes;
+        }, (res) => {
+          util.showModel('获取食谱分类错误', res.errMsg)
+        }),
+      util.request(this.globalData.apiBase + "/recipe/mealtime")
+        .then((res) => {
+          this.globalData.mealtime = res.data.recipeTypeList;
+        }, (res) => {
+          util.showModel('获取分类错误', res.errMsg)
+        }),
+      util.request(this.globalData.apiBase + "/food/type", {}, {
         "Content-Type": "application/json"
-      },
-      dataType: "json",
-      complete: res => {
-        wx.hideLoading();
-      },
-      success: (result) => {
-        console.log("foodTypeList:" + result.data.foodTypeList);
-        this.globalData.foodTypeList = result.data.foodTypeList;
-      },
-      fail: (result) => {
-        util.showModel('获取食材分类错误', result.errMsg)
-      },
+      })
+        .then((result) => {
+          console.log("foodTypeList:" + result.data.foodTypeList);
+          this.globalData.foodTypeList = result.data.foodTypeList;
+        }, (result) => {
+          util.showModel('获取食材分类错误', result.errMsg)
+        }),
+    ]).then(() => {
+      wx.hideLoading();
     });
-
   },
   globalData: {
     authInfo: {
