@@ -63,6 +63,10 @@ Page({
     if (app.globalData.authInfo.openid) {
       this.loadFood();
     } else {
+      wx.showLoading({
+        title: "加载用餐记录中",
+        mask: true
+      });
       app.wxLogin().then(() => {
         this.loadFood();
       }, () => {
