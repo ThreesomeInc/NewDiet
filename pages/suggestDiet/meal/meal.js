@@ -54,30 +54,40 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.recipeTypes === null || app.globalData.recipeTypes.length === 0) {
-      app.initCategories();
-    }
-    this.setData({
-      types: app.globalData.recipeTypes
-    });
-    this.data.types.forEach(item => {
-      wx.request({
-        url: app.globalData.apiBase + "/recipe/" + item.key,
-        method: "GET",
-        complete: res => {
-          wx.hideLoading();
-        },
-        success: res => {
-          if (!res.data.recipeTypeList) return;
-          let param = {};
-          param[item.key + ""] = res.data.recipeTypeList;
-          this.setData(param);
-        },
-        fail: res => {
-          util.showModel('请求失败,请检查网络', res.errMsg);
-        }
+    let initCallback = () => {
+      this.setData({
+        types: app.globalData.recipeTypes
       });
-    });
+      wx.showLoading({
+        title: "正在加载分类",
+        mask: true
+      });
+      this.data.types.forEach(item => {
+        wx.request({
+          url: app.globalData.apiBase + "/recipe/" + item.key,
+          method: "GET",
+          complete: res => {
+            wx.hideLoading();
+          },
+          success: res => {
+            if (!res.data.recipeTypeList) return;
+            let param = {};
+            param[item.key + ""] = res.data.recipeTypeList;
+            this.setData(param);
+          },
+          fail: res => {
+            util.showModel('请求失败,请检查网络', res.errMsg);
+          }
+        });
+      });
+    };
+    if (app.globalData.recipeTypes === null || app.globalData.recipeTypes.length === 0) {
+      app.initCategories().then(()=>{
+        initCallback();
+      });
+    } else {
+      initCallback();
+    }
   },
   showInput: function () {
     this.setData({
