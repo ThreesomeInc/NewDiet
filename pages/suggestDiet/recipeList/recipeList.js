@@ -27,7 +27,8 @@ Page({
         mask: true
       });
       wx.request({
-        url: app.globalData.apiBase + "/recipe/" + options.recipeType + "/" + options.subKey,
+        url: app.globalData.apiBase + "/recipe/" + options.recipeType + "?" +
+        (options.recipeType === "mealtime" ? "mealtimeName=" : "categoryName=") + options.subKey,
         method: "GET",
         header: {
           "Content-Type": "application/json"

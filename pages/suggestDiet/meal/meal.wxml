@@ -43,7 +43,7 @@
 </view>
 
 <swiper current="{{_num}}" class="swiper-box" duration="200" bindchange="bindChange" style='min-height:845rpx'>
-<!-- 未使用 -->
+<!-- 早午晚 -->
 <swiper-item>
 	<view class="recipe_article" wx:for="{{mealtime}}" wx:for-item="item" wx:key="item">
 		<view>
@@ -62,7 +62,7 @@
 		</view>
 	</view>
 </swiper-item>
-<!-- 已使用 -->
+<!-- 荤素 -->
 <swiper-item>
 	<view class="recipe_article recipe1_article1" wx:for="{{category}}" wx:for-item="item" wx:key="item">
 		<view>
@@ -81,11 +81,11 @@
 		</view>
 	</view>
 </swiper-item>
-<!-- 已过期 -->
-<swiper-item>
+<!-- 菜系 -->
+<!--<swiper-item>
 	<view class="recipe_article recipe1_article2" wx:for="{{style}}" wx:for-item="item" wx:key="item">
 		<view>
-			<view style="background-size:100%;"><!--background:url('../img/wyl014.png') no-repeat;-->
+			<view style="background-size:100%;">&lt;!&ndash;background:url('../img/wyl014.png') no-repeat;&ndash;&gt;
 				<view class="photo">
 					<image mode='aspectFill' class='food-type-img' src='{{item.picUrl}}' wx:if="{{item.picUrl.startsWith('https://')}}"></image>
 					<image mode='aspectFill' class='food-type-img' src='https://kidneyhealty.com.cn/images/item_icon.png' wx:else></image>
@@ -99,5 +99,5 @@
 			</view>
 		</view>
 	</view>
-</swiper-item>
+</swiper-item>-->
 </swiper>

@@ -60,7 +60,14 @@ Page({
     flag_hd = true; //重新进入页面之后，可以再次执行滑动切换页面代码
     clearInterval(interval); // 清除setInterval
     time = 0;
-    this.loadFood();
+    if (app.globalData.authInfo.openid) {
+    } else {
+      app.wxLogin().then(() => {
+        this.loadFood();
+      }, () => {
+        util.showModel('请求失败,请检查网络', "请求失败,无法获取openId");
+      })
+    }
   },
   resetColor: function () {
     if (this.data.proteinEaten < 100) {
