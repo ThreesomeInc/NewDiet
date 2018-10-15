@@ -61,6 +61,7 @@ Page({
     clearInterval(interval); // 清除setInterval
     time = 0;
     if (app.globalData.authInfo.openid) {
+      this.loadFood();
     } else {
       app.wxLogin().then(() => {
         this.loadFood();
