@@ -26,10 +26,16 @@ Page({
         title: "正在加载食谱信息...",
         mask: true
       });
+      let requestData = {};
+      if (options.recipeType === "mealtime") {
+        requestData["mealtimeName"] = options.subKey;
+      } else {
+        requestData["categoryName"] = options.subKey;
+      }
       wx.request({
-        url: app.globalData.apiBase + "/recipe/by/" + options.recipeType + "?" +
-        (options.recipeType === "mealtime" ? "mealtimeName=" : "categoryName=") + options.subKey,
+        url: app.globalData.apiBase + "/recipe/by/" + options.recipeType,
         method: "GET",
+        data: requestData,
         header: {
           "Content-Type": "application/json"
         },
