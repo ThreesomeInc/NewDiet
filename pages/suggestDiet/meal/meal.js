@@ -110,7 +110,10 @@ Page({
       inputVal: e.detail.value
     });
     wx.request({
-      url: app.globalData.apiBase + "/recipe/search?name=" + e.detail.value,
+      url: app.globalData.apiBase + "/recipe/search",
+      data: {
+        "name" : e.detail.value
+      },
       method: "GET",
       complete: res => {
         wx.hideLoading();
