@@ -30,15 +30,22 @@ Page({
       this.setData({
         logoUrl: app.globalData.logoUrl
       })
-    };
+    }
     if (options.postUpdate == 'true') {
       this.setData({
         postUpdate: true,
-      });  
-    }else{
+      });
+      let currentBirth = app.globalData.userBodyInfo.birth;
+      if (currentBirth) {
+        let groups = /(\d+)-(\d+)-(\d+)/.exec(currentBirth);
+        this.setData({
+          value: [years.indexOf(parseInt(groups[1])), months.indexOf(parseInt(groups[2])), days.indexOf(parseInt(groups[3]))]
+        });
+      }
+    } else {
       app.globalData.userBodyInfo.birth = "2018-01-01";
     }
-    
+
   },
 
   bindChange: function (e) {
@@ -65,7 +72,7 @@ Page({
       console.log('userBodyInfo is updated.');
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!')
-    };
+    }
     wx.navigateBack({
       delta: -1
     })

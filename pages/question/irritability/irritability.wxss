@@ -17,6 +17,8 @@ page{
   align-items: center;
   margin: 0 30rpx;
   line-height: 2.5rem;
+  text-align: left;
+  padding-left: 5%;
 }
 .checkbox-group label {
   margin: 20rpx;

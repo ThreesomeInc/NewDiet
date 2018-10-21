@@ -27,12 +27,19 @@ Page({
         logoUrl: app.globalData.logoUrl
       })
     }
-    
+
     if (options.postUpdate == 'true') {
       this.setData({
         postUpdate: true,
       });
-    }else{
+      let currentWeight = app.globalData.userBodyInfo.weight;
+      if (currentWeight) {
+        let groups = /(\d+)\.(\d+).*/.exec(currentWeight);
+        this.setData({
+          value: [weightsInteger.indexOf(parseInt(groups[1])), weightsFraction.indexOf(parseInt(groups[2]))]
+        });
+      }
+    } else {
       app.globalData.userBodyInfo.weight = this.data.weightsInteger[this.data.value[0]] +
         "." + this.data.weightsFraction[this.data.value[1]] + "kg";
     }
@@ -58,7 +65,7 @@ Page({
       console.log('userBodyInfo is updated.');
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!')
-    };
+    }
     wx.navigateBack({
       delta: -1
     })
@@ -106,4 +113,4 @@ Page({
 
   },
 
-})
+});

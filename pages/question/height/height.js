@@ -29,19 +29,16 @@ Page({
       this.setData({
         postUpdate: true,
       });
-      var preValue = app.globalData.userBodyInfo.height.substr(0,3);
-      let parameterList = heights;
-      for (let i = 0; i < parameterList.length; i++) {
-        if (parameterList[i] === preValue) {
-          this.setData({
-            value: [i],
-          })
-        }
+      let currentHeight = app.globalData.userBodyInfo.height;
+      if (currentHeight) {
+        let groups = /(\d+).*/.exec(currentHeight);
+        this.setData({
+          value: [heights.indexOf(parseInt(groups[1]))]
+        });
       }
-    }else{
+    } else {
       app.globalData.userBodyInfo.height = "165cm";
     }
-    
   },
 
   bindChange: function (e) {
@@ -63,7 +60,7 @@ Page({
       console.log('userBodyInfo is updated.');
     } catch (e) {
       console.log('Exception happen when try to get userBodyInfo from storage!')
-    };
+    }
     wx.navigateBack({
       delta: -1
     })
@@ -112,4 +109,4 @@ Page({
   },
 
 
-})
+});
