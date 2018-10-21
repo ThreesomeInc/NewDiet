@@ -150,3 +150,6 @@
     color: #fff;
     margin: 2rpx;
 }
+.weui-search-bar__cancel-btn {
+    width:17%
+}

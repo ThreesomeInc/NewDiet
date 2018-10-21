@@ -70,3 +70,7 @@
   background-color: #4cb16f;
   width: 40%;
 }
+
+.weui-search-bar__cancel-btn {
+    width:15%
+}

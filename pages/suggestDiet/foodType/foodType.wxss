@@ -72,3 +72,6 @@
     font-size: 30rpx;
     color: #20492e;
 }
+.weui-search-bar__cancel-btn {
+    width:17%
+}
