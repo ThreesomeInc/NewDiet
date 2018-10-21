@@ -33,7 +33,7 @@ Page({
       ca: "钙 (建议<2000mg/d)"
     },
     hasResult: false,
-    basicInfoSummary: [],
+    basicInfoSummary: "",
     year: currentYear,
     month: currentMonth,
     currentDate: currentDate,
@@ -195,6 +195,8 @@ Page({
             if (wx.getStorageSync("basicInfoSummary")) {
               this.setData({
                 basicInfoSummary: wx.getStorageSync("basicInfoSummary")
+                  .map(item => `${item.name}(${item.value})`)
+                  .join(", ")
               });
               console.log("Session contained basicInfoSummary.");
               console.log(this.data.basicInfoSummary);

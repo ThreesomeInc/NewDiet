@@ -34,10 +34,10 @@
     <view wx:if='{{dieticianAdvice}}' >
       <view class="header">营养师评价</view>
       <block class="basicInfoSummary">
-        <view class="basicInfoSummary bold">根据您目前的身体状况，</view>
-        <view wx:for='{{basicInfoSummary}}' wx:key="item" wx:for-item="item" class="basicInfo">
+        <view class="basicInfoSummary bold">根据您目前的身体状况, {{basicInfoSummary}}。</view>
+        <!--<view wx:for='{{basicInfoSummary}}' wx:key="item" wx:for-item="item" class="basicInfo">
           <view>- {{item.name}}({{item.value}})</view>
-        </view>
+        </view>-->
         <view class="basicInfoSummary bold">下面是各项营养指标的具体评估结果：</view>
       </block>
       <block wx:for="{{dieticianAdvice}}" wx:for-item="item" wx:key="item" class="dieticianAdvice">
