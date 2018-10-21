@@ -151,5 +151,6 @@
     margin: 2rpx;
 }
 .weui-search-bar__cancel-btn {
+    text-align: center;
     width:17%
 }

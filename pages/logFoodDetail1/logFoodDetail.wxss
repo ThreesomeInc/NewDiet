@@ -72,5 +72,6 @@
 }
 
 .weui-search-bar__cancel-btn {
+    text-align: center;
     width:15%
 }
