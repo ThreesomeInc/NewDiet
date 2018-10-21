@@ -34,7 +34,7 @@
     <view wx:if='{{dieticianAdvice}}' >
       <view class="header">营养师评价</view>
       <block class="basicInfoSummary">
-        <view class="basicInfoSummary bold">根据您目前的身体状况, {{basicInfoSummary}}。</view>
+        <view class="basicInfoSummary">根据您目前的身体状况: {{basicInfoSummary}},</view>
         <!--<view wx:for='{{basicInfoSummary}}' wx:key="item" wx:for-item="item" class="basicInfo">
           <view>- {{item.name}}({{item.value}})</view>
         </view>-->
@@ -69,10 +69,11 @@
     <view class="header">膳食记录小知识</view>
       <view class="dark-green knowledge-block">
       <view class="kheader">什么是标准三日膳食记录法?</view>
-      <view class="kbody">记录膳食连续三日，包括两个工作日和一个休息日，计算三日膳食营养物质平均值。</view> 
+      <view class="kbody">记录膳食连续三日，包括两个工作日和一个休息日，计算三日膳食营养物质平均值。
+      如在周四五六坚持连续录入，那周六将会获得您的标准三日膳食报告哦！</view> 
     </view>
-    <view class="dark-green logTypeInfo">
-      按照标准三日膳食记录法继续坚持记录吧，符合标准的记录将会在日历标注圈圈，点击可以获得进一步精确膳食提示哦！
+    <view class="logTypeInfo">
+      这天暂未发现您的报告，符合标准的记录将会在日历标注圈圈，点击可以获得进一步精确膳食提示哦。按照标准三日膳食记录法继续坚持记录吧！
     </view>
   </view>
 </view>

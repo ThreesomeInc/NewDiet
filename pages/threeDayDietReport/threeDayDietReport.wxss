@@ -89,12 +89,12 @@
 
 .logTypeInfo{
   padding: 30rpx 10rpx;
-  color: #20492e;
+  color: #a9a9a9;
   text-align: left;
   width: 85%;
   margin: 0 auto;
   margin-bottom: 50rpx;
-  font-size: 90%;
+  font-size: 80%;
 }
 .basicInfoSummary{
   width: 90%;
