@@ -145,15 +145,16 @@ checkbox-group{
 .mini-tab-header {
   text-align: left;
   margin: 1rpx;
-  width: 72%;
+  width: 66%;
   background-color: #f3f3f3;
   color: #20492e;
   font-size: 90%;
-}
-.mini-tab-info {
   overflow-wrap:break-word;
   word-break: break-all;
+}
+.mini-tab-info {
   text-align: right;
+  font-size: 80%;
 }
 
 .progress_box{
