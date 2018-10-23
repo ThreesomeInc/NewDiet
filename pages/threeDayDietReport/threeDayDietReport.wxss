@@ -18,21 +18,21 @@
   margin: 0rpx;
 }
 .gridTab{
-  width: 80%;
+  width: 86%;
   text-align: center;
   margin: 5rpx auto;
 }
 .mini-tab-header {
   text-align: left;
   margin: 1rpx;
-  width: 70%;
+  width: 64%;
   background-color: #f3f3f3;
   color: #20492e;
   font-size: 90%;
 }
 .mini-tab-info {
   text-align: right;
-  font-size: 90%;
+  font-size: 85%;
 }
 
 .dieticianAdvice{
